@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARIA - Microsoft Strategic Acquisition</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #0f1419 0%, #1a1f2e 100%);
+            color: #e4e4e7;
+            line-height: 1.6;
+        }
+        .deck {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+        .slide {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 16px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+        h1 {
+            font-size: 3.5rem;
+            background: linear-gradient(135deg, #0078d4 0%, #00bcf2 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+        h2 {
+            font-size: 2.5rem;
+            color: #00bcf2;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+        h3 {
+            font-size: 1.5rem;
+            color: #60a5fa;
+            margin: 1.5rem 0 1rem 0;
+            font-weight: 600;
+        }
+        .subtitle {
+            font-size: 1.5rem;
+            color: #94a3b8;
+            margin-bottom: 2rem;
+        }
+        .meta {
+            font-size: 1.1rem;
+            color: #64748b;
+            margin-bottom: 1rem;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border-left: 4px solid #0078d4;
+        }
+        .card h3 { color: #00bcf2; margin-top: 0; }
+        .metric-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        .metric {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(0, 120, 212, 0.1);
+            border-radius: 12px;
+            border: 1px solid rgba(0, 120, 212, 0.3);
+        }
+        .metric-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #00bcf2;
+            margin-bottom: 0.5rem;
+        }
+        .metric-label {
+            font-size: 1rem;
+            color: #94a3b8;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        ul {
+            margin: 1rem 0 1rem 2rem;
+            line-height: 2;
+        }
+        .highlight {
+            background: linear-gradient(135deg, #0078d4 0%, #00bcf2 100%);
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+        }
+        .highlight h3 { color: white; }
+        .highlight p, .highlight li { color: rgba(255, 255, 255, 0.95); }
+        .tag {
+            display: inline-block;
+            padding: 0.4rem 1rem;
+            background: rgba(0, 120, 212, 0.2);
+            border: 1px solid rgba(0, 120, 212, 0.4);
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin: 0.3rem;
+            color: #60a5fa;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+        }
+        th {
+            background: rgba(0, 120, 212, 0.2);
+            color: #00bcf2;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+        }
+        td {
+            padding: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        tr:hover { background: rgba(255, 255, 255, 0.02); }
+    </style>
+</head>
+<body>
+    <div class="deck">
+
+        <!-- Title Slide -->
+        <div class="slide" style="text-align: center;">
+            <h1>ARIA</h1>
+            <p class="subtitle">Local Intelligence OS for Developers and Teams</p>
+            <p class="meta">
+                <strong>Founder:</strong> Joseph C McGinty Jr<br>
+                <strong>Version:</strong> ARIA v2.0 Beta<br>
+                <strong>Contact:</strong> joseph@resilientmindai.com<br>
+                <strong>Location:</strong> Scottdale, Pennsylvania
+            </p>
+            <div class="highlight" style="margin-top: 3rem;">
+                <p style="font-size: 1.3rem;">
+                    Strategic Acquisition Opportunity for Microsoft
+                </p>
+            </div>
+        </div>
+
+        <!-- Problem -->
+        <div class="slide">
+            <h2>The Problem</h2>
+            <p class="subtitle">Developers face fragmented, cloud-dependent AI tools</p>
+
+            <div class="grid">
+                <div class="card">
+                    <h3>Fragmented Tools</h3>
+                    <p>Developers switch between ChatGPT, Copilot, voice assistants, and meeting transcription. No unified intelligence layer.</p>
+                </div>
+                <div class="card">
+                    <h3>Cloud Dependence</h3>
+                    <p>All major AI tools require internet. Enterprise and government customers cannot use them on classified networks or offline.</p>
+                </div>
+                <div class="card">
+                    <h3>Compliance Friction</h3>
+                    <p>Cloud AI creates HIPAA, DoD, and GDPR violations. Legal and healthcare customers are blocked from adoption.</p>
+                </div>
+                <div class="card">
+                    <h3>Single-Agent Limits</h3>
+                    <p>Current copilots are single-agent, single-model. They cannot coordinate across voice, code, vision, and meetings simultaneously.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Solution -->
+        <div class="slide">
+            <h2>The Solution: ARIA</h2>
+            <p class="subtitle">100% local, multi-agent intelligence OS</p>
+
+            <div class="highlight">
+                <h3>What is ARIA?</h3>
+                <p>ARIA is a local-first AI platform that unifies voice, code, vision, and meeting intelligence through a multi-agent architecture with zero cloud dependency.</p>
+            </div>
+
+            <div class="grid">
+                <div class="card">
+                    <h3>Context Kernel v2.0</h3>
+                    <p>Central orchestrator routes requests across agents with <1ms overhead. Type-safe envelopes, metrics, and compliance hooks built in.</p>
+                </div>
+                <div class="card">
+                    <h3>Multi-Agent System</h3>
+                    <p>8 specialized agents (Decision, Learning, Code, Healing, STT, TTS, Planner, LLM) coordinate through the kernel.</p>
+                </div>
+                <div class="card">
+                    <h3>Unified Memory Bus</h3>
+                    <p>6 memory domains (conversation, code, meeting, vision, system, semantic) with compliance-aware retention policies.</p>
+                </div>
+                <div class="card">
+                    <h3>Four Engines</h3>
+                    <p>Voice, Code, Vision, Meeting engines integrate seamlessly. Add new engines without rewriting core logic.</p>
+                </div>
+            </div>
+
+            <div style="margin-top: 2rem;">
+                <span class="tag">Local-First</span>
+                <span class="tag">Multi-Agent</span>
+                <span class="tag">Multi-Model Ready</span>
+                <span class="tag">Compliance Built-In</span>
+                <span class="tag">Enterprise Ready</span>
+            </div>
+        </div>
+
+        <!-- Architecture -->
+        <div class="slide">
+            <h2>Architecture</h2>
+            <p class="subtitle">Layered, modular, extensible</p>
+
+            <table>
+                <tr>
+                    <th>Layer</th>
+                    <th>Components</th>
+                    <th>Purpose</th>
+                </tr>
+                <tr>
+                    <td><strong>Hardware</strong></td>
+                    <td>Apple M-series (MLX), NVIDIA GPUs (CUDA ready)</td>
+                    <td>10x faster than CPU, local inference</td>
+                </tr>
+                <tr>
+                    <td><strong>Runtime</strong></td>
+                    <td>Python (FastAPI), React (TypeScript)</td>
+                    <td>Production backend + modern frontend</td>
+                </tr>
+                <tr>
+                    <td><strong>Context Kernel</strong></td>
+                    <td>Request routing, agent orchestration, metrics</td>
+                    <td>Central intelligence coordinator (&lt;1ms overhead)</td>
+                </tr>
+                <tr>
+                    <td><strong>Engines</strong></td>
+                    <td>Voice, Code, Vision, Meeting, Compliance</td>
+                    <td>Specialized subsystems for each modality</td>
+                </tr>
+                <tr>
+                    <td><strong>Interfaces</strong></td>
+                    <td>Chat panel, Coding panel, API</td>
+                    <td>User-facing entry points</td>
+                </tr>
+            </table>
+
+            <h3>Engines</h3>
+            <ul>
+                <li><strong>Voice Engine:</strong> STT (Whisper) → LLM (Llama 3.2) → TTS (XTTS) with phonetic correction (95% accuracy)</li>
+                <li><strong>Code Engine:</strong> Multi-language generation, review, refactor, test generation, debugging</li>
+                <li><strong>Vision Engine:</strong> Screen capture, OCR (Tesseract + EasyOCR), layout analysis, UI detection</li>
+                <li><strong>Meeting Engine:</strong> Recording, speaker diarization, transcription, summaries, action items, decisions</li>
+                <li><strong>Compliance Engine:</strong> PII detection/redaction, audit logs, DoD/HIPAA/GDPR modes, air-gap verification</li>
+            </ul>
+        </div>
+
+        <!-- Capabilities -->
+        <div class="slide">
+            <h2>Capabilities</h2>
+            <p class="subtitle">Production-ready features</p>
+
+            <div style="margin-bottom: 2rem; background: rgba(0, 120, 212, 0.05); padding: 1.5rem; border-radius: 12px; border: 1px solid rgba(0, 120, 212, 0.2);">
+                <p style="color: #60a5fa; font-weight: 600; margin-bottom: 1rem;">🖥️ Live Product Screenshots</p>
+                <p style="font-size: 0.95rem; color: #94a3b8; margin-bottom: 1.5rem;">
+                    ARIA's Coding Panel in production, showing the 3-pane layout with file tree, code editor, and AI analysis.
+                    Left: "Explain" action analyzing restart.sh with detailed breakdown.
+                    Right: "Refactor" action with code improvement suggestions.
+                </p>
+
+                <!-- Screenshot Container -->
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem;">
+                    <div style="background: rgba(0, 0, 0, 0.3); border-radius: 8px; padding: 0.5rem; border: 1px solid rgba(0, 120, 212, 0.3);">
+                        <!-- INSERT SCREENSHOT 1 HERE (Explain Action) -->
+                        <img src="data:image/png;base64,INSERT_BASE64_IMAGE_1_HERE"
+                             alt="ARIA Coding Panel - Explain Action"
+                             style="width: 100%; border-radius: 4px;" />
+                        <p style="text-align: center; font-size: 0.8rem; color: #94a3b8; margin-top: 0.5rem;">Explain Action: Script Analysis</p>
+                    </div>
+                    <div style="background: rgba(0, 0, 0, 0.3); border-radius: 8px; padding: 0.5rem; border: 1px solid rgba(0, 120, 212, 0.3);">
+                        <!-- INSERT SCREENSHOT 2 HERE (Refactor Action) -->
+                        <img src="data:image/png;base64,INSERT_BASE64_IMAGE_2_HERE"
+                             alt="ARIA Coding Panel - Refactor Action"
+                             style="width: 100%; border-radius: 4px;" />
+                        <p style="text-align: center; font-size: 0.8rem; color: #94a3b8; margin-top: 0.5rem;">Refactor Action: Code Improvements</p>
+                    </div>
+                </div>
+
+                <p style="font-size: 0.85rem; color: #60a5fa; margin-top: 1rem; font-style: italic;">
+                    ↑ This interface becomes "Local Copilot Mode" in VS Code and powers offline code intelligence in Teams and M365.
+                </p>
+            </div>
+
+            <div class="grid">
+                <div class="card">
+                    <h3>Voice Assistant</h3>
+                    <ul>
+                        <li>Natural conversation (Llama 3.2)</li>
+                        <li>Custom voice training (1-1000 iterations)</li>
+                        <li>Phonetic intelligence (4-phase correction)</li>
+                        <li>33 XTTS speakers + custom voices</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3>Coding Panel</h3>
+                    <ul>
+                        <li>Tab-based UI (Chat | Coding)</li>
+                        <li>3-pane layout (File tree | Editor | AI output)</li>
+                        <li>Actions: Explain, Refactor, Test Gen, Debug</li>
+                        <li>Real project file loading</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3>Meeting Intelligence</h3>
+                    <ul>
+                        <li>Session recording with audio chunking</li>
+                        <li>Speaker diarization (pyannote-ready)</li>
+                        <li>LLM-powered summaries</li>
+                        <li>Action items and decisions extraction</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3>Vision Understanding</h3>
+                    <ul>
+                        <li>Screen capture (full or region)</li>
+                        <li>OCR (Tesseract + EasyOCR)</li>
+                        <li>Layout and UI element detection</li>
+                        <li>Diagram analysis</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3>Compliance & Security</h3>
+                    <ul>
+                        <li>5 compliance levels (DoD, HIPAA, GDPR, Strict, Standard)</li>
+                        <li>PII detection and redaction (email, phone, SSN, CC, IP)</li>
+                        <li>Audit trail (daily JSONL logs)</li>
+                        <li>Air-gap verification</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3>Multi-Model Ready</h3>
+                    <ul>
+                        <li>Model registry with lazy loading</li>
+                        <li>Role-based routing (conversation, code, vision)</li>
+                        <li>Memory-aware model management</li>
+                        <li>CodeLlama integration ready</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Performance -->
+        <div class="slide">
+            <h2>Performance & Maturity</h2>
+            <p class="subtitle">Production-ready with validated metrics</p>
+
+            <div class="metric-grid">
+                <div class="metric">
+                    <div class="metric-number">v2.0</div>
+                    <div class="metric-label">Version (Beta)</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-number">75/75</div>
+                    <div class="metric-label">Tests Passing</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-number">80%</div>
+                    <div class="metric-label">Test Coverage</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-number">19,500+</div>
+                    <div class="metric-label">Lines of Code</div>
+                </div>
+            </div>
+
+            <table>
+                <tr>
+                    <th>Component</th>
+                    <th>Latency</th>
+                    <th>Memory</th>
+                </tr>
+                <tr>
+                    <td>Context Kernel Routing</td>
+                    <td>&lt;1ms</td>
+                    <td>200MB</td>
+                </tr>
+                <tr>
+                    <td>Voice Pipeline (STT → LLM → TTS)</td>
+                    <td>800ms avg</td>
+                    <td>7GB</td>
+                </tr>
+                <tr>
+                    <td>Code Action (Explain/Refactor)</td>
+                    <td>350ms avg</td>
+                    <td>4GB</td>
+                </tr>
+                <tr>
+                    <td>Vision OCR</td>
+                    <td>100-300ms</td>
+                    <td>500MB</td>
+                </tr>
+                <tr>
+                    <td>Meeting Transcription</td>
+                    <td>5-10x real-time</td>
+                    <td>1GB</td>
+                </tr>
+                <tr>
+                    <td>Compliance PII Scan</td>
+                    <td>&lt;5ms</td>
+                    <td>&lt;10MB</td>
+                </tr>
+            </table>
+
+            <p style="margin-top: 2rem; color: #94a3b8;">
+                <strong>Current Platform:</strong> Apple M4 (MLX), 3B parameter models<br>
+                <strong>NVIDIA Ready:</strong> CUDA/PyTorch port planned for RTX 4090, A100, H100
+            </p>
+        </div>
+
+        <!-- Enterprise Readiness -->
+        <div class="slide">
+            <h2>Enterprise Readiness</h2>
+            <p class="subtitle">Built for compliance from day one</p>
+
+            <div class="grid">
+                <div class="card">
+                    <h3>Compliance Modes</h3>
+                    <ul>
+                        <li>Standard (normal operation)</li>
+                        <li>Strict (enhanced controls)</li>
+                        <li>DoD (IL2-ready, IL4-IL5 roadmap)</li>
+                        <li>HIPAA (zero PHI exposure)</li>
+                        <li>GDPR (data sovereignty)</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3>Security Features</h3>
+                    <ul>
+                        <li>100% local processing (no cloud)</li>
+                        <li>Path traversal prevention</li>
+                        <li>Air-gap verification</li>
+                        <li>Audit trail with daily logs</li>
+                        <li>User ID hashing</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3>Quality Assurance</h3>
+                    <ul>
+                        <li>75 automated tests (100% passing)</li>
+                        <li>80% code coverage</li>
+                        <li>Performance regression testing</li>
+                        <li>Health monitoring and auto-recovery</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Why Microsoft -->
+        <div class="slide">
+            <h2>Why Microsoft?</h2>
+            <p class="subtitle">Perfect strategic alignment</p>
+
+            <div class="highlight">
+                <h3>ARIA Aligns with Microsoft's Strategic Priorities</h3>
+                <ul>
+                    <li><strong>Copilot Everywhere:</strong> ARIA extends Copilot into local, offline, and compliance-sensitive environments</li>
+                    <li><strong>Azure Hybrid:</strong> Supports on-premise and Azure Stack customers who need local AI</li>
+                    <li><strong>Security & Compliance:</strong> Meets requirements for regulated industries (government, healthcare, finance)</li>
+                    <li><strong>Windows on ARM:</strong> Optimized for Apple Silicon, portable to Qualcomm Snapdragon X Elite (Windows on ARM)</li>
+                    <li><strong>Surface Strategy:</strong> Local AI showcase for Surface devices with NPU acceleration</li>
+                </ul>
+            </div>
+
+            <div class="grid" style="margin-top: 2rem;">
+                <div class="card" style="border-left-color: #00bcf2;">
+                    <h3>Enterprise AI Gap</h3>
+                    <p>Microsoft has cloud AI leadership but no local, multi-agent intelligence OS. ARIA fills this gap for customers who cannot or will not use cloud.</p>
+                </div>
+
+                <div class="card" style="border-left-color: #00bcf2;">
+                    <h3>Competitive Defense</h3>
+                    <p>Local AI startups and open-source tools are gaining traction. ARIA provides Microsoft with immediate local AI capability to compete.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Strategic Fit -->
+        <div class="slide">
+            <h2>Strategic Fit</h2>
+            <p class="subtitle">ARIA maps directly to Microsoft products</p>
+
+            <table>
+                <tr>
+                    <th>ARIA Component</th>
+                    <th>Microsoft Product</th>
+                    <th>Integration Opportunity</th>
+                </tr>
+                <tr>
+                    <td><strong>Coding Panel + Context Kernel</strong></td>
+                    <td>VS Code + GitHub Copilot</td>
+                    <td>Local Copilot mode for offline/classified work. Multi-file reasoning via memory bus.</td>
+                </tr>
+                <tr>
+                    <td><strong>Meeting Engine</strong></td>
+                    <td>Microsoft Teams</td>
+                    <td>On-device meeting summaries, action items, and compliance-safe transcription.</td>
+                </tr>
+                <tr>
+                    <td><strong>Vision Engine</strong></td>
+                    <td>Windows + Accessibility</td>
+                    <td>Screen understanding for automation, accessibility, and UI testing.</td>
+                </tr>
+                <tr>
+                    <td><strong>Compliance Manager</strong></td>
+                    <td>Microsoft Purview + Security</td>
+                    <td>PII redaction and audit capabilities for enterprise data governance.</td>
+                </tr>
+                <tr>
+                    <td><strong>Multi-Model Registry</strong></td>
+                    <td>Azure AI + Copilot Runtime</td>
+                    <td>Shared model orchestration layer across Microsoft AI products.</td>
+                </tr>
+                <tr>
+                    <td><strong>Unified Memory Bus</strong></td>
+                    <td>M365 Graph + Copilot Memory</td>
+                    <td>Long-lived context that spans applications and sessions.</td>
+                </tr>
+            </table>
+
+            <div class="highlight" style="margin-top: 2rem;">
+                <h3>Core Value Proposition</h3>
+                <p>ARIA becomes the <strong>local intelligence layer</strong> inside Microsoft products—enabling Copilot, Teams, and Windows to operate offline, in compliance mode, and on classified networks where cloud AI cannot reach.</p>
+            </div>
+        </div>
+
+        <!-- Integration Plan -->
+        <div class="slide">
+            <h2>Integration Plan</h2>
+            <p class="subtitle">Phased integration into Microsoft ecosystem</p>
+
+            <h3>Phase 1: VS Code + GitHub Copilot (Months 1-6)</h3>
+            <div class="card">
+                <ul>
+                    <li>Integrate ARIA Coding Panel concepts into VS Code as "Local Copilot Mode"</li>
+                    <li>Add offline code generation using ARIA's multi-agent pipeline</li>
+                    <li>Enable Coding Panel 3-pane layout (file tree, editor, AI analysis) as optional VS Code view</li>
+                    <li>Route through Context Kernel for local inference on classified codebases</li>
+                </ul>
+            </div>
+
+            <h3>Phase 2: Microsoft Teams Integration (Months 6-12)</h3>
+            <div class="card">
+                <ul>
+                    <li>Integrate Meeting Engine for on-device Teams meeting summaries</li>
+                    <li>Add speaker diarization and action item extraction (no cloud upload)</li>
+                    <li>Compliance mode for healthcare/legal Teams users (HIPAA-safe transcription)</li>
+                    <li>Store meeting context in Unified Memory Bus for follow-up queries</li>
+                </ul>
+            </div>
+
+            <h3>Phase 3: Copilot Runtime (Months 12-18)</h3>
+            <div class="card">
+                <ul>
+                    <li>Embed Context Kernel as shared orchestration layer across Copilot products</li>
+                    <li>Use Multi-Model Registry for specialized Copilots (Excel Copilot, Word Copilot, etc.)</li>
+                    <li>Deploy Vision Engine for UI automation and accessibility in Windows</li>
+                    <li>Enable compliance modes across M365 for regulated customers</li>
+                </ul>
+            </div>
+
+            <h3>Phase 4: Cross-Platform (Months 18-24)</h3>
+            <div class="card">
+                <ul>
+                    <li>Port ARIA to Windows on ARM (Qualcomm NPU)</li>
+                    <li>Deploy on Azure Stack for hybrid cloud customers</li>
+                    <li>Integrate with Microsoft Purview for enterprise data governance</li>
+                    <li>Enable multi-device clusters for Teams Rooms and Surface Hubs</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Why Now -->
+        <div class="slide">
+            <h2>Why Now?</h2>
+            <p class="subtitle">Market and competitive timing</p>
+
+            <div class="grid">
+                <div class="card">
+                    <h3>Developer Demand</h3>
+                    <p>Developers want local, private copilots. GitHub Copilot is cloud-only, blocking adoption in classified and regulated environments.</p>
+                </div>
+
+                <div class="card">
+                    <h3>Competitive Pressure</h3>
+                    <p>Startups (Codeium, Tabnine) and open-source (Continue.dev, Aider) are gaining share with local-first positioning. Microsoft has no response.</p>
+                </div>
+
+                <div class="card">
+                    <h3>Agentic AI Trend</h3>
+                    <p>Single-agent copilots are becoming table stakes. Multi-agent architectures are the next frontier. ARIA is production-ready multi-agent.</p>
+                </div>
+
+                <div class="card">
+                    <h3>Compliance Wave</h3>
+                    <p>GDPR, HIPAA, DoD regulations are tightening. Enterprises need local AI that meets compliance requirements out of the box.</p>
+                </div>
+            </div>
+
+            <div class="highlight" style="margin-top: 2rem;">
+                <h3>Strategic Opportunity</h3>
+                <p>Microsoft can acquire a production-ready local intelligence OS and integrate it across Copilot, Teams, VS Code, and Windows—capturing the local AI category before competitors.</p>
+            </div>
+        </div>
+
+        <!-- Roadmap -->
+        <div class="slide">
+            <h2>Roadmap</h2>
+            <p class="subtitle">Clear path to deeper Microsoft integration</p>
+
+            <h3>v2.0 Completion (Q1 2026)</h3>
+            <ul>
+                <li>Enable multi-model routing with CodeLlama</li>
+                <li>Auto-Update Engine (self-improving codebase with test-gated patches)</li>
+                <li>Security & Sandboxing Layer (safe plugin execution)</li>
+                <li>Plugin/Tool Interface (extensibility for enterprise workflows)</li>
+            </ul>
+
+            <h3>Microsoft Integration (Q1-Q2 2026)</h3>
+            <ul>
+                <li>Port to CUDA/TensorRT for NVIDIA GPUs</li>
+                <li>Windows on ARM support (Qualcomm NPU)</li>
+                <li>VS Code extension with ARIA Coding Panel</li>
+                <li>Teams meeting add-in with on-device processing</li>
+            </ul>
+
+            <h3>Platform Expansion (Q2-Q3 2026)</h3>
+            <ul>
+                <li>Azure Stack deployment for hybrid cloud</li>
+                <li>Multi-device clusters for enterprise scale</li>
+                <li>M365 Copilot integration (Word, Excel, PowerPoint)</li>
+                <li>Microsoft Purview data governance hooks</li>
+            </ul>
+
+            <h3>Enterprise Features (Q3-Q4 2026)</h3>
+            <ul>
+                <li>Advanced multi-language translation (voice-to-voice, 20+ languages)</li>
+                <li>Video understanding for Teams and Stream</li>
+                <li>Federated learning across organization (no central server)</li>
+                <li>Mobile apps (iOS, Android) with Copilot parity</li>
+            </ul>
+        </div>
+
+        <!-- Deal Structure -->
+        <div class="slide">
+            <h2>Acquisition Structure</h2>
+            <p class="subtitle">Flexible paths to strategic partnership</p>
+
+            <div class="grid">
+                <div class="card">
+                    <h3>Outright Acquisition</h3>
+                    <p><strong>Structure:</strong> Microsoft acquires ARIA technology and team</p>
+                    <p><strong>Integration:</strong> ARIA becomes local intelligence layer across Copilot, Teams, VS Code</p>
+                    <p><strong>Timeline:</strong> 18-24 months to full product integration</p>
+                    <p><strong>Range:</strong> Strategic valuation based on Copilot and Teams TAM</p>
+                </div>
+
+                <div class="card">
+                    <h3>Acqui-Hire + IP License</h3>
+                    <p><strong>Structure:</strong> Bring founder + team into Microsoft AI, license ARIA technology</p>
+                    <p><strong>Integration:</strong> Accelerate Copilot local mode and Teams on-device features</p>
+                    <p><strong>Timeline:</strong> Immediate (team joins Azure AI or GitHub)</p>
+                    <p><strong>Range:</strong> Team retention + IP valuation</p>
+                </div>
+            </div>
+
+            <div class="highlight" style="margin-top: 2rem;">
+                <h3>Strategic Value Drivers</h3>
+                <ul>
+                    <li><strong>Competitive positioning:</strong> Microsoft owns local AI category (vs Codeium, Tabnine, Continue.dev)</li>
+                    <li><strong>Regulated market access:</strong> Enable Copilot for DoD, HIPAA, GDPR-sensitive customers</li>
+                    <li><strong>Product differentiation:</strong> Only enterprise AI with local + cloud + hybrid modes</li>
+                    <li><strong>Platform extension:</strong> Unified intelligence layer across M365, Azure, Windows, GitHub</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Strategic Rationale -->
+        <div class="slide">
+            <h2>Strategic Rationale for Microsoft</h2>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>1. Own the Local AI Category</h3>
+                <p>Local AI is a $85B market by 2030. Microsoft currently has zero local-first AI offerings. ARIA provides immediate market entry.</p>
+            </div>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>2. Unlock Regulated Verticals</h3>
+                <p>DoD, healthcare, finance, legal sectors represent $140B+ TAM but cannot use cloud AI. ARIA enables Copilot sales into these markets.</p>
+            </div>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>3. Defend GitHub Copilot</h3>
+                <p>Competitors (Codeium, Continue.dev) differentiate on local-first positioning. ARIA neutralizes this attack vector.</p>
+            </div>
+
+            <div class="card">
+                <h3>4. Accelerate Agentic Roadmap</h3>
+                <p>Multi-agent architecture is production-ready. Microsoft can deploy it immediately in Copilot Workspace, Teams, and M365 Copilots.</p>
+            </div>
+
+            <div class="highlight" style="margin-top: 2rem;">
+                <p style="font-size: 1.2rem;">
+                    <strong>Bottom Line:</strong> ARIA is the fastest path for Microsoft to own local AI, unlock $140B in regulated markets, and extend Copilot's moat.
+                </p>
+            </div>
+        </div>
+
+        <!-- Next Steps -->
+        <div class="slide">
+            <h2>Next Steps</h2>
+            <p class="subtitle">Proposed engagement timeline</p>
+
+            <div class="grid">
+                <div class="card">
+                    <h3>Week 1: Technical Deep Dive</h3>
+                    <ul>
+                        <li>Live demo of ARIA (voice, code, vision, meetings)</li>
+                        <li>Architecture review with Microsoft AI engineers</li>
+                        <li>Codebase walkthrough (19,500+ lines, 75 tests)</li>
+                        <li>Performance benchmarks and compliance validation</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3>Week 2: Strategic Review</h3>
+                    <ul>
+                        <li>Product fit assessment (Copilot, Teams, Azure, Windows)</li>
+                        <li>Integration planning (VS Code, Teams, M365)</li>
+                        <li>Market analysis (local AI TAM, competitive landscape)</li>
+                        <li>Preliminary valuation discussion</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3>Week 3-4: Due Diligence</h3>
+                    <ul>
+                        <li>Legal and IP review (provisional patent filed)</li>
+                        <li>Technical due diligence (code audit, security assessment)</li>
+                        <li>Reference checks and team evaluation</li>
+                        <li>Term sheet negotiation</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3>Week 5+: Close</h3>
+                    <ul>
+                        <li>Finalize acquisition agreement</li>
+                        <li>Team onboarding plan (Azure AI, GitHub, or M365 org)</li>
+                        <li>Integration roadmap (18-24 months)</li>
+                        <li>Public announcement and market positioning</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact -->
+        <div class="slide" style="text-align: center;">
+            <h2>Let's Build the Future of Local AI Together</h2>
+            <p class="subtitle">ARIA is production-ready. Microsoft has global reach. Together we can own the local AI category.</p>
+
+            <div class="metric-grid" style="margin: 3rem 0;">
+                <div class="metric">
+                    <div class="metric-number">$140B+</div>
+                    <div class="metric-label">Regulated Market TAM</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-number">100%</div>
+                    <div class="metric-label">Local Processing</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-number">7</div>
+                    <div class="metric-label">Production Modules</div>
+                </div>
+            </div>
+
+            <div class="highlight">
+                <h3 style="font-size: 2rem;">Contact Information</h3>
+                <p style="font-size: 1.3rem; margin-top: 1.5rem;">
+                    📧 joseph@resilientmindai.com<br>
+                    🌐 www.resilientmindai.com<br>
+                    📍 Scottdale, Pennsylvania
+                </p>
+                <p style="margin-top: 2rem; font-size: 1.1rem;">
+                    Prepared for: Microsoft Corporation<br>
+                    Date: November 24, 2025
+                </p>
+            </div>
+
+            <p style="margin-top: 3rem; color: #64748b; font-size: 0.9rem;">
+                © 2025 ARIA. Confidential and proprietary. For Microsoft internal use only.
+            </p>
+        </div>
+
+    </div>
+</body>
+</html>
