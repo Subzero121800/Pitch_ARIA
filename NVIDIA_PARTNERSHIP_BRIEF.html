@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARIA x NVIDIA - Hardware Partnership Proposal</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #76b900 0%, #4c8000 100%);
+            color: #1a202c;
+            padding: 2rem;
+        }
+        .container { max-width: 1200px; margin: 0 auto; background: white; border-radius: 20px; padding: 3rem; box-shadow: 0 20px 60px rgba(0,0,0,0.3); }
+        h1 {
+            font-size: 3.5rem;
+            background: linear-gradient(135deg, #76b900 0%, #4c8000 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+        }
+        h2 { font-size: 2.5rem; color: #2d3748; margin: 3rem 0 1.5rem 0; border-bottom: 3px solid #76b900; padding-bottom: 0.5rem; }
+        h3 { font-size: 1.8rem; color: #4a5568; margin: 2rem 0 1rem 0; }
+        .subtitle { font-size: 1.5rem; color: #718096; margin-bottom: 3rem; }
+        .highlight {
+            background: linear-gradient(135deg, #76b900 0%, #4c8000 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+        }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin: 2rem 0; }
+        .card { background: #f7fafc; padding: 2rem; border-radius: 12px; border-left: 4px solid #76b900; }
+        .card h3 { color: #76b900; margin-top: 0; }
+        table { width: 100%; border-collapse: collapse; margin: 2rem 0; }
+        th { background: #76b900; color: white; padding: 1rem; text-align: left; }
+        td { padding: 1rem; border-bottom: 1px solid #e2e8f0; }
+        tr:hover { background: #f7fafc; }
+        .metric { font-size: 3rem; font-weight: 800; color: #76b900; }
+        .metric-label { font-size: 1.1rem; color: #718096; margin-top: 0.5rem; }
+        ul { line-height: 2; margin-left: 2rem; }
+        .footer { background: #2d3748; color: white; padding: 2rem; border-radius: 12px; margin-top: 4rem; text-align: center; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <h1>ARIA v2.2.2 + Powerhouse AI</h1>
+        <p class="subtitle">Reference Design for Offline Autonomy on NVIDIA Edge + GPU</p>
+        <p style="color: #718096; font-size: 1.1rem; margin-bottom: 3rem;">
+            <strong>Date:</strong> November 26, 2025<br>
+            <strong>Version:</strong> 2.2.2<br>
+            <strong>Contact:</strong> joseph@resilientmindai.com | 724-248-1750
+        </p>
+
+        <!-- Executive Summary -->
+        <div class="highlight">
+            <h3 style="color: white; font-size: 2rem; margin-bottom: 1rem;">Executive Summary</h3>
+            <p style="font-size: 1.2rem; line-height: 1.8;">
+                ARIA v2.2.2 turns a single machine into a self-auditing, multi-agent intelligence OS that demonstrates the full potential of NVIDIA hardware for autonomous, offline AI workloads. With 7 coordinated agents, internal task graphs, compliance-aware model loading, and 100% offline capability, ARIA + Powerhouse AI becomes the reference design for offline autonomy on NVIDIA edge and workstation hardware.
+            </p>
+            <p style="font-size: 1.2rem; line-height: 1.8; margin-top: 1rem;">
+                <strong>Partnership Opportunity:</strong> 6-month co-development program to establish ARIA as the reference
+                design for Jetson edge deployments and RTX workstation AI, proving that local inference matches cloud
+                capabilities with zero network dependency.
+            </p>
+        </div>
+
+        <!-- What is ARIA -->
+        <h2>🎯 What is ARIA?</h2>
+
+        <div class="grid">
+            <div class="card">
+                <h3>Voice + Coding AI</h3>
+                <ul>
+                    <li>Speech to text with Whisper</li>
+                    <li>Natural language understanding with Llama 3.2</li>
+                    <li>Code generation and review for multiple languages</li>
+                    <li>Text to speech with voice cloning through XTTS</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>7-Agent Autonomous System</h3>
+                <ul>
+                    <li>Decision, Learner, Planner, LLM, STT, TTS, Healing agents</li>
+                    <li>Context Kernel v2 orchestration with less than 1ms overhead</li>
+                    <li>Autonomous recovery loop (self-healing)</li>
+                    <li>Self-improvement from user feedback</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>100% Local Processing</h3>
+                <ul>
+                    <li>Zero cloud dependency</li>
+                    <li>Fully offline operation</li>
+                    <li>Privacy first architecture</li>
+                    <li>Compliance ready for DoD, HIPAA, and SOC 2 environments</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="highlight">
+            <h3 style="color: white;">Current Status: v2.1 Production</h3>
+            <div class="grid" style="margin-top: 1.5rem;">
+                <div style="text-align: center;">
+                    <div class="metric" style="color: white;">v2.1</div>
+                    <div class="metric-label" style="color: #e0e0e0;">Production Version</div>
+                </div>
+                <div style="text-align: center;">
+                    <div class="metric" style="color: white;">50,000+</div>
+                    <div class="metric-label" style="color: #e0e0e0;">Lines of Code</div>
+                </div>
+                <div style="text-align: center;">
+                    <div class="metric" style="color: white;">80%</div>
+                    <div class="metric-label" style="color: #e0e0e0;">Test Coverage</div>
+                </div>
+                <div style="text-align: center;">
+                    <div class="metric" style="color: white;">170+</div>
+                    <div class="metric-label" style="color: #e0e0e0;">Commits</div>
+                </div>
+            </div>
+            <p style="color: #e0e0e0; margin-top: 1rem; font-size: 1rem;">
+                <strong>New in v2.1:</strong> Self-improvement engine, pyannote speaker diarization, autonomous recovery loop, Context Kernel v2
+            </p>
+        </div>
+
+        <!-- Current State: Apple Silicon -->
+        <h2>⚡ Current Performance on Apple Silicon</h2>
+
+        <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 2rem;">
+            ARIA is currently optimized for Apple M series chips using the MLX framework.
+            This supports high quality performance for single user and small team deployments.
+        </p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Workload</th>
+                    <th>Apple M4 (MLX)</th>
+                    <th>Memory</th>
+                    <th>Notes</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Voice Transcription</strong></td>
+                    <td>100–200ms</td>
+                    <td>1GB VRAM</td>
+                    <td>Whisper Base model</td>
+                </tr>
+                <tr>
+                    <td><strong>Conversation (LLM)</strong></td>
+                    <td>245ms avg</td>
+                    <td>4GB VRAM</td>
+                    <td>Llama 3.2 3B, 4 bit quant</td>
+                </tr>
+                <tr>
+                    <td><strong>Code Generation</strong></td>
+                    <td>350ms avg</td>
+                    <td>4GB VRAM</td>
+                    <td>Same model, longer prompts</td>
+                </tr>
+                <tr>
+                    <td><strong>Voice Synthesis</strong></td>
+                    <td>300ms avg</td>
+                    <td>2GB VRAM</td>
+                    <td>XTTS v2</td>
+                </tr>
+                <tr>
+                    <td><strong>Full Voice Pipeline</strong></td>
+                    <td>800ms avg</td>
+                    <td>7GB VRAM</td>
+                    <td>STT → LLM → TTS</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="card" style="background: #fff3cd; border-left-color: #ffc107; margin-top: 2rem;">
+            <h3 style="color: #ff6f00;">⚠️ Current Limitations</h3>
+            <ul>
+                <li><strong>Single concurrent user:</strong> M4 supports 1–3 users before degradation</li>
+                <li><strong>Model size:</strong> 3B parameter focus due to VRAM constraints</li>
+                <li><strong>No batching:</strong> Requests are processed sequentially</li>
+                <li><strong>Platform lock in:</strong> MLX is exclusive to Apple Silicon</li>
+            </ul>
+        </div>
+
+        <!-- What NVIDIA Enables -->
+        <h2>🚀 What NVIDIA GPU Acceleration Enables</h2>
+
+        <div class="grid">
+            <div class="card">
+                <h3>1. Multi User Scale</h3>
+                <p><strong>NVIDIA RTX 4090 and A100</strong></p>
+                <ul>
+                    <li>10–20 concurrent users instead of 1–3</li>
+                    <li>Request batching for higher throughput</li>
+                    <li>Load balancing across GPUs</li>
+                    <li>Enterprise deployment readiness</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>2. Larger Models</h3>
+                <p><strong>NVIDIA 24GB+ VRAM</strong></p>
+                <ul>
+                    <li>Llama 3.1 70B class models</li>
+                    <li>Code focused models in the 34B range</li>
+                    <li>Multiple models resident in memory</li>
+                    <li>Higher reasoning quality and safety margins</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>3. Vision Capabilities</h3>
+                <p><strong>NVIDIA Tensor Cores</strong></p>
+                <ul>
+                    <li>Real time video analysis</li>
+                    <li>Screen and UI understanding near live</li>
+                    <li>OCR at 100+ pages per second</li>
+                    <li>Diagram and workflow analysis</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>4. Meeting Intelligence</h3>
+                <p><strong>NVIDIA A100</strong></p>
+                <ul>
+                    <li>10+ speaker diarization in real time</li>
+                    <li>Simultaneous translation in 20+ languages</li>
+                    <li>Live transcription at 1000+ words per minute</li>
+                    <li>Multi stream video and audio processing</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>5. Lower Latency</h3>
+                <p><strong>NVIDIA TensorRT</strong></p>
+                <ul>
+                    <li>Conversation: 245ms to near 100ms</li>
+                    <li>Code: 350ms to near 150ms</li>
+                    <li>Voice pipeline: 800ms to near 400ms</li>
+                    <li>Two to four times faster than the MLX baseline</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>6. Cross Platform Reach</h3>
+                <p><strong>NVIDIA CUDA Ecosystem</strong></p>
+                <ul>
+                    <li>Windows, Linux, and cloud deployments</li>
+                    <li>Independent of Apple Silicon</li>
+                    <li>Broader enterprise footprint</li>
+                    <li>Datacenter and edge device compatibility</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Net 180 Commercial Structure -->
+        <h2>💵 Net 180 Partnership Economics</h2>
+
+        <p style="font-size: 1.1rem; line-height: 1.8;">
+            To reduce friction and align incentives, ARIA proposes a Net 180 structure for the initial partnership window.
+            Hardware, engineering support, and joint go to market activity align to a 180 day evaluation and deployment phase.
+        </p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Component</th>
+                    <th>Scope</th>
+                    <th>Net 180 Terms</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Hardware</strong></td>
+                    <td>RTX 4090, A100, H100, Jetson AGX Xavier, Jetson AGX Orin, and NVIDIA IGX Orin units for development, testing, and customer pilots</td>
+                    <td>
+                        Provided under Net 180 evaluation terms. At day 180 NVIDIA and ARIA agree on one of three paths:
+                        conversion to purchase order, conversion to equity or credit in a strategic investment, or return
+                        and redeployment into other NVIDIA programs.
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Engineering Support</strong></td>
+                    <td>2–3 NVIDIA aligned engineers supporting CUDA, TensorRT, and Jetson integration</td>
+                    <td>
+                        Engineering support is tracked as an in kind contribution during the 180 day window and can roll
+                        into either a formal co development agreement or a venture backed relationship after milestones
+                        are met.
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Co Marketing Budget</strong></td>
+                    <td>GTC session, case studies, and joint field events</td>
+                    <td>
+                        Budget is allocated and executed during the Net 180 phase and is tied to measurable outcomes such
+                        as pilots launched, reference wins, or GPU pipeline influence.
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>ARIA Commitments</strong></td>
+                    <td>Software optimization, pilots, and reference architecture</td>
+                    <td>
+                        ARIA prioritizes NVIDIA targets as the primary GPU stack and commits to converting evaluation
+                        units into paying deployments through joint pilots in defense, healthcare, and financial services.
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Partnership Models -->
+        <h2>🤝 Partnership Models</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Model</th>
+                    <th>Description</th>
+                    <th>NVIDIA Benefit</th>
+                    <th>ARIA Benefit</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>1. Technology Partnership</strong></td>
+                    <td>NVIDIA provides engineering support to optimize ARIA for CUDA and TensorRT under Net 180 terms</td>
+                    <td>Reference implementation for edge AI and workstations with low risk entry</td>
+                    <td>Performance improvement, cross platform support, and clear path from evaluation to scale</td>
+                </tr>
+                <tr>
+                    <td><strong>2. Co Marketing</strong></td>
+                    <td>Joint case studies, whitepapers, and conference sessions around local first AI on NVIDIA GPUs</td>
+                    <td>Enterprise AI leadership with a concrete local AI story</td>
+                    <td>NVIDIA signal, customer reach, and faster trust building in regulated markets</td>
+                </tr>
+                <tr>
+                    <td><strong>3. Hardware Bundling</strong></td>
+                    <td>ARIA pre installed on NVIDIA edge devices such as Jetson and IGX in a Net 180 launch program</td>
+                    <td>Software differentiated hardware in privacy sensitive segments</td>
+                    <td>Distribution channel without heavy direct sales spend</td>
+                </tr>
+                <tr>
+                    <td><strong>4. Co Development</strong></td>
+                    <td>Joint roadmap for ARIA Vision Engine and Meeting Engine optimized for NVIDIA hardware</td>
+                    <td>Deeper software ecosystem around GPUs</td>
+                    <td>Shared R and D load and faster entry into production accounts</td>
+                </tr>
+                <tr>
+                    <td><strong>5. Strategic Investment</strong></td>
+                    <td>NVIDIA Ventures invests in ARIA seed or Series A with Net 180 hardware and services folded into the round</td>
+                    <td>Portfolio position in local AI with a veteran led founder and real deployments</td>
+                    <td>Capital, signal, and long term alignment on the NVIDIA stack</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Technical Integration Plan -->
+        <h2>🔧 Technical Integration Plan</h2>
+
+        <h3>Phase 1: CUDA and PyTorch Backend (3 months)</h3>
+        <div class="card">
+            <ul>
+                <li><strong>Goal:</strong> Port ARIA from MLX to PyTorch with CUDA acceleration</li>
+                <li><strong>Effort:</strong> 2 engineers for 3 months</li>
+                <li><strong>Deliverable:</strong> ARIA running on NVIDIA RTX 20, 30, and 40 series cards</li>
+                <li><strong>Expected Performance:</strong> Two to three times faster than M4 for core workloads</li>
+                <li><strong>NVIDIA Support:</strong> Technical guidance and early access to optimization tools</li>
+            </ul>
+        </div>
+
+        <h3>Phase 2: TensorRT Optimization (2 months)</h3>
+        <div class="card">
+            <ul>
+                <li><strong>Goal:</strong> Optimize inference paths using TensorRT</li>
+                <li><strong>Effort:</strong> 1 engineer for 2 months</li>
+                <li><strong>Deliverable:</strong> TensorRT engines for Whisper, Llama, and XTTS</li>
+                <li><strong>Expected Performance:</strong> Four to five times faster than the MLX baseline with sub 100ms conversational latency</li>
+                <li><strong>NVIDIA Support:</strong> TensorRT engineering support and targeted workshops</li>
+            </ul>
+        </div>
+
+        <h3>Phase 3: Multi GPU and Batching (2 months)</h3>
+        <div class="card">
+            <ul>
+                <li><strong>Goal:</strong> Support multi user workloads with intelligent batching</li>
+                <li><strong>Effort:</strong> 1 engineer for 2 months</li>
+                <li><strong>Deliverable:</strong> 20+ concurrent users on A100 and 10+ on RTX 4090</li>
+                <li><strong>Expected Performance:</strong> Ten times throughput improvement over the single user baseline</li>
+                <li><strong>NVIDIA Support:</strong> Best practices for multi GPU scheduling</li>
+            </ul>
+        </div>
+
+        <h3>Phase 4: Jetson Edge Deployment (3 months)</h3>
+        <div class="card">
+            <ul>
+                <li><strong>Goal:</strong> Deploy ARIA on Jetson AGX Orin for edge and tactical use</li>
+                <li><strong>Effort:</strong> 2 engineers for 3 months</li>
+                <li><strong>Deliverable:</strong> ARIA running on 64GB Jetson AGX Orin in a ruggedized enclosure</li>
+                <li><strong>Expected Performance:</strong> 3–5 concurrent users with sub 500ms latency</li>
+                <li><strong>NVIDIA Support:</strong> Jetson hardware, reference designs, and joint pilots</li>
+            </ul>
+        </div>
+
+        <!-- Performance Projections -->
+        <h2>📊 Performance Projections: ARIA on NVIDIA Hardware</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Metric</th>
+                    <th>Apple M4<br>(Current)</th>
+                    <th>RTX 4090<br>(Workstation)</th>
+                    <th>A100<br>(Datacenter)</th>
+                    <th>H100<br>(Next-Gen)</th>
+                    <th>Jetson Xavier<br>(Edge)</th>
+                    <th>Jetson Orin<br>(Edge+)</th>
+                    <th>IGX Orin<br>(Industrial)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Conversation Latency</strong></td>
+                    <td>245ms</td>
+                    <td>120ms</td>
+                    <td>80ms</td>
+                    <td>50ms</td>
+                    <td>400ms</td>
+                    <td>300ms</td>
+                    <td>200ms</td>
+                </tr>
+                <tr>
+                    <td><strong>Code Generation</strong></td>
+                    <td>350ms</td>
+                    <td>170ms</td>
+                    <td>120ms</td>
+                    <td>70ms</td>
+                    <td>550ms</td>
+                    <td>450ms</td>
+                    <td>280ms</td>
+                </tr>
+                <tr>
+                    <td><strong>Concurrent Users</strong></td>
+                    <td>1–3</td>
+                    <td>10–15</td>
+                    <td>20–30</td>
+                    <td>40–60</td>
+                    <td>2–3</td>
+                    <td>3–5</td>
+                    <td>8–12</td>
+                </tr>
+                <tr>
+                    <td><strong>Max Model Size</strong></td>
+                    <td>3–7B</td>
+                    <td>13–34B</td>
+                    <td>70B+</td>
+                    <td>70B–405B</td>
+                    <td>3–7B</td>
+                    <td>7–13B</td>
+                    <td>13–34B</td>
+                </tr>
+                <tr>
+                    <td><strong>VRAM</strong></td>
+                    <td>Unified 16GB</td>
+                    <td>24GB</td>
+                    <td>40/80GB</td>
+                    <td>80GB</td>
+                    <td>32GB</td>
+                    <td>32/64GB</td>
+                    <td>32/64GB</td>
+                </tr>
+                <tr>
+                    <td><strong>Power</strong></td>
+                    <td>50W (SoC)</td>
+                    <td>450W</td>
+                    <td>400W</td>
+                    <td>700W</td>
+                    <td>30W</td>
+                    <td>60W</td>
+                    <td>60W</td>
+                </tr>
+                <tr>
+                    <td><strong>Form Factor</strong></td>
+                    <td>Laptop</td>
+                    <td>PCIe Card</td>
+                    <td>Server</td>
+                    <td>Server</td>
+                    <td>Module</td>
+                    <td>Module</td>
+                    <td>Industrial</td>
+                </tr>
+                <tr>
+                    <td><strong>Target Use Case</strong></td>
+                    <td>Developer</td>
+                    <td>Workstation</td>
+                    <td>Enterprise Server</td>
+                    <td>AI Datacenter</td>
+                    <td>Basic Edge</td>
+                    <td>Tactical Edge</td>
+                    <td>Industrial/Automotive</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Hardware Platform Details -->
+        <h2>🔧 NVIDIA Hardware Platform Portfolio for ARIA</h2>
+
+        <div class="grid">
+            <div class="card">
+                <h3>Workstation: RTX 4090</h3>
+                <ul>
+                    <li><strong>VRAM:</strong> 24GB GDDR6X</li>
+                    <li><strong>Performance:</strong> 82.6 TFLOPS (FP16)</li>
+                    <li><strong>Use Case:</strong> Developer workstations, power users</li>
+                    <li><strong>ARIA Benefit:</strong> 2-3x faster than M4, 10-15 concurrent users</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>Datacenter: A100 / H100</h3>
+                <ul>
+                    <li><strong>A100 VRAM:</strong> 40GB or 80GB HBM2e</li>
+                    <li><strong>H100 VRAM:</strong> 80GB HBM3</li>
+                    <li><strong>H100 Performance:</strong> 2000 TFLOPS (FP8)</li>
+                    <li><strong>Use Case:</strong> Enterprise servers, multi-user deployments</li>
+                    <li><strong>ARIA Benefit:</strong> 20-30 users (A100), 40-60 users (H100), 4-5x faster inference</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>Edge: Jetson AGX Xavier</h3>
+                <ul>
+                    <li><strong>VRAM:</strong> 32GB unified memory</li>
+                    <li><strong>Performance:</strong> 32 TOPS (INT8)</li>
+                    <li><strong>Power:</strong> 30W (10W idle)</li>
+                    <li><strong>Use Case:</strong> Basic edge deployments, IoT gateways</li>
+                    <li><strong>ARIA Benefit:</strong> 2-3 users, tactical/mobile scenarios</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>Edge+: Jetson AGX Orin</h3>
+                <ul>
+                    <li><strong>VRAM:</strong> 32GB or 64GB unified memory</li>
+                    <li><strong>Performance:</strong> 275 TOPS (INT8), 70 TOPS (FP16)</li>
+                    <li><strong>Power:</strong> 60W (15W idle)</li>
+                    <li><strong>Use Case:</strong> Tactical edge, autonomous systems</li>
+                    <li><strong>ARIA Benefit:</strong> 3-5 users, ruggedized deployments, 8x faster than Xavier</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>Industrial: NVIDIA IGX Orin</h3>
+                <ul>
+                    <li><strong>VRAM:</strong> 32GB or 64GB unified memory</li>
+                    <li><strong>Performance:</strong> 275 TOPS, same as Jetson Orin</li>
+                    <li><strong>Certification:</strong> Industrial-grade, safety-certified</li>
+                    <li><strong>Use Case:</strong> Automotive, medical, industrial automation</li>
+                    <li><strong>ARIA Benefit:</strong> 8-12 users, safety-critical environments, certified platform</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Market Opportunity -->
+        <h2>💰 Market Opportunity</h2>
+
+        <div class="highlight">
+            <h3 style="color: white;">Why This Matters for NVIDIA</h3>
+            <p style="font-size: 1.2rem; line-height: 1.8; margin-top: 1rem;">
+                The on device AI market is projected to reach <strong>$85B by 2030</strong>.
+                Enterprise buyers are asking for local first options because of privacy, compliance, and cost pressures.
+            </p>
+            <p style="font-size: 1.2rem; line-height: 1.8; margin-top: 1rem;">
+                ARIA provides NVIDIA with a production ready software stack that:
+            </p>
+            <ul style="color: white; font-size: 1.1rem; margin-top: 1rem;">
+                <li>Positions NVIDIA edge and enterprise GPUs as the default accelerators for private AI</li>
+                <li>Shows that local AI can match or beat cloud latency and quality</li>
+                <li>Drives hardware into defense, healthcare, and financial services without forcing cloud adoption</li>
+                <li>Provides a veteran led, high trust partner focused on safety and governance</li>
+            </ul>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Customer Segment</th>
+                    <th>TAM</th>
+                    <th>NVIDIA GPU Opportunity</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Defense and Government</strong></td>
+                    <td>$15B</td>
+                    <td>Jetson edge devices and A100 class hardware for secure datacenters</td>
+                </tr>
+                <tr>
+                    <td><strong>Healthcare</strong></td>
+                    <td>$30B</td>
+                    <td>On premise servers and RTX workstations for clinical environments</td>
+                </tr>
+                <tr>
+                    <td><strong>Financial Services</strong></td>
+                    <td>$40B</td>
+                    <td>Trading and risk workstations, with A100 clusters for modeling</td>
+                </tr>
+                <tr>
+                    <td><strong>Enterprise IT</strong></td>
+                    <td>$55B</td>
+                    <td>Office workstations and edge servers with local AI assist</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Proposed Partnership Structure -->
+        <h2>📋 Proposed Partnership Structure</h2>
+
+        <div class="grid">
+            <div class="card">
+                <h3>NVIDIA Provides</h3>
+                <ul>
+                    <li>Engineering support from 2–3 aligned engineers over 6 months</li>
+                    <li>Early access to TensorRT and related optimization tools</li>
+                    <li>RTX 4090, A100, and Jetson hardware under Net 180 evaluation and conversion terms</li>
+                    <li>Co marketing budget in the $50K–$100K range</li>
+                    <li>Introductions into enterprise and public sector customers</li>
+                    <li>Optional strategic investment between $500K and $1M</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>ARIA Provides</h3>
+                <ul>
+                    <li>Production ready local AI software stack across voice, code, and agents</li>
+                    <li>Reference implementations and benchmark data for NVIDIA hardware</li>
+                    <li>Joint case studies, whitepapers, and public talks</li>
+                    <li>Optimization that targets NVIDIA GPUs as the primary stack and excludes competing GPU vendors for the term of the agreement</li>
+                    <li>Deployment and adoption plans designed to convert Net 180 evaluations into paying fleet deployments</li>
+                </ul>
+            </div>
+        </div>
+
+        <h3>Success Metrics (12 Months)</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Metric</th>
+                    <th>Target</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>ARIA deployments on NVIDIA GPUs</strong></td>
+                    <td>50+ enterprise and public sector customers</td>
+                </tr>
+                <tr>
+                    <td><strong>NVIDIA GPU units influenced or sold</strong></td>
+                    <td>200–500 GPUs across RTX 4090, A100, and Jetson</td>
+                </tr>
+                <tr>
+                    <td><strong>Net 180 conversion rate</strong></td>
+                    <td>At least 60% of evaluation units converted to paid or strategic arrangements</td>
+                </tr>
+                <tr>
+                    <td><strong>Joint case studies</strong></td>
+                    <td>3–5 stories across defense, healthcare, and finance</td>
+                </tr>
+                <tr>
+                    <td><strong>Conference presentations</strong></td>
+                    <td>2–3 sessions at GTC and related enterprise events</td>
+                </tr>
+                <tr>
+                    <td><strong>Performance improvement</strong></td>
+                    <td>Four to five times faster than the Apple M4 baseline for core tasks</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- 6-Month Prototyping Plan -->
+        <h2>📋 6-Month Prototyping Plan: Reference Design for Offline Autonomy</h2>
+
+        <div class="grid">
+            <div class="card">
+                <h3>Phase 1: CUDA Port (Months 1-2)</h3>
+                <ul>
+                    <li><strong>Goal:</strong> Port ARIA from MLX to PyTorch/CUDA</li>
+                    <li><strong>Deliverable:</strong> ARIA running on RTX 4090 with 2x performance improvement</li>
+                    <li><strong>Resources:</strong> 2 ARIA engineers + 1 NVIDIA technical advisor</li>
+                    <li><strong>Exit Criteria:</strong> All 75 tests passing on CUDA backend</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>Phase 2: TensorRT Optimization (Month 3)</h3>
+                <ul>
+                    <li><strong>Goal:</strong> Optimize inference with TensorRT engines</li>
+                    <li><strong>Deliverable:</strong> 4-5x performance improvement over MLX baseline</li>
+                    <li><strong>Resources:</strong> 1 ARIA engineer + TensorRT engineering support</li>
+                    <li><strong>Exit Criteria:</strong> Sub-100ms conversation latency on A100</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>Phase 3: Jetson Edge Deployment (Months 4-5)</h3>
+                <ul>
+                    <li><strong>Goal:</strong> Deploy ARIA on Jetson AGX Orin in ruggedized enclosure</li>
+                    <li><strong>Deliverable:</strong> Powerhouse AI hardware platform prototype</li>
+                    <li><strong>Resources:</strong> 2 ARIA engineers + Jetson AGX Orin 64GB units</li>
+                    <li><strong>Exit Criteria:</strong> 3-5 concurrent users, 8-hour battery life</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>Phase 4: Reference Design Publication (Month 6)</h3>
+                <ul>
+                    <li><strong>Goal:</strong> Publish ARIA as official NVIDIA reference design</li>
+                    <li><strong>Deliverable:</strong> Documentation, benchmarks, GTC session</li>
+                    <li><strong>Resources:</strong> 1 ARIA engineer + NVIDIA DevRel</li>
+                    <li><strong>Exit Criteria:</strong> Published reference design, 3+ pilot customers</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Strategic Rationale -->
+        <h2>🎯 Strategic Rationale</h2>
+
+        <div class="grid">
+            <div class="card">
+                <h3>For NVIDIA</h3>
+                <ul>
+                    <li>Reference implementation for edge AI (Jetson showcase)</li>
+                    <li>Enterprise workstation story (RTX differentiation)</li>
+                    <li>Defense and government market access</li>
+                    <li>Production-ready software for "local AI" positioning</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>For ARIA</h3>
+                <ul>
+                    <li>4-5x performance improvement over Apple Silicon</li>
+                    <li>Multi-user scale for enterprise deployments</li>
+                    <li>NVIDIA credibility signal for customers</li>
+                    <li>Distribution reach into defense, healthcare, finance</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Next Steps -->
+        <h2>📅 Proposed Next Steps</h2>
+
+        <div class="card">
+            <h3>30 Day Plan</h3>
+            <ul>
+                <li><strong>Week 1:</strong> Technical deep dive with NVIDIA AI and platform teams</li>
+                <li><strong>Week 2:</strong> ARIA running on NVIDIA provided RTX 4090 for a targeted demo scenario</li>
+                <li><strong>Week 3:</strong> Draft Net 180 term sheet covering hardware, engineering support, and co marketing</li>
+                <li><strong>Week 4:</strong> Sign partnership agreement or investment term sheet and schedule first pilot</li>
+            </ul>
+        </div>
+
+        <div class="card" style="margin-top: 2rem;">
+            <h3>6 Month Milestones</h3>
+            <ul>
+                <li><strong>Month 1:</strong> ARIA running on CUDA and PyTorch</li>
+                <li><strong>Month 3:</strong> TensorRT optimization complete and benchmarked</li>
+                <li><strong>Month 4:</strong> First joint customer pilot in a regulated environment</li>
+                <li><strong>Month 6:</strong> Public case study and GTC session tied to Net 180 success</li>
+            </ul>
+        </div>
+
+        <!-- Call to Action -->
+        <div class="highlight" style="margin-top: 3rem;">
+            <h3 style="color: white; font-size: 2.5rem;">Reference Design for Offline Autonomy</h3>
+            <p style="font-size: 1.3rem; line-height: 1.8; margin-top: 1.5rem;">
+                ARIA v2.1 is production-ready. NVIDIA is the leader in AI acceleration.
+                Together we establish the reference design that proves local AI matches cloud capabilities with zero network dependency.
+            </p>
+            <p style="font-size: 1.3rem; margin-top: 1.5rem;">
+                <strong>Next Step:</strong> Technical evaluation meeting with NVIDIA Edge AI, Jetson, and DevRel teams.
+            </p>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <h3 style="color: white; margin-bottom: 1rem;">Contact Information</h3>
+            <p style="font-size: 1.1rem;">
+                <strong>Joseph C. McGinty Jr.</strong><br>
+                Chief Innovation Officer, ResilientMind AI<br><br>
+                📞 Phone: 724-248-1750<br>
+                📧 Email: joseph@resilientmindai.com<br>
+                🌐 Website: resilientmindai.com<br>
+                📍 Location: Scottdale, Pennsylvania
+            </p>
+            <p style="margin-top: 1.5rem; font-size: 1rem; color: #e0e0e0;">
+                <strong>Company:</strong> Help-Veterans.Org LLC (ResilientMind AI)<br>
+                <strong>Product:</strong> ARIA v2.1 + Powerhouse AI<br>
+                <strong>Status:</strong> Production v2.1, dual compute ready
+            </p>
+            <p style="margin-top: 2rem; font-size: 0.9rem; color: #a0aec0;">
+                © 2025 ResilientMind AI | Help-Veterans.Org LLC
+            </p>
+        </div>
+    </div>
+</body>
+</html>
