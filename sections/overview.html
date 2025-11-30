@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Overview | ARIA + Powerhouse AI</title>
+  <meta name="description" content="Executive overview of ARIA - the local-first, offline-first AI platform with 7 coordinated agents and compliance-aware enforcement.">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="navbar-container">
+      <a href="../index.html" class="navbar-brand">
+        <span>ARIA</span>
+      </a>
+      <button class="navbar-toggle" onclick="toggleNav()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="navbar-nav" id="navMenu">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="overview.html" class="active">Overview</a></li>
+        <li><a href="technology.html">Technology</a></li>
+        <li><a href="market.html">Market</a></li>
+        <li><a href="revenue.html">Revenue</a></li>
+        <li><a href="roadmap.html">Roadmap</a></li>
+        <li><a href="partners.html">Partners</a></li>
+        <li><a href="team.html">Team</a></li>
+        <li><a href="contact.html" class="navbar-cta">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <header class="page-header">
+      <h1 class="page-title">Executive Overview</h1>
+      <p class="page-subtitle">ARIA v2.2.2 + Powerhouse AI: Local Multi-Agent Autonomy for Enterprise</p>
+    </header>
+
+    <div class="content">
+      <h2>What We Built</h2>
+      <p><strong>ARIA v2.2.2</strong> turns a single Apple Silicon machine into a self-auditing, multi-agent intelligence OS. It's a local-first, offline-first platform with 7 coordinated agents, compliance-aware enforcement, and autonomous self-healing that runs entirely on edge hardware.</p>
+      <p><strong>Powerhouse AI</strong> is the ruggedized hardware platform designed to run ARIA in field conditions.</p>
+
+      <h2>The Core Problem</h2>
+      <p>Modern AI systems fail when they're needed most:</p>
+      <ul>
+        <li><strong>Cloud AI is unavailable offline</strong> - Aircraft, submarines, remote sites, classified networks have no access to ChatGPT, Claude, or cloud APIs</li>
+        <li><strong>Latency kills real-time applications</strong> - Robotics, autonomous systems, and tactical operations cannot tolerate 500-2000ms cloud round-trips</li>
+        <li><strong>Privacy and compliance block adoption</strong> - DoD, HIPAA, GDPR, and enterprise IP policies prohibit sending data to third-party clouds</li>
+        <li><strong>Single-model architectures lack resilience</strong> - When one model fails, the entire system stops</li>
+        <li><strong>Edge hardware remains underutilized</strong> - Apple Silicon, NVIDIA Jetson, and edge GPUs can run capable models locally, but no production system exists to orchestrate them</li>
+      </ul>
+
+      <h2>The Gap</h2>
+      <p>There is no production-ready autonomous AI system that:</p>
+      <ul class="feature-list">
+        <li>Runs 100% offline on edge hardware</li>
+        <li>Coordinates multiple specialized agents</li>
+        <li>Self-heals when components fail</li>
+        <li>Enforces compliance before data reaches the AI</li>
+        <li>Operates in denied, degraded, disconnected environments</li>
+      </ul>
+
+      <h2>Core Capabilities (Production Today)</h2>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Capability</th>
+              <th>Status</th>
+              <th>Performance</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>7-Agent Orchestration</td>
+              <td><span class="badge badge-success">Implemented</span></td>
+              <td>&lt;1ms routing</td>
+            </tr>
+            <tr>
+              <td>Voice Pipeline</td>
+              <td><span class="badge badge-success">Implemented</span></td>
+              <td>245ms conversation latency</td>
+            </tr>
+            <tr>
+              <td>Code Generation</td>
+              <td><span class="badge badge-success">Implemented</span></td>
+              <td>350ms multi-language</td>
+            </tr>
+            <tr>
+              <td>Vision Engine</td>
+              <td><span class="badge badge-success">Implemented</span></td>
+              <td>100-300ms OCR</td>
+            </tr>
+            <tr>
+              <td>Meeting Engine</td>
+              <td><span class="badge badge-success">Implemented</span></td>
+              <td>Speaker diarization + summaries</td>
+            </tr>
+            <tr>
+              <td>Self-Improvement Engine</td>
+              <td><span class="badge badge-success">Implemented</span></td>
+              <td>User feedback to confidence adjustment</td>
+            </tr>
+            <tr>
+              <td>Autonomous Recovery</td>
+              <td><span class="badge badge-success">Implemented</span></td>
+              <td>Error log parsing to targeted fix</td>
+            </tr>
+            <tr>
+              <td>5-Level Compliance</td>
+              <td><span class="badge badge-success">Implemented</span></td>
+              <td>Standard/Strict/DoD/HIPAA/GDPR</td>
+            </tr>
+            <tr>
+              <td>Unified Memory Bus</td>
+              <td><span class="badge badge-success">Implemented</span></td>
+              <td>6 domains, compliance-aware</td>
+            </tr>
+            <tr>
+              <td>Internal Task Graphs</td>
+              <td><span class="badge badge-success">Implemented</span></td>
+              <td>Multi-step reasoning, sub-goal planning</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>The Technical Moat</h2>
+      <ol>
+        <li><strong>Context Kernel v2</strong> - Production orchestration engine with &lt;1ms overhead, type-safe envelopes, and compliance intercept</li>
+        <li><strong>7-Agent System</strong> - Decision, Learner, Planner, LLM, STT, TTS, Healing - all coordinated with graceful degradation</li>
+        <li><strong>Self-Improvement Loop</strong> - User ratings captured, confidence thresholds adjusted, response strategies scored</li>
+        <li><strong>Autonomous Recovery</strong> - Parses error logs, matches against 10+ failure classes, applies targeted remediation</li>
+        <li><strong>Pre-LLM Compliance</strong> - In DoD/HIPAA modes, PII is blocked <em>before</em> reaching the model (not redacted after)</li>
+        <li><strong>Internal Task Graphs</strong> - Multi-step reasoning, sub-goal decomposition, and execution tracking for complex workflows</li>
+        <li><strong>Self-Auditing</strong> - Continuous health monitoring, compliance verification, and anomaly detection</li>
+      </ol>
+
+      <h2>Proof of Progress</h2>
+      <h3>Codebase Statistics</h3>
+      <ul>
+        <li><strong>50,000+ lines</strong> of production Python/TypeScript (149 files scanned)</li>
+        <li><strong>200+ commits</strong> in development history</li>
+        <li><strong>75 automated tests</strong> (100% passing)</li>
+        <li><strong>99% internal audit health score</strong> (GREEN status)</li>
+        <li><strong>8 verified core components</strong> with all required methods</li>
+      </ul>
+
+      <h3>Measured Performance (Apple M4, 36GB RAM)</h3>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Metric</th>
+              <th>Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Context Kernel routing</td><td>&lt;1ms</td></tr>
+            <tr><td>Conversation latency</td><td>245ms</td></tr>
+            <tr><td>Code generation</td><td>350ms</td></tr>
+            <tr><td>Vision OCR</td><td>100-300ms</td></tr>
+            <tr><td>Meeting analysis (30 min)</td><td>2-5 seconds</td></tr>
+            <tr><td>Offline operation</td><td>100%</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Value Proposition</h2>
+      <p><strong>For Enterprise:</strong> Privacy-first AI that runs on your hardware, under your control, with predictable costs and zero data exposure.</p>
+      <p><strong>For DoD/Government:</strong> Local-first autonomy for denied/degraded environments with pre-LLM compliance, self-healing, and air-gap verification.</p>
+      <p><strong>For Developers:</strong> A local intelligence OS that provides voice, code, vision, and memory capabilities without cloud dependency.</p>
+
+      <div class="text-center mt-4">
+        <a href="technology.html" class="btn btn-primary">Explore Technology</a>
+        <a href="market.html" class="btn btn-secondary">View Market Analysis</a>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">ResilientMind AI</div>
+        <p class="footer-text">
+          Help-Veterans.Org LLC (dba ResilientMind AI)<br>
+          Scottdale, Pennsylvania
+        </p>
+      </div>
+      <div>
+        <div class="footer-title">Product</div>
+        <ul class="footer-links">
+          <li><a href="overview.html">Overview</a></li>
+          <li><a href="technology.html">Technology</a></li>
+          <li><a href="roadmap.html">Roadmap</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-title">Company</div>
+        <ul class="footer-links">
+          <li><a href="team.html">Team</a></li>
+          <li><a href="market.html">Market</a></li>
+          <li><a href="revenue.html">Revenue Model</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-title">Contact</div>
+        <ul class="footer-links">
+          <li><a href="mailto:joseph@resilientmindai.com">joseph@resilientmindai.com</a></li>
+          <li><a href="tel:+17242481750">724-248-1750</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 ResilientMind AI. All rights reserved. | Help-Veterans.Org LLC</p>
+    </div>
+  </footer>
+
+  <script>
+    function toggleNav() {
+      document.getElementById('navMenu').classList.toggle('active');
+    }
+  </script>
+</body>
+</html>

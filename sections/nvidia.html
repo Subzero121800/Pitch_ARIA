@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NVIDIA Partnership | ARIA + Powerhouse AI</title>
+  <meta name="description" content="Reference design for offline autonomy on NVIDIA Edge + GPU. Production-ready AI operating system for defense, healthcare, and regulated industries.">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="navbar-container">
+      <a href="../index.html" class="navbar-brand">
+        <span>ARIA</span>
+      </a>
+      <button class="navbar-toggle" onclick="toggleNav()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="navbar-nav" id="navMenu">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="overview.html">Overview</a></li>
+        <li><a href="technology.html">Technology</a></li>
+        <li><a href="market.html">Market</a></li>
+        <li><a href="revenue.html">Revenue</a></li>
+        <li><a href="roadmap.html">Roadmap</a></li>
+        <li><a href="partners.html" class="active">Partners</a></li>
+        <li><a href="team.html">Team</a></li>
+        <li><a href="contact.html" class="navbar-cta">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <header class="page-header">
+      <h1 class="page-title">NVIDIA Partnership</h1>
+      <p class="page-subtitle">Reference Design for Offline Autonomy on NVIDIA Edge + GPU</p>
+    </header>
+
+    <div class="content">
+      <h2>Executive Summary</h2>
+      <p>ARIA is a <strong>production-ready, local-first AI operating system</strong> that proves NVIDIA hardware can deliver enterprise-grade autonomous intelligence with <strong>zero cloud dependency</strong>.</p>
+
+      <h3>Core Value for NVIDIA</h3>
+      <ul class="feature-list">
+        <li><strong>100% offline operation</strong> - Zero cloud dependency, complete data sovereignty</li>
+        <li><strong>Dual compute support</strong> - CUDA + TensorRT alongside Apple MLX</li>
+        <li><strong>Kernel V3 cognitive architecture</strong> - 6-stage reasoning pipeline with autonomous recovery</li>
+        <li><strong>Reference design</strong> - Production proof that local AI matches cloud capabilities</li>
+        <li><strong>Federal compliance ready</strong> - DoD IL2 architecture, HIPAA implemented, GDPR enforced</li>
+      </ul>
+
+      <p><strong>Why NVIDIA:</strong> ARIA + Powerhouse AI becomes the <strong>reference design for offline autonomy</strong> - proving NVIDIA edge and workstation GPUs can deliver mission-critical AI without network dependency.</p>
+
+      <h2>Market Opportunity: $8.2B TAM</h2>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Vertical</th>
+              <th>Market Size</th>
+              <th>Target Deployments</th>
+              <th>Annual Spend/Unit</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Defense & Government</strong></td>
+              <td>$3.1B</td>
+              <td>847 US military bases + 172 VA facilities</td>
+              <td>$180K-450K</td>
+            </tr>
+            <tr>
+              <td><strong>Healthcare</strong></td>
+              <td>$2.8B</td>
+              <td>6,210 US hospitals with air-gap requirements</td>
+              <td>$120K-280K</td>
+            </tr>
+            <tr>
+              <td><strong>Regulated Enterprise</strong></td>
+              <td>$2.3B</td>
+              <td>12,400+ financial institutions + EU enterprises</td>
+              <td>$85K-220K</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p><strong>GPU Units Influenced:</strong> 3,500-5,000 NVIDIA GPUs (Jetson Orin, RTX, A100, H100) across deployments</p>
+
+      <h2>NVIDIA Hardware Optimization</h2>
+      <div class="diagram-block">
++-------------------------------------------------------------+
+|              ARIA on NVIDIA Hardware Stack                   |
++-------------------------------------------------------------+
+|  Datacenter: H100 / A100                                     |
+|  - 40-60 concurrent users                                    |
+|  - 70B+ parameter models                                     |
+|  - Sub-100ms latency                                         |
++-------------------------------------------------------------+
+|  Workstation: RTX 4090 / RTX 5090                            |
+|  - 10-15 concurrent users                                    |
+|  - 34B parameter models                                      |
+|  - 150ms latency                                             |
++-------------------------------------------------------------+
+|  Edge: Jetson AGX Orin                                       |
+|  - 3-5 concurrent users                                      |
+|  - 7-13B parameter models                                    |
+|  - 300ms latency                                             |
+|  - 60W power envelope                                        |
++-------------------------------------------------------------+
+|  Industrial: IGX Orin                                        |
+|  - Safety-certified platform                                 |
+|  - 8-12 concurrent users                                     |
+|  - MIL-STD-810H compatible enclosure                         |
++-------------------------------------------------------------+
+      </div>
+
+      <h2>Performance Projections</h2>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Metric</th>
+              <th>Apple M4 (Baseline)</th>
+              <th>RTX 4090</th>
+              <th>A100</th>
+              <th>Jetson Orin</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Conversation latency</td>
+              <td>245ms</td>
+              <td>120ms</td>
+              <td>80ms</td>
+              <td>300ms</td>
+            </tr>
+            <tr>
+              <td>Code generation</td>
+              <td>350ms</td>
+              <td>170ms</td>
+              <td>120ms</td>
+              <td>450ms</td>
+            </tr>
+            <tr>
+              <td>Concurrent users</td>
+              <td>1-3</td>
+              <td>10-15</td>
+              <td>20-30</td>
+              <td>3-5</td>
+            </tr>
+            <tr>
+              <td>Max model size</td>
+              <td>3-7B</td>
+              <td>13-34B</td>
+              <td>70B+</td>
+              <td>7-13B</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Powerhouse AI on Jetson</h2>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Component</th>
+              <th>Specification</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Compute</td><td>Jetson AGX Orin 64GB</td></tr>
+            <tr><td>Enclosure</td><td>MIL-STD-810H ruggedized</td></tr>
+            <tr><td>Storage</td><td>1TB NVMe SSD</td></tr>
+            <tr><td>Connectivity</td><td>WiFi 6E, 5G cellular, Ethernet</td></tr>
+            <tr><td>Power</td><td>60W operating, 15W idle</td></tr>
+            <tr><td>Battery</td><td>8-hour field operation</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>6-Month Prototyping Plan</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-date">Phase 1: CUDA Port (Months 1-2)</div>
+          <div class="timeline-content">
+            <p>Port ARIA from MLX to PyTorch/CUDA. Target: 2x performance improvement over MLX baseline.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">Phase 2: TensorRT Optimization (Month 3)</div>
+          <div class="timeline-content">
+            <p>Optimize inference with TensorRT engines for Whisper, Llama, and XTTS. Target: 4-5x improvement.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">Phase 3: Jetson Edge Deployment (Months 4-5)</div>
+          <div class="timeline-content">
+            <p>Deploy ARIA on Jetson AGX Orin. Field testing with 8-hour battery life validation.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">Phase 4: Reference Design Publication (Month 6)</div>
+          <div class="timeline-content">
+            <p>Publish ARIA as NVIDIA reference design. GTC session and case study materials.</p>
+          </div>
+        </div>
+      </div>
+
+      <h2>What We Need from NVIDIA</h2>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Resource</th>
+              <th>Purpose</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>RTX 4090 (2 units)</td><td>Development and benchmarking</td></tr>
+            <tr><td>Jetson AGX Orin 64GB (3 units)</td><td>Edge deployment prototyping</td></tr>
+            <tr><td>A100 access</td><td>Datacenter benchmarking</td></tr>
+            <tr><td>TensorRT engineering support</td><td>Optimization guidance</td></tr>
+            <tr><td>DevRel partnership</td><td>Reference design publication</td></tr>
+            <tr><td>Co-marketing budget ($50-100K)</td><td>GTC, case studies, field events</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>What NVIDIA Gets</h2>
+      <ul class="feature-list">
+        <li>Reference implementation for edge AI (Jetson showcase)</li>
+        <li>Enterprise workstation story (RTX differentiation)</li>
+        <li>Defense and government market access</li>
+        <li>Production-ready software for "local AI" positioning</li>
+      </ul>
+
+      <h2>Success Metrics (12 Months)</h2>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Metric</th>
+              <th>Target</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>ARIA deployments on NVIDIA GPUs</td><td>50+ enterprise customers</td></tr>
+            <tr><td>GPU units influenced</td><td>200-500 across RTX, A100, Jetson</td></tr>
+            <tr><td>Reference design downloads</td><td>1,000+ developers</td></tr>
+            <tr><td>GTC presentations</td><td>2-3 sessions</td></tr>
+            <tr><td>Performance vs MLX baseline</td><td>4-5x improvement</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="text-center mt-4">
+        <a href="contact.html" class="btn btn-primary">Schedule Technical Evaluation</a>
+        <a href="partners.html" class="btn btn-secondary">Back to Partners</a>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">ResilientMind AI</div>
+        <p class="footer-text">
+          Help-Veterans.Org LLC (dba ResilientMind AI)<br>
+          Scottdale, Pennsylvania
+        </p>
+      </div>
+      <div>
+        <div class="footer-title">Product</div>
+        <ul class="footer-links">
+          <li><a href="overview.html">Overview</a></li>
+          <li><a href="technology.html">Technology</a></li>
+          <li><a href="roadmap.html">Roadmap</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-title">Company</div>
+        <ul class="footer-links">
+          <li><a href="team.html">Team</a></li>
+          <li><a href="market.html">Market</a></li>
+          <li><a href="revenue.html">Revenue Model</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-title">Contact</div>
+        <ul class="footer-links">
+          <li><a href="mailto:joseph@resilientmindai.com">joseph@resilientmindai.com</a></li>
+          <li><a href="tel:+17242481750">724-248-1750</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 ResilientMind AI. All rights reserved. | Help-Veterans.Org LLC</p>
+    </div>
+  </footer>
+
+  <script>
+    function toggleNav() {
+      document.getElementById('navMenu').classList.toggle('active');
+    }
+  </script>
+</body>
+</html>

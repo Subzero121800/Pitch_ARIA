@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Technology | ARIA + Powerhouse AI</title>
+  <meta name="description" content="Deep dive into ARIA's technical architecture - Context Kernel v2, 7-Agent System, Autonomous Recovery, and Pre-LLM Compliance.">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="navbar-container">
+      <a href="../index.html" class="navbar-brand">
+        <span>ARIA</span>
+      </a>
+      <button class="navbar-toggle" onclick="toggleNav()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="navbar-nav" id="navMenu">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="overview.html">Overview</a></li>
+        <li><a href="technology.html" class="active">Technology</a></li>
+        <li><a href="market.html">Market</a></li>
+        <li><a href="revenue.html">Revenue</a></li>
+        <li><a href="roadmap.html">Roadmap</a></li>
+        <li><a href="partners.html">Partners</a></li>
+        <li><a href="team.html">Team</a></li>
+        <li><a href="contact.html" class="navbar-cta">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <header class="page-header">
+      <h1 class="page-title">Technical Architecture</h1>
+      <p class="page-subtitle">Key innovations that make ARIA a production-ready local intelligence OS</p>
+    </header>
+
+    <div class="content">
+      <h2>High-Level Architecture</h2>
+      <div class="diagram-block">
++-------------------------------------------------------------+
+|                     User Interface Layer                     |
+|           (Voice, Chat, Coding Panel, Vision)               |
++-----------------------------+-------------------------------+
+                              |
+                              v
++-------------------------------------------------------------+
+|                   Context Kernel v2                          |
+|  - Intent Classification    - Agent Routing                 |
+|  - Compliance Intercept     - &lt;1ms Overhead                 |
++-----------------------------+-------------------------------+
+                              |
+          +-------------------+-------------------+
+          v                   v                   v
+     +---------+         +---------+         +---------+
+     |Decision |         | Planner |         | Healing |
+     |  Agent  |         |  Agent  |         |  Agent  |
+     +----+----+         +----+----+         +----+----+
+          |                   |                   |
+          v                   v                   v
+     +---------+         +---------+         +---------+
+     |   LLM   |         |   STT   |         |   TTS   |
+     |  Agent  |         |  Agent  |         |  Agent  |
+     +----+----+         +----+----+         +----+----+
+          |                   |                   |
+          +-------------------+-------------------+
+                              v
++-------------------------------------------------------------+
+|                   Unified Memory Bus                         |
+|   Conversation | Semantic | Meeting | Vision | System       |
++-----------------------------+-------------------------------+
+                              v
++-------------------------------------------------------------+
+|                Model Layer (Local Inference)                 |
+|    Whisper (STT) | Llama 3.2 (LLM) | XTTS (TTS)            |
++-----------------------------+-------------------------------+
+                              v
++-------------------------------------------------------------+
+|               Hardware Acceleration Layer                    |
+|        Apple MLX (M-series) | NVIDIA CUDA (Jetson)          |
++-------------------------------------------------------------+
+      </div>
+
+      <h2>Innovation 1: Autonomous Recovery Loop</h2>
+      <div class="diagram-block">
+         +---------------+
+         |  MONITORING   |&lt;---------------------------+
+         +-------+-------+                            |
+                 | Error Detected                     |
+                 v                                    |
+         +---------------+                            |
+         |  DIAGNOSING   |                            |
+         |  - Pattern    |                            |
+         |    Matching   |                            |
+         +-------+-------+                            |
+                 |                                    |
+                 v                                    |
+         +---------------+                            |
+         |    FIXING     |                            |
+         |  - Auto-      |                            |
+         |    Remediate  |                            |
+         +-------+-------+                            |
+                 |                                    |
+          +------+------+                             |
+          v             v                             |
+   +----------+   +----------+                        |
+   | VERIFYING|   |ESCALATING|                        |
+   | (Success)|   | (Failure)|                        |
+   +----+-----+   +----------+                        |
+        |                                             |
+        +---------------------------------------------+
+      </div>
+      <p><strong>What it does:</strong></p>
+      <ul>
+        <li>Health monitoring polls agent status every 30 seconds</li>
+        <li>Error detection parses logs for ERROR/CRITICAL/EXCEPTION</li>
+        <li>Diagnosis matches patterns against known failure classes</li>
+        <li>Recovery actions include: auto-install dependencies, port conflict resolution, cache clearing, model auto-download</li>
+      </ul>
+      <p><strong>Why it matters:</strong> Mission-critical systems cannot tolerate manual intervention. ARIA recovers autonomously.</p>
+
+      <h2>Innovation 2: Pre-LLM Compliance Blocking</h2>
+      <p><strong>Standard approach:</strong> Redact PII from LLM output (data already processed by AI)</p>
+      <p><strong>ARIA approach:</strong> Block requests containing PII before they reach the LLM (data never enters AI pipeline)</p>
+      <div class="diagram-block">
+User Request ---> Compliance Intercept ---> [PII Detected?]
+                                                    |
+                                               YES  v
+                                              BLOCK + LOG
+                                                    |
+                                               NO   v
+                                              Route to LLM
+      </div>
+      <p><strong>Why it matters:</strong> For DoD and HIPAA, "redact after processing" is insufficient. ARIA ensures sensitive data never reaches the model.</p>
+
+      <h2>Innovation 3: Unified Memory Bus with Provenance</h2>
+      <h3>6 Memory Domains:</h3>
+      <ul>
+        <li><strong>Conversation</strong> - Session context</li>
+        <li><strong>Semantic</strong> - Long-term knowledge</li>
+        <li><strong>Meeting</strong> - Transcripts, summaries</li>
+        <li><strong>Vision</strong> - Scene analysis, entities</li>
+        <li><strong>System</strong> - Health, configuration</li>
+        <li><strong>Code</strong> - Snippets, patterns</li>
+      </ul>
+      <h3>Compliance-Aware Features:</h3>
+      <ul>
+        <li>Retention policies (Session/Temporary/Permanent/Compliance)</li>
+        <li>PII sanitization in compliance modes</li>
+        <li>Blocks permanent writes in DoD/HIPAA modes</li>
+        <li>Full audit trail with provenance</li>
+      </ul>
+
+      <h2>Innovation 4: Multi-Model Hardware Abstraction</h2>
+      <p><strong>Dual Compute Paths:</strong></p>
+      <ul>
+        <li><strong>Apple MLX</strong> - Unified memory, lower power (15-30W), M-series optimized</li>
+        <li><strong>NVIDIA CUDA</strong> - Discrete VRAM, higher performance (40-100W), Jetson/datacenter</li>
+      </ul>
+      <p><strong>Same code, different hardware.</strong> No code changes required to switch between Apple and NVIDIA backends.</p>
+
+      <h2>Model Stack (7GB Total)</h2>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Model</th>
+              <th>Size</th>
+              <th>Purpose</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Whisper distil-large-v3</td>
+              <td>1.5GB</td>
+              <td>Speech-to-text</td>
+            </tr>
+            <tr>
+              <td>Llama 3.2 3B (4-bit)</td>
+              <td>2GB</td>
+              <td>Language understanding</td>
+            </tr>
+            <tr>
+              <td>XTTS v2</td>
+              <td>2GB</td>
+              <td>Text-to-speech with voice cloning</td>
+            </tr>
+            <tr>
+              <td>DeepSeek Coder 1.3B</td>
+              <td>1GB</td>
+              <td>Code generation</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Performance Benchmarks</h2>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Metric</th>
+              <th>ARIA (Local)</th>
+              <th>Cloud AI</th>
+              <th>Advantage</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Voice transcription</td>
+              <td>100-200ms</td>
+              <td>500-1000ms</td>
+              <td>3-5x faster</td>
+            </tr>
+            <tr>
+              <td>LLM conversation</td>
+              <td>245ms avg</td>
+              <td>800-2000ms</td>
+              <td>3-8x faster</td>
+            </tr>
+            <tr>
+              <td>Code generation</td>
+              <td>350ms avg</td>
+              <td>1200-3000ms</td>
+              <td>3-9x faster</td>
+            </tr>
+            <tr>
+              <td>Vision OCR</td>
+              <td>100-300ms</td>
+              <td>300-800ms</td>
+              <td>2-3x faster</td>
+            </tr>
+            <tr>
+              <td>Meeting analysis (30 min)</td>
+              <td>2-5s</td>
+              <td>10-30s</td>
+              <td>3-6x faster</td>
+            </tr>
+            <tr>
+              <td>Offline operation</td>
+              <td>100%</td>
+              <td>0%</td>
+              <td>Infinite</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Compliance Certifications</h2>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Standard</th>
+              <th>Status</th>
+              <th>Details</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>HIPAA</td>
+              <td><span class="badge badge-success">Implemented</span></td>
+              <td>Zero PHI exposure, pre-LLM blocking, audit logs</td>
+            </tr>
+            <tr>
+              <td>GDPR</td>
+              <td><span class="badge badge-success">Implemented</span></td>
+              <td>Data sovereignty, right to erasure, local processing</td>
+            </tr>
+            <tr>
+              <td>DoD IL2 (CUI)</td>
+              <td><span class="badge badge-info">Architecture Ready</span></td>
+              <td>Compliance mode built-in, air-gap support</td>
+            </tr>
+            <tr>
+              <td>SOC 2 Type II</td>
+              <td><span class="badge badge-warning">Roadmap Q2 2026</span></td>
+              <td>Certification in progress</td>
+            </tr>
+            <tr>
+              <td>FedRAMP</td>
+              <td><span class="badge badge-warning">Roadmap Q4 2026</span></td>
+              <td>Post-Series A certification</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="text-center mt-4">
+        <a href="roadmap.html" class="btn btn-primary">View Roadmap</a>
+        <a href="contact.html" class="btn btn-secondary">Request Technical Deep Dive</a>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">ResilientMind AI</div>
+        <p class="footer-text">
+          Help-Veterans.Org LLC (dba ResilientMind AI)<br>
+          Scottdale, Pennsylvania
+        </p>
+      </div>
+      <div>
+        <div class="footer-title">Product</div>
+        <ul class="footer-links">
+          <li><a href="overview.html">Overview</a></li>
+          <li><a href="technology.html">Technology</a></li>
+          <li><a href="roadmap.html">Roadmap</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-title">Company</div>
+        <ul class="footer-links">
+          <li><a href="team.html">Team</a></li>
+          <li><a href="market.html">Market</a></li>
+          <li><a href="revenue.html">Revenue Model</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-title">Contact</div>
+        <ul class="footer-links">
+          <li><a href="mailto:joseph@resilientmindai.com">joseph@resilientmindai.com</a></li>
+          <li><a href="tel:+17242481750">724-248-1750</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 ResilientMind AI. All rights reserved. | Help-Veterans.Org LLC</p>
+    </div>
+  </footer>
+
+  <script>
+    function toggleNav() {
+      document.getElementById('navMenu').classList.toggle('active');
+    }
+  </script>
+</body>
+</html>

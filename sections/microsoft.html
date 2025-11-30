@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Microsoft Partnership | ARIA + Powerhouse AI</title>
+  <meta name="description" content="Local Autonomy Kernel for Microsoft Hybrid Environments. Secure AI for air-gapped and edge deployments.">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="navbar-container">
+      <a href="../index.html" class="navbar-brand">
+        <span>ARIA</span>
+      </a>
+      <button class="navbar-toggle" onclick="toggleNav()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="navbar-nav" id="navMenu">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="overview.html">Overview</a></li>
+        <li><a href="technology.html">Technology</a></li>
+        <li><a href="market.html">Market</a></li>
+        <li><a href="revenue.html">Revenue</a></li>
+        <li><a href="roadmap.html">Roadmap</a></li>
+        <li><a href="partners.html" class="active">Partners</a></li>
+        <li><a href="team.html">Team</a></li>
+        <li><a href="contact.html" class="navbar-cta">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <header class="page-header">
+      <h1 class="page-title">Microsoft Partnership</h1>
+      <p class="page-subtitle">Local Autonomy Kernel for Microsoft Hybrid Environments</p>
+    </header>
+
+    <div class="content">
+      <h2>Executive Summary</h2>
+      <p>ARIA is a production-ready, local-first AI system designed to extend Microsoft Copilot capabilities to environments where cloud connectivity is unavailable or prohibited.</p>
+
+      <h3>Core Value for Microsoft</h3>
+      <ul class="feature-list">
+        <li><strong>100% offline operation</strong> - Copilot-class capabilities without Azure dependency</li>
+        <li><strong>Hybrid deployment</strong> - Seamless transition between cloud and local AI</li>
+        <li><strong>Enterprise compliance</strong> - DoD/HIPAA/GDPR ready for regulated customers</li>
+        <li><strong>Edge integration</strong> - Azure Stack, Windows Server, IoT scenarios</li>
+      </ul>
+
+      <p><strong>Why Microsoft:</strong> ARIA fills the gap where Copilot cannot operate - air-gapped networks, disconnected edge, and sovereignty-constrained deployments.</p>
+
+      <h2>The Problem: Copilot Cannot Go Everywhere</h2>
+
+      <h3>Air-Gapped Networks</h3>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Customer Segment</th>
+              <th>Challenge</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Defense contractors</td><td>SIPRNET/JWICS prohibit cloud AI</td></tr>
+            <tr><td>Intelligence agencies</td><td>Classified workloads require isolation</td></tr>
+            <tr><td>Critical infrastructure</td><td>Energy, utilities need on-premise</td></tr>
+            <tr><td>Financial institutions</td><td>Trading algorithms cannot leave network</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Sovereign Requirements</h3>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Region</th>
+              <th>Requirement</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>EU/GDPR</td><td>Data cannot leave EU jurisdiction</td></tr>
+            <tr><td>Germany</td><td>Strict data residency requirements</td></tr>
+            <tr><td>Government</td><td>National security data restrictions</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Hybrid Architecture</h2>
+      <div class="diagram-block">
++-------------------------------------------------------------+
+|                     User Layer                               |
+|       Teams | Outlook | VS Code | Office | Edge             |
++-----------------------------+-------------------------------+
+                              |
+          +-------------------+-------------------+
+          v                                       v
++---------------------+              +---------------------+
+|   Microsoft Copilot |              |     ARIA Local      |
+|      (Azure)        |              |     (On-Device)     |
+|                     |              |                     |
+|  - Full cloud power |              |  - 100% offline     |
+|  - Internet required|              |  - Zero dependency  |
+|  - Compliance varies|              |  - Pre-LLM blocking |
++---------------------+              +---------------------+
+          |                                       |
+          +-------------------+-------------------+
+                              v
+                      +---------------+
+                      | Context Sync  |
+                      | (When Online) |
+                      +---------------+
+      </div>
+
+      <h2>Microsoft Integration Points</h2>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Microsoft Product</th>
+              <th>ARIA Integration</th>
+              <th>Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Teams</strong></td><td>Local meeting transcription, offline summaries</td><td>Works without internet</td></tr>
+            <tr><td><strong>VS Code</strong></td><td>Local Copilot fallback, voice-to-code</td><td>Air-gapped development</td></tr>
+            <tr><td><strong>Office 365</strong></td><td>Offline document intelligence</td><td>Disconnected productivity</td></tr>
+            <tr><td><strong>Edge</strong></td><td>Local web assistant</td><td>Privacy-focused browsing</td></tr>
+            <tr><td><strong>Windows</strong></td><td>System-level AI assistant</td><td>Native integration</td></tr>
+            <tr><td><strong>Azure Stack</strong></td><td>Edge AI runtime</td><td>Hybrid cloud scenarios</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Enterprise Deployment Models</h2>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Model</th>
+              <th>Description</th>
+              <th>Use Case</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Hybrid</strong></td><td>Copilot (cloud) + ARIA (local)</td><td>Normal enterprise</td></tr>
+            <tr><td><strong>Air-Gapped</strong></td><td>ARIA only, no cloud</td><td>Defense, classified</td></tr>
+            <tr><td><strong>Sovereign</strong></td><td>ARIA in local datacenter</td><td>GDPR, data residency</td></tr>
+            <tr><td><strong>Edge</strong></td><td>ARIA on Azure Stack/IoT</td><td>Manufacturing, retail</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Key Use Cases</h2>
+
+      <div class="cards-grid">
+        <div class="card">
+          <h3 class="card-title">Defense and Government</h3>
+          <p class="card-text"><strong>Scenario:</strong> DoD contractor developing on SIPRNET</p>
+          <p class="card-text">Full Copilot-class code assistance, meeting transcription, document analysis with pre-LLM compliance blocking.</p>
+          <p class="text-accent"><strong>Value:</strong> AI productivity on classified networks</p>
+        </div>
+        <div class="card">
+          <h3 class="card-title">Sovereign Cloud Extension</h3>
+          <p class="card-text"><strong>Scenario:</strong> German enterprise with strict data residency</p>
+          <p class="card-text">All AI processing in local datacenter. No data leaves German jurisdiction. GDPR compliance by design.</p>
+          <p class="text-accent"><strong>Value:</strong> Copilot capabilities without sovereignty compromise</p>
+        </div>
+        <div class="card">
+          <h3 class="card-title">Manufacturing Edge</h3>
+          <p class="card-text"><strong>Scenario:</strong> Factory floor with Azure Stack Edge</p>
+          <p class="card-text">Real-time voice commands, equipment documentation analysis, maintenance log generation during network outages.</p>
+          <p class="text-accent"><strong>Value:</strong> AI productivity in disconnected manufacturing</p>
+        </div>
+        <div class="card">
+          <h3 class="card-title">Field Service</h3>
+          <p class="card-text"><strong>Scenario:</strong> Technician in remote location</p>
+          <p class="card-text">Voice-driven documentation, equipment manual analysis, repair procedure generation without connectivity.</p>
+          <p class="text-accent"><strong>Value:</strong> AI assistance anywhere, anytime</p>
+        </div>
+      </div>
+
+      <h2>Partnership Opportunity</h2>
+      <p><strong>6-month co-development program</strong> to integrate ARIA as the local kernel for Microsoft Copilot.</p>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Phase</th>
+              <th>Duration</th>
+              <th>Deliverables</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>1. Technical Validation</td><td>2 months</td><td>Windows integration, NPU optimization</td></tr>
+            <tr><td>2. Copilot Integration</td><td>2 months</td><td>Context sync, fallback protocol</td></tr>
+            <tr><td>3. Enterprise Pilot</td><td>2 months</td><td>100-500 user deployment</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>What Microsoft Gets</h3>
+      <ul class="feature-list">
+        <li>Air-gapped market access (defense, government)</li>
+        <li>Sovereign cloud solution</li>
+        <li>Copilot+ PC differentiation</li>
+        <li>Edge AI runtime for Azure Stack</li>
+      </ul>
+
+      <h3>What We Need</h3>
+      <ul>
+        <li>Windows AI API access</li>
+        <li>Copilot context sharing protocol</li>
+        <li>Azure Stack Edge certification</li>
+        <li>Enterprise pilot customers</li>
+      </ul>
+
+      <div class="text-center mt-4">
+        <a href="contact.html" class="btn btn-primary">Schedule Technical Demo</a>
+        <a href="partners.html" class="btn btn-secondary">Back to Partners</a>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">ResilientMind AI</div>
+        <p class="footer-text">
+          Help-Veterans.Org LLC (dba ResilientMind AI)<br>
+          Scottdale, Pennsylvania
+        </p>
+      </div>
+      <div>
+        <div class="footer-title">Product</div>
+        <ul class="footer-links">
+          <li><a href="overview.html">Overview</a></li>
+          <li><a href="technology.html">Technology</a></li>
+          <li><a href="roadmap.html">Roadmap</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-title">Company</div>
+        <ul class="footer-links">
+          <li><a href="team.html">Team</a></li>
+          <li><a href="market.html">Market</a></li>
+          <li><a href="revenue.html">Revenue Model</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-title">Contact</div>
+        <ul class="footer-links">
+          <li><a href="mailto:joseph@resilientmindai.com">joseph@resilientmindai.com</a></li>
+          <li><a href="tel:+17242481750">724-248-1750</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 ResilientMind AI. All rights reserved. | Help-Veterans.Org LLC</p>
+    </div>
+  </footer>
+
+  <script>
+    function toggleNav() {
+      document.getElementById('navMenu').classList.toggle('active');
+    }
+  </script>
+</body>
+</html>

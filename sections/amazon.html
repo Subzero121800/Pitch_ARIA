@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amazon Partnership | ARIA + Powerhouse AI</title>
+  <meta name="description" content="Local Multi-Agent Autonomy for Amazon-Scale Edge Operations. Built for warehouse, logistics, and device ecosystems.">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="navbar-container">
+      <a href="../index.html" class="navbar-brand">
+        <span>ARIA</span>
+      </a>
+      <button class="navbar-toggle" onclick="toggleNav()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="navbar-nav" id="navMenu">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="overview.html">Overview</a></li>
+        <li><a href="technology.html">Technology</a></li>
+        <li><a href="market.html">Market</a></li>
+        <li><a href="revenue.html">Revenue</a></li>
+        <li><a href="roadmap.html">Roadmap</a></li>
+        <li><a href="partners.html" class="active">Partners</a></li>
+        <li><a href="team.html">Team</a></li>
+        <li><a href="contact.html" class="navbar-cta">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <header class="page-header">
+      <h1 class="page-title">Amazon Partnership</h1>
+      <p class="page-subtitle">Local Multi-Agent Autonomy for Amazon-Scale Edge Operations</p>
+    </header>
+
+    <div class="content">
+      <h2>Executive Summary</h2>
+      <p>ARIA is a production-ready, local-first AI system designed for autonomous operation where cloud connectivity is unavailable, unreliable, or prohibited.</p>
+
+      <h3>Core Value for Amazon</h3>
+      <ul class="feature-list">
+        <li><strong>100% offline operation</strong> - Zero cloud dependency for robotics, logistics, and devices</li>
+        <li><strong>&lt;250ms latency</strong> - Sub-second voice and code responses on edge hardware</li>
+        <li><strong>7-agent self-healing</strong> - Autonomous recovery without manual intervention</li>
+        <li><strong>Multi-modal</strong> - Voice, vision, code, and meetings in unified system</li>
+      </ul>
+
+      <p><strong>Why Amazon:</strong> Edge-first computing is the next strategic shift. Amazon's scale (750,000+ robots, millions of deliveries, billions of Alexa interactions) makes local AI ROI immediate.</p>
+
+      <h2>The Problem Amazon Faces</h2>
+
+      <h3>Warehouse & Robotics</h3>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Pain Point</th>
+              <th>Impact</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Cloud latency breaks coordination</td><td>Round-trip delays cause cascade failures in multi-robot orchestration</td></tr>
+            <tr><td>Centralized dependency</td><td>AWS outages halt fulfillment center operations</td></tr>
+            <tr><td>Safety-critical decisions</td><td>Collision avoidance cannot tolerate 500ms+ network delays</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Logistics & Delivery</h3>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Pain Point</th>
+              <th>Impact</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Inconsistent connectivity</td><td>Rural routes, garages, remote areas lose AI capabilities</td></tr>
+            <tr><td>Driver cognitive load</td><td>Switching between apps reduces throughput and increases errors</td></tr>
+            <tr><td>Network costs at scale</td><td>Per-request cloud AI costs compound across millions of daily deliveries</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Alexa & Devices</h3>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Pain Point</th>
+              <th>Impact</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Cloud-first architecture</td><td>Most Alexa tasks require internet, creating offline fragility</td></tr>
+            <tr><td>Competitive pressure</td><td>Apple and Google moving to hybrid local-cloud models</td></tr>
+            <tr><td>Privacy concerns</td><td>Enterprise and government deployments blocked by cloud data requirements</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Amazon Integration Architecture</h2>
+      <div class="diagram-block">
++-------------------------------------------------------------+
+|                      ARIA v2.2.2 Core                        |
++-------------------------------------------------------------+
+|  7 Agents: Decision | Learner | Planner | LLM | STT |       |
+|            TTS | Healing (self-recovery)                    |
++-------------------------------------------------------------+
+|  Context Kernel v2: &lt;1ms routing, compliance intercept      |
++-------------------------------------------------------------+
+|  Unified Memory Bus: 6 domains, provenance tracking         |
++-------------------------------------------------------------+
+      </div>
+
+      <h3>Integration Points</h3>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Target System</th>
+              <th>Integration Approach</th>
+              <th>Timeline</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>AWS IoT Core</td><td>Device fleet management, telemetry</td><td>Months 1-3</td></tr>
+            <tr><td>AWS Greengrass</td><td>ARIA as edge component, local Lambda</td><td>Months 1-3</td></tr>
+            <tr><td>Amazon Robotics</td><td>Local coordination, task assignment</td><td>Months 3-6</td></tr>
+            <tr><td>Logistics handhelds</td><td>Voice-driven workflows, offline routing</td><td>Months 6-9</td></tr>
+            <tr><td>Alexa Devices</td><td>Local fallback, hybrid orchestration</td><td>Months 9-12</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Amazon Flywheel Impact</h2>
+      <div class="cards-grid">
+        <div class="card">
+          <h3 class="card-title">Faster Fulfillment</h3>
+          <p class="card-text">Local coordination eliminates cloud round-trips. Real-time optimization without network delays.</p>
+          <p class="text-accent">Better Customer Experience</p>
+        </div>
+        <div class="card">
+          <h3 class="card-title">Lower Robotics Downtime</h3>
+          <p class="card-text">Self-healing reduces manual intervention. Local fallback during AWS regional issues.</p>
+          <p class="text-accent">Lower OPEX</p>
+        </div>
+        <div class="card">
+          <h3 class="card-title">Higher Autonomy</h3>
+          <p class="card-text">Voice-driven workflows reduce task-switching. Multi-agent coordination for complex warehouse tasks.</p>
+          <p class="text-accent">Fewer Bottlenecks</p>
+        </div>
+        <div class="card">
+          <h3 class="card-title">Edge Inference</h3>
+          <p class="card-text">Thousands of daily LLM requests shift from Lambda/Bedrock to on-device. Only aggregated telemetry sent to cloud.</p>
+          <p class="text-accent">Cloud Savings</p>
+        </div>
+      </div>
+
+      <h2>Integration Roadmap</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-date">Phase 1: AWS IoT + Greengrass (Months 1-3)</div>
+          <div class="timeline-content">
+            <p>ARIA packaged as Greengrass component. Device fleet management via IoT Core. Telemetry integration (CloudWatch, X-Ray). OTA updates for edge deployments.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">Phase 2: Amazon Robotics Edge (Months 3-6)</div>
+          <div class="timeline-content">
+            <p>ARIA deployed on warehouse robot controllers. Multi-robot coordination via local mesh. Integration with task assignment systems. Autonomous recovery for robot failures.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">Phase 3: Logistics Handheld + Vehicle (Months 6-9)</div>
+          <div class="timeline-content">
+            <p>ARIA on driver handhelds. Vehicle-mounted edge compute for routing. Voice-driven package handling workflows. Offline capability for rural deliveries.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">Phase 4: Alexa Local Fallback (Months 9-12)</div>
+          <div class="timeline-content">
+            <p>ARIA as Alexa local reasoning layer. On-device LLM for offline scenarios. Hybrid cloud-local orchestration. Privacy-enhanced mode for enterprise.</p>
+          </div>
+        </div>
+      </div>
+
+      <h2>Not Competing with AWS Services</h2>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>AWS Service</th>
+              <th>ARIA Relationship</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>AWS Bedrock</td><td>Complements - local inference reduces API costs</td></tr>
+            <tr><td>AWS IoT</td><td>Extends - adds intelligence to edge devices</td></tr>
+            <tr><td>AWS Greengrass</td><td>Enhances - provides pre-built AI agent runtime</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>New Product Lines for AWS</h2>
+      <ul class="feature-list">
+        <li><strong>AWS IoT Edge Intelligence</strong> - ARIA as reference architecture</li>
+        <li><strong>Greengrass + ARIA bundle</strong> - Enterprise edge AI solution</li>
+        <li><strong>Robotics-as-a-Service</strong> - Local intelligence included</li>
+      </ul>
+
+      <h2>Next Step: Technical Evaluation</h2>
+      <p><strong>Request:</strong> Exploratory technical review with AWS IoT, Robotics, and Alexa engineering teams</p>
+
+      <h3>Not Seeking</h3>
+      <ul>
+        <li>Immediate acquisition discussion</li>
+        <li>Fundraising from Amazon</li>
+        <li>Sales engagement</li>
+      </ul>
+
+      <h3>Offering</h3>
+      <ul class="feature-list">
+        <li>Full working demo (voice, code, vision, meetings, autonomy)</li>
+        <li>Complete architecture briefing (50,000+ LOC, 200+ commits)</li>
+        <li>Technical deep dive with engineering teams</li>
+        <li>Integration feasibility assessment</li>
+      </ul>
+
+      <div class="text-center mt-4">
+        <a href="contact.html" class="btn btn-primary">Schedule Technical Demo</a>
+        <a href="partners.html" class="btn btn-secondary">Back to Partners</a>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">ResilientMind AI</div>
+        <p class="footer-text">
+          Help-Veterans.Org LLC (dba ResilientMind AI)<br>
+          Scottdale, Pennsylvania
+        </p>
+      </div>
+      <div>
+        <div class="footer-title">Product</div>
+        <ul class="footer-links">
+          <li><a href="overview.html">Overview</a></li>
+          <li><a href="technology.html">Technology</a></li>
+          <li><a href="roadmap.html">Roadmap</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-title">Company</div>
+        <ul class="footer-links">
+          <li><a href="team.html">Team</a></li>
+          <li><a href="market.html">Market</a></li>
+          <li><a href="revenue.html">Revenue Model</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-title">Contact</div>
+        <ul class="footer-links">
+          <li><a href="mailto:joseph@resilientmindai.com">joseph@resilientmindai.com</a></li>
+          <li><a href="tel:+17242481750">724-248-1750</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 ResilientMind AI. All rights reserved. | Help-Veterans.Org LLC</p>
+    </div>
+  </footer>
+
+  <script>
+    function toggleNav() {
+      document.getElementById('navMenu').classList.toggle('active');
+    }
+  </script>
+</body>
+</html>
