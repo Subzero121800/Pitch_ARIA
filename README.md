@@ -93,7 +93,7 @@ Single codebase runs on Apple MLX (M-series) or NVIDIA CUDA (RTX, A100, Jetson) 
 
 ## Live Site
 
-**Investor Portal:** [https://subzero121800.github.io/Pitch_ARIA/](https://subzero121800.github.io/Pitch_ARIA/)
+**Investor Portal:** [https://subzero121800.github.io/Pitch_ARIA/](https://subzero121800.github.io/Pitch_ARIA/index.html)
 
 ---
 
