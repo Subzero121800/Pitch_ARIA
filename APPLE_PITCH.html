@@ -195,20 +195,20 @@
 
             <div class="grid">
                 <div class="card">
-                    <h3>Context Kernel v2.0</h3>
-                    <p>Central orchestrator routes requests across agents with <1ms overhead. Type-safe envelopes, metrics, and compliance hooks built in.</p>
+                    <h3>Context Kernel v3</h3>
+                    <p>Event-driven 6-stage cognitive pipeline (ingest, interpret, plan, execute, reflect, consolidate) with &lt;1ms overhead. Type-safe envelopes, metrics, and compliance hooks built in.</p>
                 </div>
                 <div class="card">
                     <h3>Multi-Agent System</h3>
-                    <p>8 specialized agents (Decision, Learning, Code, Healing, STT, TTS, Planner, LLM) coordinate through the kernel.</p>
+                    <p>10+ specialized agents (Decision, Learner, Planner, LLM, STT, TTS, Vision, Memory, Healing + more) coordinate through the kernel with graceful degradation.</p>
                 </div>
                 <div class="card">
                     <h3>Unified Memory Bus</h3>
                     <p>6 memory domains (conversation, code, meeting, vision, system, semantic) with compliance-aware retention policies.</p>
                 </div>
                 <div class="card">
-                    <h3>Four Engines</h3>
-                    <p>Voice, Code, Vision, Meeting engines integrate seamlessly. Add new engines without rewriting core logic.</p>
+                    <h3>Six+ Engines</h3>
+                    <p>Voice, Code, Vision, Meeting, Causal Reasoning, Multi-Node Mesh engines integrate seamlessly. Add new engines without rewriting core logic.</p>
                 </div>
             </div>
 
@@ -243,13 +243,13 @@
                     <td>Production backend + modern frontend</td>
                 </tr>
                 <tr>
-                    <td><strong>Context Kernel</strong></td>
-                    <td>Request routing, agent orchestration, metrics</td>
-                    <td>Central intelligence coordinator (&lt;1ms overhead)</td>
+                    <td><strong>Context Kernel v3</strong></td>
+                    <td>6-stage cognitive pipeline, agent orchestration, metrics</td>
+                    <td>Event-driven intelligence coordinator (&lt;1ms overhead)</td>
                 </tr>
                 <tr>
                     <td><strong>Engines</strong></td>
-                    <td>Voice, Code, Vision, Meeting, Compliance</td>
+                    <td>Voice, Code, Vision, Meeting, Causal, Mesh, LAN Security, Policy</td>
                     <td>Specialized subsystems for each modality</td>
                 </tr>
                 <tr>
@@ -261,10 +261,14 @@
 
             <h3>Engines</h3>
             <ul>
-                <li><strong>Voice Engine:</strong> STT (Whisper) → LLM (Llama 3.2) → TTS (XTTS) with phonetic correction (95% accuracy)</li>
-                <li><strong>Code Engine:</strong> Multi-language generation, review, refactor, test generation, debugging</li>
-                <li><strong>Vision Engine:</strong> Screen capture, OCR (Tesseract + EasyOCR), layout analysis, UI detection</li>
+                <li><strong>Voice Engine (VASE):</strong> STT (Whisper) → LLM (Llama 3.2) → TTS (XTTS) with voice cloning, 33 speakers, brand voices, phonetic correction</li>
+                <li><strong>Code Engine:</strong> Multi-language generation with safety rails, review, refactor, test generation, debugging</li>
+                <li><strong>Vision Engine:</strong> Screen capture, OCR (Tesseract + EasyOCR), layout analysis, UI detection, diagram recognition</li>
                 <li><strong>Meeting Engine:</strong> Recording, speaker diarization, transcription, summaries, action items, decisions</li>
+                <li><strong>Causal Reasoning Engine:</strong> Explainable AI with cause-effect inference, counterfactual analysis, intervention tracking</li>
+                <li><strong>Multi-Node Mesh Engine:</strong> Distributed task processing with auto-failover, role election, cross-node synchronization</li>
+                <li><strong>LAN Security Engine:</strong> Network monitoring, threat detection, connection management</li>
+                <li><strong>Policy Engine:</strong> Rule-based planning with violation tracking, pre-LLM compliance blocking</li>
                 <li><strong>Compliance Engine:</strong> PII detection/redaction, audit logs, DoD/HIPAA/GDPR modes, air-gap verification</li>
             </ul>
         </div>
@@ -345,19 +349,19 @@
 
             <div class="metric-grid">
                 <div class="metric">
-                    <div class="metric-number">v2.0</div>
-                    <div class="metric-label">Version (Beta)</div>
+                    <div class="metric-number">v2.2.2</div>
+                    <div class="metric-label">Production Version</div>
                 </div>
                 <div class="metric">
-                    <div class="metric-number">75/75</div>
+                    <div class="metric-number">379+</div>
                     <div class="metric-label">Tests Passing</div>
                 </div>
                 <div class="metric">
-                    <div class="metric-number">80%</div>
-                    <div class="metric-label">Test Coverage</div>
+                    <div class="metric-number">200+</div>
+                    <div class="metric-label">API Endpoints</div>
                 </div>
                 <div class="metric">
-                    <div class="metric-number">19,500+</div>
+                    <div class="metric-number">50,000+</div>
                     <div class="metric-label">Lines of Code</div>
                 </div>
             </div>
