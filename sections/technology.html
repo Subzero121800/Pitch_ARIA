@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Technology | ARIA + Powerhouse AI</title>
-  <meta name="description" content="Deep dive into ARIA's technical architecture - Context Kernel v2, 7-Agent System, Autonomous Recovery, and Pre-LLM Compliance.">
+  <meta name="description" content="Deep dive into ARIA's technical architecture - Context Kernel v3, 10+ Agent System, Causal Reasoning, Multi-Node Mesh, and Pre-LLM Compliance.">
   <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
@@ -44,39 +44,40 @@
       <div class="diagram-block">
 +-------------------------------------------------------------+
 |                     User Interface Layer                     |
-|           (Voice, Chat, Coding Panel, Vision)               |
+|      (Voice, Chat, Coding Panel, Vision, Operator Console)  |
 +-----------------------------+-------------------------------+
                               |
                               v
 +-------------------------------------------------------------+
-|                   Context Kernel v2                          |
-|  - Intent Classification    - Agent Routing                 |
-|  - Compliance Intercept     - &lt;1ms Overhead                 |
+|                   Context Kernel v3                          |
+|  6-Stage Pipeline: Ingest → Interpret → Plan →              |
+|  Execute → Reflect → Consolidate    (&lt;1ms Overhead)         |
++-----------------------------+-------------------------------+
+                              |
+    +--------+--------+-------+-------+--------+--------+
+    v        v        v       v       v        v        v
++------+ +------+ +------+ +-----+ +-----+ +------+ +------+
+|Decis-| |Plan- | |Heal- | | LLM | | STT | | TTS  | |Vision|
+| ion  | | ner  | | ing  | |     | |     | |      | |      |
++------+ +------+ +------+ +-----+ +-----+ +------+ +------+
+    |        |        |       |       |        |        |
+    +--------+--------+-------+-------+--------+--------+
+                              v
++-------------------------------------------------------------+
+|            Unified Memory Graph + Event Bus                  |
+|  Conversation | Semantic | Meeting | Vision | System | Code |
 +-----------------------------+-------------------------------+
                               |
           +-------------------+-------------------+
           v                   v                   v
-     +---------+         +---------+         +---------+
-     |Decision |         | Planner |         | Healing |
-     |  Agent  |         |  Agent  |         |  Agent  |
-     +----+----+         +----+----+         +----+----+
-          |                   |                   |
-          v                   v                   v
-     +---------+         +---------+         +---------+
-     |   LLM   |         |   STT   |         |   TTS   |
-     |  Agent  |         |  Agent  |         |  Agent  |
-     +----+----+         +----+----+         +----+----+
-          |                   |                   |
-          +-------------------+-------------------+
-                              v
-+-------------------------------------------------------------+
-|                   Unified Memory Bus                         |
-|   Conversation | Semantic | Meeting | Vision | System       |
-+-----------------------------+-------------------------------+
++----------------+   +----------------+   +----------------+
+|  Multi-Node    |   |    Causal      |   |  Policy +      |
+|  Mesh Network  |   |   Reasoning    |   | LAN Security   |
++----------------+   +----------------+   +----------------+
                               v
 +-------------------------------------------------------------+
 |                Model Layer (Local Inference)                 |
-|    Whisper (STT) | Llama 3.2 (LLM) | XTTS (TTS)            |
+|    Whisper (STT) | Llama 3.2 (LLM) | XTTS v2 (TTS)         |
 +-----------------------------+-------------------------------+
                               v
 +-------------------------------------------------------------+
@@ -155,7 +156,37 @@ User Request ---> Compliance Intercept ---> [PII Detected?]
         <li>Full audit trail with provenance</li>
       </ul>
 
-      <h2>Innovation 4: Multi-Model Hardware Abstraction</h2>
+      <h2>Innovation 4: Causal Reasoning Engine</h2>
+      <p><strong>What it does:</strong> Enables explainable AI through cause-effect inference, counterfactual analysis, and intervention tracking.</p>
+      <ul>
+        <li><strong>Causal Graphs</strong> - Build and traverse causal relationships between events and decisions</li>
+        <li><strong>Counterfactual Analysis</strong> - "What if" reasoning to explain alternative outcomes</li>
+        <li><strong>Intervention Tracking</strong> - Log and audit system interventions with causal chains</li>
+        <li><strong>Explainability</strong> - Generate human-readable explanations for AI decisions</li>
+      </ul>
+      <p><strong>Why it matters:</strong> Enterprise and government deployments require explainability. ARIA can trace exactly why any decision was made.</p>
+
+      <h2>Innovation 5: Multi-Node Mesh Network</h2>
+      <p><strong>What it does:</strong> Enables distributed task processing across multiple ARIA nodes with automatic load balancing and failover.</p>
+      <ul>
+        <li><strong>Node Discovery</strong> - Automatic discovery and registration of ARIA nodes on the network</li>
+        <li><strong>Task Distribution</strong> - Intelligent routing of tasks to available nodes based on capabilities and load</li>
+        <li><strong>Failover</strong> - Automatic task reassignment when nodes become unavailable</li>
+        <li><strong>Capability Matching</strong> - Route tasks to nodes with specific capabilities (vision, LLM, coding, etc.)</li>
+      </ul>
+      <p><strong>Why it matters:</strong> Scale ARIA horizontally without code changes. Add nodes to increase capacity.</p>
+
+      <h2>Innovation 6: VASE Voice Engine</h2>
+      <p><strong>Voice Analytics & Synthetics Engine:</strong></p>
+      <ul>
+        <li><strong>Voice Cloning</strong> - Train custom voices from audio samples</li>
+        <li><strong>33 Built-in Speakers</strong> - 15 female + 18 male voice options</li>
+        <li><strong>Brand Voices</strong> - Create and manage corporate voice profiles</li>
+        <li><strong>Phonetic Correction</strong> - Learn user-specific pronunciations and corrections</li>
+      </ul>
+      <p><strong>Why it matters:</strong> Consistent brand voice across all AI interactions without cloud dependency.</p>
+
+      <h2>Innovation 7: Multi-Model Hardware Abstraction</h2>
       <p><strong>Dual Compute Paths:</strong></p>
       <ul>
         <li><strong>Apple MLX</strong> - Unified memory, lower power (15-30W), M-series optimized</li>
