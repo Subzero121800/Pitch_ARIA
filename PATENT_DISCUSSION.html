@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ARIA + Powerhouse AI | Patent & IP Strategy</title>
+  <meta name="description" content="From working system to defensible IP portfolio. Local AI OS with novel architectures for causal reasoning, self-healing, and multi-agent coordination.">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <!-- Password Protection Overlay -->
+  <div id="password-overlay" style="position:fixed;top:0;left:0;right:0;bottom:0;background:linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);z-index:9999;display:flex;align-items:center;justify-content:center;flex-direction:column;">
+    <div style="background:#1f2937;padding:40px;border-radius:12px;text-align:center;box-shadow:0 4px 20px rgba(0,0,0,0.5);max-width:400px;width:90%;">
+      <h2 style="color:#f3f4f6;margin:0 0 10px 0;font-size:1.5rem;">Confidential Document</h2>
+      <p style="color:#9ca3af;margin:0 0 20px 0;font-size:0.9rem;">This page contains proprietary IP information. Please enter the access code.</p>
+      <input type="password" id="password-input" placeholder="Enter access code" style="width:100%;padding:12px;border:2px solid #374151;border-radius:8px;background:#111827;color:#f3f4f6;font-size:1rem;margin-bottom:15px;box-sizing:border-box;" onkeypress="if(event.key==='Enter')checkPassword()">
+      <button onclick="checkPassword()" style="width:100%;padding:12px;background:linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%);border:none;border-radius:8px;color:white;font-weight:600;cursor:pointer;font-size:1rem;">Access Document</button>
+      <p id="password-error" style="color:#ef4444;margin:15px 0 0 0;font-size:0.85rem;display:none;">Incorrect access code</p>
+    </div>
+  </div>
+  <script>
+    // Password protection with hashed comparison (not visible in source inspection)
+    // SHA-256 hash of "ariapatent2025?$" - to change password, update the hash below
+    const HASH = '5c7f517ea59a541460aefc6bb2756735f67a6c93ca155023b0a043f165f7fd92';
+
+    async function sha256(str) {
+      const buffer = new TextEncoder().encode(str);
+      const hashBuffer = await crypto.subtle.digest('SHA-256', buffer);
+      return Array.from(new Uint8Array(hashBuffer)).map(b => b.toString(16).padStart(2, '0')).join('');
+    }
+
+    async function checkPassword() {
+      const input = document.getElementById('password-input').value;
+      const inputHash = await sha256(input);
+      if (inputHash === HASH) {
+        document.getElementById('password-overlay').style.display = 'none';
+        sessionStorage.setItem('patent_access', 'granted');
+      } else {
+        document.getElementById('password-error').style.display = 'block';
+        document.getElementById('password-input').style.borderColor = '#ef4444';
+      }
+    }
+
+    // Check if already authenticated in this session
+    if (sessionStorage.getItem('patent_access') === 'granted') {
+      document.getElementById('password-overlay').style.display = 'none';
+    }
+  </script>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="navbar-container">
+      <a href="index.html" class="navbar-brand">
+        <span>ARIA</span>
+      </a>
+      <button class="navbar-toggle" onclick="toggleNav()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="navbar-nav" id="navMenu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="sections/overview.html">Overview</a></li>
+        <li><a href="sections/technology.html">Technology</a></li>
+        <li><a href="PATENT_DISCUSSION.html" class="active">Patent & IP</a></li>
+        <li><a href="sections/contact.html" class="navbar-cta">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container">
+        <h1 class="hero-title">Patent & IP Strategy</h1>
+        <p class="hero-subtitle">From working system to defensible IP portfolio. ARIA is a production-ready local AI OS with documented novel architectures ready for patent review.</p>
+        <div class="hero-cta">
+          <a href="#invention" class="btn btn-primary">Core Inventions</a>
+          <a href="#evidence" class="btn btn-secondary">System Evidence</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Context Section -->
+    <section id="context" class="section">
+      <div class="container">
+        <h2 class="section-title">Context</h2>
+        <p class="section-subtitle">What ARIA is, where it runs, and why local-first agentic OS matters.</p>
+
+        <div class="cards-grid">
+          <div class="card">
+            <div class="card-icon">🖥️</div>
+            <h3 class="card-title">Local-First Architecture</h3>
+            <p class="card-text">ARIA runs 100% offline on a single machine (Mac M-series, Windows, Linux). No cloud dependencies, no API calls, no data exfiltration. All inference happens locally via MLX/GGUF.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon">🤖</div>
+            <h3 class="card-title">Multi-Agent OS</h3>
+            <p class="card-text">10+ coordinated agents (Decision, Planner, Learner, Healer, LLM, STT, TTS, Vision, Coding, Meeting) orchestrated by a central Context Kernel with unified memory.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon">🔒</div>
+            <h3 class="card-title">Compliance-Aware</h3>
+            <p class="card-text">Built-in compliance modes (Standard, DoD, HIPAA) with PII detection, audit logging, and policy-constrained planning. Designed for regulated environments.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Core Invention Section -->
+    <section id="invention" class="section section-alt">
+      <div class="container">
+        <h2 class="section-title">Core Inventions</h2>
+        <p class="section-subtitle">Novel architectures that differentiate ARIA from existing AI systems.</p>
+
+        <div class="cards-grid">
+          <div class="card">
+            <div class="card-icon">🔮</div>
+            <h3 class="card-title">Causal Reasoning Engine</h3>
+            <p class="card-text">Provides explainability for planner and learning decisions through causal inference. Enables "what if" analysis tied to the OS-level kernel. Answers not just "why" but "what else could have happened."</p>
+          </div>
+          <div class="card">
+            <div class="card-icon">🎯</div>
+            <h3 class="card-title">Noise-Aware Learning Layer</h3>
+            <p class="card-text">Intelligent filtering prevents training on duplicate or transient events. Distinguishes recurring behaviors from one-off anomalies. Enables continuous self-learning from system activity without data pollution.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon">🔐</div>
+            <h3 class="card-title">LAN Security + Trust Mesh</h3>
+            <p class="card-text">LAN security layer for trusted local agents. Multi-node mesh topology with trust levels and capability negotiation. Zero-config discovery with cryptographic handshakes.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon">♻️</div>
+            <h3 class="card-title">Three-Tier Restart Architecture</h3>
+            <p class="card-text">Self-healing autonomy: Soft restart (in-process recovery), Service restart (per-agent recovery), Hard restart (full system reboot). Automatic escalation based on failure severity.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon">📋</div>
+            <h3 class="card-title">Policy-Constrained Planner</h3>
+            <p class="card-text">Planner integrates compliance modes directly. Plans are validated against policy before execution. Automatic plan rejection if compliance boundaries are violated.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon">🧠</div>
+            <h3 class="card-title">Context Kernel v3</h3>
+            <p class="card-text">Multi-stage cognitive pipeline for event-driven AI orchestration. Low-latency routing across coordinated agents with unified memory architecture.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Claim Themes Section -->
+    <section id="claims" class="section">
+      <div class="container">
+        <h2 class="section-title">Claim Themes (Non-Confidential)</h2>
+        <p class="section-subtitle">High-level, non-enabling bullets that capture what is novel without giving away full claims.</p>
+
+        <div class="cards-grid">
+          <div class="card">
+            <h3 class="card-title">1. Causal Reasoning in Agentic Systems</h3>
+            <ul class="card-list">
+              <li>Explainability methods for multi-agent AI decision-making</li>
+              <li>Causal inference integrated with local AI orchestration</li>
+              <li>Integration of reasoning with compliance-aware planning</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3 class="card-title">2. Noise-Aware Machine Learning</h3>
+            <ul class="card-list">
+              <li>Duplicate detection in continuous learning systems</li>
+              <li>Transient noise filtering in self-learning AI</li>
+              <li>Behavioral classification in real-time learning systems</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3 class="card-title">3. Self-Healing Autonomous Systems</h3>
+            <ul class="card-list">
+              <li>Three-tier restart architecture with automatic escalation</li>
+              <li>Per-agent recovery without full system interruption</li>
+              <li>Health monitoring with predictive failure detection</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3 class="card-title">4. Secure Multi-Node AI Mesh</h3>
+            <ul class="card-list">
+              <li>Trust-level negotiation between local AI agents</li>
+              <li>Zero-config discovery with cryptographic verification</li>
+              <li>Capability sharing across air-gapped networks</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3 class="card-title">5. Compliance-Integrated Planning</h3>
+            <ul class="card-list">
+              <li>Pre-execution policy validation in AI planners</li>
+              <li>Dynamic compliance mode switching (Standard/DoD/HIPAA)</li>
+              <li>Audit trail generation tied to planning decisions</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3 class="card-title">6. Event-Driven Cognitive Architecture</h3>
+            <ul class="card-list">
+              <li>Multi-stage cognitive pipeline for AI orchestration</li>
+              <li>Low-latency event routing in local AI systems</li>
+              <li>Unified memory architecture across coordinated agents</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Prior Art Contrast -->
+    <section id="prior-art" class="section section-alt">
+      <div class="container">
+        <h2 class="section-title">Prior Art Contrast</h2>
+        <p class="section-subtitle">How ARIA differs from existing solutions.</p>
+
+        <div class="cards-grid">
+          <div class="card">
+            <h3 class="card-title">vs. Cloud AI (GPT, Claude, etc.)</h3>
+            <p class="card-text">ARIA is 100% local. No API calls, no data transmission, no cloud dependencies. Cloud AI requires internet; ARIA works in denied/air-gapped environments.</p>
+          </div>
+          <div class="card">
+            <h3 class="card-title">vs. Local LLMs (Ollama, LM Studio)</h3>
+            <p class="card-text">These are single-model inference tools. ARIA is a complete OS with 10+ coordinated agents, unified memory, compliance enforcement, and self-healing.</p>
+          </div>
+          <div class="card">
+            <h3 class="card-title">vs. Agent Frameworks (LangChain, AutoGPT)</h3>
+            <p class="card-text">Frameworks require cloud LLMs. ARIA is fully local with a production-grade kernel, not a chain of prompts. Built for reliability, not demos.</p>
+          </div>
+          <div class="card">
+            <h3 class="card-title">vs. Embedded AI (TensorRT, CoreML)</h3>
+            <p class="card-text">Embedded AI is for single-model inference. ARIA orchestrates multiple models with reasoning, planning, learning, and compliance at the OS level.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Implementation Evidence -->
+    <section id="evidence" class="section">
+      <div class="container">
+        <h2 class="section-title">Implementation Evidence</h2>
+        <p class="section-subtitle">Working system screenshots demonstrating production-ready capabilities.</p>
+
+        <div class="evidence-grid">
+          <figure class="evidence-item" onclick="openLightbox('assets/images/dashboard-main.png')">
+            <img src="assets/images/dashboard-main.png" alt="ARIA Dashboard">
+            <figcaption>
+              <strong>Main Dashboard</strong>
+              <p>Core dashboard showing real-time agent status, system health, and unified control panel.</p>
+            </figcaption>
+          </figure>
+
+          <figure class="evidence-item" onclick="openLightbox('assets/images/health-console.png')">
+            <img src="assets/images/health-console.png" alt="Health Console">
+            <figcaption>
+              <strong>Health Console</strong>
+              <p>Real-time health monitoring with live latency measurements, error tracking, and recovery status for all subsystems.</p>
+            </figcaption>
+          </figure>
+
+          <figure class="evidence-item" onclick="openLightbox('assets/images/causal-viewer.png')">
+            <img src="assets/images/causal-viewer.png" alt="Causal Reasoning">
+            <figcaption>
+              <strong>Causal Reasoning Engine</strong>
+              <p>Counterfactual generation and causal inference tied to planner decisions.</p>
+            </figcaption>
+          </figure>
+
+          <figure class="evidence-item" onclick="openLightbox('assets/images/policy-planner.png')">
+            <img src="assets/images/policy-planner.png" alt="Policy Planner">
+            <figcaption>
+              <strong>Policy-Constrained Planner</strong>
+              <p>Compliance-aware planning with pre-execution validation and audit trail.</p>
+            </figcaption>
+          </figure>
+
+          <figure class="evidence-item" onclick="openLightbox('assets/images/lan-security.png')">
+            <img src="assets/images/lan-security.png" alt="LAN Security">
+            <figcaption>
+              <strong>LAN Security Layer</strong>
+              <p>Trust verification and secure communication for local AI agents.</p>
+            </figcaption>
+          </figure>
+
+          <figure class="evidence-item" onclick="openLightbox('assets/images/mesh-network.png')">
+            <img src="assets/images/mesh-network.png" alt="Mesh Network">
+            <figcaption>
+              <strong>Multi-Node Mesh</strong>
+              <p>Trust-level mesh topology for distributed local AI coordination.</p>
+            </figcaption>
+          </figure>
+
+          <figure class="evidence-item" onclick="openLightbox('assets/images/restart-manager.png')">
+            <img src="assets/images/restart-manager.png" alt="Restart Manager">
+            <figcaption>
+              <strong>Three-Tier Restart Manager</strong>
+              <p>Self-healing architecture with soft, service, and hard restart capabilities.</p>
+            </figcaption>
+          </figure>
+
+          <figure class="evidence-item" onclick="openLightbox('assets/images/converse-chat.png')">
+            <img src="assets/images/converse-chat.png" alt="Converse Chat">
+            <figcaption>
+              <strong>Voice Pipeline</strong>
+              <p>End-to-end STT to LLM to TTS with 245ms latency, fully local.</p>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+      <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+      <img id="lightbox-img" src="" alt="Full size screenshot">
+    </div>
+
+    <!-- What I'm Looking For -->
+    <section id="partners" class="section section-alt">
+      <div class="container">
+        <h2 class="section-title">What I'm Looking For</h2>
+        <p class="section-subtitle">Partnership opportunities to build defensible IP around this working technology.</p>
+
+        <div class="cards-grid">
+          <div class="card">
+            <div class="card-icon">⚖️</div>
+            <h3 class="card-title">Patent Counsel</h3>
+            <p class="card-text">Experienced IP attorneys familiar with software patents, AI/ML systems, and edge computing. Looking for guidance on claim strategy and prior art analysis.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon">🤝</div>
+            <h3 class="card-title">Co-Inventor Discussions</h3>
+            <p class="card-text">Technical collaborators with expertise in causal inference, distributed systems, or autonomous AI who may contribute to claim refinement.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon">🚀</div>
+            <h3 class="card-title">Strategic Partners</h3>
+            <p class="card-text">Defense contractors, enterprise software companies, or edge computing providers interested in licensing or joint development of patented technology.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon">💼</div>
+            <h3 class="card-title">Commercialization Partners</h3>
+            <p class="card-text">Organizations with distribution channels in defense, healthcare, or enterprise markets who can help bring patented technology to market.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+      <div class="container">
+        <h2 class="section-title">Contact</h2>
+        <p class="section-subtitle">Ready to discuss patent strategy and partnership opportunities.</p>
+
+        <div class="contact-info">
+          <p><strong>Joseph McGinty Jr.</strong></p>
+          <p>Founder, ResilientMind AI / Powerhouse AI</p>
+          <p>Email: <a href="mailto:joseph@resilientmindai.com">joseph@resilientmindai.com</a></p>
+          <p>Phone: <a href="tel:+17242481750">724-248-1750</a></p>
+        </div>
+
+        <div class="hero-cta" style="margin-top: 2rem;">
+          <a href="mailto:joseph@resilientmindai.com?subject=ARIA%20Patent%20Discussion" class="btn btn-primary">Email Me</a>
+          <a href="index.html" class="btn btn-secondary">Back to Main Site</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2024 ResilientMind AI / Powerhouse AI. All rights reserved.</p>
+      <p>ARIA is a trademark of ResilientMind AI LLC.</p>
+    </div>
+  </footer>
+
+  <script>
+    function toggleNav() {
+      document.getElementById('navMenu').classList.toggle('active');
+    }
+
+    function openLightbox(src) {
+      document.getElementById('lightbox-img').src = src;
+      document.getElementById('lightbox').classList.add('active');
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('active');
+    }
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeLightbox();
+    });
+  </script>
+</body>
+</html>
