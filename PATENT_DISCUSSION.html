@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ARIA + Powerhouse AI | Patent & IP Strategy</title>
   <meta name="description" content="From working system to defensible IP portfolio. Local AI OS with novel architectures for causal reasoning, self-healing, and multi-agent coordination.">
+  <!-- Version: V2 - Patent Systems Update - December 2024 -->
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
@@ -19,8 +20,6 @@
     </div>
   </div>
   <script>
-    // Password protection with hashed comparison (not visible in source inspection)
-    // SHA-256 hash of "ariapatent2025?$" - to change password, update the hash below
     const HASH = '5c7f517ea59a541460aefc6bb2756735f67a6c93ca155023b0a043f165f7fd92';
 
     async function sha256(str) {
@@ -313,6 +312,89 @@
       <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
       <img id="lightbox-img" src="" alt="Full size screenshot">
     </div>
+
+    <!-- Patentable Systems Inside ARIA + Powerhouse AI -->
+    <section id="patent-systems" class="section">
+      <div class="container">
+        <h2 class="section-title">Patentable Systems Inside ARIA + Powerhouse AI</h2>
+        <p class="section-subtitle">Each of the following systems has been fully implemented with working code. Combined, they form a unique, defensible local AI OS architecture.</p>
+
+        <div class="cards-grid">
+          <!-- System 1: Context Kernel + Recovery Stack -->
+          <div class="card">
+            <div class="card-icon">🧠</div>
+            <h3 class="card-title">1. Context Kernel + Recovery Stack</h3>
+            <p class="card-text"><strong>What It Does:</strong> The Context Kernel v3 is the orchestration layer that routes events through a multi-stage cognitive pipeline. It coordinates 10+ agents (LLM, STT, TTS, Vision, Planner, Healer, Learner, etc.) with a unified memory architecture and low-latency event routing.</p>
+            <ul class="card-list">
+              <li><strong>Three-Tier Restart Architecture:</strong> Soft restart (in-process recovery), Service restart (per-agent recovery), Hard restart (full system reboot). Automatic escalation based on failure severity.</li>
+              <li><strong>State Recovery:</strong> Checkpoint-based state recovery with rollback capability. Ensures cognitive continuity across restarts.</li>
+              <li><strong>Event-Driven Pipeline:</strong> Cognitive events flow through recognition → reasoning → planning → action stages with parallel agent execution.</li>
+            </ul>
+            <p class="card-text"><em><strong>Patentable:</strong> A self-healing cognitive architecture with three-tier restart escalation and checkpoint-based state recovery for continuous AI operation.</em></p>
+          </div>
+
+          <!-- System 2: Unified Memory Graph + TaskGraph + Causal Engine -->
+          <div class="card">
+            <div class="card-icon">🔮</div>
+            <h3 class="card-title">2. Unified Memory Graph + TaskGraph + Causal Engine</h3>
+            <p class="card-text"><strong>What It Does:</strong> A unified memory architecture that stores observations, learnings, and plans in a graph structure. The TaskGraph organizes planned actions with dependencies. The Causal Engine provides explainability through causal inference and counterfactual generation.</p>
+            <ul class="card-list">
+              <li><strong>Memory Graph:</strong> Entities, relationships, and temporal context stored in a queryable graph. Supports episodic, semantic, and procedural memory types.</li>
+              <li><strong>TaskGraph:</strong> Directed acyclic graph for task planning with dependency tracking, priority scheduling, and policy-constrained execution.</li>
+              <li><strong>Causal Reasoning:</strong> Answers "why did X happen?" and "what if Y instead?" through causal inference tied to planner decisions.</li>
+            </ul>
+            <p class="card-text"><em><strong>Patentable:</strong> A unified memory graph with causal inference for explainable multi-agent AI planning and decision-making.</em></p>
+          </div>
+
+          <!-- System 3: Governed Mesh Network -->
+          <div class="card">
+            <div class="card-icon">🔐</div>
+            <h3 class="card-title">3. Governed Mesh Network for AI Services</h3>
+            <p class="card-text"><strong>What It Does:</strong> A secure multi-node mesh topology that enables distributed AI coordination across LAN or air-gapped networks. Nodes discover each other, negotiate trust levels, and share capabilities without cloud dependencies.</p>
+            <ul class="card-list">
+              <li><strong>Zero-Config Discovery:</strong> mDNS-based service discovery with cryptographic handshakes. No manual configuration required.</li>
+              <li><strong>Trust Mesh:</strong> Configurable trust levels (untrusted, basic, elevated, full) with capability-based access control. Nodes can delegate tasks based on trust.</li>
+              <li><strong>LAN Security Layer:</strong> Mutual TLS (mTLS) with client certificates for operator identification. Secure inter-node communication without internet.</li>
+              <li><strong>Failover:</strong> Automatic failover to healthy nodes when a service becomes unavailable. Priority-based routing ensures optimal node selection.</li>
+            </ul>
+            <p class="card-text"><em><strong>Patentable:</strong> A governed mesh network for distributed AI services with trust-level negotiation and automatic failover.</em></p>
+          </div>
+
+          <!-- System 4: Heartbeat, Predictive Failure, and Operator Console -->
+          <div class="card">
+            <div class="card-icon">💓</div>
+            <h3 class="card-title">4. Heartbeat, Predictive Failure, and Operator Console</h3>
+            <p class="card-text"><strong>What It Does:</strong> A signed heartbeat system that broadcasts health metrics for each service. Predictive failure detection analyzes latency, error rates, and response gaps to warn before failures occur. The Operator Console provides real-time visibility and control.</p>
+            <ul class="card-list">
+              <li><strong>Signed Heartbeats:</strong> HMAC-signed payloads with per-service metrics (latency P50/P95/P99, error rate, status). Prevents spoofing and ensures integrity.</li>
+              <li><strong>Predictive Alerts:</strong> Detects degradation patterns (high latency, increasing errors, response gaps) before service failure. Triggers proactive recovery.</li>
+              <li><strong>Operator Identity:</strong> mTLS client certificates identify the operator. Falls back to environment-based identity in development mode.</li>
+              <li><strong>Mesh-Aware UI:</strong> Node switcher, mesh status indicator, and predictive alert banners in the frontend. Operators can manually failover to healthy nodes.</li>
+            </ul>
+            <p class="card-text"><em><strong>Patentable:</strong> A signed heartbeat system with predictive failure detection and operator console for autonomous AI infrastructure monitoring.</em></p>
+          </div>
+
+          <!-- System 5: Powerhouse AI Unit -->
+          <div class="card">
+            <div class="card-icon">⚡</div>
+            <h3 class="card-title">5. Powerhouse AI Unit</h3>
+            <p class="card-text"><strong>What It Does:</strong> The Powerhouse AI Unit is the physical embodiment of ARIA—a custom-built, ruggedized computing unit designed for enterprise, defense, and austere environments. It runs ARIA 100% offline with no cloud dependencies.</p>
+            <ul class="card-list">
+              <li><strong>Hardware Design:</strong> Custom enclosure with active cooling, EMP shielding options, and MIL-SPEC ruggedization. Multiple GPU configurations (Mac M-series, NVIDIA, AMD).</li>
+              <li><strong>Deployment Modes:</strong> Desktop unit, rack-mountable server, portable field unit, vehicle-mounted tactical unit.</li>
+              <li><strong>Air-Gap Capable:</strong> Operates in fully disconnected environments. Mesh networking enables coordination between multiple units without internet.</li>
+              <li><strong>Integrated ARIA OS:</strong> Pre-installed with ARIA Context Kernel, all agents, and compliance modes. Boot-to-ready in under 60 seconds.</li>
+            </ul>
+            <p class="card-text"><em><strong>Patentable:</strong> A ruggedized edge AI computing unit with integrated cognitive OS, mesh networking, and air-gap operation for defense and enterprise deployments.</em></p>
+          </div>
+        </div>
+
+        <div class="highlight-box" style="margin-top: 2rem; padding: 1.5rem; background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(99, 102, 241, 0.1) 100%); border-radius: 12px; border: 1px solid rgba(139, 92, 246, 0.3);">
+          <h3 style="margin: 0 0 1rem 0; color: #f3f4f6;">Summary</h3>
+          <p style="margin: 0; color: #d1d5db; line-height: 1.7;">These five systems work together to form a complete, defensible local AI OS. Each system has novel elements that distinguish it from prior art. Combined, they represent a unique architecture for autonomous, self-healing, explainable AI that operates entirely on-device with no cloud dependencies.</p>
+        </div>
+      </div>
+    </section>
 
     <!-- What I'm Looking For -->
     <section id="partners" class="section section-alt">
