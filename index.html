@@ -45,11 +45,17 @@
         </div>
 
         <!-- Hero Dashboard Screenshot -->
-        <div class="hero-screenshot">
+        <div class="hero-screenshot" onclick="openLightbox('assets/images/dashboard-main.png')">
           <img src="assets/images/dashboard-main.png" alt="ARIA Dashboard - Main system overview showing real-time agent status and system health">
         </div>
       </div>
     </section>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+      <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+      <img id="lightbox-img" src="" alt="Full size screenshot">
+    </div>
 
     <!-- Stats Section -->
     <section class="section">
@@ -304,6 +310,26 @@
     function toggleNav() {
       document.getElementById('navMenu').classList.toggle('active');
     }
+
+    function openLightbox(imgSrc) {
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightbox-img');
+      lightboxImg.src = imgSrc;
+      lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      const lightbox = document.getElementById('lightbox');
+      lightbox.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        closeLightbox();
+      }
+    });
   </script>
 </body>
 </html>
