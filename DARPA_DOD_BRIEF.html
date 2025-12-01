@@ -1,0 +1,1074 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARIA - DARPA DoD Technical Brief</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #1a1f2e 0%, #0f1419 100%);
+            color: #e4e4e7;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+        .header {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 16px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+        h1 {
+            font-size: 3.5rem;
+            background: linear-gradient(135deg, #10b981 0%, #3b82f6 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+        .subtitle {
+            font-size: 1.8rem;
+            color: #94a3b8;
+            margin-bottom: 2rem;
+        }
+        .meta {
+            font-size: 1rem;
+            color: #64748b;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .classification {
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            background: rgba(16, 185, 129, 0.15);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            border-radius: 20px;
+            font-weight: 600;
+            color: #10b981;
+            margin-bottom: 1rem;
+        }
+        .section {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        h2 {
+            font-size: 2.5rem;
+            color: #3b82f6;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+        h3 {
+            font-size: 1.8rem;
+            color: #60a5fa;
+            margin: 2rem 0 1rem 0;
+            font-weight: 600;
+        }
+        h4 {
+            font-size: 1.3rem;
+            color: #94a3b8;
+            margin: 1.5rem 0 0.75rem 0;
+            font-weight: 600;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border-left: 4px solid #3b82f6;
+        }
+        .card h3 { color: #60a5fa; margin-top: 0; font-size: 1.4rem; }
+        .card h4 { color: #94a3b8; margin-top: 0; font-size: 1.2rem; }
+        .highlight {
+            background: linear-gradient(135deg, #10b981 0%, #3b82f6 100%);
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+            color: #0f1419;
+        }
+        .highlight h3 { color: #0f1419; }
+        .highlight p, .highlight li { color: rgba(15, 20, 25, 0.95); }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        th {
+            background: rgba(59, 130, 246, 0.2);
+            color: #60a5fa;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+        }
+        td {
+            padding: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        tr:hover { background: rgba(255, 255, 255, 0.02); }
+        ul, ol {
+            margin: 1rem 0 1rem 2rem;
+            line-height: 2;
+        }
+        .metric {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(59, 130, 246, 0.1);
+            border-radius: 12px;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+        }
+        .metric-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #3b82f6;
+            margin-bottom: 0.5rem;
+        }
+        .metric-label {
+            font-size: 1rem;
+            color: #94a3b8;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .trl-badge {
+            display: inline-block;
+            padding: 0.4rem 1rem;
+            background: rgba(16, 185, 129, 0.15);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: #10b981;
+            font-weight: 600;
+        }
+        code {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-family: 'Monaco', 'Courier New', monospace;
+            font-size: 0.9em;
+            color: #60a5fa;
+        }
+        pre {
+            background: rgba(0, 0, 0, 0.4);
+            padding: 1.5rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            font-family: 'Monaco', 'Courier New', monospace;
+            font-size: 0.9rem;
+            line-height: 1.8;
+        }
+        .warning {
+            background: rgba(251, 146, 60, 0.1);
+            border-left: 4px solid #fb923c;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+        .success {
+            background: rgba(16, 185, 129, 0.1);
+            border-left: 4px solid #10b981;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+        .fouo {
+            background: rgba(239, 68, 68, 0.1);
+            border: 2px solid rgba(239, 68, 68, 0.3);
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 3rem 0;
+            text-align: center;
+        }
+        .fouo-badge {
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            background: rgba(239, 68, 68, 0.2);
+            border: 1px solid rgba(239, 68, 68, 0.4);
+            border-radius: 20px;
+            font-weight: 700;
+            color: #ef4444;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <!-- Header -->
+        <div class="header">
+            <div class="classification">UNCLASSIFIED</div>
+            <h1>ARIA v2.2.2 + Powerhouse AI</h1>
+            <p class="subtitle">Local Autonomous Intelligence for Edge and Denied Environments</p>
+            <p style="font-size: 1.3rem; color: #94a3b8; margin-top: 1rem;">Technical Brief for DARPA and Department of Defense Programs</p>
+
+            <div class="meta">
+                <strong>Version:</strong> 2.2.2<br>
+                <strong>Distribution:</strong> Approved for public release<br>
+                <strong>Date:</strong> November 27, 2025<br>
+                <strong>POC:</strong> Joseph C. McGinty Jr. | joseph@resilientmindai.com | 724-248-1750<br>
+                <strong>Location:</strong> Scottdale, Pennsylvania
+            </div>
+        </div>
+
+        <!-- Executive Summary -->
+        <div class="section">
+            <h2>Executive Summary</h2>
+
+            <div class="highlight">
+                <p style="font-size: 1.2rem; font-weight: 600; margin-bottom: 1rem;">
+                    ARIA v2.2.2 turns a single Apple Silicon machine into a self-auditing, multi-agent intelligence OS. It keeps state, manages its own task graphs, enforces compliance rules on models and network access, and records its own health and decisions over time.
+                </p>
+                <p style="font-size: 1rem; margin-top: 0.5rem;">
+                    Designed for autonomous operation in edge, denied, degraded, intermittent, and limited-bandwidth (DDIL) environments with offline-first architecture and compliance-aware model loading.
+                </p>
+                <p style="font-size: 1rem; margin-top: 0.5rem;">
+                    Codebase Evidence: 50,000+ lines | 200+ commits | 379+ tests (100% passing) | 200+ API endpoints | 99% audit health
+                </p>
+            </div>
+
+            <div class="grid">
+                <div class="card">
+                    <h4>Core Capability</h4>
+                    <p>Voice and code intelligence with zero cloud dependency, purpose-built for classified networks, forward-deployed units, and mission-critical operations.</p>
+                </div>
+
+                <div class="card">
+                    <h4>Readiness Level</h4>
+                    <p><span class="trl-badge">TRL 7-8</span> Production system with implemented autonomous features</p>
+                </div>
+
+                <div class="card">
+                    <h4>Performance</h4>
+                    <p>245ms conversation latency, 7GB model footprint, 100% offline operation</p>
+                </div>
+            </div>
+
+            <h3>Key Technical Features (Production v2.2.2)</h3>
+            <ul>
+                <li><strong>Offline-First:</strong> Apple Silicon optimized, zero cloud dependency</li>
+                <li><strong>Multi-Agent Architecture:</strong> 10+ coordinated agents with autonomous recovery</li>
+                <li><strong>Self-Auditing:</strong> Internal task graphs, health monitoring, decision tracking</li>
+                <li><strong>Compliance-Aware Model Loading:</strong> Standard, Strict, DoD, HIPAA, GDPR modes</li>
+                <li><strong>Coordination Layer:</strong> Sub-millisecond agent orchestration</li>
+                <li>Context Kernel v3 for request orchestration (6-stage pipeline, &lt;1ms overhead)</li>
+                <li>Self-Audit Engine - 99% health score, scans 50k+ LOC across 149 files</li>
+                <li>ResilientMind Branding - unified display names for all AI models</li>
+                <li>VASE Engine - Voice Analytics & Synthetics Engine with autonomous training</li>
+                <li>Self-improvement engine - user feedback drives confidence adjustment</li>
+                <li>Autonomous recovery loop - MONITORING → ERROR_DETECTED → DIAGNOSING → FIXING → VERIFYING</li>
+                <li>pyannote speaker diarization - multi-speaker meeting transcription</li>
+                <li>Vision Engine - screen capture, OCR, layout analysis, entity extraction</li>
+                <li>Dual compute - Apple MLX + NVIDIA CUDA support</li>
+            </ul>
+
+            <h3>Potential Applications</h3>
+            <p style="color: #94a3b8;">
+                Intelligence analysis, tactical planning, code development on classified networks, mission documentation, real-time transcription, meeting summaries, screen analysis for situational awareness
+            </p>
+        </div>
+
+        <!-- Problem Statement -->
+        <div class="section">
+            <h2>Problem Statement</h2>
+            <p class="subtitle">Current gaps in DoD AI capabilities</p>
+
+            <div class="grid">
+                <div class="card">
+                    <h4>1. Cloud AI Prohibited on Classified Networks</h4>
+                    <ul>
+                        <li>NIPRNET and SIPRNET cannot connect to commercial cloud AI</li>
+                        <li>Sending classified data to OpenAI, Anthropic, Google violates security protocols</li>
+                        <li>Defense contractors face same restrictions during classified work</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>2. Existing Local AI Lacks Autonomy</h4>
+                    <ul>
+                        <li>Simple chatbots without reasoning capability</li>
+                        <li>Single-purpose tools (transcription OR code, not unified)</li>
+                        <li>No self-healing or graceful degradation</li>
+                        <li>Limited offline capability</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>3. Edge and DDIL Environments Unsupported</h4>
+                    <ul>
+                        <li>Forward-deployed units have intermittent or zero connectivity</li>
+                        <li>Ships, aircraft, submarines, remote FOBs need AI without backhaul</li>
+                        <li>Current solutions fail when connectivity lost</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>4. No Mission-Ready Multi-Modal Intelligence</h4>
+                    <ul>
+                        <li>Operators need voice (hands-free), code (automation), vision (situational awareness)</li>
+                        <li>Switching between tools reduces operational tempo</li>
+                        <li>Integration overhead creates failure points</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>5. Resource Constraints on Tactical Hardware</h4>
+                    <ul>
+                        <li>Deployed hardware (laptops, edge servers) has limited GPU/RAM</li>
+                        <li>Current AI assumes datacenter resources</li>
+                        <li>Need efficient inference on constrained devices</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- DARPA $15M Prototyping Program -->
+        <div class="section" style="border: 2px solid #10b981;">
+            <h2 style="color: #10b981;">💰 DARPA Prototyping Opportunity - $15M Program</h2>
+
+            <div class="highlight">
+                <h3 style="font-size: 2rem;">Program Concept</h3>
+                <p style="font-size: 1.3rem;">"Local-First Autonomous Intelligence for Edge and Denied Environments"</p>
+                <p style="margin-top: 1rem; font-size: 1.1rem;">
+                    <strong>Scope:</strong> 24-month prototyping effort to mature ARIA from TRL 6-7 to TRL 8-9<br>
+                    <strong>Proposed Budget:</strong> $15M over 2 years
+                </p>
+            </div>
+
+            <h3>Phase 1: Enhanced Prototyping (Months 1-12, $7M)</h3>
+            <div class="card" style="border-left-color: #10b981;">
+                <h4>Technical Objectives</h4>
+                <ul>
+                    <li>Multi-model registry with specialized models (code, vision, meeting)</li>
+                    <li>Vision Engine with real-time screen/video understanding</li>
+                    <li>Meeting Engine with speaker diarization and multi-language translation</li>
+                    <li>Auto-Update Engine with formal verification</li>
+                    <li>Full compliance mode (IL2-IL5 ready)</li>
+                    <li>Hardened security posture (penetration tested, accredited)</li>
+                </ul>
+
+                <h4 style="margin-top: 2rem;">Deliverables</h4>
+                <ul>
+                    <li>ARIA v2.0 with all modules operational</li>
+                    <li>TRL 7-8 system demonstrated in operational environment</li>
+                    <li>Security assessment and IL2 accreditation</li>
+                    <li>3-5 operational pilots (50-100 users each)</li>
+                    <li>Performance validation report</li>
+                </ul>
+
+                <h4 style="margin-top: 2rem;">Funding Breakdown</h4>
+                <table>
+                    <tr>
+                        <th>Category</th>
+                        <th>Amount</th>
+                    </tr>
+                    <tr>
+                        <td>Engineering (5 FTE)</td>
+                        <td>$3M</td>
+                    </tr>
+                    <tr>
+                        <td>Hardware and infrastructure</td>
+                        <td>$1.5M</td>
+                    </tr>
+                    <tr>
+                        <td>Security accreditation and testing</td>
+                        <td>$1M</td>
+                    </tr>
+                    <tr>
+                        <td>Operational pilots and user testing</td>
+                        <td>$1M</td>
+                    </tr>
+                    <tr>
+                        <td>Program management and reporting</td>
+                        <td>$0.5M</td>
+                    </tr>
+                </table>
+            </div>
+
+            <h3>Phase 2: Transition to Operations (Months 13-24, $8M)</h3>
+            <div class="card" style="border-left-color: #3b82f6;">
+                <h4>Technical Objectives</h4>
+                <ul>
+                    <li>Multi-device cluster deployment</li>
+                    <li>IL4-IL5 accreditation for classified use</li>
+                    <li>Integration with DoD enterprise systems</li>
+                    <li>Mobile and edge variants (Jetson, tactical hardware)</li>
+                    <li>Production support infrastructure</li>
+                </ul>
+
+                <h4 style="margin-top: 2rem;">Deliverables</h4>
+                <ul>
+                    <li>ARIA v2.5-3.0 production-ready</li>
+                    <li>TRL 9 system operational in multiple environments</li>
+                    <li>IL4-IL5 accredited (if applicable)</li>
+                    <li>500+ operational users across 5-10 organizations</li>
+                    <li>Transition plan to program of record</li>
+                </ul>
+
+                <h4 style="margin-top: 2rem;">Funding Breakdown</h4>
+                <table>
+                    <tr>
+                        <th>Category</th>
+                        <th>Amount</th>
+                    </tr>
+                    <tr>
+                        <td>Engineering (6 FTE)</td>
+                        <td>$3.5M</td>
+                    </tr>
+                    <tr>
+                        <td>Accreditation (IL4-IL5)</td>
+                        <td>$1.5M</td>
+                    </tr>
+                    <tr>
+                        <td>Multi-site deployment</td>
+                        <td>$1.5M</td>
+                    </tr>
+                    <tr>
+                        <td>Training and documentation</td>
+                        <td>$0.75M</td>
+                    </tr>
+                    <tr>
+                        <td>Sustainment planning</td>
+                        <td>$0.75M</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="success">
+                <h3>Expected Outcomes</h3>
+                <ul>
+                    <li><strong>Technical Maturation:</strong> TRL 6-7 → TRL 9 over 24 months</li>
+                    <li><strong>Operational Impact:</strong> 500-1000 DoD users operational with demonstrated mission value</li>
+                    <li><strong>Cost Savings:</strong> Measured vs cloud AI, documented in report</li>
+                    <li><strong>Transition Path:</strong> Program of record sponsorship identified, commercial spin-out ready</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- System Architecture -->
+        <div class="section">
+            <h2>System Architecture</h2>
+            <p class="subtitle">Layered, modular, fault-tolerant</p>
+
+            <pre style="color: #94a3b8;">
+┌─────────────────────────────────────────────────────────┐
+│                   User Interface                        │
+│         (Voice, Text, File Upload, API)                 │
+└────────────────────┬────────────────────────────────────┘
+                     │
+                     ▼
+┌─────────────────────────────────────────────────────────┐
+│              Context Kernel v3 (6-Stage Pipeline)       │
+│  • Ingest → Interpret → Plan → Execute → Reflect →      │
+│    Consolidate                                          │
+│  • Request classification (code, voice, vision, system) │
+│  • Intelligent routing to agents and models             │
+│  • Compliance enforcement (sanitized logging, PII)      │
+│  • Metrics: &lt;1ms overhead, graceful degradation         │
+└────────────────────┬────────────────────────────────────┘
+                     │
+         ┌───────────┼───────────┐
+         ▼           ▼           ▼
+    ┌────────┐  ┌────────┐  ┌────────┐
+    │ Voice  │  │  Code  │  │ Vision │
+    │Pipeline│  │Pipeline│  │Pipeline│
+    └───┬────┘  └───┬────┘  └───┬────┘
+        │           │           │
+        ▼           ▼           ▼
+┌─────────────────────────────────────────────────────────┐
+│          Multi-Agent System (10+ Specialized)           │
+│  • Decision Agent: Intent classification and routing    │
+│  • Learner Agent: User/team personalization             │
+│  • LLM Agent: Language understanding and generation     │
+│  • STT Agent: Speech-to-text (Whisper)                  │
+│  • TTS Agent: Text-to-speech with voice cloning         │
+│  • Code Agent: Multi-language code generation/review    │
+│  • Planner Agent: Multi-step task decomposition         │
+│  • Healing Agent: Self-diagnosis and recovery           │
+│  • Vision Agent: Screen capture, OCR, layout analysis   │
+│  • Memory Agent: Cross-session context management       │
+│  • Causal Agent: Explainable AI reasoning               │
+│  • Mesh Agent: Distributed task coordination            │
+└────────────────────┬────────────────────────────────────┘
+                     │
+         ┌───────────┼───────────┐
+         ▼           ▼           ▼
+    ┌────────┐  ┌────────┐  ┌────────┐
+    │Semantic│  │Phonetic│  │ Health │
+    │ Memory │  │ Engine │  │Monitor │
+    │(SQLite)│  │(4-phase│  │(Auto-  │
+    │        │  │ correct│  │recover)│
+    └────────┘  └────────┘  └────────┘
+         │           │           │
+         ▼           ▼           ▼
+┌─────────────────────────────────────────────────────────┐
+│                AI Model Layer (Local)                   │
+│  • Whisper Base (STT): 100-200ms, 1GB VRAM             │
+│  • Llama 3.2 3B (LLM): 245ms avg, 4GB VRAM             │
+│  • XTTS v2 (TTS): 300ms avg, 2GB VRAM                  │
+│  • (Future: CodeLlama, Vision models, etc.)            │
+└─────────────────────────────────────────────────────────┘
+         │
+         ▼
+┌─────────────────────────────────────────────────────────┐
+│         Hardware Acceleration Layer                     │
+│  • Apple M-series (MLX framework): 10x CPU baseline    │
+│  • NVIDIA GPUs (planned): CUDA/TensorRT                │
+│  • Qualcomm NPU (planned): Edge deployment             │
+└─────────────────────────────────────────────────────────┘
+            </pre>
+        </div>
+
+        <!-- Mission Applications -->
+        <div class="section">
+            <h2>Mission Applications</h2>
+
+            <div class="grid">
+                <div class="card" style="border-left-color: #10b981;">
+                    <h3>1. Tactical Operations Center (TOC)</h3>
+                    <p><strong>Scenario:</strong> Battalion S2/S3 needs real-time analysis in forward operating base with intermittent SATCOM</p>
+                    <p style="margin-top: 1rem;"><strong>ARIA Capabilities:</strong></p>
+                    <ul>
+                        <li>Voice-activated intelligence queries</li>
+                        <li>Code generation for data processing scripts</li>
+                        <li>Meeting transcription with speaker diarization</li>
+                        <li>Document summarization and action items</li>
+                        <li>Vision analysis of maps and imagery (v2.0)</li>
+                    </ul>
+                    <p style="margin-top: 1rem; color: #10b981;"><strong>Benefit:</strong> Reduces reachback dependence, enables planning during comms blackouts</p>
+                </div>
+
+                <div class="card" style="border-left-color: #3b82f6;">
+                    <h3>2. Classified Network Code Development</h3>
+                    <p><strong>Scenario:</strong> Software developers on weapons systems, ISR platforms, C2 systems on SIPRNET or higher</p>
+                    <p style="margin-top: 1rem;"><strong>ARIA Capabilities:</strong></p>
+                    <ul>
+                        <li>Code generation (C++, Python, Ada, Java)</li>
+                        <li>Code review and vulnerability detection</li>
+                        <li>Debugging assistance</li>
+                        <li>Documentation generation</li>
+                    </ul>
+                    <p style="margin-top: 1rem; color: #3b82f6;"><strong>Benefit:</strong> Maintains development velocity on classified networks, no code leaves network</p>
+                </div>
+
+                <div class="card" style="border-left-color: #8b5cf6;">
+                    <h3>3. SIGINT Transcription and Analysis</h3>
+                    <p><strong>Scenario:</strong> SIGINT analysts need rapid transcription and pattern analysis of intercepted communications</p>
+                    <p style="margin-top: 1rem;"><strong>ARIA Capabilities:</strong></p>
+                    <ul>
+                        <li>Real-time transcription (Whisper supports 99 languages)</li>
+                        <li>Speaker diarization</li>
+                        <li>Sentiment analysis and intent classification</li>
+                        <li>Automated summarization</li>
+                    </ul>
+                    <p style="margin-top: 1rem; color: #8b5cf6;"><strong>Benefit:</strong> Accelerates intelligence production, processes higher intercept volumes</p>
+                </div>
+
+                <div class="card" style="border-left-color: #f59e0b;">
+                    <h3>4. Aviation and Maritime Operations</h3>
+                    <p><strong>Scenario:</strong> Aircraft carrier, submarine, or patrol aircraft needs AI without satellite connectivity</p>
+                    <p style="margin-top: 1rem;"><strong>ARIA Capabilities:</strong></p>
+                    <ul>
+                        <li>Voice-activated assistant (hands-free)</li>
+                        <li>Maintenance documentation and troubleshooting</li>
+                        <li>Mission planning and rehearsal</li>
+                        <li>Real-time comms transcription</li>
+                    </ul>
+                    <p style="margin-top: 1rem; color: #f59e0b;"><strong>Benefit:</strong> Maintains AI during EMCON, reduces shore-based support dependence</p>
+                </div>
+
+                <div class="card" style="border-left-color: #06b6d4;">
+                    <h3>5. HADR Operations</h3>
+                    <p><strong>Scenario:</strong> Humanitarian assistance in remote or communications-denied area</p>
+                    <p style="margin-top: 1rem;"><strong>ARIA Capabilities:</strong></p>
+                    <ul>
+                        <li>Transcription and translation for local coordination</li>
+                        <li>Medical documentation and triage</li>
+                        <li>Resource planning and logistics</li>
+                        <li>Mapping and route planning (with vision, v2.0)</li>
+                    </ul>
+                    <p style="margin-top: 1rem; color: #06b6d4;"><strong>Benefit:</strong> Maintains C2 in austere environments, reduces language barriers</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Performance Benchmarks -->
+        <div class="section">
+            <h2>System Performance</h2>
+            <p class="subtitle">Measured on M4 MacBook Pro, 36GB RAM</p>
+
+            <table>
+                <tr>
+                    <th>Metric</th>
+                    <th>Value</th>
+                    <th>Comparison to Cloud AI</th>
+                </tr>
+                <tr>
+                    <td>Voice transcription (STT)</td>
+                    <td>100-200ms</td>
+                    <td>Cloud: 500-1000ms</td>
+                </tr>
+                <tr>
+                    <td>LLM conversation</td>
+                    <td>245ms avg</td>
+                    <td>Cloud: 800-2000ms</td>
+                </tr>
+                <tr>
+                    <td>LLM code generation</td>
+                    <td>350ms avg</td>
+                    <td>Cloud: 1200-3000ms</td>
+                </tr>
+                <tr>
+                    <td>Full voice pipeline</td>
+                    <td>800ms avg</td>
+                    <td>Cloud: 2500-5000ms</td>
+                </tr>
+                <tr>
+                    <td>Context Kernel overhead</td>
+                    <td>&lt;1ms</td>
+                    <td>N/A</td>
+                </tr>
+                <tr>
+                    <td>Memory footprint</td>
+                    <td>4-6GB</td>
+                    <td>Cloud: Server-side</td>
+                </tr>
+                <tr>
+                    <td>Offline operation</td>
+                    <td>100%</td>
+                    <td>Cloud: 0%</td>
+                </tr>
+            </table>
+
+            <h3>Resource Utilization</h3>
+            <table>
+                <tr>
+                    <th>Component</th>
+                    <th>CPU (Avg)</th>
+                    <th>GPU (Avg)</th>
+                    <th>Memory</th>
+                </tr>
+                <tr>
+                    <td>Context Kernel</td>
+                    <td>2%</td>
+                    <td>0%</td>
+                    <td>200MB</td>
+                </tr>
+                <tr>
+                    <td>Whisper (STT)</td>
+                    <td>15%</td>
+                    <td>30%</td>
+                    <td>1GB</td>
+                </tr>
+                <tr>
+                    <td>Llama 3.2 (LLM)</td>
+                    <td>25%</td>
+                    <td>60%</td>
+                    <td>4GB</td>
+                </tr>
+                <tr>
+                    <td>XTTS (TTS)</td>
+                    <td>18%</td>
+                    <td>25%</td>
+                    <td>2GB</td>
+                </tr>
+                <tr>
+                    <td><strong>Total (active)</strong></td>
+                    <td><strong>60%</strong></td>
+                    <td><strong>115%</strong></td>
+                    <td><strong>7GB</strong></td>
+                </tr>
+            </table>
+
+            <p style="color: #10b981; margin-top: 2rem;"><strong>Deployment Footprint:</strong> &lt;10GB disk, 8GB RAM minimum, 16GB recommended</p>
+        </div>
+
+        <!-- Deployment Models -->
+        <div class="section">
+            <h2>Deployment Models</h2>
+
+            <div class="grid">
+                <div class="card">
+                    <h3>1. Single-User Workstation</h3>
+                    <p><strong>Hardware:</strong> Laptop or desktop with GPU</p>
+                    <ul>
+                        <li>Min Spec: 8GB RAM, Apple M1 or NVIDIA GTX 1060</li>
+                        <li>Recommended: 16GB RAM, Apple M3/M4 or NVIDIA RTX 4060</li>
+                        <li>Optimal: 32GB RAM, Apple M4 Pro or NVIDIA RTX 4090</li>
+                    </ul>
+                    <p style="margin-top: 1rem;"><strong>Capacity:</strong> 1 concurrent user</p>
+                </div>
+
+                <div class="card">
+                    <h3>2. Edge Server (Multi-User)</h3>
+                    <p><strong>Hardware:</strong> Ruggedized server or compute node</p>
+                    <ul>
+                        <li>Spec: 64-128GB RAM, NVIDIA A100 or H100 GPU</li>
+                        <li>Form Factor: 1U-2U rack-mount or portable pelican case</li>
+                    </ul>
+                    <p style="margin-top: 1rem;"><strong>Capacity:</strong> 10-20 concurrent users</p>
+                </div>
+
+                <div class="card">
+                    <h3>3. Tactical Cloud (Disconnected)</h3>
+                    <p><strong>Hardware:</strong> Multi-node cluster with load balancing</p>
+                    <ul>
+                        <li>Spec: 3-5 servers with GPU, software-defined networking</li>
+                        <li>Deployment: Mobile command post, semi-permanent facility</li>
+                    </ul>
+                    <p style="margin-top: 1rem;"><strong>Capacity:</strong> 50-100+ concurrent users</p>
+                </div>
+
+                <div class="card">
+                    <h3>4. Classified Network (SIPRNET, JWICS)</h3>
+                    <p><strong>Hardware:</strong> GFE or COTS approved for classified use</p>
+                    <ul>
+                        <li>Deployment: On-premise, no outbound network access</li>
+                        <li>Compliance: STIG hardening, continuous monitoring, air-gap</li>
+                    </ul>
+                    <p style="margin-top: 1rem;"><strong>Capacity:</strong> Scales based on hardware (1-100+ users)</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Security Posture -->
+        <div class="section">
+            <h2>Security Posture</h2>
+
+            <div class="warning">
+                <h3>Threat Model</h3>
+                <p><strong>Assumptions:</strong></p>
+                <ul>
+                    <li>Adversary has physical access to hardware (low probability, high impact)</li>
+                    <li>Adversary has network access to deployment environment (medium probability)</li>
+                    <li>Insider threat (authorized user attempts data exfiltration)</li>
+                </ul>
+            </div>
+
+            <table>
+                <tr>
+                    <th>Threat</th>
+                    <th>Mitigation</th>
+                    <th>Status</th>
+                </tr>
+                <tr>
+                    <td>Data exfiltration via API</td>
+                    <td>Audit logging, rate limiting, anomaly detection</td>
+                    <td>✅ Implemented</td>
+                </tr>
+                <tr>
+                    <td>Model poisoning</td>
+                    <td>Cryptographic model integrity checks</td>
+                    <td>✅ Implemented</td>
+                </tr>
+                <tr>
+                    <td>Memory scraping</td>
+                    <td>Secure memory allocation, no plaintext secrets</td>
+                    <td>🔜 Planned (v2.1)</td>
+                </tr>
+                <tr>
+                    <td>Supply chain compromise</td>
+                    <td>Signed binaries, reproducible builds</td>
+                    <td>🔜 Planned (v2.0)</td>
+                </tr>
+                <tr>
+                    <td>Insider misuse</td>
+                    <td>RBAC, activity monitoring</td>
+                    <td>🔜 Planned (v2.0)</td>
+                </tr>
+            </table>
+
+            <h3>Accreditation Readiness</h3>
+            <table>
+                <tr>
+                    <th>Framework</th>
+                    <th>Status</th>
+                    <th>Timeline</th>
+                </tr>
+                <tr>
+                    <td><strong>NIST 800-53</strong></td>
+                    <td>Controls mapped</td>
+                    <td>Q1 2026 assessment</td>
+                </tr>
+                <tr>
+                    <td><strong>DoD IL2 (CUI)</strong></td>
+                    <td>Technical compliance ready</td>
+                    <td>Q1 2026 certification</td>
+                </tr>
+                <tr>
+                    <td><strong>DoD IL4-IL5 (Secret/TS)</strong></td>
+                    <td>Architecture supports, hardening needed</td>
+                    <td>Q3 2026 assessment</td>
+                </tr>
+                <tr>
+                    <td><strong>FedRAMP Moderate</strong></td>
+                    <td>Scoping in progress</td>
+                    <td>Q2 2027 certification</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Transition Path -->
+        <div class="section">
+            <h2>Transition Path to Operational Use</h2>
+
+            <div class="grid">
+                <div class="card" style="border-left-color: #10b981;">
+                    <h3>Phase 1: Prototype Evaluation (3-6 months)</h3>
+                    <p><strong>Activities:</strong></p>
+                    <ul>
+                        <li>Install in representative operational environment</li>
+                        <li>User acceptance testing (10-20 operators)</li>
+                        <li>Measure performance: latency, accuracy, satisfaction</li>
+                        <li>Identify gaps and customizations</li>
+                    </ul>
+                    <p style="margin-top: 1rem;"><strong>Funding:</strong> SBIR Phase I, OT prototype, or direct contract</p>
+                </div>
+
+                <div class="card" style="border-left-color: #3b82f6;">
+                    <h3>Phase 2: Pilot Deployment (6-12 months)</h3>
+                    <p><strong>Activities:</strong></p>
+                    <ul>
+                        <li>Deploy to 50-100 users in operational unit</li>
+                        <li>Integrate with existing workflows and systems</li>
+                        <li>Security assessment and accreditation (IL2 minimum)</li>
+                        <li>Collect operational data</li>
+                    </ul>
+                    <p style="margin-top: 1rem;"><strong>Funding:</strong> SBIR Phase II, OT production, or program funding</p>
+                </div>
+
+                <div class="card" style="border-left-color: #8b5cf6;">
+                    <h3>Phase 3: Full Deployment (12-24 months)</h3>
+                    <p><strong>Activities:</strong></p>
+                    <ul>
+                        <li>Scale to 500+ users across multiple units</li>
+                        <li>Complete IL4-IL5 accreditation if needed</li>
+                        <li>Integrate with DoD enterprise systems</li>
+                        <li>Establish organic support capability</li>
+                    </ul>
+                    <p style="margin-top: 1rem;"><strong>Funding:</strong> Program of record, OT production, enterprise license</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cost Model -->
+        <div class="section">
+            <h2>Cost Model for DoD Deployment</h2>
+
+            <h3>Licensing (Per-Seat Annual)</h3>
+            <table>
+                <tr>
+                    <th>Tier</th>
+                    <th>Users</th>
+                    <th>Price/Seat</th>
+                    <th>Total</th>
+                </tr>
+                <tr>
+                    <td>Pilot (10-50 users)</td>
+                    <td>10-50</td>
+                    <td>$8K</td>
+                    <td>$80K-$400K</td>
+                </tr>
+                <tr>
+                    <td>Operational (50-200)</td>
+                    <td>50-200</td>
+                    <td>$6K</td>
+                    <td>$300K-$1.2M</td>
+                </tr>
+                <tr>
+                    <td>Enterprise (200-1000)</td>
+                    <td>200-1000</td>
+                    <td>$4K</td>
+                    <td>$800K-$4M</td>
+                </tr>
+                <tr>
+                    <td>Program (1000+)</td>
+                    <td>1000+</td>
+                    <td>Negotiated</td>
+                    <td>$3M-$10M</td>
+                </tr>
+            </table>
+
+            <h3>Total Cost of Ownership (3-Year, 100-User Example)</h3>
+            <table>
+                <tr>
+                    <th>Item</th>
+                    <th>Year 1</th>
+                    <th>Year 2</th>
+                    <th>Year 3</th>
+                    <th>Total</th>
+                </tr>
+                <tr>
+                    <td>Licenses (100 seats @ $6K)</td>
+                    <td>$600K</td>
+                    <td>$600K</td>
+                    <td>$600K</td>
+                    <td>$1.8M</td>
+                </tr>
+                <tr>
+                    <td>Implementation</td>
+                    <td>$150K</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>$150K</td>
+                </tr>
+                <tr>
+                    <td>Accreditation (IL2)</td>
+                    <td>$200K</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>$200K</td>
+                </tr>
+                <tr>
+                    <td>Training</td>
+                    <td>$50K</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>$50K</td>
+                </tr>
+                <tr>
+                    <td>Support (15%)</td>
+                    <td>$90K</td>
+                    <td>$90K</td>
+                    <td>$90K</td>
+                    <td>$270K</td>
+                </tr>
+                <tr style="font-weight: bold; background: rgba(59, 130, 246, 0.1);">
+                    <td>Total</td>
+                    <td>$1.09M</td>
+                    <td>$690K</td>
+                    <td>$690K</td>
+                    <td>$2.47M</td>
+                </tr>
+            </table>
+
+            <div class="success">
+                <p><strong>Comparison to Cloud AI (100 users):</strong> $500K/year × 3 = $1.5M + scaling costs</p>
+                <p style="margin-top: 0.5rem;"><strong>True Advantage:</strong> Privacy, compliance, offline capability (cloud cannot provide at any price)</p>
+            </div>
+        </div>
+
+        <!-- Contact & Next Steps -->
+        <div class="section">
+            <h2>Next Steps</h2>
+
+            <div class="grid">
+                <div class="card" style="border-left-color: #10b981;">
+                    <h3>Technical Demonstration</h3>
+                    <p><strong>Duration:</strong> 30-60 minutes</p>
+                    <p><strong>Coverage:</strong></p>
+                    <ul>
+                        <li>Voice interaction (hands-free Q&A, code generation)</li>
+                        <li>Multi-agent coordination (agent pipeline in logs)</li>
+                        <li>Compliance mode (sanitized logging, PII redaction)</li>
+                        <li>Offline operation (disconnect network, system continues)</li>
+                        <li>Performance metrics (real-time latency display)</li>
+                    </ul>
+                </div>
+
+                <div class="card" style="border-left-color: #3b82f6;">
+                    <h3>Technical Deep Dive</h3>
+                    <p><strong>Duration:</strong> 2-4 hours</p>
+                    <p><strong>Coverage:</strong></p>
+                    <ul>
+                        <li>Source code walkthrough (under NDA)</li>
+                        <li>Architecture design review</li>
+                        <li>Security assessment artifacts</li>
+                        <li>Performance testing methodology</li>
+                        <li>Roadmap and development plan</li>
+                    </ul>
+                </div>
+
+                <div class="card" style="border-left-color: #8b5cf6;">
+                    <h3>Pilot Proposal</h3>
+                    <p><strong>Timeline:</strong> 2 weeks to deliver</p>
+                    <p><strong>Includes:</strong></p>
+                    <ul>
+                        <li>Deployment plan (hardware, installation, config)</li>
+                        <li>User acceptance testing plan</li>
+                        <li>Performance metrics and success criteria</li>
+                        <li>Security assessment and accreditation support</li>
+                        <li>Cost breakdown and funding requirements</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Information -->
+        <div class="section" style="text-align: center; background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(59, 130, 246, 0.1) 100%);">
+            <h2>Contact Information</h2>
+
+            <div style="margin: 2rem 0;">
+                <p style="font-size: 1.3rem; margin-bottom: 0.5rem;"><strong>ARIA v2.2.2 - Adaptive Reasoning & Intelligence Assistant</strong></p>
+                <p style="font-size: 1.1rem; color: #94a3b8;">Self-Auditing Multi-Agent Intelligence OS for DoD and National Security</p>
+            </div>
+
+            <div class="grid" style="margin-top: 3rem;">
+                <div class="metric">
+                    <div class="metric-label">Business POC</div>
+                    <p style="margin-top: 1rem; font-size: 1.1rem;">
+                        Joseph C McGinty Jr<br>
+                        📧 joseph@resilientmindai.com<br>
+                        📞 [Phone Number]
+                    </p>
+                </div>
+
+                <div class="metric">
+                    <div class="metric-label">Technical POC</div>
+                    <p style="margin-top: 1rem; font-size: 1.1rem;">
+                        [Technical Contact]<br>
+                        📧 technical@resilientmindai.com<br>
+                        📞 [Phone Number]
+                    </p>
+                </div>
+
+                <div class="metric">
+                    <div class="metric-label">Company Info</div>
+                    <p style="margin-top: 1rem; font-size: 1.1rem;">
+                        🌐 www.resilientmindai.com<br>
+                        📍 Scottdale, Pennsylvania<br>
+                        🔐 Security Clearance: [TBD]
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- FOUO Notice -->
+        <div class="fouo">
+            <div class="fouo-badge">FOR OFFICIAL USE ONLY (FOUO)</div>
+            <p style="color: #ef4444; font-size: 1.1rem;">
+                Distribution authorized to DoD and DoD contractors only.
+            </p>
+            <p style="color: #94a3b8; margin-top: 1rem;">
+                This document contains technical information subject to export control regulations.
+            </p>
+        </div>
+
+        <!-- Footer -->
+        <div style="text-align: center; padding: 2rem; color: #64748b; font-size: 0.9rem;">
+            <p>© 2025 ARIA / Resilient Mind AI. Confidential and proprietary.</p>
+            <p style="margin-top: 0.5rem;">Prepared for DARPA and Department of Defense Programs</p>
+        </div>
+
+    </div>
+</body>
+</html>

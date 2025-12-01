@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARIA - Investor Pitch Deck</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #1a202c;
+            overflow-x: hidden;
+        }
+
+        .slide {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 4rem 2rem;
+            background: white;
+            margin-bottom: 2rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .slide:nth-child(even) {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+
+        h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 3rem;
+            color: #2d3748;
+            margin-bottom: 2rem;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        h3 {
+            font-size: 1.8rem;
+            color: #4a5568;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .subtitle {
+            font-size: 1.8rem;
+            color: #4a5568;
+            text-align: center;
+            max-width: 900px;
+            margin-bottom: 3rem;
+            line-height: 1.6;
+        }
+
+        .logo {
+            font-size: 6rem;
+            margin-bottom: 2rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            width: 100%;
+            margin: 2rem 0;
+        }
+
+        .card {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            border-left: 5px solid #667eea;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .card h3 {
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+
+        .metric {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: #667eea;
+            margin-bottom: 0.5rem;
+        }
+
+        .metric-label {
+            font-size: 1.2rem;
+            color: #718096;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .problem-box {
+            background: #fee;
+            border-left: 5px solid #f56565;
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+
+        .solution-box {
+            background: #e6fffa;
+            border-left: 5px solid #38b2ac;
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            max-width: 800px;
+        }
+
+        .feature-list li {
+            padding: 1rem 0;
+            border-bottom: 1px solid #e2e8f0;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .feature-list li:before {
+            content: "✅";
+            margin-right: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .highlight {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 3rem;
+            border-radius: 16px;
+            margin: 2rem 0;
+            max-width: 1000px;
+            text-align: center;
+        }
+
+        .highlight h3 {
+            color: white;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 2rem auto;
+        }
+
+        .stat-box {
+            text-align: center;
+            padding: 2rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        table {
+            width: 100%;
+            max-width: 1000px;
+            margin: 2rem 0;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1.5rem;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 1.5rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        tr:hover {
+            background: #f7fafc;
+        }
+
+        .cta {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1.5rem 3rem;
+            border-radius: 50px;
+            font-size: 1.5rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 2rem;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .cta:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.6);
+        }
+
+        .timeline {
+            max-width: 800px;
+            margin: 2rem auto;
+        }
+
+        .timeline-item {
+            padding: 2rem;
+            border-left: 3px solid #667eea;
+            margin-left: 2rem;
+            position: relative;
+        }
+
+        .timeline-item:before {
+            content: "●";
+            position: absolute;
+            left: -0.7rem;
+            color: #667eea;
+            font-size: 2rem;
+        }
+
+        .footer {
+            background: #2d3748;
+            color: white;
+            text-align: center;
+            padding: 3rem;
+            margin-top: 4rem;
+        }
+
+        @media print {
+            .slide {
+                page-break-after: always;
+                margin: 0;
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Slide 1: Title -->
+    <div class="slide">
+        <div class="logo">🎯</div>
+        <h1>ARIA v2.2.2 + Powerhouse AI</h1>
+        <p class="subtitle">Self-Auditing Multi-Agent Intelligence OS for Enterprise</p>
+        <p class="subtitle" style="font-size: 1.5rem;">Production-Ready AI That Works Without the Cloud</p>
+        <p style="font-size: 1.2rem; color: #718096; margin-top: 2rem;">
+            Offline-First • 10+ Agent Architecture • Context Kernel v3 • Self-Auditing • Compliance-Aware Model Loading
+        </p>
+        <p style="font-size: 1rem; color: #a0aec0; margin-top: 1rem;">
+            v2.2.2 • 50,000+ Lines • 99% Audit Health • 200+ Commits
+        </p>
+    </div>
+
+    <!-- Slide 2: The Problem -->
+    <div class="slide">
+        <h2>🔴 The Problem</h2>
+        <div class="subtitle">Enterprises face critical AI adoption barriers</div>
+
+        <div class="grid">
+            <div class="problem-box">
+                <h3>🔒 Privacy Concerns</h3>
+                <p>Cloud-based AI exposes sensitive data to third parties. 83% of enterprises cite privacy as a top concern for AI adoption.</p>
+            </div>
+
+            <div class="problem-box">
+                <h3>💸 Astronomical Costs</h3>
+                <p>Cloud AI API costs scale exponentially. Companies spend $50K-$500K/year on ChatGPT Enterprise, Claude, and OpenAI APIs.</p>
+            </div>
+
+            <div class="problem-box">
+                <h3>🌐 Internet Dependency</h3>
+                <p>Cloud AI fails without connectivity. Defense, aviation, and field operations need offline intelligence.</p>
+            </div>
+
+            <div class="problem-box">
+                <h3>🎯 Generic Solutions</h3>
+                <p>One-size-fits-all AI doesn't understand your business, your code, or your team's unique needs.</p>
+            </div>
+
+            <div class="problem-box">
+                <h3>⚠️ Compliance Nightmares</h3>
+                <p>GDPR, HIPAA, DoD regulations prohibit sending sensitive data to cloud AI. Legal risks are unacceptable.</p>
+            </div>
+
+            <div class="problem-box">
+                <h3>🐌 Latency Issues</h3>
+                <p>Cloud round-trips add 500ms-3s delays. Real-time applications like voice assistants and coding aids suffer.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 3: Market Opportunity -->
+    <div class="slide">
+        <h2>📈 Market Opportunity</h2>
+        <div class="subtitle">A $200B+ market by 2030</div>
+
+        <div class="stats-grid">
+            <div class="stat-box">
+                <div class="metric">$200B</div>
+                <div class="metric-label">Enterprise AI Market (2030)</div>
+            </div>
+            <div class="stat-box">
+                <div class="metric">$45B</div>
+                <div class="metric-label">Voice AI Market (2027)</div>
+            </div>
+            <div class="stat-box">
+                <div class="metric">$25B</div>
+                <div class="metric-label">Code AI Market (2028)</div>
+            </div>
+            <div class="stat-box">
+                <div class="metric">83%</div>
+                <div class="metric-label">Enterprises Cite Privacy Concerns</div>
+            </div>
+        </div>
+
+        <div class="highlight">
+            <h3>🎯 Our Target</h3>
+            <p style="font-size: 1.4rem; line-height: 1.8;">
+                Privacy-conscious enterprises ($1M-$1B revenue) that need:<br><br>
+                ✅ DoD/Government contractors<br>
+                ✅ Healthcare organizations (HIPAA compliance)<br>
+                ✅ Financial institutions (SOC 2, PCI-DSS)<br>
+                ✅ Legal firms (attorney-client privilege)<br>
+                ✅ Manufacturing & IP-sensitive R&D
+            </p>
+        </div>
+    </div>
+
+    <!-- Slide 4: The Solution -->
+    <div class="slide">
+        <h2>✅ The Solution: ARIA</h2>
+        <div class="subtitle">100% local AI that runs on your hardware</div>
+
+        <div class="grid">
+            <div class="solution-box">
+                <h3>🔐 Offline-First Architecture</h3>
+                <p>ARIA v2.2.2 turns a single Apple Silicon machine into a self-auditing intelligence OS. All processing happens on-device with zero cloud dependency. Perfect for classified, regulated, or IP-sensitive work.</p>
+            </div>
+
+            <div class="solution-box">
+                <h3>💰 Predictable Costs</h3>
+                <p>One-time hardware + software license. No per-query fees. Save 90% vs. cloud AI after year one.</p>
+            </div>
+
+            <div class="solution-box">
+                <h3>⚡ Multi-Agent Coordination</h3>
+                <p>10+ coordinated agents with Context Kernel v3, internal task graphs and sub-millisecond routing. Self-auditing behavior tracks health and decisions over time.</p>
+            </div>
+
+            <div class="solution-box">
+                <h3>🎨 Compliance-Aware Model Loading</h3>
+                <p>Enforces compliance rules on models and network access. Standard, Strict, DoD, HIPAA, GDPR modes built-in.</p>
+            </div>
+
+            <div class="solution-box">
+                <h3>🛡️ Self-Auditing System</h3>
+                <p>Keeps state, manages task graphs, records its own health and decisions. Full audit trails for regulated environments.</p>
+            </div>
+
+            <div class="solution-box">
+                <h3>🌍 Works Offline</h3>
+                <p>Apple Silicon optimized. Perfect for aircraft, ships, remote sites, or classified networks. Zero internet required.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 5: Product Architecture -->
+    <div class="slide">
+        <h2>🏗️ Product Architecture</h2>
+        <div class="subtitle">Enterprise-grade, production-ready technology</div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Layer</th>
+                    <th>Technology</th>
+                    <th>Benefit</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Voice Pipeline</strong></td>
+                    <td>Whisper (STT) + XTTS v2 (TTS)</td>
+                    <td>Natural voice conversations with custom voice cloning</td>
+                </tr>
+                <tr>
+                    <td><strong>Language Model</strong></td>
+                    <td>Llama 3.2 3B (MLX-optimized)</td>
+                    <td>Fast, accurate, Apple Silicon optimized</td>
+                </tr>
+                <tr>
+                    <td><strong>Context Kernel v3</strong></td>
+                    <td>Event-driven 6-stage cognitive pipeline</td>
+                    <td>Ingest → Interpret → Plan → Execute → Reflect → Consolidate (&lt;1ms overhead)</td>
+                </tr>
+                <tr>
+                    <td><strong>Multi-Agent System</strong></td>
+                    <td>10+ coordinated agents</td>
+                    <td>Decision, Learner, Planner, LLM, STT, TTS, Vision, Memory, Healing + more</td>
+                </tr>
+                <tr>
+                    <td><strong>Phonetic Intelligence</strong></td>
+                    <td>4-phase correction system</td>
+                    <td>Industry-leading transcription accuracy</td>
+                </tr>
+                <tr>
+                    <td><strong>Code Engine</strong></td>
+                    <td>Specialized code generation</td>
+                    <td>Multi-language support, review, debugging</td>
+                </tr>
+                <tr>
+                    <td><strong>Learning Layer</strong></td>
+                    <td>User personalization</td>
+                    <td>Adapts to individual preferences</td>
+                </tr>
+                <tr>
+                    <td><strong>Hardware Acceleration</strong></td>
+                    <td>Apple M-series MLX</td>
+                    <td>10x faster than CPU-only solutions</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Slide 6: Competitive Advantage -->
+    <div class="slide">
+        <h2>🏆 Competitive Advantage</h2>
+        <div class="subtitle">Why ARIA wins</div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Feature</th>
+                    <th>Cloud AI (OpenAI, Claude)</th>
+                    <th>Local AI (Competitors)</th>
+                    <th>ARIA</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Privacy</strong></td>
+                    <td>❌ Data sent to cloud</td>
+                    <td>✅ Local only</td>
+                    <td>✅✅ Local + compliance mode</td>
+                </tr>
+                <tr>
+                    <td><strong>Cost (Year 1)</strong></td>
+                    <td>$50K-$500K</td>
+                    <td>$10K-$50K</td>
+                    <td>$5K-$25K</td>
+                </tr>
+                <tr>
+                    <td><strong>Latency</strong></td>
+                    <td>500ms-3s</td>
+                    <td>200ms-1s</td>
+                    <td>50ms-250ms</td>
+                </tr>
+                <tr>
+                    <td><strong>Offline</strong></td>
+                    <td>❌ No</td>
+                    <td>✅ Yes</td>
+                    <td>✅✅ Yes + optimized</td>
+                </tr>
+                <tr>
+                    <td><strong>Voice + Code</strong></td>
+                    <td>Separate products</td>
+                    <td>❌ Usually one or the other</td>
+                    <td>✅✅ Unified solution</td>
+                </tr>
+                <tr>
+                    <td><strong>Customization</strong></td>
+                    <td>Limited fine-tuning</td>
+                    <td>✅ Local training</td>
+                    <td>✅✅ Multi-model + voice cloning</td>
+                </tr>
+                <tr>
+                    <td><strong>Compliance</strong></td>
+                    <td>❌ Third-party risk</td>
+                    <td>⚠️ DIY</td>
+                    <td>✅✅ Built-in DoD/HIPAA mode</td>
+                </tr>
+                <tr>
+                    <td><strong>Multi-Agent</strong></td>
+                    <td>❌ No</td>
+                    <td>❌ No</td>
+                    <td>✅✅ 10+ specialized agents</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Slide 7: Use Cases -->
+    <div class="slide">
+        <h2>🎯 Use Cases</h2>
+        <div class="subtitle">Real-world applications driving value</div>
+
+        <div class="grid">
+            <div class="card">
+                <h3>🛡️ Defense Contractors</h3>
+                <ul class="feature-list">
+                    <li>Classified network AI</li>
+                    <li>Offline mission planning</li>
+                    <li>Secure code generation</li>
+                    <li>DoD compliance built-in</li>
+                </ul>
+                <p style="margin-top: 1rem; color: #667eea; font-weight: bold;">TAM: $15B</p>
+            </div>
+
+            <div class="card">
+                <h3>⚕️ Healthcare</h3>
+                <ul class="feature-list">
+                    <li>HIPAA-compliant transcription</li>
+                    <li>Patient note automation</li>
+                    <li>Medical coding assistant</li>
+                    <li>Zero PHI exposure</li>
+                </ul>
+                <p style="margin-top: 1rem; color: #667eea; font-weight: bold;">TAM: $30B</p>
+            </div>
+
+            <div class="card">
+                <h3>⚖️ Legal Firms</h3>
+                <ul class="feature-list">
+                    <li>Attorney-client privilege protected</li>
+                    <li>Contract review & drafting</li>
+                    <li>Deposition transcription</li>
+                    <li>Case law research</li>
+                </ul>
+                <p style="margin-top: 1rem; color: #667eea; font-weight: bold;">TAM: $12B</p>
+            </div>
+
+            <div class="card">
+                <h3>🏦 Financial Services</h3>
+                <ul class="feature-list">
+                    <li>SOC 2 / PCI-DSS compliant</li>
+                    <li>Trading algorithm development</li>
+                    <li>Risk analysis automation</li>
+                    <li>Client data protection</li>
+                </ul>
+                <p style="margin-top: 1rem; color: #667eea; font-weight: bold;">TAM: $40B</p>
+            </div>
+
+            <div class="card">
+                <h3>🏭 Manufacturing R&D</h3>
+                <ul class="feature-list">
+                    <li>IP-protected design work</li>
+                    <li>CAD/CAM automation</li>
+                    <li>Quality control AI</li>
+                    <li>Supply chain optimization</li>
+                </ul>
+                <p style="margin-top: 1rem; color: #667eea; font-weight: bold;">TAM: $25B</p>
+            </div>
+
+            <div class="card">
+                <h3>✈️ Aviation & Maritime</h3>
+                <ul class="feature-list">
+                    <li>In-flight/at-sea operations</li>
+                    <li>Maintenance documentation</li>
+                    <li>Crew training assistance</li>
+                    <li>100% offline capability</li>
+                </ul>
+                <p style="margin-top: 1rem; color: #667eea; font-weight: bold;">TAM: $18B</p>
+            </div>
+        </div>
+
+        <div class="highlight" style="margin-top: 3rem;">
+            <h3>Total Addressable Market</h3>
+            <div class="metric" style="color: white;">$140B+</div>
+            <p style="font-size: 1.3rem;">Across 6 primary verticals by 2030</p>
+        </div>
+    </div>
+
+    <!-- Slide 8: Business Model -->
+    <div class="slide">
+        <h2>💰 Business Model</h2>
+        <div class="subtitle">Multiple revenue streams, high margins</div>
+
+        <div class="grid">
+            <div class="card">
+                <h3>💎 Enterprise Licenses</h3>
+                <p><strong>$5K-$25K per seat/year</strong></p>
+                <ul style="margin-top: 1rem; line-height: 2;">
+                    <li>Per-user annual license</li>
+                    <li>On-premise deployment</li>
+                    <li>Technical support included</li>
+                    <li>80% gross margin</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>🎓 Training & Implementation</h3>
+                <p><strong>$50K-$200K per engagement</strong></p>
+                <ul style="margin-top: 1rem; line-height: 2;">
+                    <li>Custom model training</li>
+                    <li>Integration services</li>
+                    <li>Team onboarding</li>
+                    <li>60% gross margin</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>🔧 Managed Services</h3>
+                <p><strong>$10K-$50K/month</strong></p>
+                <ul style="margin-top: 1rem; line-height: 2;">
+                    <li>Ongoing optimization</li>
+                    <li>Model updates</li>
+                    <li>24/7 support</li>
+                    <li>70% gross margin</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>🏢 Enterprise Contracts</h3>
+                <p><strong>$500K-$5M multi-year</strong></p>
+                <ul style="margin-top: 1rem; line-height: 2;">
+                    <li>100-1000+ seats</li>
+                    <li>Custom development</li>
+                    <li>White-label options</li>
+                    <li>75% gross margin</li>
+                </ul>
+            </div>
+        </div>
+
+        <table style="margin-top: 3rem;">
+            <thead>
+                <tr>
+                    <th>Year</th>
+                    <th>Customers</th>
+                    <th>Avg Contract Value</th>
+                    <th>Revenue</th>
+                    <th>Gross Margin</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Year 1</strong></td>
+                    <td>10 enterprise</td>
+                    <td>$150K</td>
+                    <td>$1.5M</td>
+                    <td>70%</td>
+                </tr>
+                <tr>
+                    <td><strong>Year 2</strong></td>
+                    <td>50 enterprise</td>
+                    <td>$200K</td>
+                    <td>$10M</td>
+                    <td>75%</td>
+                </tr>
+                <tr>
+                    <td><strong>Year 3</strong></td>
+                    <td>200 enterprise</td>
+                    <td>$250K</td>
+                    <td>$50M</td>
+                    <td>78%</td>
+                </tr>
+                <tr>
+                    <td><strong>Year 5</strong></td>
+                    <td>1000+ enterprise</td>
+                    <td>$300K</td>
+                    <td>$300M</td>
+                    <td>80%</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Slide 9: Traction -->
+    <div class="slide">
+        <h2>🚀 Current Traction</h2>
+        <div class="subtitle">Built, tested, and production-ready (v2.1.1)</div>
+
+        <div class="stats-grid">
+            <div class="stat-box">
+                <div class="metric">v2.2.2</div>
+                <div class="metric-label">Production Version</div>
+            </div>
+            <div class="stat-box">
+                <div class="metric">200+</div>
+                <div class="metric-label">GitHub Commits</div>
+            </div>
+            <div class="stat-box">
+                <div class="metric">50,000+</div>
+                <div class="metric-label">Lines of Code</div>
+            </div>
+            <div class="stat-box">
+                <div class="metric">99%</div>
+                <div class="metric-label">Audit Health</div>
+            </div>
+        </div>
+
+        <div class="grid" style="margin-top: 3rem;">
+            <div class="card">
+                <h3>✅ Technical Milestones (v2.2.2)</h3>
+                <ul class="feature-list">
+                    <li>Self-auditing multi-agent OS</li>
+                    <li>Internal task graphs and state management</li>
+                    <li>Compliance-aware model loading</li>
+                    <li>Offline-first Apple Silicon optimization</li>
+                    <li>Context Kernel v3 with 10+ agents</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>🎯 Product Features</h3>
+                <ul class="feature-list">
+                    <li>Voice + Code + Vision + Meetings unified</li>
+                    <li>10+ agent architecture with Context Kernel v3</li>
+                    <li>Self-auditing behavior tracking</li>
+                    <li>Compliance rules enforcement</li>
+                    <li>Dual compute: Apple MLX + NVIDIA CUDA</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>📊 Performance Metrics</h3>
+                <ul class="feature-list">
+                    <li>245ms avg conversation latency</li>
+                    <li>350ms avg code generation</li>
+                    <li>100-300ms vision OCR</li>
+                    <li>Sub-millisecond agent coordination</li>
+                    <li>100% offline operation</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 10: Roadmap -->
+    <div class="slide">
+        <h2>🗺️ Product Roadmap</h2>
+        <div class="subtitle">Clear path to market dominance</div>
+
+        <div class="timeline">
+            <div class="timeline-item">
+                <h3 style="color: #10b981;">✅ November 2025 - v2.2.2 (Shipped)</h3>
+                <ul style="line-height: 2;">
+                    <li>Self-auditing multi-agent intelligence OS</li>
+                    <li>10+ Agent Architecture with Context Kernel v3</li>
+                    <li>Internal task graphs and state management</li>
+                    <li>Compliance-aware model loading (Standard, Strict, DoD, HIPAA, GDPR)</li>
+                    <li>Offline-first Apple Silicon optimization</li>
+                    <li>Self-Audit Engine (99% health score, 50k+ LOC scanned)</li>
+                </ul>
+            </div>
+
+            <div class="timeline-item">
+                <h3 style="color: #667eea;">🔜 Q1 2026 - v2.5</h3>
+                <ul style="line-height: 2;">
+                    <li>Multi-model registry (CodeLlama)</li>
+                    <li>Enhanced Vision Engine</li>
+                    <li>Real-time meeting diarization</li>
+                    <li>NVIDIA TensorRT optimization</li>
+                    <li>Auto-Update Engine</li>
+                </ul>
+            </div>
+
+            <div class="timeline-item">
+                <h3 style="color: #667eea;">Q2-Q3 2026 - v3.0</h3>
+                <ul style="line-height: 2;">
+                    <li>Multi-device sync</li>
+                    <li>Federated learning</li>
+                    <li>Plugin ecosystem</li>
+                    <li>Enterprise integrations</li>
+                </ul>
+            </div>
+
+            <div class="timeline-item">
+                <h3 style="color: #667eea;">Q4 2026+ - v3.5</h3>
+                <ul style="line-height: 2;">
+                    <li>Video understanding</li>
+                    <li>Advanced automation</li>
+                    <li>Multi-language expansion</li>
+                    <li>Enterprise integrations (Slack, Teams, etc.)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 11: Team & Execution -->
+    <div class="slide">
+        <h2>👥 Why We'll Win</h2>
+        <div class="subtitle">Execution capability + market timing</div>
+
+        <div class="grid">
+            <div class="card">
+                <h3>🎯 Perfect Market Timing</h3>
+                <ul style="line-height: 2;">
+                    <li>Privacy concerns at all-time high</li>
+                    <li>Cloud AI costs becoming prohibitive</li>
+                    <li>Apple Silicon enabling local AI</li>
+                    <li>Compliance requirements tightening</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>💪 Technical Moat</h3>
+                <ul style="line-height: 2;">
+                    <li>12+ months R&D invested</li>
+                    <li>50,000+ lines of production code</li>
+                    <li>379+ tests, 200+ API endpoints</li>
+                    <li>Unique 10+ agent architecture with Context Kernel v3</li>
+                    <li>Proprietary VASE voice engine with 33 speakers</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>🚀 Go-to-Market</h3>
+                <ul style="line-height: 2;">
+                    <li>Direct enterprise sales</li>
+                    <li>DoD/defense partnerships</li>
+                    <li>Healthcare compliance certifications</li>
+                    <li>System integrator channel</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 12: The Ask -->
+    <div class="slide">
+        <h2>💼 Investment Opportunity</h2>
+        <div class="subtitle">Seed Round - $2M</div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Use of Funds</th>
+                    <th>Amount</th>
+                    <th>Purpose</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Engineering Team</strong></td>
+                    <td>$800K</td>
+                    <td>Hire 3 senior engineers (AI/ML, backend, frontend)</td>
+                </tr>
+                <tr>
+                    <td><strong>Sales & Marketing</strong></td>
+                    <td>$500K</td>
+                    <td>Enterprise sales team, marketing campaigns, conferences</td>
+                </tr>
+                <tr>
+                    <td><strong>Compliance & Certifications</strong></td>
+                    <td>$300K</td>
+                    <td>SOC 2, HIPAA, DoD certifications, legal</td>
+                </tr>
+                <tr>
+                    <td><strong>Infrastructure</strong></td>
+                    <td>$200K</td>
+                    <td>Cloud infrastructure (demos), testing hardware</td>
+                </tr>
+                <tr>
+                    <td><strong>Operations</strong></td>
+                    <td>$200K</td>
+                    <td>Office, HR, accounting, insurance</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="highlight" style="margin-top: 3rem;">
+            <h3>📊 Projected Milestones (18 Months)</h3>
+            <div style="text-align: left; max-width: 600px; margin: 2rem auto; font-size: 1.2rem; line-height: 2;">
+                ✅ 20+ enterprise customers ($3M ARR)<br>
+                ✅ v2.0 shipped with full compliance<br>
+                ✅ SOC 2 Type II certified<br>
+                ✅ 2-3 Fortune 500 pilots<br>
+                ✅ Ready for Series A ($20M at $80M valuation)
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 13: Exit Strategy -->
+    <div class="slide">
+        <h2>🎯 Exit Strategy</h2>
+        <div class="subtitle">Multiple paths to liquidity</div>
+
+        <div class="grid">
+            <div class="card">
+                <h3>🏢 Strategic Acquisition</h3>
+                <p style="margin: 1rem 0;"><strong>Target: $500M - $2B (Year 4-5)</strong></p>
+                <p><strong>Top 6 Strategic Acquirers:</strong></p>
+                <ul style="line-height: 2; margin-top: 1rem;">
+                    <li><strong>Microsoft</strong> - Teams, Office, Azure ($1B-$2B)</li>
+                    <li><strong>Apple</strong> - M-series showcase, privacy focus ($1.5B-$3B)</li>
+                    <li><strong>Salesforce</strong> - Enterprise productivity ($800M-$1.5B)</li>
+                    <li><strong>Palantir</strong> - Defense/government synergy ($1B-$2.5B)</li>
+                    <li><strong>IBM</strong> - Hybrid cloud + on-premise ($800M-$1.5B)</li>
+                    <li><strong>Cisco</strong> - Enterprise infrastructure ($500M-$1B)</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>📈 IPO</h3>
+                <p style="margin: 1rem 0;"><strong>Target: $2B+ valuation (Year 6-7)</strong></p>
+                <p><strong>Path:</strong></p>
+                <ul style="line-height: 2; margin-top: 1rem;">
+                    <li>$50M+ ARR by Year 4</li>
+                    <li>$150M+ ARR by Year 6</li>
+                    <li>Market leadership in local AI</li>
+                    <li>Global enterprise customer base</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="highlight" style="margin-top: 3rem;">
+            <h3>Comparable Exits</h3>
+            <table style="margin-top: 2rem; max-width: 800px;">
+                <thead>
+                    <tr>
+                        <th>Company</th>
+                        <th>Exit Value</th>
+                        <th>Similarity</th>
+                    </tr>
+                </thead>
+                <tbody style="background: rgba(255,255,255,0.1);">
+                    <tr>
+                        <td><strong>Nuance</strong> (by Microsoft, 2022)</td>
+                        <td>$19.7B</td>
+                        <td>Voice AI, healthcare, on-premise deployment</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Slack</strong> (by Salesforce, 2021)</td>
+                        <td>$27.7B</td>
+                        <td>Enterprise productivity, team collaboration</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Splunk</strong> (by Cisco, 2024)</td>
+                        <td>$28B</td>
+                        <td>Enterprise analytics, observability</td>
+                    </tr>
+                    <tr>
+                        <td><strong>HashiCorp</strong> (by IBM, 2024)</td>
+                        <td>$6.4B</td>
+                        <td>Infrastructure software, multi-cloud</td>
+                    </tr>
+                    <tr>
+                        <td><strong>GitHub</strong> (by Microsoft, 2018)</td>
+                        <td>$7.5B</td>
+                        <td>Developer platform, enterprise adoption</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Red Hat</strong> (by IBM, 2019)</td>
+                        <td>$34B</td>
+                        <td>Enterprise Linux, on-premise focus</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Slide 14: Call to Action -->
+    <div class="slide">
+        <h2>🚀 Join the Revolution</h2>
+        <div class="subtitle">Privacy-first AI is the future. We're building it today.</div>
+
+        <div class="highlight">
+            <h3 style="font-size: 3rem;">$2M Seed Round</h3>
+            <p style="font-size: 1.5rem; margin: 2rem 0;">
+                Help us bring secure, private AI to 1,000+ enterprises
+            </p>
+
+            <div style="margin-top: 3rem;">
+                <a href="mailto:joseph@resilientmindai.com" class="cta">Schedule a Demo</a>
+            </div>
+        </div>
+
+        <div class="grid" style="margin-top: 4rem;">
+            <div class="stat-box">
+                <div class="metric">$140B+</div>
+                <div class="metric-label">Total Addressable Market</div>
+            </div>
+            <div class="stat-box">
+                <div class="metric">80%</div>
+                <div class="metric-label">Gross Margins</div>
+            </div>
+            <div class="stat-box">
+                <div class="metric">10x</div>
+                <div class="metric-label">Return Potential</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <h2 style="color: white; margin-bottom: 1rem;">ARIA v2.2.2 + Powerhouse AI</h2>
+        <p style="font-size: 1.2rem; margin-bottom: 2rem;">
+            Self-Auditing Multi-Agent Intelligence OS That Enterprises Can Trust
+        </p>
+        <p style="font-size: 1.1rem; margin-bottom: 1rem;">
+            <strong>Joseph C. McGinty Jr.</strong><br>
+            Chief Innovation Officer, ResilientMind AI
+        </p>
+        <p style="color: #a0aec0;">
+            📞 724-248-1750 | 📧 joseph@resilientmindai.com | 🌐 resilientmindai.com
+        </p>
+        <p style="color: #718096; margin-top: 1.5rem; font-size: 0.9rem;">
+            Help-Veterans.Org LLC (ResilientMind AI) | Scottdale, Pennsylvania
+        </p>
+        <p style="color: #718096; margin-top: 1rem; font-size: 0.9rem;">
+            © 2025 ResilientMind AI | All rights reserved
+        </p>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,1222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARIA v2 + Powerhouse AI | DARPA TTO BAA HR001125S0011</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #0c1222 0%, #1a1f2e 50%, #0f1419 100%);
+            color: #e4e4e7;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Header Styles */
+        .header {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(59, 130, 246, 0.1) 100%);
+            border: 2px solid rgba(16, 185, 129, 0.3);
+            border-radius: 20px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            position: relative;
+        }
+        .baa-badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: #0f1419;
+            padding: 0.5rem 2rem;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+        .classification {
+            display: inline-block;
+            padding: 0.4rem 1.2rem;
+            background: rgba(16, 185, 129, 0.15);
+            border: 1px solid rgba(16, 185, 129, 0.4);
+            border-radius: 20px;
+            font-weight: 600;
+            color: #10b981;
+            font-size: 0.85rem;
+            margin-bottom: 1.5rem;
+        }
+        h1 {
+            font-size: 3.5rem;
+            background: linear-gradient(135deg, #10b981 0%, #3b82f6 50%, #8b5cf6 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+            font-weight: 800;
+        }
+        .subtitle {
+            font-size: 1.6rem;
+            color: #94a3b8;
+            margin-bottom: 1rem;
+        }
+        .tagline {
+            font-size: 1.1rem;
+            color: #64748b;
+            font-style: italic;
+        }
+
+        /* Meta Info Grid */
+        .meta-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1rem;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .meta-item {
+            text-align: center;
+            padding: 1rem;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 12px;
+        }
+        .meta-label {
+            font-size: 0.75rem;
+            color: #64748b;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+        .meta-value {
+            font-size: 1.1rem;
+            color: #f1f5f9;
+            font-weight: 600;
+        }
+
+        /* Navigation */
+        .nav {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+            padding: 1rem;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 12px;
+        }
+        .nav a {
+            color: #94a3b8;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+        .nav a:hover {
+            background: rgba(59, 130, 246, 0.2);
+            color: #60a5fa;
+        }
+
+        /* Section Styles */
+        .section {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        h2 {
+            font-size: 2rem;
+            color: #3b82f6;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        h3 {
+            font-size: 1.4rem;
+            color: #60a5fa;
+            margin: 2rem 0 1rem 0;
+            font-weight: 600;
+        }
+        h4 {
+            font-size: 1.1rem;
+            color: #94a3b8;
+            margin: 1.5rem 0 0.75rem 0;
+            font-weight: 600;
+        }
+
+        /* Quad Chart */
+        .quad-chart {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        .quad {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border-left: 4px solid;
+        }
+        .quad-problem { border-left-color: #ef4444; }
+        .quad-approach { border-left-color: #3b82f6; }
+        .quad-innovation { border-left-color: #8b5cf6; }
+        .quad-impact { border-left-color: #10b981; }
+        .quad h4 {
+            margin-top: 0;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .quad-problem h4 { color: #ef4444; }
+        .quad-approach h4 { color: #3b82f6; }
+        .quad-innovation h4 { color: #8b5cf6; }
+        .quad-impact h4 { color: #10b981; }
+
+        /* Cards and Grids */
+        .grid { display: grid; gap: 1.5rem; margin: 2rem 0; }
+        .grid-2 { grid-template-columns: repeat(2, 1fr); }
+        .grid-3 { grid-template-columns: repeat(3, 1fr); }
+        .grid-4 { grid-template-columns: repeat(4, 1fr); }
+        @media (max-width: 1024px) {
+            .grid-3, .grid-4 { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 768px) {
+            .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+            .quad-chart { grid-template-columns: 1fr; }
+            .meta-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border-left: 4px solid #3b82f6;
+        }
+        .card h4 { margin-top: 0; color: #60a5fa; }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        th {
+            background: rgba(59, 130, 246, 0.2);
+            color: #60a5fa;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        td {
+            padding: 0.875rem 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        tr:hover { background: rgba(255, 255, 255, 0.02); }
+
+        /* Highlight Boxes */
+        .highlight {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.15) 0%, rgba(59, 130, 246, 0.15) 100%);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+        }
+        .warning {
+            background: rgba(251, 146, 60, 0.1);
+            border-left: 4px solid #fb923c;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+        .critical {
+            background: rgba(239, 68, 68, 0.1);
+            border-left: 4px solid #ef4444;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+        .success {
+            background: rgba(16, 185, 129, 0.1);
+            border-left: 4px solid #10b981;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+
+        /* Lists */
+        ul, ol {
+            margin: 1rem 0 1rem 1.5rem;
+            line-height: 1.9;
+        }
+        li { margin-bottom: 0.25rem; }
+
+        /* Code and Pre */
+        code {
+            background: rgba(139, 92, 246, 0.2);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-family: 'Monaco', 'Courier New', monospace;
+            font-size: 0.85em;
+            color: #c4b5fd;
+        }
+        pre {
+            background: rgba(0, 0, 0, 0.4);
+            padding: 1.5rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            font-family: 'Monaco', 'Courier New', monospace;
+            font-size: 0.85rem;
+            line-height: 1.7;
+            color: #94a3b8;
+        }
+
+        /* Metrics */
+        .metric {
+            text-align: center;
+            padding: 1.5rem;
+            background: rgba(59, 130, 246, 0.1);
+            border-radius: 12px;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+        }
+        .metric-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #3b82f6;
+            margin-bottom: 0.25rem;
+        }
+        .metric-label {
+            font-size: 0.85rem;
+            color: #94a3b8;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+            margin: 2rem 0;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, #10b981 0%, #3b82f6 50%, #8b5cf6 100%);
+        }
+        .timeline-item {
+            position: relative;
+            padding-bottom: 2rem;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2rem;
+            top: 0.5rem;
+            width: 12px;
+            height: 12px;
+            background: #3b82f6;
+            border-radius: 50%;
+            transform: translateX(-5px);
+        }
+        .timeline-date {
+            font-size: 0.85rem;
+            color: #10b981;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Architecture Diagram */
+        .arch-diagram {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem 0;
+            overflow-x: auto;
+        }
+        .arch-diagram pre {
+            background: transparent;
+            border: none;
+            padding: 0;
+            margin: 0;
+            color: #60a5fa;
+        }
+
+        /* Phase Cards */
+        .phase-card {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 1.5rem 0;
+            border-top: 4px solid;
+        }
+        .phase-1 { border-top-color: #10b981; }
+        .phase-2 { border-top-color: #3b82f6; }
+        .phase-3 { border-top-color: #8b5cf6; }
+        .phase-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        .phase-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+        .phase-1 .phase-title { color: #10b981; }
+        .phase-2 .phase-title { color: #3b82f6; }
+        .phase-3 .phase-title { color: #8b5cf6; }
+        .phase-duration {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: #94a3b8;
+        }
+
+        /* Bottom Band */
+        .bottom-band {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.2) 0%, rgba(59, 130, 246, 0.2) 100%);
+            border: 2px solid rgba(16, 185, 129, 0.4);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 3rem 0;
+        }
+        .bottom-band table {
+            background: transparent;
+            margin: 0;
+        }
+        .bottom-band th {
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 3rem;
+        }
+        .footer-logo {
+            font-size: 2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #10b981 0%, #3b82f6 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+        }
+
+        /* Print Styles */
+        @media print {
+            body { background: white; color: black; }
+            .nav { display: none; }
+            .section { break-inside: avoid; border: 1px solid #ccc; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <!-- Header -->
+        <div class="header">
+            <div class="baa-badge">DARPA TTO BAA HR001125S0011</div>
+            <div class="classification">UNCLASSIFIED // FOR OFFICIAL USE ONLY</div>
+            <h1>ARIA v2.2.2 + Powerhouse AI</h1>
+            <p class="subtitle">Autonomy Kernel for Denied Environment Operations</p>
+            <p class="tagline">Self-Healing Multi-Agent Intelligence at the Tactical Edge</p>
+
+            <div class="meta-grid">
+                <div class="meta-item">
+                    <div class="meta-label">PI</div>
+                    <div class="meta-value">Joseph C. McGinty Jr.</div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-label">Organization</div>
+                    <div class="meta-value">Help-Veterans.Org LLC</div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-label">Duration</div>
+                    <div class="meta-value">24 Months</div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-label">Cost</div>
+                    <div class="meta-value">$6,000,000</div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-label">Technical Area</div>
+                    <div class="meta-value">Autonomy / Edge AI</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <nav class="nav">
+            <a href="#quad-chart">Quad Chart</a>
+            <a href="#problem">Problem</a>
+            <a href="#approach">Technical Approach</a>
+            <a href="#innovation">Innovation</a>
+            <a href="#architecture">Architecture</a>
+            <a href="#schedule">Schedule</a>
+            <a href="#risk">Risk</a>
+            <a href="#transition">Transition</a>
+            <a href="#why-now">Why Now</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
+        <!-- Executive Summary -->
+        <div class="section">
+            <h2>📋 Executive Summary</h2>
+
+            <div class="highlight">
+                <p style="font-size: 1.15rem; line-height: 1.8;">
+                    <strong>ARIA v2.2.2</strong> turns a single Apple Silicon machine into a self-auditing, multi-agent intelligence OS. It keeps state, manages its own task graphs, enforces compliance rules on models and network access, and records its own health and decisions over time.
+                </p>
+                <p style="margin-top: 1rem; color: #94a3b8;">
+                    The system is designed for denied, degraded, and disconnected (D3) environments where cloud connectivity is unavailable or untrusted. It combines a <strong>10+ agent orchestration kernel with Context Kernel v3</strong> and ruggedized edge hardware (<strong>Powerhouse AI</strong>), enabling offline-first operation with voice, vision, and code support in fully air-gapped deployment.
+                </p>
+                <p style="margin-top: 1rem; color: #94a3b8;">
+                    The distinguishing technical element is the <strong>autonomous recovery loop</strong>—which detects, diagnoses, and remediates system failures without operator intervention—paired with a <strong>compliance layer</strong> that enforces PII/PHI blocking before any LLM processing, providing an auditable decision chain.
+                </p>
+            </div>
+
+            <div class="grid grid-4">
+                <div class="metric">
+                    <div class="metric-number">50K+</div>
+                    <div class="metric-label">Lines of Code</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-number">10+</div>
+                    <div class="metric-label">Specialized Agents</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-number">&lt;5s</div>
+                    <div class="metric-label">Voice Response</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-number">100%</div>
+                    <div class="metric-label">Offline Capable</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quad Chart -->
+        <div class="section" id="quad-chart">
+            <h2>📊 Quad Chart</h2>
+
+            <div class="quad-chart">
+                <div class="quad quad-problem">
+                    <h4>Q1: Problem / Operational Need</h4>
+                    <ul>
+                        <li>Field operators depend on cloud-connected AI that fails in D3 environments</li>
+                        <li>Existing edge AI lacks self-healing capability; failures require manual intervention</li>
+                        <li>No unified architecture for multi-modal AI (voice, vision, code, planning) at tactical edge</li>
+                        <li>Black-box AI systems provide no audit trail, recovery path, or compliance enforcement</li>
+                        <li>Mission-critical decisions delayed 10-30 minutes waiting for connectivity</li>
+                    </ul>
+                </div>
+
+                <div class="quad quad-approach">
+                    <h4>Q2: Technical Approach</h4>
+                    <ul>
+                        <li><strong>ARIA v2.2.2 Kernel:</strong> Context Kernel v3 with &lt;1ms routing overhead (6-stage pipeline)</li>
+                        <li><strong>10+ Agent Architecture:</strong> Decision, Learner, Planner, Healing, LLM, STT, TTS, Vision, Memory + more</li>
+                        <li><strong>Offline-First:</strong> Apple Silicon optimized for complete air-gap operation</li>
+                        <li><strong>Self-Auditing:</strong> Internal task graphs and health monitoring</li>
+                        <li><strong>Unified Memory Bus:</strong> Cross-domain memory with PII/PHI filtering</li>
+                        <li><strong>Recovery Loop:</strong> Autonomous error detection, diagnosis, remediation</li>
+                        <li><strong>Compliance-Aware Loading:</strong> Standard, Strict, DoD, HIPAA, GDPR modes</li>
+                        <li><strong>Powerhouse AI:</strong> Dual compute (NVIDIA CUDA + Apple MLX)</li>
+                    </ul>
+                </div>
+
+                <div class="quad quad-innovation">
+                    <h4>Q3: Technical Innovation</h4>
+                    <ul>
+                        <li><strong>Self-Healing Multi-Agent:</strong> First edge AI with autonomous recovery loop</li>
+                        <li><strong>Compliance Intercept:</strong> Pre-LLM PII/PHI blocking with audit trail</li>
+                        <li><strong>Context Kernel v3:</strong> Sub-1ms 6-stage cognitive pipeline with agent dispatch</li>
+                        <li><strong>Dual-Path Hardware:</strong> Single codebase on CUDA or MLX without modification</li>
+                        <li><strong>Production Codebase:</strong> 50K+ LOC, 379+ tests, 200+ API endpoints</li>
+                    </ul>
+                </div>
+
+                <div class="quad quad-impact">
+                    <h4>Q4: Operational Impact / Payoff</h4>
+                    <ul>
+                        <li>Decision support latency: Cloud 10-30 min → Local &lt;5 sec</li>
+                        <li>D3 availability: 0% → 95%+ (self-healing)</li>
+                        <li>Operator AI trust: Opaque → Fully auditable decision chain</li>
+                        <li>Deployment: ML engineer required → Operator self-service</li>
+                        <li>Eliminate 80% of AI-related mission delays</li>
+                        <li>Reduce AI maintenance burden by 60%</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Problem Statement -->
+        <div class="section" id="problem">
+            <h2>🎯 Problem Statement</h2>
+
+            <div class="critical">
+                <p style="font-size: 1.1rem; font-weight: 600; color: #ef4444;">
+                    Field operators lack AI-enabled mission support in D3 environments where cloud connectivity
+                    is unavailable or untrusted. No fielded system provides self-healing, multi-modal AI with
+                    auditable decisions and compliance enforcement at the tactical edge.
+                </p>
+            </div>
+
+            <div class="grid grid-2">
+                <div class="card">
+                    <h4>Operational Drivers</h4>
+                    <ul>
+                        <li><strong>Expanding D3 Operations:</strong> Peer adversary EW and network denial capabilities increasing</li>
+                        <li><strong>AI Dependency Without Fallback:</strong> Operations depend on AI for analysis, planning, communication—connectivity failure means capability loss</li>
+                        <li><strong>Trust Deficit:</strong> Black-box AI provides no audit trail; commanders cannot verify decisions</li>
+                        <li><strong>Maintenance Burden:</strong> Current edge AI fails silently, requires ML engineers for recovery</li>
+                        <li><strong>Multi-Modal Gap:</strong> Operators need voice, vision, code integrated—not separate tools</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>Technology Inflection</h4>
+                    <ul>
+                        <li><strong>Efficient Local Models:</strong> Llama 3.2 (3B), Whisper now run on edge hardware</li>
+                        <li><strong>Hardware Maturation:</strong> M4 and Jetson deliver 10-20 TOPS in field form factors</li>
+                        <li><strong>LoRA Fine-Tuning:</strong> Model personalization without cloud training</li>
+                        <li><strong>Unified Memory:</strong> Apple Silicon eliminates copy overhead for multi-model</li>
+                        <li><strong>Production Stack:</strong> Open-weight models and inference frameworks mature</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>Current State vs. Required Capability</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Capability</th>
+                        <th>2022</th>
+                        <th>2025 (Current)</th>
+                        <th>Required</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Local LLM</td>
+                        <td>Research only</td>
+                        <td>Production-ready 3B models</td>
+                        <td style="color: #10b981;">✓ Available</td>
+                    </tr>
+                    <tr>
+                        <td>Edge Hardware</td>
+                        <td>1-2 TOPS</td>
+                        <td>10-20 TOPS field form factor</td>
+                        <td style="color: #10b981;">✓ Available</td>
+                    </tr>
+                    <tr>
+                        <td>Self-Healing AI</td>
+                        <td>Not demonstrated</td>
+                        <td>ARIA v2 recovery loop operational</td>
+                        <td style="color: #10b981;">✓ Demonstrated</td>
+                    </tr>
+                    <tr>
+                        <td>Multi-Modal Edge</td>
+                        <td>Separate systems</td>
+                        <td>Unified kernel demonstrated</td>
+                        <td style="color: #10b981;">✓ Demonstrated</td>
+                    </tr>
+                    <tr>
+                        <td>Compliance at Edge</td>
+                        <td>Cloud-only</td>
+                        <td>Pre-LLM blocking functional</td>
+                        <td style="color: #10b981;">✓ Functional</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Technical Approach -->
+        <div class="section" id="approach">
+            <h2>🔧 Technical Approach</h2>
+
+            <h3>ARIA v2.2.2 Autonomy Kernel</h3>
+            <div class="grid grid-3">
+                <div class="card">
+                    <h4>Context Kernel v3</h4>
+                    <ul>
+                        <li>Event-driven 6-stage cognitive pipeline</li>
+                        <li>Stages: Ingest → Interpret → Plan → Execute → Reflect → Consolidate</li>
+                        <li>Intent classification: VOICE | CODE | VISION | MEETING | COMMAND</li>
+                        <li>&lt;1ms routing overhead (production measured)</li>
+                        <li>Metrics and observability layer</li>
+                        <li>Self-auditing behavior with task graphs</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>10+ Agent System</h4>
+                    <ul>
+                        <li><strong>Decision:</strong> Intent classification, confidence thresholds</li>
+                        <li><strong>Learner:</strong> Preference capture, adaptation weights</li>
+                        <li><strong>Planner:</strong> Multi-step task decomposition</li>
+                        <li><strong>Healing:</strong> Health monitoring, recovery actions</li>
+                        <li><strong>LLM/STT/TTS/Vision/Memory:</strong> Specialized model wrappers</li>
+                        <li><strong>Coordination Layer:</strong> Multi-agent orchestration with graceful degradation</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>Unified Memory Bus</h4>
+                    <ul>
+                        <li>Domains: Conversation, Semantic, Episodic, System</li>
+                        <li>Retention: Session, Persistent, Compliance-controlled</li>
+                        <li>PII/PHI detection and pre-LLM blocking</li>
+                        <li>Graph store for entity relationships</li>
+                        <li>Internal task graphs for state management</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>Recovery Loop (Self-Healing)</h3>
+            <div class="arch-diagram">
+                <pre>
+┌─────────────────────────────────────────────────────────────────────────────────┐
+│                           ARIA v2 RECOVERY LOOP                                  │
+├─────────────────────────────────────────────────────────────────────────────────┤
+│                                                                                  │
+│   ┌──────────────┐     ┌──────────────┐     ┌──────────────┐     ┌────────────┐ │
+│   │  MONITORING  │────▶│   DETECTED   │────▶│  DIAGNOSING  │────▶│   FIXING   │ │
+│   │  (30s poll)  │     │    ERROR     │     │ (pattern ID) │     │  (action)  │ │
+│   └──────────────┘     └──────────────┘     └──────────────┘     └─────┬──────┘ │
+│          ▲                                                              │        │
+│          │                                                              ▼        │
+│          │                                                       ┌────────────┐ │
+│          └───────────────────────────────────────────────────────│  VERIFYING │ │
+│                                 (success)                        │  (health)  │ │
+│                                                                  └─────┬──────┘ │
+│                                                                        │        │
+│                                  ┌──────────────┐                      │        │
+│                                  │  ESCALATING  │◀─────────────────────┘        │
+│                                  │  (if failed) │      (failure)                │
+│                                  └──────────────┘                               │
+├─────────────────────────────────────────────────────────────────────────────────┤
+│  SUPPORTED RECOVERY ACTIONS:                                                     │
+│  • Import Error    → Auto-install missing dependency                            │
+│  • Port Conflict   → Kill blocking process                                       │
+│  • Model Cache     → Clear corrupted cache, re-download                         │
+│  • Memory          → Resource optimization, model switching                     │
+│  • Connection      → Retry with backoff, fallback endpoint                      │
+│  • Config          → Load defaults, notify operator                             │
+└─────────────────────────────────────────────────────────────────────────────────┘
+                </pre>
+            </div>
+
+            <h3>Compliance Manager</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Mode</th>
+                        <th>PII Handling</th>
+                        <th>PHI Handling</th>
+                        <th>Audit Level</th>
+                        <th>Air-Gap</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Standard</td>
+                        <td>Warn only</td>
+                        <td>Warn only</td>
+                        <td>Basic</td>
+                        <td>Not required</td>
+                    </tr>
+                    <tr>
+                        <td>Strict</td>
+                        <td>Redact</td>
+                        <td>Redact</td>
+                        <td>Full</td>
+                        <td>Not required</td>
+                    </tr>
+                    <tr>
+                        <td style="color: #10b981; font-weight: 600;">DoD</td>
+                        <td style="color: #ef4444;">Block pre-LLM</td>
+                        <td style="color: #ef4444;">Block pre-LLM</td>
+                        <td>Full + tamper-evident</td>
+                        <td style="color: #10b981;">Required</td>
+                    </tr>
+                    <tr>
+                        <td style="color: #3b82f6; font-weight: 600;">HIPAA</td>
+                        <td>Redact</td>
+                        <td style="color: #ef4444;">Block pre-LLM</td>
+                        <td>Full + PHI audit</td>
+                        <td>Recommended</td>
+                    </tr>
+                    <tr>
+                        <td>GDPR</td>
+                        <td style="color: #ef4444;">Block or consent</td>
+                        <td>Redact</td>
+                        <td>Full + consent log</td>
+                        <td>Not required</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- System Architecture -->
+        <div class="section" id="architecture">
+            <h2>🏗️ System Architecture</h2>
+
+            <div class="arch-diagram">
+                <pre>
+┌─────────────────────────────────────────────────────────────────────────────────┐
+│                              USER INTERFACE LAYER                                │
+│                    React Frontend • WebSocket • REST API                         │
+└─────────────────────────────────────────┬───────────────────────────────────────┘
+                                          │
+                                          ▼
+┌─────────────────────────────────────────────────────────────────────────────────┐
+│                           CONTEXT KERNEL v3 (6-Stage Pipeline)                   │
+│  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐  ┌─────────────────────────┐ │
+│  │   Ingest    │  │  Interpret  │  │    Plan     │  │   Execute → Reflect     │ │
+│  │   Intent    │──▶│   Agent    │──▶│  Dispatch  │──▶│   → Consolidate        │ │
+│  │  (&lt;1ms)    │  │  (routing)  │  │ (pre-LLM)   │  │    (&lt;1ms overhead)     │ │
+│  └─────────────┘  └─────────────┘  └─────────────┘  └─────────────────────────┘ │
+└─────────────────────────────────────────┬───────────────────────────────────────┘
+                                          │
+              ┌───────────────────────────┼───────────────────────────┐
+              ▼                           ▼                           ▼
+┌─────────────────────┐    ┌─────────────────────┐    ┌─────────────────────┐
+│    VOICE PIPELINE   │    │    CODE PIPELINE    │    │   VISION PIPELINE   │
+│  STT → LLM → TTS    │    │  Intent → CodeGen   │    │  Capture → OCR      │
+└──────────┬──────────┘    └──────────┬──────────┘    └──────────┬──────────┘
+           │                          │                          │
+           └──────────────────────────┼──────────────────────────┘
+                                      ▼
+┌─────────────────────────────────────────────────────────────────────────────────┐
+│                         MULTI-AGENT SYSTEM (10+ Agents)                          │
+│  ┌─────────┐ ┌─────────┐ ┌─────────┐ ┌─────────┐ ┌─────────┐ ┌─────────┐       │
+│  │Decision │ │ Learner │ │ Planner │ │ Healing │ │   LLM   │ │STT/TTS  │       │
+│  │  Agent  │ │  Agent  │ │  Agent  │ │  Agent  │ │  Agent  │ │ Agents  │       │
+│  └─────────┘ └─────────┘ └─────────┘ └─────────┘ └─────────┘ └─────────┘       │
+│  ┌─────────┐ ┌─────────┐ ┌─────────┐ ┌─────────┐                               │
+│  │ Vision  │ │ Memory  │ │ Causal  │ │  Mesh   │  + Graceful Degradation       │
+│  │  Agent  │ │  Agent  │ │  Agent  │ │  Agent  │                               │
+│  └─────────┘ └─────────┘ └─────────┘ └─────────┘                               │
+└─────────────────────────────────────────┬───────────────────────────────────────┘
+                                          │
+              ┌───────────────────────────┼───────────────────────────┐
+              ▼                           ▼                           ▼
+┌─────────────────────┐    ┌─────────────────────┐    ┌─────────────────────┐
+│   UNIFIED MEMORY    │    │  INTELLIGENCE LAYER │    │    RECOVERY LOOP    │
+│  Semantic • Graph   │    │ Decision • Learning │    │  Health • Auto-Fix  │
+│  Episodic • System  │    │ Planning • Phonetic │    │  Self-Improvement   │
+└──────────┬──────────┘    └──────────┬──────────┘    └──────────┬──────────┘
+           │                          │                          │
+           └──────────────────────────┼──────────────────────────┘
+                                      ▼
+┌─────────────────────────────────────────────────────────────────────────────────┐
+│                              AI MODEL LAYER                                      │
+│  ┌───────────────┐  ┌───────────────┐  ┌───────────────┐  ┌───────────────┐    │
+│  │ Whisper STT   │  │ Llama 3.2 3B  │  │DeepSeek Coder │  │   XTTS v2     │    │
+│  │ distil-large  │  │   (voice)     │  │  1.3B (code)  │  │   (speech)    │    │
+│  │    ~1.5GB     │  │    ~2GB       │  │    ~1GB       │  │    ~2GB       │    │
+│  └───────────────┘  └───────────────┘  └───────────────┘  └───────────────┘    │
+└─────────────────────────────────────────┬───────────────────────────────────────┘
+                                          │
+┌─────────────────────────────────────────┴───────────────────────────────────────┐
+│                          HARDWARE ACCELERATION                                   │
+│         ┌─────────────────────────┐    ┌─────────────────────────┐              │
+│         │     NVIDIA CUDA PATH    │    │     APPLE MLX PATH      │              │
+│         │  Jetson AGX / RTX GPU   │    │    M4 Pro/Max (38T)     │              │
+│         │    40-100W, 12-24GB     │    │    15-30W, 32-64GB      │              │
+│         └─────────────────────────┘    └─────────────────────────┘              │
+└─────────────────────────────────────────────────────────────────────────────────┘
+                </pre>
+            </div>
+
+            <h3>Powerhouse AI Hardware</h3>
+            <div class="grid grid-2">
+                <div class="card" style="border-left-color: #10b981;">
+                    <h4>Physical Specifications</h4>
+                    <ul>
+                        <li><strong>Environmental:</strong> MIL-STD-810H (temp, humidity, shock, vibration)</li>
+                        <li><strong>EMI/EMC:</strong> MIL-STD-461G compliant</li>
+                        <li><strong>Form Factor:</strong> Portable (&lt;15kg) or 1U rack-mount</li>
+                        <li><strong>Power:</strong> 15-100W depending on compute path</li>
+                        <li><strong>Cooling:</strong> Passive or low-noise active</li>
+                    </ul>
+                </div>
+
+                <div class="card" style="border-left-color: #3b82f6;">
+                    <h4>Compute Specifications</h4>
+                    <ul>
+                        <li><strong>CUDA Path:</strong> NVIDIA Jetson AGX Orin (275 TOPS) or discrete GPU</li>
+                        <li><strong>MLX Path:</strong> Apple M4 Pro/Max (38 TOPS Neural Engine)</li>
+                        <li><strong>Memory:</strong> 32-64GB unified (MLX) or 12-24GB VRAM (CUDA)</li>
+                        <li><strong>Storage:</strong> 256GB+ NVMe, encrypted at rest</li>
+                        <li><strong>Model Footprint:</strong> ~7GB total for full stack</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Schedule and Milestones -->
+        <div class="section" id="schedule">
+            <h2>📅 Schedule and Milestones</h2>
+
+            <div class="phase-card phase-1">
+                <div class="phase-header">
+                    <span class="phase-title">Phase 1: Kernel Hardening & Compliance</span>
+                    <span class="phase-duration">Months 1-8</span>
+                </div>
+                <div class="grid grid-2">
+                    <div>
+                        <h4>Technical Objectives</h4>
+                        <ul>
+                            <li>Address audit findings (consent persistence, exception handling, audit logging)</li>
+                            <li>Complete agent registration and service exposure</li>
+                            <li>Compliance certification testing (DoD, HIPAA modes)</li>
+                            <li>Hardware integration and environmental testing</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>Milestones</h4>
+                        <ul>
+                            <li><strong>M3:</strong> Audit findings resolved, kernel hardened</li>
+                            <li><strong>M6:</strong> Compliance certification complete</li>
+                            <li><strong>M8:</strong> Hardware integration, environmental testing passed</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="phase-card phase-2">
+                <div class="phase-header">
+                    <span class="phase-title">Phase 2: Field Pilot</span>
+                    <span class="phase-duration">Months 9-16</span>
+                </div>
+                <div class="grid grid-2">
+                    <div>
+                        <h4>Technical Objectives</h4>
+                        <ul>
+                            <li>Site selection and preparation (3 government partners)</li>
+                            <li>Deployment and operator training</li>
+                            <li>Operational evaluation and data collection</li>
+                            <li>Security assessment and penetration testing</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>Milestones</h4>
+                        <ul>
+                            <li><strong>M10:</strong> First pilot site operational</li>
+                            <li><strong>M14:</strong> All 3 sites operational, feedback incorporated</li>
+                            <li><strong>M16:</strong> Pilot evaluation report delivered</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="phase-card phase-3">
+                <div class="phase-header">
+                    <span class="phase-title">Phase 3: Transition & Scale</span>
+                    <span class="phase-duration">Months 17-24</span>
+                </div>
+                <div class="grid grid-2">
+                    <div>
+                        <h4>Technical Objectives</h4>
+                        <ul>
+                            <li>Manufacturing partner engagement</li>
+                            <li>Production documentation and test procedures</li>
+                            <li>Training curriculum development</li>
+                            <li>Sustainment planning and roadmap</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>Milestones</h4>
+                        <ul>
+                            <li><strong>M20:</strong> Manufacturing partner selected, design finalized</li>
+                            <li><strong>M24:</strong> Transition package delivered, program complete</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Risk Assessment -->
+        <div class="section" id="risk">
+            <h2>⚠️ Risk Assessment</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Risk</th>
+                        <th>Likelihood</th>
+                        <th>Impact</th>
+                        <th>Mitigation</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Hardware supply chain disruption</td>
+                        <td style="color: #f59e0b;">Medium</td>
+                        <td style="color: #f59e0b;">Medium</td>
+                        <td>Dual-path architecture (CUDA + MLX)</td>
+                        <td style="color: #10b981;">Mitigated</td>
+                    </tr>
+                    <tr>
+                        <td>Model performance degradation</td>
+                        <td style="color: #f59e0b;">Medium</td>
+                        <td style="color: #f59e0b;">Medium</td>
+                        <td>LoRA fine-tuning, fallback responses</td>
+                        <td style="color: #10b981;">Mitigated</td>
+                    </tr>
+                    <tr>
+                        <td>Compliance certification delays</td>
+                        <td style="color: #f59e0b;">Medium</td>
+                        <td style="color: #ef4444;">High</td>
+                        <td>Early engagement, incremental testing</td>
+                        <td style="color: #3b82f6;">Active</td>
+                    </tr>
+                    <tr>
+                        <td>Pilot site availability</td>
+                        <td style="color: #10b981;">Low</td>
+                        <td style="color: #f59e0b;">Medium</td>
+                        <td>Backup sites identified</td>
+                        <td style="color: #10b981;">Mitigated</td>
+                    </tr>
+                    <tr>
+                        <td>Integration complexity</td>
+                        <td style="color: #f59e0b;">Medium</td>
+                        <td style="color: #f59e0b;">Medium</td>
+                        <td>Modular architecture, extensive testing</td>
+                        <td style="color: #10b981;">Mitigated</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="success">
+                <h4>Risk Reduction Already Completed</h4>
+                <ul>
+                    <li>Core kernel operational (v2.2.2 shipped with 50K+ LOC, 379+ tests)</li>
+                    <li>Context Kernel v3 with 6-stage cognitive pipeline (&lt;1ms overhead)</li>
+                    <li>10+ agent multi-model orchestration demonstrated</li>
+                    <li>Compliance layer functional for 5 regulatory modes</li>
+                    <li>Recovery loop error parsing and auto-fix implemented</li>
+                    <li>200+ API endpoints production-tested</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Transition Path -->
+        <div class="section" id="transition">
+            <h2>🚀 Transition Path</h2>
+
+            <div class="grid grid-3">
+                <div class="card">
+                    <h4>Government Users</h4>
+                    <ul>
+                        <li>SOF mission planning support</li>
+                        <li>Intelligence analysis and summarization</li>
+                        <li>Logistics and maintenance</li>
+                    </ul>
+                    <p style="margin-top: 1rem; color: #10b981;"><strong>Pathway:</strong> OTA, SBIR Phase III, direct procurement</p>
+                </div>
+
+                <div class="card">
+                    <h4>Manufacturing</h4>
+                    <ul>
+                        <li>Partner criteria: Defense manufacturing experience</li>
+                        <li>Production documentation deliverables</li>
+                        <li>Est. unit cost: $15K-25K hardware</li>
+                    </ul>
+                    <p style="margin-top: 1rem; color: #3b82f6;"><strong>Timeline:</strong> Partner selection M20</p>
+                </div>
+
+                <div class="card">
+                    <h4>Commercial Dual-Use</h4>
+                    <ul>
+                        <li>Emergency response (FEMA, state)</li>
+                        <li>Remote healthcare (telemedicine)</li>
+                        <li>Industrial (oil/gas, mining)</li>
+                    </ul>
+                    <p style="margin-top: 1rem; color: #8b5cf6;"><strong>Pathway:</strong> Commercial spin-out post-transition</p>
+                </div>
+            </div>
+
+            <h3>Deployment Readiness</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Environment</th>
+                        <th>Current Status</th>
+                        <th>Post-Program</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Development</td>
+                        <td style="color: #10b981;">Ready</td>
+                        <td style="color: #10b981;">Ready</td>
+                    </tr>
+                    <tr>
+                        <td>Staging / Test</td>
+                        <td style="color: #f59e0b;">Partial (test coverage)</td>
+                        <td style="color: #10b981;">Ready</td>
+                    </tr>
+                    <tr>
+                        <td>Production (Consumer)</td>
+                        <td style="color: #f59e0b;">Partial (reliability)</td>
+                        <td style="color: #10b981;">Ready</td>
+                    </tr>
+                    <tr>
+                        <td>Enterprise</td>
+                        <td style="color: #ef4444;">Blocked (compliance gaps)</td>
+                        <td style="color: #10b981;">Ready (IL2-IL4)</td>
+                    </tr>
+                    <tr>
+                        <td>DoD / Government</td>
+                        <td style="color: #ef4444;">Blocked (audit trail)</td>
+                        <td style="color: #10b981;">Ready (accredited)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Why Now -->
+        <div class="section" id="why-now" style="border: 2px solid #10b981;">
+            <h2 style="color: #10b981;">🎯 Why Now / Why DARPA TTO</h2>
+
+            <div class="highlight">
+                <p style="font-size: 1.2rem; font-weight: 600;">
+                    The technology is ready. The operational need is urgent. DARPA TTO is the right partner
+                    to move from prototype to fielded capability.
+                </p>
+            </div>
+
+            <div class="grid grid-2">
+                <div>
+                    <h4>Why This Capability Is Needed Now</h4>
+                    <ul>
+                        <li>Peer adversary EW and network denial capabilities expanding</li>
+                        <li>More missions occur in D3 environments</li>
+                        <li>AI dependency growing without fallback capability</li>
+                        <li>No fielded solution for self-healing multi-modal edge AI</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4>Why DARPA TTO Is The Right Home</h4>
+                    <ul>
+                        <li>High-risk technical challenge not a commercial priority</li>
+                        <li>TTO mission: Tactical technology for contested environments</li>
+                        <li>Connections to SOF, IC, acquisition for transition</li>
+                        <li>Prototyping focus matches program maturity</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Band -->
+        <div class="bottom-band">
+            <h3 style="text-align: center; margin-bottom: 1.5rem; color: #10b981;">Program Summary</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>PI</th>
+                        <th>Organization</th>
+                        <th>Type</th>
+                        <th>Duration</th>
+                        <th>Cost</th>
+                        <th>Technical Area</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Joseph C. McGinty Jr.</td>
+                        <td>Help-Veterans.Org LLC<br>(ResilientMind AI)</td>
+                        <td>Veteran-Owned<br>Small Business</td>
+                        <td>24 months</td>
+                        <td>$6,000,000</td>
+                        <td>Autonomy, Edge AI,<br>Mission Systems</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Contact -->
+        <div class="section" id="contact" style="text-align: center;">
+            <h2>📬 Contact Information</h2>
+
+            <div class="grid grid-3" style="margin-top: 2rem;">
+                <div class="metric">
+                    <div class="metric-label">Principal Investigator</div>
+                    <p style="margin-top: 1rem;">
+                        <strong>Joseph C. McGinty Jr.</strong><br>
+                        joseph@resilientmindai.com
+                    </p>
+                </div>
+
+                <div class="metric">
+                    <div class="metric-label">Organization</div>
+                    <p style="margin-top: 1rem;">
+                        <strong>Help-Veterans.Org LLC</strong><br>
+                        (ResilientMind AI)<br>
+                        Scottdale, Pennsylvania
+                    </p>
+                </div>
+
+                <div class="metric">
+                    <div class="metric-label">Classification</div>
+                    <p style="margin-top: 1rem;">
+                        <strong>VOSB</strong><br>
+                        Veteran-Owned Small Business<br>
+                        Security clearance: [TBD]
+                    </p>
+                </div>
+            </div>
+
+            <div class="success" style="margin-top: 2rem; text-align: left;">
+                <h4>Next Steps</h4>
+                <p>We welcome the opportunity to provide a brief technical session covering architecture,
+                current status, and proposed development path. Please contact the PI to schedule.</p>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <div class="footer-logo">ARIA v2.2.2 + Powerhouse AI</div>
+            <p style="color: #64748b; margin-bottom: 1rem;">
+                Self-Auditing Multi-Agent Intelligence OS for Denied Environment Operations
+            </p>
+            <p style="color: #475569; font-size: 0.85rem;">
+                DARPA TTO BAA HR001125S0011 | November 2025<br>
+                UNCLASSIFIED // FOR OFFICIAL USE ONLY
+            </p>
+            <p style="color: #374151; font-size: 0.75rem; margin-top: 1.5rem;">
+                © 2025 Help-Veterans.Org LLC (ResilientMind AI). Confidential and proprietary.
+            </p>
+        </div>
+
+    </div>
+</body>
+</html>
