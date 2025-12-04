@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARIA - Advanced Research Intelligence Architecture | UARC Penn State</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 50%, #3b82f6 100%);
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        .presentation {
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .slide {
+            width: 100%;
+            height: 100vh;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 4rem;
+            position: absolute;
+            top: 0;
+            left: 0;
+            animation: slideIn 0.5s ease-out;
+        }
+
+        .slide.active {
+            display: flex;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .slide-content {
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: #fff;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: #e0e7ff;
+        }
+
+        h3 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #bfdbfe;
+        }
+
+        p, li {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+            color: #e0e7ff;
+        }
+
+        .subtitle {
+            font-size: 1.8rem;
+            color: #bfdbfe;
+            margin-bottom: 2rem;
+        }
+
+        .tagline {
+            font-size: 1.5rem;
+            color: #93c5fd;
+            font-weight: 300;
+            margin-top: 2rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 8px;
+            padding: 2rem;
+            transition: border-color 0.2s ease;
+        }
+
+        .card:hover {
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .card h3 {
+            color: #fff;
+            margin-bottom: 1rem;
+        }
+
+        .card p {
+            color: #bfdbfe;
+            font-size: 1.1rem;
+        }
+
+        .icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 4rem;
+            font-weight: 700;
+            color: #60a5fa;
+        }
+
+        .stat-label {
+            font-size: 1.2rem;
+            color: #bfdbfe;
+            margin-top: 0.5rem;
+        }
+
+        .navigation {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            display: flex;
+            gap: 1rem;
+            z-index: 1000;
+        }
+
+        .nav-btn {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: #fff;
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.05);
+        }
+
+        .slide-number {
+            position: fixed;
+            bottom: 2rem;
+            left: 2rem;
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        ul li:before {
+            content: "→ ";
+            color: #60a5fa;
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+
+        .highlight {
+            background: rgba(96, 165, 250, 0.3);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .logo {
+            position: fixed;
+            top: 2rem;
+            left: 2rem;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #fff;
+            z-index: 1000;
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(96, 165, 250, 0.3);
+            border: 1px solid #60a5fa;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 1rem;
+            margin: 0.5rem 0.5rem 0.5rem 0;
+            color: #e0e7ff;
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-bottom: 2rem;
+        }
+
+        .timeline-item:before {
+            content: "";
+            position: absolute;
+            left: -2rem;
+            top: 0.5rem;
+            width: 12px;
+            height: 12px;
+            background: #60a5fa;
+            border-radius: 50%;
+        }
+
+        .timeline-item:after {
+            content: "";
+            position: absolute;
+            left: -1.55rem;
+            top: 1.5rem;
+            width: 2px;
+            height: calc(100% - 1rem);
+            background: rgba(96, 165, 250, 0.3);
+        }
+
+        .timeline-item:last-child:after {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 2rem; }
+            h3 { font-size: 1.5rem; }
+            p, li { font-size: 1.1rem; }
+            .slide { padding: 2rem; }
+            .two-column { grid-template-columns: 1fr; }
+            .stat-number { font-size: 3rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="logo">ARIA</div>
+
+    <div class="presentation">
+        <!-- Slide 1: Title -->
+        <div class="slide active">
+            <div class="slide-content">
+                <h1>ARIA</h1>
+                <p class="subtitle">Advanced Research Intelligence Architecture</p>
+                <p class="tagline">Next-Generation AI Infrastructure for Defense & Research Applications</p>
+                <div class="stats">
+                    <div class="stat">
+                        <div class="stat-number">TRL 6-7</div>
+                        <div class="stat-label">Technology Readiness</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">12+</div>
+                        <div class="stat-label">Core Subsystems</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">650+</div>
+                        <div class="stat-label">API Endpoints</div>
+                    </div>
+                </div>
+                <p style="margin-top: 3rem; text-align: center; color: #93c5fd;">Presentation for UARC Penn State Applied Research Laboratory</p>
+                <p style="margin-top: 1rem; text-align: center; color: #93c5fd; font-size: 1.1rem;">Version 2.18.1 | December 2025</p>
+            </div>
+        </div>
+
+        <!-- Slide 2: Executive Summary -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>Executive Summary</h2>
+                <div class="grid">
+                    <div class="card">
+                        <div class="icon">🎯</div>
+                        <h3>Mission</h3>
+                        <p>Distributed cognitive architecture designed for high-stakes research and defense operations requiring autonomous decision-making with full audit compliance.</p>
+                    </div>
+                    <div class="card">
+                        <div class="icon">🏛️</div>
+                        <h3>Target Sectors</h3>
+                        <p>Defense contractors, research institutions, federal agencies requiring DOD/HIPAA/GDPR compliance and operational autonomy.</p>
+                    </div>
+                    <div class="card">
+                        <div class="icon">⚡</div>
+                        <h3>Core Innovation</h3>
+                        <p>Self-improving execution planner with mesh networking, substrate-based monitoring, and persistent state management for mission-critical operations.</p>
+                    </div>
+                </div>
+                <p style="margin-top: 3rem; text-align: center; color: #93c5fd; font-size: 1.2rem;">
+                    <strong>System Validation:</strong> <a href="https://www.youtube.com/watch?v=Ix4lO-T2o3M" target="_blank" style="color: #60a5fa; text-decoration: underline;">650+ API endpoints live-tested</a> | TRL 6-7 (prototype system in relevant environment)
+                </p>
+            </div>
+        </div>
+
+        <!-- Slide 3: System Architecture -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>System Architecture Overview</h2>
+                <p style="margin-bottom: 2rem; color: #93c5fd;"><strong>Technology Readiness Level 6-7:</strong> System demonstrated in relevant environment, prototype ready for operational deployment</p>
+                <div class="two-column">
+                    <div>
+                        <h3>Core Components</h3>
+                        <ul>
+                            <li><span class="highlight">Dual Kernel Design</span> - V2 (production) + V3 (advanced features)</li>
+                            <li><span class="highlight">Defense Operations</span> - Mission planning & execution</li>
+                            <li><span class="highlight">Persistent State DB</span> - SQLite with WAL mode</li>
+                            <li><span class="highlight">Multi-Model LLM</span> - Adaptive model selection</li>
+                            <li><span class="highlight">Compliance Engine</span> - DOD/HIPAA/GDPR modes</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>Key Capabilities</h3>
+                        <ul>
+                            <li>Real-time substrate monitoring</li>
+                            <li>Mesh network coordination</li>
+                            <li>Self-healing execution</li>
+                            <li>Full audit trail (100% coverage)</li>
+                            <li>Multi-agent orchestration</li>
+                        </ul>
+                        <p style="margin-top: 2rem; font-size: 1.1rem; color: #93c5fd;">
+                            <strong>Live API Test:</strong> <a href="https://www.youtube.com/watch?v=Ix4lO-T2o3M" target="_blank" style="color: #60a5fa; text-decoration: underline;">650+ endpoints tested (YouTube)</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 4: Defense Operations -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>Defense Operations Suite</h2>
+                <p style="margin-bottom: 2rem;">Mission-critical capabilities for operational planning and execution</p>
+                <div class="grid">
+                    <div class="card">
+                        <h3>📋 Mission Planning</h3>
+                        <p>4-phase workflow: Brief → COA → Route → Contingency. Full persistence and audit trail.</p>
+                    </div>
+                    <div class="card">
+                        <h3>🎯 COA Generation</h3>
+                        <p>Multi-model course of action development with confidence scoring and risk assessment.</p>
+                    </div>
+                    <div class="card">
+                        <h3>🗺️ Route Reasoning</h3>
+                        <p>Intelligent path planning with constraints, threats, and optimization criteria.</p>
+                    </div>
+                    <div class="card">
+                        <h3>🛡️ Contingency Planning</h3>
+                        <p>Automated generation of fallback plans and risk mitigation strategies.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 5: Compliance & Security -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>Compliance & Security Framework</h2>
+                <div class="two-column">
+                    <div>
+                        <h3>Compliance Modes</h3>
+                        <div class="badge">DOD</div>
+                        <div class="badge">HIPAA</div>
+                        <div class="badge">GDPR</div>
+                        <div class="badge">STRICT</div>
+                        <div class="badge">STANDARD</div>
+                        <p style="margin-top: 2rem;">Dynamic compliance switching with automatic policy enforcement and data handling restrictions.</p>
+                        <ul style="margin-top: 1rem;">
+                            <li>PII redaction & sanitization</li>
+                            <li>Network isolation controls</li>
+                            <li>Access policy matrix</li>
+                            <li>Consent management</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>Audit Coverage</h3>
+                        <ul>
+                            <li>Kernel mode changes (timestamped)</li>
+                            <li>Defense operations (input/output)</li>
+                            <li>Mission chain execution</li>
+                            <li>User actions & attribution</li>
+                            <li>System configuration changes</li>
+                            <li>Performance metrics capture</li>
+                        </ul>
+                        <p style="margin-top: 2rem; color: #60a5fa; font-weight: 600;">100% of critical operations logged for forensic analysis and compliance verification.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 6: Technical Innovation -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>Novel Technical Contributions</h2>
+                <div class="grid">
+                    <div class="card">
+                        <h3>🧠 Substrate-Based Monitoring</h3>
+                        <p>Real-time observation of computational substrates (CPU, memory, network) with anomaly detection and predictive health scoring.</p>
+                    </div>
+                    <div class="card">
+                        <h3>🔄 Self-Improving Planner</h3>
+                        <p>Execution planner that learns from outcomes, adapts strategies, and improves success rates over time through pattern recognition.</p>
+                    </div>
+                    <div class="card">
+                        <h3>🌐 Mesh Networking</h3>
+                        <p>Distributed agent coordination with peer discovery, health monitoring, and automatic failover for high-availability operations.</p>
+                    </div>
+                    <div class="card">
+                        <h3>💾 Persistent State Management</h3>
+                        <p>Database-backed system state with WAL mode, auto-cleanup, and <5ms query latency for mission-critical data.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 7: Research Applications -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>Research Applications for UARC</h2>
+                <div class="two-column">
+                    <div>
+                        <h3>Autonomous Systems Research</h3>
+                        <ul>
+                            <li>Multi-agent coordination algorithms</li>
+                            <li>Decision-making under uncertainty</li>
+                            <li>Adaptive planning & re-planning</li>
+                            <li>Human-AI collaboration models</li>
+                            <li>Explainable AI for mission-critical ops</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>Defense Applications</h3>
+                        <ul>
+                            <li>Mission planning automation</li>
+                            <li>Logistics optimization</li>
+                            <li>Threat assessment & response</li>
+                            <li>Training simulation integration</li>
+                            <li>Knowledge management systems</li>
+                        </ul>
+                    </div>
+                </div>
+                <p style="margin-top: 3rem; text-align: center; color: #60a5fa; font-size: 1.2rem;">
+                    <strong>Ideal for:</strong> Applied research requiring production-grade AI infrastructure with full auditability
+                </p>
+            </div>
+        </div>
+
+        <!-- Slide 8: Why UARC Penn State -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>Why Penn State Applied Research Laboratory?</h2>
+                <p style="margin-bottom: 2rem; color: #93c5fd;">Strategic alignment with UARC Penn State's core research areas</p>
+                <div class="grid">
+                    <div class="card">
+                        <h3>🚁 Aerospace Systems</h3>
+                        <p>ARIA's mesh networking and distributed coordination maps directly to multi-UAV operations, swarm intelligence, and autonomous aerospace platforms.</p>
+                    </div>
+                    <div class="card">
+                        <h3>👁️ ISR & Surveillance</h3>
+                        <p>Integrated vision system, screen observation, and real-time data fusion align with Intelligence, Surveillance, and Reconnaissance research priorities.</p>
+                    </div>
+                    <div class="card">
+                        <h3>🤖 Autonomy Research</h3>
+                        <p>Self-improving execution planner, adaptive decision-making, and human-AI collaboration directly support autonomous systems development.</p>
+                    </div>
+                    <div class="card">
+                        <h3>🎯 Mission Systems</h3>
+                        <p>Defense operations suite (COA generation, route planning, contingency) provides ready-to-use infrastructure for mission planning research.</p>
+                    </div>
+                </div>
+                <p style="margin-top: 3rem; text-align: center; color: #60a5fa; font-size: 1.2rem;">
+                    <strong>Penn State ARL Excellence + ARIA Infrastructure = Accelerated Research Impact</strong>
+                </p>
+            </div>
+        </div>
+
+        <!-- Slide 9: Recent Accomplishments -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>Recent Development Milestones</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <h3>Database Migration (Dec 2025)</h3>
+                        <p>Migrated all system state from in-memory to persistent SQLite storage. 580 lines of new database code, 5 tables created, full ACID compliance.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h3>Defense Audit Trail (Dec 2025)</h3>
+                        <p>Implemented comprehensive audit logging for all defense operations. Captures user, role, input/output, latency, and timestamps.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h3>Mission Chain Persistence (Dec 2025)</h3>
+                        <p>All mission planning workflows now persist across restarts with complete state recovery and execution history.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h3>Operator Console Expansion (Dec 2025)</h3>
+                        <p>Added 13+ operator control panels for health monitoring, compliance, validation, replay, and trace inspection.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 9: System Metrics -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>System Performance Metrics</h2>
+                <div class="stats">
+                    <div class="stat">
+                        <div class="stat-number">&lt;5ms</div>
+                        <div class="stat-label">Database Query Latency</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">&lt;1ms</div>
+                        <div class="stat-label">Audit Insert Time</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">52KB</div>
+                        <div class="stat-label">Database Footprint</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">500KB+</div>
+                        <div class="stat-label">RAM Saved per 1000 Records</div>
+                    </div>
+                </div>
+                <div class="grid" style="margin-top: 3rem;">
+                    <div class="card">
+                        <h3>Subsystems Loaded</h3>
+                        <p>12/12 core subsystems operational: LLM, STT, TTS, Decision, Learning, Coding, Vision, Meeting, Compliance, Defense, Kernel V3, Frontend</p>
+                    </div>
+                    <div class="card">
+                        <h3>API Validation</h3>
+                        <p>650+ REST endpoints live-tested and validated. <a href="https://www.youtube.com/watch?v=Ix4lO-T2o3M" target="_blank" style="color: #60a5fa; text-decoration: underline;">View full API test run</a> (15 min video).</p>
+                    </div>
+                    <div class="card">
+                        <h3>Uptime & Reliability</h3>
+                        <p>Production-ready with self-healing capabilities, automatic restart management, and health monitoring for all subsystems.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 10: Technology Stack -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>Technology Stack</h2>
+                <div class="two-column">
+                    <div>
+                        <h3>Backend Infrastructure</h3>
+                        <div class="badge">Python 3.11+</div>
+                        <div class="badge">FastAPI</div>
+                        <div class="badge">SQLite + WAL</div>
+                        <div class="badge">PyTorch</div>
+                        <div class="badge">Transformers</div>
+                        <div class="badge">Whisper STT</div>
+                        <div class="badge">Coqui TTS</div>
+                        <p style="margin-top: 2rem;">Asynchronous architecture with concurrent request handling, circuit breaker patterns, and health monitoring.</p>
+                    </div>
+                    <div>
+                        <h3>Frontend & Integration</h3>
+                        <div class="badge">React 18+</div>
+                        <div class="badge">TypeScript</div>
+                        <div class="badge">Vite</div>
+                        <div class="badge">TailwindCSS</div>
+                        <div class="badge">Lucide Icons</div>
+                        <div class="badge">MCP Protocol</div>
+                        <p style="margin-top: 2rem;">Modern responsive UI with real-time updates, command palette, and operator console for mission-critical operations.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 11: Deployment Options -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>Deployment & Integration</h2>
+                <div class="grid">
+                    <div class="card">
+                        <h3>🖥️ On-Premises</h3>
+                        <p>Full control deployment for air-gapped environments. CPU/GPU support, no external dependencies for core functions.</p>
+                    </div>
+                    <div class="card">
+                        <h3>☁️ Cloud Ready</h3>
+                        <p>Containerized deployment with Docker/Kubernetes support. Horizontal scaling for distributed operations.</p>
+                    </div>
+                    <div class="card">
+                        <h3>🔌 API Integration</h3>
+                        <p>RESTful APIs with OpenAPI documentation. Easy integration with existing research infrastructure and tools.</p>
+                    </div>
+                    <div class="card">
+                        <h3>🔗 MCP Protocol</h3>
+                        <p>Model Context Protocol support for standardized AI model communication and third-party tool integration.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 12: Collaboration Opportunities -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>Collaboration Opportunities</h2>
+                <h3 style="margin-bottom: 2rem;">How UARC Penn State Can Leverage ARIA</h3>
+                <ul style="font-size: 1.4rem; line-height: 2;">
+                    <li><strong>Research Platform:</strong> Foundation for autonomous systems, multi-agent AI, and decision-making research</li>
+                    <li><strong>Graduate Projects:</strong> Real-world system for thesis work in AI, distributed systems, and human-computer interaction</li>
+                    <li><strong>Defense Contracts:</strong> Production-ready infrastructure for DOD-sponsored research requiring compliance and auditability</li>
+                    <li><strong>Technology Transfer:</strong> Novel innovations in substrate monitoring, self-improving planners, and distributed coordination</li>
+                    <li><strong>Joint Development:</strong> Collaborative enhancement of defense-specific capabilities and compliance frameworks</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Slide 13: Roadmap -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>Development Roadmap</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <h3>Q1 2026 - Authentication & Authorization</h3>
+                        <p>JWT/OAuth2 middleware, role-based access control, user attribution for all operations</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h3>Q1 2026 - Enhanced Monitoring</h3>
+                        <p>Time-series database integration, advanced metrics dashboard, predictive health analytics</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h3>Q2 2026 - Multi-Instance Coordination</h3>
+                        <p>PostgreSQL migration for distributed deployment, mesh network improvements, consensus protocols</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h3>Q2 2026 - Advanced Learning</h3>
+                        <p>Reinforcement learning integration, automated strategy optimization, pattern recognition enhancements</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h3>Q3 2026 - Production Hardening</h3>
+                        <p>Extended stress testing, security audit, formal verification of critical paths</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 14: Documentation & Resources -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>Documentation & Technical Resources</h2>
+                <div class="grid">
+                    <div class="card">
+                        <h3>📐 Architecture Diagrams</h3>
+                        <p>8 detailed UML diagrams covering system architecture, substrate flow, memory management, health monitoring, and agent coordination.</p>
+                    </div>
+                    <div class="card">
+                        <h3>📡 API Reference</h3>
+                        <p>Complete OpenAPI/Swagger documentation for all 650+ REST endpoints with request/response schemas and examples.</p>
+                    </div>
+                    <div class="card">
+                        <h3>📖 Operator Manuals</h3>
+                        <p>Comprehensive guides for system operation, compliance configuration, mission planning, and troubleshooting.</p>
+                    </div>
+                    <div class="card">
+                        <h3>🚀 Deployment Guides</h3>
+                        <p>Step-by-step instructions for Docker, Kubernetes, bare metal, and air-gapped environment deployments.</p>
+                    </div>
+                    <div class="card">
+                        <h3>🔒 Compliance Documentation</h3>
+                        <p>DOD, HIPAA, and GDPR compliance guides with configuration templates and audit procedures.</p>
+                    </div>
+                    <div class="card">
+                        <h3>📚 Research Papers</h3>
+                        <p>Academic publications covering distributed cognitive architectures, autonomous planning, and mesh coordination (in progress).</p>
+                    </div>
+                </div>
+                <p style="margin-top: 3rem; text-align: center; color: #60a5fa; font-size: 1.2rem;">
+                    <strong>650+ pages of technical documentation available for research collaboration</strong>
+                </p>
+            </div>
+        </div>
+
+        <!-- Slide 15: Call to Action -->
+        <div class="slide">
+            <div class="slide-content" style="text-align: center;">
+                <h1>Next Steps</h1>
+                <div class="grid" style="margin-top: 3rem;">
+                    <div class="card">
+                        <h3>📅 Schedule Technical Review</h3>
+                        <p>Deep-dive demonstration with UARC technical team to explore specific research applications and integration possibilities.</p>
+                    </div>
+                    <div class="card">
+                        <h3>📄 Documentation Access</h3>
+                        <p>Provide access to full technical documentation, architecture diagrams, and research papers for internal evaluation.</p>
+                    </div>
+                    <div class="card">
+                        <h3>🤝 Collaboration Framework</h3>
+                        <p>Discuss partnership models: sponsored research, joint development, technology licensing, or graduate program integration.</p>
+                    </div>
+                </div>
+                <div style="margin-top: 4rem;">
+                    <h3 style="color: #60a5fa;">Resources & Contact</h3>
+                    <p style="font-size: 1.3rem; margin-top: 1rem;">
+                        <strong>Live API Demo:</strong> <a href="https://www.youtube.com/watch?v=Ix4lO-T2o3M" target="_blank" style="color: #60a5fa; text-decoration: underline;">650+ endpoints tested (YouTube)</a><br>
+                        <strong>Technical Documentation:</strong> <span class="highlight">650+ pages available on request</span><br>
+                        <strong>System Demo:</strong> <span class="highlight">Available for qualified research institutions</span><br>
+                        <strong>Contact:</strong> <a href="mailto:Joseph@ResilientMindAI.com" style="color: #60a5fa; text-decoration: underline;">Joseph@ResilientMindAI.com</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 16: Thank You -->
+        <div class="slide">
+            <div class="slide-content" style="text-align: center;">
+                <h1>Thank You</h1>
+                <p class="subtitle" style="margin-top: 2rem;">Questions & Discussion</p>
+                <div class="stats" style="margin-top: 4rem;">
+                    <div class="stat">
+                        <div class="stat-number">ARIA</div>
+                        <div class="stat-label">Advanced Research Intelligence Architecture</div>
+                    </div>
+                </div>
+                <p class="tagline" style="margin-top: 3rem;">Building the future of autonomous research infrastructure</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="slide-number">
+        <span id="current-slide">1</span> / <span id="total-slides">16</span>
+    </div>
+
+    <div class="navigation">
+        <button class="nav-btn" id="prev-btn">← Previous</button>
+        <button class="nav-btn" id="next-btn">Next →</button>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        const currentSlideSpan = document.getElementById('current-slide');
+        const totalSlidesSpan = document.getElementById('total-slides');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+
+        totalSlidesSpan.textContent = totalSlides;
+
+        function showSlide(n) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (n + totalSlides) % totalSlides;
+            slides[currentSlide].classList.add('active');
+            currentSlideSpan.textContent = currentSlide + 1;
+        }
+
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+
+        function prevSlide() {
+            showSlide(currentSlide - 1);
+        }
+
+        nextBtn.addEventListener('click', nextSlide);
+        prevBtn.addEventListener('click', prevSlide);
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
+                e.preventDefault();
+                nextSlide();
+            } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+                e.preventDefault();
+                prevSlide();
+            } else if (e.key === 'Home') {
+                e.preventDefault();
+                showSlide(0);
+            } else if (e.key === 'End') {
+                e.preventDefault();
+                showSlide(totalSlides - 1);
+            }
+        });
+
+        // Touch support for mobile
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        document.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+
+        document.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            if (touchEndX < touchStartX - 50) nextSlide();
+            if (touchEndX > touchStartX + 50) prevSlide();
+        }
+    </script>
+</body>
+</html>
