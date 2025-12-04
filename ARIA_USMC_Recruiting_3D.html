@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>ARIA Recruiting Graph – 3D Strategic View</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      background: #020408;
+      color: #e8eaed;
+      font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+      overflow: hidden;
+    }
+
+    /* DoD-style header bar */
+    #header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 56px;
+      background: linear-gradient(180deg, #0a1628 0%, #050c18 100%);
+      border-bottom: 1px solid #1a2744;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px;
+      z-index: 100;
+    }
+
+    #header .logo-section {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    #header .logo {
+      width: 36px;
+      height: 36px;
+      background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 14px;
+      color: #fff;
+    }
+
+    #header h1 {
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+
+    #header .subtitle {
+      font-size: 11px;
+      color: #64748b;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    #header .classification {
+      background: #166534;
+      color: #bbf7d0;
+      padding: 4px 12px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+
+    /* Left control panel - DoD briefing style */
+    #control-panel {
+      position: absolute;
+      top: 72px;
+      left: 16px;
+      width: 300px;
+      background: rgba(10, 22, 40, 0.95);
+      border: 1px solid #1a2744;
+      border-radius: 8px;
+      padding: 16px;
+      z-index: 100;
+      backdrop-filter: blur(12px);
+    }
+
+    .panel-section {
+      margin-bottom: 16px;
+    }
+
+    .panel-section:last-child {
+      margin-bottom: 0;
+    }
+
+    .panel-header {
+      font-size: 10px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: #3b82f6;
+      margin-bottom: 10px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid #1a2744;
+    }
+
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+    }
+
+    .stat-card {
+      background: rgba(15, 23, 42, 0.8);
+      border: 1px solid #1e3a5f;
+      border-radius: 6px;
+      padding: 10px;
+      text-align: center;
+    }
+
+    .stat-card .value {
+      font-size: 22px;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .stat-card .label {
+      font-size: 9px;
+      color: #64748b;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-top: 2px;
+    }
+
+    .stat-card.highlight {
+      border-color: #3b82f6;
+      background: rgba(59, 130, 246, 0.1);
+    }
+
+    .layer-toggle {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 10px;
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid #1e3a5f;
+      border-radius: 6px;
+      margin-bottom: 6px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .layer-toggle:hover {
+      border-color: #3b82f6;
+    }
+
+    .layer-toggle.active {
+      background: rgba(59, 130, 246, 0.15);
+      border-color: #3b82f6;
+    }
+
+    .layer-toggle .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+
+    .layer-toggle .name {
+      flex: 1;
+      font-size: 12px;
+    }
+
+    .layer-toggle .count {
+      font-size: 11px;
+      color: #64748b;
+    }
+
+    /* Right info panel */
+    #info-panel {
+      position: absolute;
+      top: 72px;
+      right: 16px;
+      width: 280px;
+      background: rgba(10, 22, 40, 0.95);
+      border: 1px solid #1a2744;
+      border-radius: 8px;
+      padding: 16px;
+      z-index: 100;
+      backdrop-filter: blur(12px);
+      display: none;
+    }
+
+    #info-panel.visible {
+      display: block;
+    }
+
+    #info-panel .node-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    #info-panel .node-dot {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+    }
+
+    #info-panel .node-name {
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    #info-panel .node-type {
+      font-size: 11px;
+      color: #64748b;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    #info-panel .close-btn {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      width: 24px;
+      height: 24px;
+      background: #1e3a5f;
+      border: none;
+      border-radius: 4px;
+      color: #94a3b8;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    #info-panel .close-btn:hover {
+      background: #2d4a6f;
+      color: #fff;
+    }
+
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .metric-item {
+      background: rgba(15, 23, 42, 0.8);
+      border-radius: 6px;
+      padding: 10px;
+      text-align: center;
+    }
+
+    .metric-item .val {
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .metric-item .lbl {
+      font-size: 9px;
+      color: #64748b;
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+
+    .risk-high { color: #ef4444; }
+    .risk-med { color: #f59e0b; }
+    .risk-low { color: #22c55e; }
+
+    .ancestry-section {
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 1px solid #1e3a5f;
+    }
+
+    .ancestry-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 0;
+      font-size: 12px;
+      color: #94a3b8;
+    }
+
+    .ancestry-item .adot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+    }
+
+    /* Bottom status bar */
+    #status-bar {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 40px;
+      background: linear-gradient(0deg, #0a1628 0%, rgba(10, 22, 40, 0.9) 100%);
+      border-top: 1px solid #1a2744;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px;
+      font-size: 11px;
+      color: #64748b;
+      z-index: 100;
+    }
+
+    #status-bar .left {
+      display: flex;
+      gap: 24px;
+    }
+
+    #status-bar .item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    #status-bar .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #22c55e;
+    }
+
+    #status-bar .controls {
+      color: #94a3b8;
+    }
+
+    /* 3D Graph container */
+    #graph-3d {
+      position: absolute;
+      top: 56px;
+      left: 0;
+      right: 0;
+      bottom: 40px;
+    }
+
+    /* Semantic level indicator */
+    #semantic-indicator {
+      position: absolute;
+      bottom: 60px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(10, 22, 40, 0.9);
+      border: 1px solid #1a2744;
+      border-radius: 999px;
+      padding: 8px 20px;
+      font-size: 12px;
+      color: #94a3b8;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    #semantic-indicator .level-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #1e3a5f;
+    }
+
+    #semantic-indicator .level-dot.active {
+      background: #3b82f6;
+      box-shadow: 0 0 8px #3b82f6;
+    }
+
+    #semantic-indicator .level-label {
+      color: #e8eaed;
+      font-weight: 500;
+    }
+
+    /* Grid overlay effect */
+    #graph-3d::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background:
+        linear-gradient(rgba(59, 130, 246, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(59, 130, 246, 0.03) 1px, transparent 1px);
+      background-size: 50px 50px;
+      pointer-events: none;
+      z-index: 1;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <div id="header">
+    <div class="logo-section">
+      <div class="logo">A</div>
+      <div>
+        <h1>ARIA Operational Graph</h1>
+        <div class="subtitle">USMC Recruiting Command - Strategic Overview</div>
+      </div>
+    </div>
+    <div class="classification">UNCLASSIFIED // DEMO</div>
+  </div>
+
+  <!-- Control Panel -->
+  <div id="control-panel">
+    <div class="panel-section">
+      <div class="panel-header">Force Structure</div>
+      <div class="stat-grid">
+        <div class="stat-card highlight">
+          <div class="value" id="stat-rs">0</div>
+          <div class="label">RS Commands</div>
+        </div>
+        <div class="stat-card">
+          <div class="value" id="stat-zip">0</div>
+          <div class="label">ZIP Areas</div>
+        </div>
+        <div class="stat-card">
+          <div class="value" id="stat-mission">0</div>
+          <div class="label">Missions</div>
+        </div>
+        <div class="stat-card">
+          <div class="value" id="stat-trip">0</div>
+          <div class="label">Trip Reports</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel-section">
+      <div class="panel-header">Layer Visibility</div>
+      <div id="layer-toggles">
+        <div class="layer-toggle active" data-type="RS">
+          <span class="dot" style="background:#3b82f6"></span>
+          <span class="name">Recruiting Stations</span>
+          <span class="count" id="count-rs">0</span>
+        </div>
+        <div class="layer-toggle active" data-type="ZIP">
+          <span class="dot" style="background:#22c55e"></span>
+          <span class="name">ZIP Coverage</span>
+          <span class="count" id="count-zip">0</span>
+        </div>
+        <div class="layer-toggle active" data-type="MISSION">
+          <span class="dot" style="background:#f97316"></span>
+          <span class="name">Mission Targets</span>
+          <span class="count" id="count-mission">0</span>
+        </div>
+        <div class="layer-toggle active" data-type="TRIP">
+          <span class="dot" style="background:#ef4444"></span>
+          <span class="name">Trip Reports</span>
+          <span class="count" id="count-trip">0</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel-section">
+      <div class="panel-header">Risk Summary</div>
+      <div class="stat-grid">
+        <div class="stat-card">
+          <div class="value risk-high" id="stat-high-risk">0</div>
+          <div class="label">High Risk</div>
+        </div>
+        <div class="stat-card">
+          <div class="value risk-low" id="stat-on-track">0</div>
+          <div class="label">On Track</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Info Panel -->
+  <div id="info-panel">
+    <button class="close-btn" onclick="closeInfoPanel()">×</button>
+    <div class="node-header">
+      <span class="node-dot" id="info-dot"></span>
+      <div>
+        <div class="node-name" id="info-name"></div>
+        <div class="node-type" id="info-type"></div>
+      </div>
+    </div>
+    <div class="metrics-grid" id="info-metrics"></div>
+    <div class="ancestry-section" id="info-ancestry"></div>
+  </div>
+
+  <!-- Semantic Level Indicator -->
+  <div id="semantic-indicator">
+    <span class="level-dot active" data-level="0"></span>
+    <span class="level-dot" data-level="1"></span>
+    <span class="level-dot" data-level="2"></span>
+    <span class="level-dot" data-level="3"></span>
+    <span class="level-label" id="level-label">Strategic</span>
+  </div>
+
+  <!-- Status Bar -->
+  <div id="status-bar">
+    <div class="left">
+      <div class="item">
+        <span class="dot"></span>
+        <span>System Online</span>
+      </div>
+      <div class="item">
+        <span id="node-count">0 nodes</span> | <span id="link-count">0 edges</span>
+      </div>
+      <div class="item">
+        <span id="render-fps">-- FPS</span>
+      </div>
+    </div>
+    <div class="controls">
+      LMB Rotate • RMB Pan • Scroll Zoom • Click Node to Inspect
+    </div>
+  </div>
+
+  <!-- 3D Graph -->
+  <div id="graph-3d"></div>
+
+  <!-- Three.js + ForceGraph3D -->
+  <script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
+  <script src="https://unpkg.com/3d-force-graph@1.73.0/dist/3d-force-graph.min.js"></script>
+  <script>
+    // Build hierarchical demo data
+    function buildDemoData() {
+      const nodes = [];
+      const links = [];
+
+      function addNode(label, group, level, extra) {
+        const risk = group === 'RS' ? 0.2 + Math.random() * 0.4 :
+                     group === 'ZIP' ? 0.15 + Math.random() * 0.6 :
+                     group === 'MISSION' ? 0.1 + Math.random() * 0.7 :
+                     0.05 + Math.random() * 0.8;
+
+        const performance = group === 'RS' ? 0.7 + Math.random() * 0.25 :
+                           group === 'ZIP' ? 0.6 + Math.random() * 0.35 :
+                           group === 'MISSION' ? 0.5 + Math.random() * 0.45 :
+                           0.4 + Math.random() * 0.5;
+
+        const volume = group === 'RS' ? 80 + Math.floor(Math.random() * 120) :
+                      group === 'ZIP' ? 20 + Math.floor(Math.random() * 60) :
+                      group === 'MISSION' ? 5 + Math.floor(Math.random() * 25) :
+                      1 + Math.floor(Math.random() * 10);
+
+        nodes.push({
+          id: label,
+          name: label,
+          group,
+          level,
+          risk,
+          performance,
+          volume,
+          ...extra
+        });
+        return label;
+      }
+
+      const rsStations = [
+        "RS-QUANTICO", "RS-CAMP PENDLETON", "RS-PARRIS ISLAND",
+        "RS-TWENTYNINE PALMS", "RS-OKINAWA", "RS-CHERRY POINT"
+      ];
+
+      rsStations.forEach((rsName, rsIndex) => {
+        const rsId = addNode(rsName, "RS", 0, { idx: rsIndex });
+
+        const zipCount = 4 + Math.floor(Math.random() * 3);
+        for (let z = 0; z < zipCount; z++) {
+          const zipCode = `${20000 + rsIndex * 5000 + z * 100 + Math.floor(Math.random() * 99)}`;
+          const zipId = addNode(
+            `ZIP-${zipCode}`,
+            "ZIP",
+            1,
+            { rs: rsId, zipCode }
+          );
+          links.push({ source: rsId, target: zipId, type: "RS_ZIP" });
+
+          const missionCount = 2 + Math.floor(Math.random() * 3);
+          for (let m = 0; m < missionCount; m++) {
+            const missionTypes = ['ENLIST', 'OCS', 'RESERVE', 'LAT-MOVE', 'PRIOR-SVC'];
+            const missionType = missionTypes[Math.floor(Math.random() * missionTypes.length)];
+            const missionId = addNode(
+              `MSN-${zipCode.slice(-3)}-${missionType}`,
+              "MISSION",
+              2,
+              { rs: rsId, zip: zipId, missionType }
+            );
+            links.push({ source: zipId, target: missionId, type: "ZIP_MISSION" });
+
+            const tripCount = 2 + Math.floor(Math.random() * 3);
+            for (let t = 0; t < tripCount; t++) {
+              const months = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN',
+                             'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
+              const month = months[Math.floor(Math.random() * 12)];
+              const tripId = addNode(
+                `TRIP-${missionId.slice(4)}-${month}-${t}`,
+                "TRIP",
+                3,
+                {
+                  rs: rsId,
+                  zip: zipId,
+                  mission: missionId,
+                  month
+                }
+              );
+              links.push({ source: missionId, target: tripId, type: "MISSION_TRIP" });
+            }
+          }
+        }
+      });
+
+      return { nodes, links };
+    }
+
+    const fullData = buildDemoData();
+
+    // Colors and sizes
+    const typeColors = {
+      RS: 0x3b82f6,
+      ZIP: 0x22c55e,
+      MISSION: 0xf97316,
+      TRIP: 0xef4444
+    };
+
+    const typeColorsHex = {
+      RS: '#3b82f6',
+      ZIP: '#22c55e',
+      MISSION: '#f97316',
+      TRIP: '#ef4444'
+    };
+
+    function nodeSize(n) {
+      if (n.group === "RS") return 10;
+      if (n.group === "ZIP") return 6;
+      if (n.group === "MISSION") return 4;
+      if (n.group === "TRIP") return 2.5;
+      return 3;
+    }
+
+    const activeTypes = new Set(["RS", "ZIP", "MISSION", "TRIP"]);
+    let currentSemanticLevel = 0;
+    let selectedNode = null;
+
+    function filterBySemanticLevel(level, types) {
+      const allowedNodes = fullData.nodes.filter(n =>
+        n.level <= level && types.has(n.group)
+      );
+
+      const allowedIds = new Set(allowedNodes.map(n => n.id));
+
+      const allowedLinks = fullData.links.filter(l => {
+        const sourceId = typeof l.source === 'object' ? l.source.id : l.source;
+        const targetId = typeof l.target === 'object' ? l.target.id : l.target;
+        return allowedIds.has(sourceId) && allowedIds.has(targetId);
+      });
+
+      return { nodes: allowedNodes, links: allowedLinks };
+    }
+
+    function getAncestry(node) {
+      const chain = [];
+      let current = node;
+
+      while (current) {
+        chain.unshift(current);
+        if (current.group === 'RS') break;
+
+        if (current.rs) {
+          current = fullData.nodes.find(n => n.id === current.rs);
+        } else if (current.zip) {
+          current = fullData.nodes.find(n => n.id === current.zip);
+        } else if (current.mission) {
+          current = fullData.nodes.find(n => n.id === current.mission);
+        } else {
+          break;
+        }
+      }
+
+      return chain;
+    }
+
+    // Initialize 3D graph
+    const graphElem = document.getElementById('graph-3d');
+
+    const Graph = ForceGraph3D()(graphElem)
+      .backgroundColor('#020408')
+      .nodeId('id')
+      .nodeVal(n => nodeSize(n) * 2)
+      .nodeColor(n => typeColorsHex[n.group] || '#64748b')
+      .nodeOpacity(0.9)
+      .nodeLabel(n => `${n.name}\n${n.group} | Risk: ${(n.risk * 100).toFixed(0)}%`)
+      .linkColor(l => {
+        if (l.type === 'RS_ZIP') return 'rgba(59, 130, 246, 0.3)';
+        if (l.type === 'ZIP_MISSION') return 'rgba(34, 197, 94, 0.25)';
+        if (l.type === 'MISSION_TRIP') return 'rgba(239, 68, 68, 0.2)';
+        return 'rgba(148, 163, 184, 0.2)';
+      })
+      .linkWidth(0.5)
+      .linkOpacity(0.6)
+      .linkDirectionalParticles(2)
+      .linkDirectionalParticleSpeed(0.003)
+      .linkDirectionalParticleWidth(1.5)
+      .linkDirectionalParticleColor(() => '#3b82f6')
+      .onNodeClick(handleNodeClick)
+      .onBackgroundClick(() => {
+        closeInfoPanel();
+        selectedNode = null;
+      });
+
+    // Add glow effect to RS nodes
+    Graph.nodeThreeObject(node => {
+      if (node.group === 'RS') {
+        const group = new THREE.Group();
+
+        // Outer glow sphere
+        const glowGeom = new THREE.SphereGeometry(nodeSize(node) * 1.5, 16, 16);
+        const glowMat = new THREE.MeshBasicMaterial({
+          color: 0x3b82f6,
+          transparent: true,
+          opacity: 0.15
+        });
+        const glow = new THREE.Mesh(glowGeom, glowMat);
+        group.add(glow);
+
+        // Inner sphere
+        const innerGeom = new THREE.SphereGeometry(nodeSize(node), 16, 16);
+        const innerMat = new THREE.MeshLambertMaterial({
+          color: 0x3b82f6,
+          emissive: 0x1d4ed8,
+          emissiveIntensity: 0.3
+        });
+        const inner = new THREE.Mesh(innerGeom, innerMat);
+        group.add(inner);
+
+        return group;
+      }
+
+      // High-risk indicator
+      if (node.risk > 0.6) {
+        const group = new THREE.Group();
+
+        // Risk ring
+        const ringGeom = new THREE.TorusGeometry(nodeSize(node) * 1.3, 0.3, 8, 24);
+        const ringMat = new THREE.MeshBasicMaterial({
+          color: 0xef4444,
+          transparent: true,
+          opacity: 0.6
+        });
+        const ring = new THREE.Mesh(ringGeom, ringMat);
+        group.add(ring);
+
+        // Main sphere
+        const sphereGeom = new THREE.SphereGeometry(nodeSize(node), 12, 12);
+        const sphereMat = new THREE.MeshLambertMaterial({
+          color: typeColors[node.group]
+        });
+        const sphere = new THREE.Mesh(sphereGeom, sphereMat);
+        group.add(sphere);
+
+        return group;
+      }
+
+      return false; // Use default
+    });
+
+    // Camera and controls
+    Graph.cameraPosition({ x: 300, y: 200, z: 400 });
+
+    function handleNodeClick(node) {
+      if (!node) return;
+      selectedNode = node;
+      showInfoPanel(node);
+
+      // Center camera on node
+      const distance = 150;
+      const distRatio = 1 + distance / Math.hypot(node.x, node.y, node.z);
+      Graph.cameraPosition(
+        { x: node.x * distRatio, y: node.y * distRatio, z: node.z * distRatio },
+        node,
+        1500
+      );
+    }
+
+    function showInfoPanel(node) {
+      const panel = document.getElementById('info-panel');
+      document.getElementById('info-dot').style.background = typeColorsHex[node.group];
+      document.getElementById('info-name').textContent = node.name;
+
+      const typeLabels = {
+        RS: 'Recruiting Station Command',
+        ZIP: 'ZIP Coverage Area',
+        MISSION: 'Mission Target',
+        TRIP: 'Trip Report'
+      };
+      document.getElementById('info-type').textContent = typeLabels[node.group];
+
+      const riskClass = node.risk > 0.6 ? 'risk-high' : node.risk > 0.35 ? 'risk-med' : 'risk-low';
+      document.getElementById('info-metrics').innerHTML = `
+        <div class="metric-item">
+          <div class="val ${riskClass}">${(node.risk * 100).toFixed(0)}%</div>
+          <div class="lbl">Risk</div>
+        </div>
+        <div class="metric-item">
+          <div class="val">${(node.performance * 100).toFixed(0)}%</div>
+          <div class="lbl">Performance</div>
+        </div>
+        <div class="metric-item">
+          <div class="val">${node.volume}</div>
+          <div class="lbl">Volume</div>
+        </div>
+        <div class="metric-item">
+          <div class="val">${node.level}</div>
+          <div class="lbl">Depth</div>
+        </div>
+      `;
+
+      const ancestry = getAncestry(node);
+      const ancestryEl = document.getElementById('info-ancestry');
+      if (ancestry.length > 1) {
+        ancestryEl.innerHTML = '<div style="font-size:10px;color:#64748b;margin-bottom:8px;text-transform:uppercase;letter-spacing:0.5px;">Chain of Command</div>' +
+          ancestry.map(n => `
+            <div class="ancestry-item">
+              <span class="adot" style="background:${typeColorsHex[n.group]}"></span>
+              ${n.name}
+            </div>
+          `).join('');
+        ancestryEl.style.display = 'block';
+      } else {
+        ancestryEl.style.display = 'none';
+      }
+
+      panel.classList.add('visible');
+    }
+
+    function closeInfoPanel() {
+      document.getElementById('info-panel').classList.remove('visible');
+    }
+    window.closeInfoPanel = closeInfoPanel;
+
+    // Update stats
+    function updateStats(data) {
+      const counts = {
+        RS: data.nodes.filter(n => n.group === 'RS').length,
+        ZIP: data.nodes.filter(n => n.group === 'ZIP').length,
+        MISSION: data.nodes.filter(n => n.group === 'MISSION').length,
+        TRIP: data.nodes.filter(n => n.group === 'TRIP').length
+      };
+
+      document.getElementById('stat-rs').textContent = counts.RS;
+      document.getElementById('stat-zip').textContent = counts.ZIP;
+      document.getElementById('stat-mission').textContent = counts.MISSION;
+      document.getElementById('stat-trip').textContent = counts.TRIP;
+
+      document.getElementById('count-rs').textContent = counts.RS;
+      document.getElementById('count-zip').textContent = counts.ZIP;
+      document.getElementById('count-mission').textContent = counts.MISSION;
+      document.getElementById('count-trip').textContent = counts.TRIP;
+
+      document.getElementById('node-count').textContent = `${data.nodes.length} nodes`;
+      document.getElementById('link-count').textContent = `${data.links.length} edges`;
+
+      // Risk summary
+      const highRisk = data.nodes.filter(n => n.risk > 0.6).length;
+      const onTrack = data.nodes.filter(n => n.risk <= 0.35).length;
+      document.getElementById('stat-high-risk').textContent = highRisk;
+      document.getElementById('stat-on-track').textContent = onTrack;
+    }
+
+    // Semantic level
+    function updateSemanticLevel(level) {
+      const labels = ['Strategic', 'Operational', 'Planning', 'Tactical'];
+      document.getElementById('level-label').textContent = labels[level];
+
+      document.querySelectorAll('#semantic-indicator .level-dot').forEach((dot, i) => {
+        dot.classList.toggle('active', i <= level);
+      });
+    }
+
+    function setSemanticLevel(level) {
+      if (level === currentSemanticLevel) return;
+      currentSemanticLevel = level;
+      const filtered = filterBySemanticLevel(level, activeTypes);
+      Graph.graphData(filtered);
+      updateSemanticLevel(level);
+      updateStats(filtered);
+    }
+
+    // Initial render
+    const initialData = filterBySemanticLevel(0, activeTypes);
+    Graph.graphData(initialData);
+    updateSemanticLevel(0);
+    updateStats(initialData);
+
+    // Zoom-based semantic level
+    let lastZoom = 0;
+    setInterval(() => {
+      const cam = Graph.camera();
+      if (!cam) return;
+
+      const dist = cam.position.length();
+      let level;
+      if (dist > 500) level = 0;
+      else if (dist > 350) level = 1;
+      else if (dist > 200) level = 2;
+      else level = 3;
+
+      if (level !== lastZoom) {
+        lastZoom = level;
+        setSemanticLevel(level);
+      }
+    }, 200);
+
+    // FPS counter
+    let frameCount = 0;
+    let lastTime = performance.now();
+    function updateFPS() {
+      frameCount++;
+      const now = performance.now();
+      if (now - lastTime >= 1000) {
+        document.getElementById('render-fps').textContent = `${frameCount} FPS`;
+        frameCount = 0;
+        lastTime = now;
+      }
+      requestAnimationFrame(updateFPS);
+    }
+    updateFPS();
+
+    // Layer toggles
+    document.querySelectorAll('.layer-toggle').forEach(toggle => {
+      toggle.addEventListener('click', () => {
+        const type = toggle.dataset.type;
+        if (toggle.classList.contains('active')) {
+          toggle.classList.remove('active');
+          activeTypes.delete(type);
+        } else {
+          toggle.classList.add('active');
+          activeTypes.add(type);
+        }
+        const filtered = filterBySemanticLevel(currentSemanticLevel, activeTypes);
+        Graph.graphData(filtered);
+        updateStats(filtered);
+      });
+    });
+
+    // Semantic level dots clickable
+    document.querySelectorAll('#semantic-indicator .level-dot').forEach(dot => {
+      dot.style.cursor = 'pointer';
+      dot.addEventListener('click', () => {
+        const level = parseInt(dot.dataset.level);
+        setSemanticLevel(level);
+      });
+    });
+  </script>
+</body>
+</html>
