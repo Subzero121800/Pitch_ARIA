@@ -1,0 +1,91 @@
+<svg viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <polygon points="0 0, 10 5, 0 10" fill="#58a6ff"/>
+    </marker>
+    <marker id="arrow-success" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <polygon points="0 0, 10 5, 0 10" fill="#3fb950"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="500" fill="#0d1117"/>
+
+  <!-- Title -->
+  <text x="400" y="35" text-anchor="middle" font-size="20" font-weight="700" fill="#f0f6fc" font-family="-apple-system, BlinkMacSystemFont, sans-serif">Autonomous Recovery Loop</text>
+  <text x="400" y="55" text-anchor="middle" font-size="11" fill="#8b949e" font-family="-apple-system, BlinkMacSystemFont, sans-serif">Self-Healing Pipeline with 10+ Failure Class Recognition</text>
+
+  <!-- Central Loop - 5 Stages arranged in a circle -->
+
+  <!-- Stage 1: MONITOR (Top) -->
+  <rect x="310" y="80" width="180" height="60" fill="#1f6feb" rx="8"/>
+  <text x="400" y="108" text-anchor="middle" font-size="13" font-weight="600" fill="#f0f6fc" font-family="-apple-system, BlinkMacSystemFont, sans-serif">1. MONITOR</text>
+  <text x="400" y="125" text-anchor="middle" font-size="9" fill="#c9d1d9" font-family="-apple-system, BlinkMacSystemFont, sans-serif">Health polling (30s)</text>
+
+  <!-- Stage 2: DETECT (Right) -->
+  <rect x="550" y="180" width="180" height="60" fill="#f97316" rx="8"/>
+  <text x="640" y="208" text-anchor="middle" font-size="13" font-weight="600" fill="#f0f6fc" font-family="-apple-system, BlinkMacSystemFont, sans-serif">2. DETECT</text>
+  <text x="640" y="225" text-anchor="middle" font-size="9" fill="#c9d1d9" font-family="-apple-system, BlinkMacSystemFont, sans-serif">Pattern matching</text>
+
+  <!-- Stage 3: DIAGNOSE (Bottom Right) -->
+  <rect x="480" y="300" width="180" height="60" fill="#a855f7" rx="8"/>
+  <text x="570" y="328" text-anchor="middle" font-size="13" font-weight="600" fill="#f0f6fc" font-family="-apple-system, BlinkMacSystemFont, sans-serif">3. DIAGNOSE</text>
+  <text x="570" y="345" text-anchor="middle" font-size="9" fill="#c9d1d9" font-family="-apple-system, BlinkMacSystemFont, sans-serif">Root cause analysis</text>
+
+  <!-- Stage 4: FIX (Bottom Left) -->
+  <rect x="140" y="300" width="180" height="60" fill="#06b6d4" rx="8"/>
+  <text x="230" y="328" text-anchor="middle" font-size="13" font-weight="600" fill="#f0f6fc" font-family="-apple-system, BlinkMacSystemFont, sans-serif">4. FIX</text>
+  <text x="230" y="345" text-anchor="middle" font-size="9" fill="#c9d1d9" font-family="-apple-system, BlinkMacSystemFont, sans-serif">Auto-remediation</text>
+
+  <!-- Stage 5: VERIFY (Left) -->
+  <rect x="70" y="180" width="180" height="60" fill="#3fb950" rx="8"/>
+  <text x="160" y="208" text-anchor="middle" font-size="13" font-weight="600" fill="#f0f6fc" font-family="-apple-system, BlinkMacSystemFont, sans-serif">5. VERIFY</text>
+  <text x="160" y="225" text-anchor="middle" font-size="9" fill="#c9d1d9" font-family="-apple-system, BlinkMacSystemFont, sans-serif">Health confirmation</text>
+
+  <!-- Arrows connecting stages -->
+  <!-- Monitor -> Detect -->
+  <path d="M490 110 Q550 110 560 180" stroke="#58a6ff" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+
+  <!-- Detect -> Diagnose -->
+  <path d="M640 240 Q640 270 600 300" stroke="#58a6ff" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+
+  <!-- Diagnose -> Fix -->
+  <path d="M480 330 L320 330" stroke="#58a6ff" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+
+  <!-- Fix -> Verify -->
+  <path d="M200 300 Q160 270 160 240" stroke="#58a6ff" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+
+  <!-- Verify -> Monitor (Success loop back) -->
+  <path d="M160 180 Q160 110 310 110" stroke="#3fb950" stroke-width="2" fill="none" marker-end="url(#arrow-success)" stroke-dasharray="6,3"/>
+  <text x="220" y="100" font-size="9" fill="#3fb950" font-family="-apple-system, BlinkMacSystemFont, sans-serif">Success</text>
+
+  <!-- Recovery Strategies Box -->
+  <rect x="50" y="390" width="320" height="90" fill="#161b22" rx="6" stroke="#30363d"/>
+  <text x="210" y="415" text-anchor="middle" font-size="11" font-weight="600" fill="#f0f6fc" font-family="-apple-system, BlinkMacSystemFont, sans-serif">Recovery Strategies</text>
+
+  <text x="70" y="440" font-size="9" fill="#8b949e" font-family="-apple-system, BlinkMacSystemFont, sans-serif">Retry</text>
+  <text x="130" y="440" font-size="9" fill="#8b949e" font-family="-apple-system, BlinkMacSystemFont, sans-serif">Fallback</text>
+  <text x="200" y="440" font-size="9" fill="#8b949e" font-family="-apple-system, BlinkMacSystemFont, sans-serif">Circuit Breaker</text>
+  <text x="300" y="440" font-size="9" fill="#8b949e" font-family="-apple-system, BlinkMacSystemFont, sans-serif">Restart</text>
+
+  <text x="70" y="465" font-size="9" fill="#8b949e" font-family="-apple-system, BlinkMacSystemFont, sans-serif">Graceful Degrade</text>
+  <text x="180" y="465" font-size="9" fill="#8b949e" font-family="-apple-system, BlinkMacSystemFont, sans-serif">Checkpoint Restore</text>
+  <text x="300" y="465" font-size="9" fill="#da3633" font-family="-apple-system, BlinkMacSystemFont, sans-serif">Escalate</text>
+
+  <!-- Failure Classes Box -->
+  <rect x="430" y="390" width="320" height="90" fill="#161b22" rx="6" stroke="#30363d"/>
+  <text x="590" y="415" text-anchor="middle" font-size="11" font-weight="600" fill="#f0f6fc" font-family="-apple-system, BlinkMacSystemFont, sans-serif">10+ Failure Classes</text>
+
+  <text x="450" y="440" font-size="9" fill="#8b949e" font-family="-apple-system, BlinkMacSystemFont, sans-serif">Dependency</text>
+  <text x="530" y="440" font-size="9" fill="#8b949e" font-family="-apple-system, BlinkMacSystemFont, sans-serif">Port</text>
+  <text x="580" y="440" font-size="9" fill="#8b949e" font-family="-apple-system, BlinkMacSystemFont, sans-serif">Cache</text>
+  <text x="630" y="440" font-size="9" fill="#8b949e" font-family="-apple-system, BlinkMacSystemFont, sans-serif">Model</text>
+  <text x="685" y="440" font-size="9" fill="#8b949e" font-family="-apple-system, BlinkMacSystemFont, sans-serif">Memory</text>
+
+  <text x="450" y="465" font-size="9" fill="#8b949e" font-family="-apple-system, BlinkMacSystemFont, sans-serif">Network</text>
+  <text x="520" y="465" font-size="9" fill="#8b949e" font-family="-apple-system, BlinkMacSystemFont, sans-serif">Timeout</text>
+  <text x="590" y="465" font-size="9" fill="#8b949e" font-family="-apple-system, BlinkMacSystemFont, sans-serif">State</text>
+  <text x="650" y="465" font-size="9" fill="#8b949e" font-family="-apple-system, BlinkMacSystemFont, sans-serif">Config</text>
+  <text x="700" y="465" font-size="9" fill="#a855f7" font-family="-apple-system, BlinkMacSystemFont, sans-serif">+More</text>
+
+</svg>

@@ -1,0 +1,58 @@
+<svg viewBox="0 0 700 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="arrow-flow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <polygon points="0 0, 10 5, 0 10" fill="#58a6ff"/>
+    </marker>
+    <marker id="arrow-block" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <polygon points="0 0, 10 5, 0 10" fill="#da3633"/>
+    </marker>
+    <marker id="arrow-pass" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <polygon points="0 0, 10 5, 0 10" fill="#3fb950"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="700" height="200" fill="#0d1117"/>
+
+  <!-- Title -->
+  <text x="350" y="25" text-anchor="middle" font-size="14" font-weight="700" fill="#f0f6fc" font-family="-apple-system, BlinkMacSystemFont, sans-serif">Pre-LLM Compliance Blocking</text>
+
+  <!-- User Request Box -->
+  <rect x="20" y="70" width="120" height="50" fill="#1f6feb" rx="6"/>
+  <text x="80" y="93" text-anchor="middle" font-size="11" font-weight="600" fill="#f0f6fc" font-family="-apple-system, BlinkMacSystemFont, sans-serif">User Request</text>
+  <text x="80" y="108" text-anchor="middle" font-size="9" fill="#c9d1d9" font-family="-apple-system, BlinkMacSystemFont, sans-serif">Input Data</text>
+
+  <!-- Arrow to Compliance -->
+  <path d="M140 95 L195 95" stroke="#58a6ff" stroke-width="2" fill="none" marker-end="url(#arrow-flow)"/>
+
+  <!-- Compliance Intercept Box -->
+  <rect x="200" y="70" width="140" height="50" fill="#f97316" rx="6"/>
+  <text x="270" y="93" text-anchor="middle" font-size="11" font-weight="600" fill="#f0f6fc" font-family="-apple-system, BlinkMacSystemFont, sans-serif">Compliance Guard</text>
+  <text x="270" y="108" text-anchor="middle" font-size="9" fill="#c9d1d9" font-family="-apple-system, BlinkMacSystemFont, sans-serif">PII/PHI Detection</text>
+
+  <!-- Decision Diamond -->
+  <polygon points="420,95 460,70 500,95 460,120" fill="#8957e5"/>
+  <text x="460" y="98" text-anchor="middle" font-size="9" font-weight="600" fill="#f0f6fc" font-family="-apple-system, BlinkMacSystemFont, sans-serif">PII?</text>
+
+  <!-- Arrow to Decision -->
+  <path d="M340 95 L415 95" stroke="#58a6ff" stroke-width="2" fill="none" marker-end="url(#arrow-flow)"/>
+
+  <!-- BLOCK Path (down) -->
+  <rect x="400" y="140" width="120" height="40" fill="#da3633" rx="6"/>
+  <text x="460" y="158" text-anchor="middle" font-size="10" font-weight="600" fill="#f0f6fc" font-family="-apple-system, BlinkMacSystemFont, sans-serif">BLOCK + LOG</text>
+  <text x="460" y="172" text-anchor="middle" font-size="8" fill="#c9d1d9" font-family="-apple-system, BlinkMacSystemFont, sans-serif">Data never processed</text>
+
+  <!-- Arrow to Block -->
+  <path d="M460 120 L460 137" stroke="#da3633" stroke-width="2" fill="none" marker-end="url(#arrow-block)"/>
+  <text x="478" y="132" font-size="8" fill="#da3633" font-family="-apple-system, BlinkMacSystemFont, sans-serif">YES</text>
+
+  <!-- PASS Path (right to LLM) -->
+  <rect x="560" y="70" width="120" height="50" fill="#3fb950" rx="6"/>
+  <text x="620" y="93" text-anchor="middle" font-size="11" font-weight="600" fill="#f0f6fc" font-family="-apple-system, BlinkMacSystemFont, sans-serif">Route to LLM</text>
+  <text x="620" y="108" text-anchor="middle" font-size="9" fill="#c9d1d9" font-family="-apple-system, BlinkMacSystemFont, sans-serif">Safe to process</text>
+
+  <!-- Arrow to LLM -->
+  <path d="M500 95 L555 95" stroke="#3fb950" stroke-width="2" fill="none" marker-end="url(#arrow-pass)"/>
+  <text x="520" y="88" font-size="8" fill="#3fb950" font-family="-apple-system, BlinkMacSystemFont, sans-serif">NO</text>
+
+</svg>

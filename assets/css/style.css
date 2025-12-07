@@ -753,6 +753,19 @@ tr:hover td {
   background: var(--bg-tertiary);
 }
 
+/* Full-height architecture diagrams */
+.screenshot-card .screenshot-img-wrapper.full-height {
+  height: auto;
+  max-height: none;
+  overflow: visible;
+}
+
+.screenshot-card .screenshot-img-wrapper.full-height img {
+  height: auto;
+  max-height: none;
+  object-fit: contain;
+}
+
 .screenshot-card img {
   width: 100%;
   height: 100%;

@@ -41,79 +41,19 @@
 
     <div class="content">
       <h2>High-Level Architecture</h2>
-      <div class="diagram-block">
-+-------------------------------------------------------------+
-|                     User Interface Layer                     |
-|      (Voice, Chat, Coding Panel, Vision, Operator Console)  |
-+-----------------------------+-------------------------------+
-                              |
-                              v
-+-------------------------------------------------------------+
-|                   Context Kernel v3                          |
-|  Multi-Stage Cognitive Pipeline for AI Orchestration        |
-|  Event-Driven with Low-Latency Routing                      |
-+-----------------------------+-------------------------------+
-                              |
-    +--------+--------+-------+-------+--------+--------+
-    v        v        v       v       v        v        v
-+------+ +------+ +------+ +-----+ +-----+ +------+ +------+
-|Decis-| |Plan- | |Heal- | | LLM | | STT | | TTS  | |Vision|
-| ion  | | ner  | | ing  | |     | |     | |      | |      |
-+------+ +------+ +------+ +-----+ +-----+ +------+ +------+
-    |        |        |       |       |        |        |
-    +--------+--------+-------+-------+--------+--------+
-                              v
-+-------------------------------------------------------------+
-|            Unified Memory Graph + Event Bus                  |
-|  Conversation | Semantic | Meeting | Vision | System | Code |
-+-----------------------------+-------------------------------+
-                              |
-          +-------------------+-------------------+
-          v                   v                   v
-+----------------+   +----------------+   +----------------+
-|  Multi-Node    |   |    Causal      |   |  Policy +      |
-|  Mesh Network  |   |   Reasoning    |   | LAN Security   |
-+----------------+   +----------------+   +----------------+
-                              v
-+-------------------------------------------------------------+
-|                Model Layer (Local Inference)                 |
-|    Whisper (STT) | Llama 3.2 (LLM) | XTTS v2 (TTS)         |
-+-----------------------------+-------------------------------+
-                              v
-+-------------------------------------------------------------+
-|               Hardware Acceleration Layer                    |
-|        Apple MLX (M-series) | NVIDIA CUDA (Jetson)          |
-+-------------------------------------------------------------+
+      <div class="screenshot-card" style="max-width: 900px; margin: 0 auto 2rem;" onclick="openLightbox('../assets/images/Arch.svg')">
+        <div class="screenshot-img-wrapper" style="height: auto; max-height: none; overflow: visible;">
+          <img src="../assets/images/Arch.svg" alt="ARIA System Architecture" style="width: 100%; height: auto; max-height: none;">
+          <span class="zoom-hint">Click to enlarge</span>
+        </div>
       </div>
 
       <h2>Innovation 1: Autonomous Recovery Loop</h2>
-      <div class="diagram-block">
-         +---------------+
-         |  MONITORING   |&lt;---------------------------+
-         +-------+-------+                            |
-                 | Error Detected                     |
-                 v                                    |
-         +---------------+                            |
-         |  DIAGNOSING   |                            |
-         |  - Pattern    |                            |
-         |    Matching   |                            |
-         +-------+-------+                            |
-                 |                                    |
-                 v                                    |
-         +---------------+                            |
-         |    FIXING     |                            |
-         |  - Auto-      |                            |
-         |    Remediate  |                            |
-         +-------+-------+                            |
-                 |                                    |
-          +------+------+                             |
-          v             v                             |
-   +----------+   +----------+                        |
-   | VERIFYING|   |ESCALATING|                        |
-   | (Success)|   | (Failure)|                        |
-   +----+-----+   +----------+                        |
-        |                                             |
-        +---------------------------------------------+
+      <div class="screenshot-card" style="max-width: 800px; margin: 0 auto 2rem;" onclick="openLightbox('../assets/images/HealingLoop.svg')">
+        <div class="screenshot-img-wrapper" style="height: auto; max-height: none; overflow: visible;">
+          <img src="../assets/images/HealingLoop.svg" alt="ARIA Autonomous Recovery Loop" style="width: 100%; height: auto; max-height: none;">
+          <span class="zoom-hint">Click to enlarge</span>
+        </div>
       </div>
       <p><strong>What it does:</strong></p>
       <ul>
@@ -127,14 +67,11 @@
       <h2>Innovation 2: Pre-LLM Compliance Blocking</h2>
       <p><strong>Standard approach:</strong> Redact PII from LLM output (data already processed by AI)</p>
       <p><strong>ARIA approach:</strong> Block requests containing PII before they reach the LLM (data never enters AI pipeline)</p>
-      <div class="diagram-block">
-User Request ---> Compliance Intercept ---> [PII Detected?]
-                                                    |
-                                               YES  v
-                                              BLOCK + LOG
-                                                    |
-                                               NO   v
-                                              Route to LLM
+      <div class="screenshot-card" style="max-width: 700px; margin: 0 auto 2rem;" onclick="openLightbox('../assets/images/ComplianceFlow.svg')">
+        <div class="screenshot-img-wrapper" style="height: auto; max-height: none; overflow: visible;">
+          <img src="../assets/images/ComplianceFlow.svg" alt="ARIA Pre-LLM Compliance Flow" style="width: 100%; height: auto; max-height: none;">
+          <span class="zoom-hint">Click to enlarge</span>
+        </div>
       </div>
       <p><strong>Why it matters:</strong> For DoD and HIPAA, "redact after processing" is insufficient. ARIA ensures sensitive data never reaches the model.</p>
 
@@ -187,6 +124,12 @@ User Request ---> Compliance Intercept ---> [PII Detected?]
       <p><strong>Why it matters:</strong> Consistent brand voice across all AI interactions without cloud dependency.</p>
 
       <h2>Innovation 7: Multi-Model Hardware Abstraction</h2>
+      <div class="screenshot-card" style="max-width: 700px; margin: 0 auto 2rem;" onclick="openLightbox('../assets/images/HardwareAbstraction.svg')">
+        <div class="screenshot-img-wrapper" style="height: auto; max-height: none; overflow: visible;">
+          <img src="../assets/images/HardwareAbstraction.svg" alt="ARIA Hardware Abstraction Layer" style="width: 100%; height: auto; max-height: none;">
+          <span class="zoom-hint">Click to enlarge</span>
+        </div>
+      </div>
       <p><strong>Dual Compute Paths:</strong></p>
       <ul>
         <li><strong>Apple MLX</strong> - Unified memory, lower power (15-30W), M-series optimized</li>
@@ -321,12 +264,22 @@ User Request ---> Compliance Intercept ---> [PII Detected?]
         </table>
       </div>
 
+      <h2>Innovation 8: Unified Testing Console</h2>
+      <p><strong>v2.17 Addition:</strong> A comprehensive testing dashboard that combines four specialized tools for API validation and stress testing.</p>
+      <ul>
+        <li><strong>API WarZone</strong> - WebSocket-driven real-time test execution dashboard for 655+ endpoints</li>
+        <li><strong>Schema Console</strong> - OpenAPI parser and visualizer for endpoint discovery and documentation</li>
+        <li><strong>Stress Simulator</strong> - Load testing tool for performance benchmarking and capacity planning</li>
+        <li><strong>Remote Target Support</strong> - Test any ARIA backend on the network via LAN scanning</li>
+      </ul>
+      <p><strong>Why it matters:</strong> Enterprise deployments require comprehensive testing tools. The unified console enables DevOps teams to validate multi-node deployments.</p>
+
       <h2>Operator Console</h2>
       <p>ARIA includes a comprehensive operator dashboard for monitoring and controlling all system components in real-time.</p>
 
       <div class="screenshot-gallery">
         <div class="screenshot-card" onclick="openLightbox('../assets/images/lan-security.png')">
-          <div class="screenshot-img-wrapper">
+          <div class="screenshot-img-wrapper full-height">
             <img src="../assets/images/lan-security.png" alt="ARIA LAN Security Dashboard">
             <span class="zoom-hint">Click to enlarge</span>
           </div>
@@ -336,7 +289,7 @@ User Request ---> Compliance Intercept ---> [PII Detected?]
           </div>
         </div>
         <div class="screenshot-card" onclick="openLightbox('../assets/images/policy-planner.png')">
-          <div class="screenshot-img-wrapper">
+          <div class="screenshot-img-wrapper full-height">
             <img src="../assets/images/policy-planner.png" alt="ARIA Policy-Constrained Planner">
             <span class="zoom-hint">Click to enlarge</span>
           </div>
@@ -346,7 +299,7 @@ User Request ---> Compliance Intercept ---> [PII Detected?]
           </div>
         </div>
         <div class="screenshot-card" onclick="openLightbox('../assets/images/causal-viewer.png')">
-          <div class="screenshot-img-wrapper">
+          <div class="screenshot-img-wrapper full-height">
             <img src="../assets/images/causal-viewer.png" alt="ARIA Causal Reasoning Viewer">
             <span class="zoom-hint">Click to enlarge</span>
           </div>
@@ -356,7 +309,7 @@ User Request ---> Compliance Intercept ---> [PII Detected?]
           </div>
         </div>
         <div class="screenshot-card" onclick="openLightbox('../assets/images/mesh-network.png')">
-          <div class="screenshot-img-wrapper">
+          <div class="screenshot-img-wrapper full-height">
             <img src="../assets/images/mesh-network.png" alt="ARIA Mesh Network Map">
             <span class="zoom-hint">Click to enlarge</span>
           </div>
@@ -366,7 +319,7 @@ User Request ---> Compliance Intercept ---> [PII Detected?]
           </div>
         </div>
         <div class="screenshot-card" onclick="openLightbox('../assets/images/restart-manager.png')">
-          <div class="screenshot-img-wrapper">
+          <div class="screenshot-img-wrapper full-height">
             <img src="../assets/images/restart-manager.png" alt="ARIA Restart Manager">
             <span class="zoom-hint">Click to enlarge</span>
           </div>
@@ -376,7 +329,7 @@ User Request ---> Compliance Intercept ---> [PII Detected?]
           </div>
         </div>
         <div class="screenshot-card" onclick="openLightbox('../assets/images/health-console.png')">
-          <div class="screenshot-img-wrapper">
+          <div class="screenshot-img-wrapper full-height">
             <img src="../assets/images/health-console.png" alt="ARIA Health Console">
             <span class="zoom-hint">Click to enlarge</span>
           </div>

@@ -1,0 +1,63 @@
+<svg viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .layer-header { font-size: 14px; font-weight: 600; fill: #f0f6fc; font-family: -apple-system, BlinkMacSystemFont, sans-serif; }
+      .layer-sub { font-size: 11px; fill: #8b949e; font-family: -apple-system, BlinkMacSystemFont, sans-serif; }
+      .stat-text { font-size: 10px; fill: #c9d1d9; font-family: -apple-system, BlinkMacSystemFont, sans-serif; }
+      .arrow { stroke: #58a6ff; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+    </style>
+    <marker id="arrowhead" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#58a6ff"/>
+    </marker>
+  </defs>
+
+  <rect width="800" height="500" fill="#0d1117"/>
+
+  <!-- Title -->
+  <text x="400" y="30" text-anchor="middle" fill="#f0f6fc" font-size="18" font-weight="700" font-family="-apple-system, BlinkMacSystemFont, sans-serif">ARIA High-Level Architecture</text>
+
+  <!-- Layer 1: Applications -->
+  <rect x="50" y="50" width="700" height="55" fill="#1f6feb" rx="6" opacity="0.9"/>
+  <text x="400" y="75" class="layer-header" text-anchor="middle">Application Interfaces</text>
+  <text x="400" y="92" class="layer-sub" text-anchor="middle" fill="#c9d1d9">Voice Assistant | Chat | Code Generation | Vision Analysis | Meeting Intelligence</text>
+
+  <path d="M400 105 L400 125" class="arrow"/>
+
+  <!-- Layer 2: Intelligence Core -->
+  <rect x="50" y="125" width="700" height="55" fill="#238636" rx="6" opacity="0.9"/>
+  <text x="400" y="150" class="layer-header" text-anchor="middle">Intelligence Orchestration</text>
+  <text x="400" y="167" class="layer-sub" text-anchor="middle" fill="#c9d1d9">Multi-Agent Coordination | Adaptive Learning | Compliance Enforcement</text>
+
+  <path d="M400 180 L400 200" class="arrow"/>
+
+  <!-- Layer 3: Processing -->
+  <rect x="50" y="200" width="700" height="55" fill="#8957e5" rx="6" opacity="0.9"/>
+  <text x="400" y="225" class="layer-header" text-anchor="middle">Specialized Processing Engines</text>
+  <text x="400" y="242" class="layer-sub" text-anchor="middle" fill="#c9d1d9">Speech | Language | Code | Vision | Meeting Analysis | Reasoning</text>
+
+  <path d="M400 255 L400 275" class="arrow"/>
+
+  <!-- Layer 4: Data & Memory -->
+  <rect x="50" y="275" width="700" height="55" fill="#da3633" rx="6" opacity="0.8"/>
+  <text x="400" y="300" class="layer-header" text-anchor="middle">Unified Memory & Context</text>
+  <text x="400" y="317" class="layer-sub" text-anchor="middle" fill="#c9d1d9">Semantic Storage | Context Management | Compliance-Aware Retention</text>
+
+  <path d="M400 330 L400 350" class="arrow"/>
+
+  <!-- Layer 5: Infrastructure -->
+  <rect x="50" y="350" width="700" height="55" fill="#3fb950" rx="6" opacity="0.9"/>
+  <text x="400" y="375" class="layer-header" text-anchor="middle">Local Inference Infrastructure</text>
+  <text x="400" y="392" class="layer-sub" text-anchor="middle" fill="#c9d1d9">Apple Silicon (MLX) | NVIDIA (CUDA) | 100% Offline Operation</text>
+
+  <!-- Key differentiators -->
+  <g transform="translate(50, 420)">
+    <rect x="0" y="0" width="700" height="60" fill="#21262d" rx="4"/>
+    <text x="350" y="20" class="layer-header" text-anchor="middle" fill="#58a6ff">Key Differentiators</text>
+    <text x="90" y="45" class="stat-text">Sub-250ms Latency</text>
+    <text x="230" y="45" class="stat-text">655+ API Endpoints</text>
+    <text x="370" y="45" class="stat-text">Zero Cloud Dependency</text>
+    <text x="530" y="45" class="stat-text">Pre-LLM Compliance</text>
+    <text x="670" y="45" class="stat-text">Self-Healing</text>
+  </g>
+
+</svg>

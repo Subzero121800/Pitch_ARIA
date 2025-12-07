@@ -1,0 +1,115 @@
+<svg viewBox="0 0 900 650" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="arrowhead" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#58a6ff"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="650" fill="#0d1117"/>
+
+  <!-- Title -->
+  <text x="450" y="35" text-anchor="middle" font-size="20" font-weight="700" fill="#f0f6fc" font-family="-apple-system, BlinkMacSystemFont, sans-serif">ARIA v2.17 Architecture Overview</text>
+  <text x="450" y="55" text-anchor="middle" font-size="10" fill="#8b949e" font-family="-apple-system, BlinkMacSystemFont, sans-serif">Local-First Multi-Agent Intelligence Platform</text>
+
+  <!-- LAYER 1: Application -->
+  <rect x="40" y="75" width="820" height="70" fill="#1f6feb" rx="8" opacity="0.85"/>
+  <text x="450" y="100" text-anchor="middle" font-size="13" font-weight="600" fill="#f0f6fc" font-family="-apple-system, BlinkMacSystemFont, sans-serif">Application Layer</text>
+
+  <rect x="60" y="110" width="100" height="28" fill="#1565c0" rx="4"/>
+  <text x="110" y="128" text-anchor="middle" font-size="9" fill="#f0f6fc" font-family="-apple-system, BlinkMacSystemFont, sans-serif">Voice</text>
+
+  <rect x="175" y="110" width="100" height="28" fill="#1565c0" rx="4"/>
+  <text x="225" y="128" text-anchor="middle" font-size="9" fill="#f0f6fc" font-family="-apple-system, BlinkMacSystemFont, sans-serif">Chat</text>
+
+  <rect x="290" y="110" width="100" height="28" fill="#1565c0" rx="4"/>
+  <text x="340" y="128" text-anchor="middle" font-size="9" fill="#f0f6fc" font-family="-apple-system, BlinkMacSystemFont, sans-serif">Coding</text>
+
+  <rect x="405" y="110" width="100" height="28" fill="#1565c0" rx="4"/>
+  <text x="455" y="128" text-anchor="middle" font-size="9" fill="#f0f6fc" font-family="-apple-system, BlinkMacSystemFont, sans-serif">Vision</text>
+
+  <rect x="520" y="110" width="100" height="28" fill="#1565c0" rx="4"/>
+  <text x="570" y="128" text-anchor="middle" font-size="9" fill="#f0f6fc" font-family="-apple-system, BlinkMacSystemFont, sans-serif">Meetings</text>
+
+  <rect x="635" y="110" width="100" height="28" fill="#1565c0" rx="4"/>
+  <text x="685" y="128" text-anchor="middle" font-size="9" fill="#f0f6fc" font-family="-apple-system, BlinkMacSystemFont, sans-serif">Analytics</text>
+
+  <rect x="750" y="110" width="100" height="28" fill="#1565c0" rx="4"/>
+  <text x="800" y="128" text-anchor="middle" font-size="9" fill="#f0f6fc" font-family="-apple-system, BlinkMacSystemFont, sans-serif">Console</text>
+
+  <!-- Arrow 1 -->
+  <path d="M450 145 L450 165" stroke="#58a6ff" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+
+  <!-- LAYER 2: Intelligence -->
+  <rect x="40" y="165" width="820" height="80" fill="#238636" rx="8" opacity="0.85"/>
+  <text x="450" y="190" text-anchor="middle" font-size="13" font-weight="600" fill="#f0f6fc" font-family="-apple-system, BlinkMacSystemFont, sans-serif">Intelligence Orchestration Layer</text>
+
+  <rect x="60" y="200" width="245" height="35" fill="#2ea043" rx="4"/>
+  <text x="182" y="215" text-anchor="middle" font-size="9" fill="#f0f6fc" font-family="-apple-system, BlinkMacSystemFont, sans-serif">Cognitive Pipeline</text>
+  <text x="182" y="228" text-anchor="middle" font-size="9" fill="#c9d1d9" font-family="-apple-system, BlinkMacSystemFont, sans-serif">Event-driven routing</text>
+
+  <rect x="325" y="200" width="245" height="35" fill="#2ea043" rx="4"/>
+  <text x="447" y="215" text-anchor="middle" font-size="9" fill="#f0f6fc" font-family="-apple-system, BlinkMacSystemFont, sans-serif">Adaptive Learning</text>
+  <text x="447" y="228" text-anchor="middle" font-size="9" fill="#c9d1d9" font-family="-apple-system, BlinkMacSystemFont, sans-serif">Pattern recognition</text>
+
+  <rect x="590" y="200" width="260" height="35" fill="#2ea043" rx="4"/>
+  <text x="720" y="215" text-anchor="middle" font-size="9" fill="#f0f6fc" font-family="-apple-system, BlinkMacSystemFont, sans-serif">Compliance Enforcement</text>
+  <text x="720" y="228" text-anchor="middle" font-size="9" fill="#c9d1d9" font-family="-apple-system, BlinkMacSystemFont, sans-serif">Pre-processing guards</text>
+
+  <!-- Arrow 2 -->
+  <path d="M450 245 L450 265" stroke="#58a6ff" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+
+  <!-- LAYER 3: Agents -->
+  <rect x="40" y="265" width="820" height="65" fill="#8957e5" rx="8" opacity="0.85"/>
+  <text x="450" y="290" text-anchor="middle" font-size="13" font-weight="600" fill="#f0f6fc" font-family="-apple-system, BlinkMacSystemFont, sans-serif">Multi-Agent Processing (10+ Coordinated Agents)</text>
+  <text x="450" y="315" text-anchor="middle" font-size="10" fill="#c9d1d9" font-family="-apple-system, BlinkMacSystemFont, sans-serif">Decision | Planning | Self-Healing | Language | Speech | Synthesis | Vision | Memory | Code | Reasoning</text>
+
+  <!-- Arrow 3 -->
+  <path d="M450 330 L450 350" stroke="#58a6ff" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+
+  <!-- LAYER 4: Memory -->
+  <rect x="40" y="350" width="820" height="65" fill="#da3633" rx="8" opacity="0.75"/>
+  <text x="450" y="375" text-anchor="middle" font-size="13" font-weight="600" fill="#f0f6fc" font-family="-apple-system, BlinkMacSystemFont, sans-serif">Unified Memory &amp; Context Management</text>
+  <text x="450" y="400" text-anchor="middle" font-size="10" fill="#c9d1d9" font-family="-apple-system, BlinkMacSystemFont, sans-serif">6 Memory Domains | Semantic Search | Compliance-Aware Retention | Full Provenance</text>
+
+  <!-- Arrow 4 -->
+  <path d="M450 415 L450 435" stroke="#58a6ff" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+
+  <!-- LAYER 5: Inference -->
+  <rect x="40" y="435" width="820" height="65" fill="#bf8700" rx="8" opacity="0.85"/>
+  <text x="450" y="460" text-anchor="middle" font-size="13" font-weight="600" fill="#f0f6fc" font-family="-apple-system, BlinkMacSystemFont, sans-serif">Local Model Inference (7GB Total Footprint)</text>
+  <text x="450" y="485" text-anchor="middle" font-size="10" fill="#c9d1d9" font-family="-apple-system, BlinkMacSystemFont, sans-serif">Speech Recognition | Language Models | Voice Synthesis | Code Generation | Vision Processing</text>
+
+  <!-- Arrow 5 -->
+  <path d="M450 500 L450 520" stroke="#58a6ff" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+
+  <!-- LAYER 6: Hardware -->
+  <rect x="40" y="520" width="820" height="50" fill="#3fb950" rx="8" opacity="0.85"/>
+  <text x="450" y="545" text-anchor="middle" font-size="13" font-weight="600" fill="#f0f6fc" font-family="-apple-system, BlinkMacSystemFont, sans-serif">Hardware Abstraction</text>
+  <text x="450" y="562" text-anchor="middle" font-size="10" fill="#c9d1d9" font-family="-apple-system, BlinkMacSystemFont, sans-serif">Apple Silicon (MLX) | NVIDIA (CUDA) | Automatic Backend Selection</text>
+
+  <!-- Stats Footer -->
+  <rect x="40" y="585" width="820" height="50" fill="#161b22" rx="6" stroke="#30363d"/>
+
+  <text x="70" y="603" font-size="9" fill="#8b949e" font-family="-apple-system, BlinkMacSystemFont, sans-serif">Latency</text>
+  <text x="70" y="618" font-size="11" font-weight="600" fill="#58a6ff" font-family="-apple-system, BlinkMacSystemFont, sans-serif">245ms</text>
+
+  <text x="170" y="603" font-size="9" fill="#8b949e" font-family="-apple-system, BlinkMacSystemFont, sans-serif">Endpoints</text>
+  <text x="170" y="618" font-size="11" font-weight="600" fill="#58a6ff" font-family="-apple-system, BlinkMacSystemFont, sans-serif">655+</text>
+
+  <text x="270" y="603" font-size="9" fill="#8b949e" font-family="-apple-system, BlinkMacSystemFont, sans-serif">Offline</text>
+  <text x="270" y="618" font-size="11" font-weight="600" fill="#58a6ff" font-family="-apple-system, BlinkMacSystemFont, sans-serif">100%</text>
+
+  <text x="370" y="603" font-size="9" fill="#8b949e" font-family="-apple-system, BlinkMacSystemFont, sans-serif">Agents</text>
+  <text x="370" y="618" font-size="11" font-weight="600" fill="#58a6ff" font-family="-apple-system, BlinkMacSystemFont, sans-serif">10+</text>
+
+  <text x="470" y="603" font-size="9" fill="#8b949e" font-family="-apple-system, BlinkMacSystemFont, sans-serif">Compliance</text>
+  <text x="470" y="618" font-size="11" font-weight="600" fill="#58a6ff" font-family="-apple-system, BlinkMacSystemFont, sans-serif">5 Modes</text>
+
+  <text x="590" y="603" font-size="9" fill="#8b949e" font-family="-apple-system, BlinkMacSystemFont, sans-serif">Code</text>
+  <text x="590" y="618" font-size="11" font-weight="600" fill="#58a6ff" font-family="-apple-system, BlinkMacSystemFont, sans-serif">60K+ LOC</text>
+
+  <text x="710" y="603" font-size="9" fill="#8b949e" font-family="-apple-system, BlinkMacSystemFont, sans-serif">Health</text>
+  <text x="710" y="618" font-size="11" font-weight="600" fill="#58a6ff" font-family="-apple-system, BlinkMacSystemFont, sans-serif">99% Audit</text>
+
+</svg>

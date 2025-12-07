@@ -16,7 +16,7 @@ ARIA is a production-grade, local-first AI operating system designed for edge de
                               │
                               ▼
 ┌─────────────────────────────────────────────────────────────┐
-│                    Context Kernel v2                         │
+│                    Context Kernel v3                         │
 │   • Intent Classification     • Agent Routing (<1ms)        │
 │   • Compliance Intercept      • Type-Safe Envelopes         │
 └─────────────────────────────┬───────────────────────────────┘
@@ -56,11 +56,11 @@ ARIA is a production-grade, local-first AI operating system designed for edge de
 
 ## Core Features
 
-### Context Kernel v2
-Production-hardened orchestration engine with sub-millisecond routing overhead, type-safe message envelopes, and compliance intercept layer.
+### Context Kernel v3
+Production-hardened event-driven orchestration engine with multi-stage cognitive pipeline, sub-millisecond routing overhead, type-safe message envelopes, and compliance intercept layer.
 
-### 7-Agent Cognitive System
-Specialized agents (Decision, Learner, Planner, LLM, STT, TTS, Healing) coordinated through the kernel with graceful degradation when components fail.
+### 10+ Agent Cognitive System
+Specialized agents (Decision, Learner, Planner, LLM, STT, TTS, Vision, Memory, Healing, + more) coordinated through the kernel with graceful degradation when components fail.
 
 ### Unified Memory Bus
 Six persistent memory domains (Conversation, Semantic, Meeting, Vision, System, Code) with compliance-aware retention policies and full provenance tracking.
