@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mission Use Cases | ARIA + Powerhouse AI</title>
+  <meta name="description" content="Realistic operational scenarios where ARIA provides offline autonomous intelligence for denied, degraded, and contested environments.">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="navbar-container">
+      <a href="../index.html" class="navbar-brand">
+        <span>ARIA</span>
+      </a>
+      <button class="navbar-toggle" onclick="toggleNav()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="navbar-nav" id="navMenu">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="overview.html">Overview</a></li>
+        <li><a href="technology.html">Technology</a></li>
+        <li><a href="mission_use_cases.html" class="active">Use Cases</a></li>
+        <li><a href="operational_readiness.html">Readiness</a></li>
+        <li><a href="threat_and_resilience.html">Resilience</a></li>
+        <li><a href="market.html">Market</a></li>
+        <li><a href="team.html">Team</a></li>
+        <li><a href="contact.html" class="navbar-cta">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <header class="page-header">
+      <h1 class="page-title">Mission Use Cases</h1>
+      <p class="page-subtitle">Realistic scenarios where offline autonomy and edge intelligence matter most.</p>
+    </header>
+
+    <div class="content">
+      <p style="max-width: 800px; margin: 0 auto 3rem; text-align: center; color: var(--text-secondary); font-size: 1.1rem;">
+        ARIA is designed for environments where cloud AI fails. These scenarios illustrate where local-first, self-healing intelligence creates operational value.
+      </p>
+
+      <!-- Scenario 1 -->
+      <div class="scenario-card" style="background: var(--bg-secondary); border-radius: 12px; padding: 2rem; margin-bottom: 2rem; border-left: 4px solid var(--accent-primary);">
+        <h2 style="color: var(--accent-primary); margin-bottom: 1rem;">Scenario 1: Edge Autonomy for Small UAS and Drones</h2>
+
+        <div style="margin-bottom: 1.5rem;">
+          <h3 style="color: var(--text-primary); font-size: 1rem; margin-bottom: 0.5rem;">The Problem</h3>
+          <p style="color: var(--text-secondary);">Small unmanned systems often lose connectivity or are forced to operate in GPS-denied or jammed conditions. Cloud-dependent AI becomes useless precisely when autonomous decision-making is most critical.</p>
+        </div>
+
+        <div style="margin-bottom: 1.5rem;">
+          <h3 style="color: var(--text-primary); font-size: 1rem; margin-bottom: 0.5rem;">Role of ARIA</h3>
+          <p style="color: var(--text-secondary);">ARIA runs on local compute inside or near the platform, coordinates perception, planning, and decision agents without cloud dependence, and maintains mission context during link loss. The multi-agent architecture allows graceful degradation—if one capability fails, others continue operating.</p>
+        </div>
+
+        <div style="background: var(--bg-tertiary); border-radius: 8px; padding: 1rem; margin-bottom: 1.5rem;">
+          <h3 style="color: var(--accent-success); font-size: 1rem; margin-bottom: 0.5rem;">Outcome</h3>
+          <p style="color: var(--text-secondary); margin: 0;">More reliable autonomy under contested conditions and fewer mission aborts caused by network or control loss.</p>
+        </div>
+
+        <div style="margin-top: 1.5rem;">
+          <h3 style="color: var(--text-primary); font-size: 1rem; margin-bottom: 0.75rem;">Operational Delta</h3>
+          <ul style="list-style: none; padding: 0; margin: 0;">
+            <li style="display: flex; gap: 0.75rem; margin-bottom: 0.5rem;">
+              <strong style="color: var(--accent-danger); min-width: 60px;">Before:</strong>
+              <span style="color: var(--text-secondary);">Mission abort or loss of platform when connectivity drops. Operator forced to RTB or accept blind operation.</span>
+            </li>
+            <li style="display: flex; gap: 0.75rem;">
+              <strong style="color: var(--accent-success); min-width: 60px;">After:</strong>
+              <span style="color: var(--text-secondary);">Platform continues mission with local decision-making. Context preserved across link loss. Graceful handoff when connectivity restored.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Scenario 2 -->
+      <div class="scenario-card" style="background: var(--bg-secondary); border-radius: 12px; padding: 2rem; margin-bottom: 2rem; border-left: 4px solid var(--accent-warning);">
+        <h2 style="color: var(--accent-warning); margin-bottom: 1rem;">Scenario 2: Field Teams in Disaster Environments</h2>
+
+        <div style="margin-bottom: 1.5rem;">
+          <h3 style="color: var(--text-primary); font-size: 1rem; margin-bottom: 0.5rem;">The Problem</h3>
+          <p style="color: var(--text-secondary);">Teams in disaster response cannot depend on stable connectivity or cloud AI services. Cell towers are down, satellite links are saturated, and every minute of delay costs lives.</p>
+        </div>
+
+        <div style="margin-bottom: 1.5rem;">
+          <h3 style="color: var(--text-primary); font-size: 1rem; margin-bottom: 0.5rem;">Role of ARIA</h3>
+          <p style="color: var(--text-secondary);">ARIA runs on rugged laptops or edge boxes, processes local sensor feeds, documents, images, and voice, and supports triage, planning, and logistics while fully offline. Meeting transcription, document analysis, and decision support continue without external dependencies.</p>
+        </div>
+
+        <div style="background: var(--bg-tertiary); border-radius: 8px; padding: 1rem; margin-bottom: 1.5rem;">
+          <h3 style="color: var(--accent-success); font-size: 1rem; margin-bottom: 0.5rem;">Outcome</h3>
+          <p style="color: var(--text-secondary); margin: 0;">Faster and more reliable decision support where lives depend on response time and resilience.</p>
+        </div>
+
+        <div style="margin-top: 1.5rem;">
+          <h3 style="color: var(--text-primary); font-size: 1rem; margin-bottom: 0.75rem;">Operational Delta</h3>
+          <ul style="list-style: none; padding: 0; margin: 0;">
+            <li style="display: flex; gap: 0.75rem; margin-bottom: 0.5rem;">
+              <strong style="color: var(--accent-danger); min-width: 60px;">Before:</strong>
+              <span style="color: var(--text-secondary);">Teams wait for satellite uplink or radio relay to access AI tools. Triage decisions made without analytical support.</span>
+            </li>
+            <li style="display: flex; gap: 0.75rem;">
+              <strong style="color: var(--accent-success); min-width: 60px;">After:</strong>
+              <span style="color: var(--text-secondary);">Full AI capability available immediately on local hardware. Voice transcription, document analysis, and planning continue regardless of network status.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Scenario 3 -->
+      <div class="scenario-card" style="background: var(--bg-secondary); border-radius: 12px; padding: 2rem; margin-bottom: 2rem; border-left: 4px solid var(--accent-danger);">
+        <h2 style="color: var(--accent-danger); margin-bottom: 1rem;">Scenario 3: Secure Command Post in Denied Communications</h2>
+
+        <div style="margin-bottom: 1.5rem;">
+          <h3 style="color: var(--text-primary); font-size: 1rem; margin-bottom: 0.5rem;">The Problem</h3>
+          <p style="color: var(--text-secondary);">Command units need coherent intelligence and decision support even when external links are cut, jammed, or compromised. Cloud AI is not an option in classified or contested networks.</p>
+        </div>
+
+        <div style="margin-bottom: 1.5rem;">
+          <h3 style="color: var(--text-primary); font-size: 1rem; margin-bottom: 0.5rem;">Role of ARIA</h3>
+          <p style="color: var(--text-secondary);">ARIA serves as an autonomous intelligence layer inside the command post network, managing agents for analysis, planning, and defense without sending data off-site. Pre-LLM compliance blocks sensitive data before it reaches any model. Air-gap verification ensures no unintended external communication.</p>
+        </div>
+
+        <div style="background: var(--bg-tertiary); border-radius: 8px; padding: 1rem; margin-bottom: 1.5rem;">
+          <h3 style="color: var(--accent-success); font-size: 1rem; margin-bottom: 0.5rem;">Outcome</h3>
+          <p style="color: var(--text-secondary); margin: 0;">Maintains operational insight and planning capability while preserving sovereignty and minimizing external surface area.</p>
+        </div>
+
+        <div style="margin-top: 1.5rem;">
+          <h3 style="color: var(--text-primary); font-size: 1rem; margin-bottom: 0.75rem;">Operational Delta</h3>
+          <ul style="list-style: none; padding: 0; margin: 0;">
+            <li style="display: flex; gap: 0.75rem; margin-bottom: 0.5rem;">
+              <strong style="color: var(--accent-danger); min-width: 60px;">Before:</strong>
+              <span style="color: var(--text-secondary);">Intelligence and planning capability degrades when external links are severed. Data sovereignty concerns prevent use of cloud AI in classified environments.</span>
+            </li>
+            <li style="display: flex; gap: 0.75rem;">
+              <strong style="color: var(--accent-success); min-width: 60px;">After:</strong>
+              <span style="color: var(--text-secondary);">Full analytical capability maintained inside the secure perimeter. Pre-LLM compliance ensures no sensitive data reaches external systems. Air-gap verification confirms isolation.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Scenario 4 -->
+      <div class="scenario-card" style="background: var(--bg-secondary); border-radius: 12px; padding: 2rem; margin-bottom: 2rem; border-left: 4px solid var(--accent-success);">
+        <h2 style="color: var(--accent-success); margin-bottom: 1rem;">Scenario 4: Embedded Intelligence for Specialized Devices</h2>
+
+        <div style="margin-bottom: 1.5rem;">
+          <h3 style="color: var(--text-primary); font-size: 1rem; margin-bottom: 0.5rem;">The Problem</h3>
+          <p style="color: var(--text-secondary);">Robotics, sensors, and special-purpose devices often have limited power, memory, and intermittent connectivity. Full-stack AI is too heavy, but simple rules are too brittle.</p>
+        </div>
+
+        <div style="margin-bottom: 1.5rem;">
+          <h3 style="color: var(--text-primary); font-size: 1rem; margin-bottom: 0.5rem;">Role of ARIA</h3>
+          <p style="color: var(--text-secondary);">Through its Compact (~2.5GB) and Balanced (~4.5GB) model profiles, ARIA provides local autonomy, analysis, and decision support tuned to small footprints and strict power envelopes. Same architecture, different resource allocation.</p>
+        </div>
+
+        <div style="background: var(--bg-tertiary); border-radius: 8px; padding: 1rem; margin-bottom: 1.5rem;">
+          <h3 style="color: var(--accent-success); font-size: 1rem; margin-bottom: 0.5rem;">Outcome</h3>
+          <p style="color: var(--text-secondary); margin: 0;">More intelligent behavior at the edge without unrealistic hardware assumptions.</p>
+        </div>
+
+        <div style="margin-top: 1.5rem;">
+          <h3 style="color: var(--text-primary); font-size: 1rem; margin-bottom: 0.75rem;">Operational Delta</h3>
+          <ul style="list-style: none; padding: 0; margin: 0;">
+            <li style="display: flex; gap: 0.75rem; margin-bottom: 0.5rem;">
+              <strong style="color: var(--accent-danger); min-width: 60px;">Before:</strong>
+              <span style="color: var(--text-secondary);">Devices limited to hardcoded rules or require constant network access for intelligent behavior. Power and memory constraints exclude most AI solutions.</span>
+            </li>
+            <li style="display: flex; gap: 0.75rem;">
+              <strong style="color: var(--accent-success); min-width: 60px;">After:</strong>
+              <span style="color: var(--text-secondary);">Compact profile runs multi-agent autonomy in 2.5GB footprint. Adaptive behavior without cloud dependency. Same architecture scales from edge to enterprise.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Who This Is For -->
+      <div style="background: var(--bg-tertiary); border-radius: 12px; padding: 2rem; margin-top: 3rem;">
+        <h2 style="color: var(--text-primary); margin-bottom: 1.5rem; text-align: center;">Who This Is For</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; text-align: center;">
+          <div style="padding: 1rem;">
+            <div style="font-size: 2rem; margin-bottom: 0.5rem;">🏛️</div>
+            <strong style="color: var(--text-primary);">Defense Primes</strong>
+            <p style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 0.5rem;">Integration with existing platforms and programs</p>
+          </div>
+          <div style="padding: 1rem;">
+            <div style="font-size: 2rem; margin-bottom: 0.5rem;">🔬</div>
+            <strong style="color: var(--text-primary);">Government Labs</strong>
+            <p style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 0.5rem;">R&D partners exploring edge autonomy</p>
+          </div>
+          <div style="padding: 1rem;">
+            <div style="font-size: 2rem; margin-bottom: 0.5rem;">🤖</div>
+            <strong style="color: var(--text-primary);">Robotics Companies</strong>
+            <p style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 0.5rem;">Local intelligence for autonomous systems</p>
+          </div>
+          <div style="padding: 1rem;">
+            <div style="font-size: 2rem; margin-bottom: 0.5rem;">⚡</div>
+            <strong style="color: var(--text-primary);">Critical Infrastructure</strong>
+            <p style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 0.5rem;">Operators who cannot depend on cloud connectivity</p>
+          </div>
+          <div style="padding: 1rem;">
+            <div style="font-size: 2rem; margin-bottom: 0.5rem;">🚨</div>
+            <strong style="color: var(--text-primary);">Emergency Response</strong>
+            <p style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 0.5rem;">Partners needing resilient field support</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center mt-4">
+        <a href="technology.html" class="btn btn-primary">Technical Architecture</a>
+        <a href="operational_readiness.html" class="btn btn-secondary">Testing & Readiness</a>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">ResilientMind AI</div>
+        <p class="footer-text">
+          Help-Veterans.Org LLC (dba ResilientMind AI)<br>
+          Scottdale, Pennsylvania
+        </p>
+      </div>
+      <div>
+        <div class="footer-title">Product</div>
+        <ul class="footer-links">
+          <li><a href="overview.html">Overview</a></li>
+          <li><a href="technology.html">Technology</a></li>
+          <li><a href="roadmap.html">Roadmap</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-title">Company</div>
+        <ul class="footer-links">
+          <li><a href="team.html">Team</a></li>
+          <li><a href="market.html">Market</a></li>
+          <li><a href="revenue.html">Revenue Model</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-title">Contact</div>
+        <ul class="footer-links">
+          <li><a href="mailto:joseph@resilientmindai.com">joseph@resilientmindai.com</a></li>
+          <li><a href="tel:+17242481750">724-248-1750</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 ResilientMind AI. All rights reserved. | Help-Veterans.Org LLC</p>
+    </div>
+  </footer>
+
+  <script>
+    function toggleNav() {
+      document.getElementById('navMenu').classList.toggle('active');
+    }
+  </script>
+</body>
+</html>

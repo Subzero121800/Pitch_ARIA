@@ -23,10 +23,10 @@
         <li><a href="../index.html">Home</a></li>
         <li><a href="overview.html" class="active">Overview</a></li>
         <li><a href="technology.html">Technology</a></li>
+        <li><a href="mission_use_cases.html">Use Cases</a></li>
+        <li><a href="operational_readiness.html">Readiness</a></li>
+        <li><a href="threat_and_resilience.html">Resilience</a></li>
         <li><a href="market.html">Market</a></li>
-        <li><a href="revenue.html">Revenue</a></li>
-        <li><a href="roadmap.html">Roadmap</a></li>
-        <li><a href="partners.html">Partners</a></li>
         <li><a href="team.html">Team</a></li>
         <li><a href="contact.html" class="navbar-cta">Contact</a></li>
       </ul>
@@ -36,12 +36,12 @@
   <main>
     <header class="page-header">
       <h1 class="page-title">Executive Overview</h1>
-      <p class="page-subtitle">ARIA v2.17 + Powerhouse AI: Local Multi-Agent Autonomy for Enterprise</p>
+      <p class="page-subtitle">ARIA v2.20 + Powerhouse AI: Local Multi-Agent Autonomy for Enterprise</p>
     </header>
 
     <div class="content">
       <h2>What We Built</h2>
-      <p><strong>ARIA v2.17</strong> turns a single Apple Silicon machine into a self-auditing, multi-agent intelligence OS. It's a local-first, offline-first platform with 10+ coordinated agents, Context Kernel v3, compliance-aware enforcement, autonomous self-healing, and a unified testing console that runs entirely on edge hardware.</p>
+      <p><strong>ARIA v2.20</strong> turns a single Apple Silicon machine into a self-auditing, multi-agent intelligence OS. It's a local-first, offline-first platform with 10+ coordinated agents, Context Kernel v3, role-based compliance enforcement, autonomous self-healing, and a unified testing console that runs entirely on edge hardware.</p>
       <p><strong>Powerhouse AI</strong> is the ruggedized hardware platform designed to run ARIA in field conditions.</p>
 
       <!-- Architecture Diagram -->
@@ -141,9 +141,14 @@
               <td>Rule enforcement, violation tracking</td>
             </tr>
             <tr>
-              <td>5-Level Compliance</td>
+              <td>Role-Based Compliance</td>
               <td><span class="badge badge-success">Implemented</span></td>
-              <td>Standard/Strict/DoD/HIPAA/GDPR</td>
+              <td>Auto-assigned per user group with override control</td>
+            </tr>
+            <tr>
+              <td>Model Profiles</td>
+              <td><span class="badge badge-success">Implemented</span></td>
+              <td>Compact (2.5GB) / Balanced (4.5GB) / Pro (7GB)</td>
             </tr>
             <tr>
               <td>Unified Memory Graph</td>
@@ -170,13 +175,15 @@
         <li><strong>Failure Orchestrator</strong> - Cascade recovery, subsystem isolation, and graceful degradation with 10+ failure classes</li>
         <li><strong>Policy Engine</strong> - Rule-based planning with violation tracking, approval workflows, and boundary enforcement</li>
         <li><strong>LAN Security</strong> - Network monitoring, threat detection, and connection management for air-gapped deployments</li>
+        <li><strong>Model Profiles (v2.20)</strong> - Flexible deployment with Compact/Balanced/Pro profiles for 2.5GB to 7GB footprints</li>
+        <li><strong>User Group Compliance (v2.20)</strong> - Role-based compliance auto-assignment with override capability and full audit trail</li>
       </ol>
 
       <h2>Proof of Progress</h2>
       <h3>Codebase Statistics</h3>
       <ul>
         <li><strong>60,000+ lines</strong> of production Python/TypeScript</li>
-        <li><strong>655+ API endpoints</strong> across all subsystems</li>
+        <li><strong>705+ API endpoints</strong> across all subsystems</li>
         <li><strong>300+ commits</strong> in development history</li>
         <li><strong>10+ coordinated agents</strong> with specialized capabilities</li>
         <li><strong>99% internal audit health score</strong> (GREEN status)</li>

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Threat and Resilience Model | ARIA + Powerhouse AI</title>
+  <meta name="description" content="How ARIA is designed and evaluated against failure, drift, and adversarial conditions—not only ideal lab settings.">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="navbar-container">
+      <a href="../index.html" class="navbar-brand">
+        <span>ARIA</span>
+      </a>
+      <button class="navbar-toggle" onclick="toggleNav()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="navbar-nav" id="navMenu">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="overview.html">Overview</a></li>
+        <li><a href="technology.html">Technology</a></li>
+        <li><a href="mission_use_cases.html">Use Cases</a></li>
+        <li><a href="operational_readiness.html">Readiness</a></li>
+        <li><a href="threat_and_resilience.html" class="active">Resilience</a></li>
+        <li><a href="market.html">Market</a></li>
+        <li><a href="team.html">Team</a></li>
+        <li><a href="contact.html" class="navbar-cta">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <header class="page-header">
+      <h1 class="page-title">Threat and Resilience Model</h1>
+      <p class="page-subtitle">How ARIA is designed and evaluated against failure, drift, and adversarial conditions.</p>
+    </header>
+
+    <div class="content">
+      <!-- Objectives -->
+      <section style="max-width: 800px; margin: 0 auto 3rem;">
+        <h2>Design Objectives</h2>
+        <p style="color: var(--text-secondary); font-size: 1.1rem; line-height: 1.8;">
+          ARIA is designed for denied, degraded, and contested environments. The architecture is evaluated against failure, drift, and adversarial conditions—not only ideal lab settings. This page describes how we think about threats and how the system is built to handle them.
+        </p>
+      </section>
+
+      <!-- Threat Categories -->
+      <section>
+        <h2 style="margin-bottom: 2rem;">Threat Categories and Mitigations</h2>
+
+        <!-- Threat 1 -->
+        <div style="background: var(--bg-secondary); border-radius: 12px; padding: 2rem; margin-bottom: 1.5rem; border-left: 4px solid var(--accent-danger);">
+          <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+            <span style="background: var(--accent-danger); color: white; padding: 0.25rem 0.75rem; border-radius: 4px; font-size: 0.85rem; font-weight: 600;">NETWORK</span>
+            <h3 style="color: var(--text-primary); margin: 0;">Network and Communications</h3>
+          </div>
+
+          <div style="display: grid; gap: 1.5rem; margin-top: 1.5rem;">
+            <div>
+              <h4 style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 0.5rem;">Threat Examples</h4>
+              <p style="color: var(--text-primary);">Link loss, partial connectivity, hostile networks, man-in-the-middle conditions, satellite delays, jammed or spoofed communications.</p>
+            </div>
+            <div style="background: var(--bg-tertiary); border-radius: 8px; padding: 1rem;">
+              <h4 style="color: var(--accent-success); font-size: 0.9rem; margin-bottom: 0.5rem;">Mitigation Approach</h4>
+              <p style="color: var(--text-secondary); margin: 0;">Local-first design with no dependence on cloud for core autonomy. Controlled sync paths when connectivity is available. Clear separation of external interfaces. Air-gap verification for classified environments.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Threat 2 -->
+        <div style="background: var(--bg-secondary); border-radius: 12px; padding: 2rem; margin-bottom: 1.5rem; border-left: 4px solid var(--accent-warning);">
+          <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+            <span style="background: var(--accent-warning); color: black; padding: 0.25rem 0.75rem; border-radius: 4px; font-size: 0.85rem; font-weight: 600;">DATA</span>
+            <h3 style="color: var(--text-primary); margin: 0;">Data Integrity and State Corruption</h3>
+          </div>
+
+          <div style="display: grid; gap: 1.5rem; margin-top: 1.5rem;">
+            <div>
+              <h4 style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 0.5rem;">Threat Examples</h4>
+              <p style="color: var(--text-primary);">Corrupted logs, inconsistent state across agents, memory drift, database corruption, conflicting agent outputs, stale context.</p>
+            </div>
+            <div style="background: var(--bg-tertiary); border-radius: 8px; padding: 1rem;">
+              <h4 style="color: var(--accent-success); font-size: 0.9rem; margin-bottom: 0.5rem;">Mitigation Approach</h4>
+              <p style="color: var(--text-secondary); margin: 0;">Unified memory and event model with clear state boundaries. Audit trails for all critical operations. Recovery and healing agents monitor system health. Clear separation between authoritative state and transient inputs.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Threat 3 -->
+        <div style="background: var(--bg-secondary); border-radius: 12px; padding: 2rem; margin-bottom: 1.5rem; border-left: 4px solid var(--accent-primary);">
+          <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+            <span style="background: var(--accent-primary); color: black; padding: 0.25rem 0.75rem; border-radius: 4px; font-size: 0.85rem; font-weight: 600;">INPUT</span>
+            <h3 style="color: var(--text-primary); margin: 0;">Adversarial or Malformed Inputs</h3>
+          </div>
+
+          <div style="display: grid; gap: 1.5rem; margin-top: 1.5rem;">
+            <div>
+              <h4 style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 0.5rem;">Threat Examples</h4>
+              <p style="color: var(--text-primary);">Hostile prompts, injection attacks, malformed payloads, unexpected model outputs, sensor anomalies, poisoned training data.</p>
+            </div>
+            <div style="background: var(--bg-tertiary); border-radius: 8px; padding: 1rem;">
+              <h4 style="color: var(--accent-success); font-size: 0.9rem; margin-bottom: 0.5rem;">Mitigation Approach</h4>
+              <p style="color: var(--text-secondary); margin: 0;">Validation agents check inputs before processing. Layered reasoning with multiple models reduces single-point failures. Defensive routing of high-risk inputs. Bounded autonomy in safety-critical flows. Pre-LLM compliance blocks sensitive content before model processing.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Threat 4 -->
+        <div style="background: var(--bg-secondary); border-radius: 12px; padding: 2rem; margin-bottom: 1.5rem; border-left: 4px solid var(--accent-success);">
+          <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+            <span style="background: var(--accent-success); color: black; padding: 0.25rem 0.75rem; border-radius: 4px; font-size: 0.85rem; font-weight: 600;">RESOURCE</span>
+            <h3 style="color: var(--text-primary); margin: 0;">Resource Exhaustion and Degradation</h3>
+          </div>
+
+          <div style="display: grid; gap: 1.5rem; margin-top: 1.5rem;">
+            <div>
+              <h4 style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 0.5rem;">Threat Examples</h4>
+              <p style="color: var(--text-primary);">CPU saturation, memory pressure, queue overload, cascading retries, thermal throttling, storage exhaustion, runaway processes.</p>
+            </div>
+            <div style="background: var(--bg-tertiary); border-radius: 8px; padding: 1rem;">
+              <h4 style="color: var(--accent-success); font-size: 0.9rem; margin-bottom: 0.5rem;">Mitigation Approach</h4>
+              <p style="color: var(--text-secondary); margin: 0;">Stress-tested kernel with back-pressure mechanisms. Controlled concurrency with configurable limits. Graceful degradation modes instead of uncontrolled failure. Autonomous recovery agents detect and respond to resource pressure.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Proof Through Testing -->
+      <section style="margin-top: 3rem;">
+        <h2>Proof Through Testing</h2>
+        <div style="background: var(--bg-tertiary); border-radius: 12px; padding: 2rem; margin-top: 1.5rem;">
+          <p style="color: var(--text-secondary); font-size: 1.05rem; line-height: 1.8; margin-bottom: 1.5rem;">
+            ARIA is not only designed for these threats—it is exercised against them through systematic testing:
+          </p>
+
+          <ul style="color: var(--text-primary); line-height: 2; padding-left: 1.5rem;">
+            <li>Mixed chaos load testing at 100 RPS across full endpoint surface</li>
+            <li>Multi-minute continuous stress runs with live agents active</li>
+            <li>Full stack endpoint coverage (705+ endpoints)</li>
+            <li>Learning and logging enabled during chaos to validate stability</li>
+            <li>Recovery verification after induced failures</li>
+          </ul>
+
+          <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
+            <p style="color: var(--text-secondary); margin: 0;">
+              <strong style="color: var(--text-primary);">Results are captured as logs</strong> and can be summarized for decision makers without exposing sensitive implementation details. Partners interested in reviewing testing methodology under NDA are welcome to inquire.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Key Takeaway -->
+      <div style="background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%); border-radius: 12px; padding: 2rem; margin-top: 3rem; text-align: center;">
+        <h3 style="color: var(--accent-primary); margin-bottom: 1rem;">The Bottom Line</h3>
+        <p style="color: var(--text-primary); font-size: 1.1rem; max-width: 700px; margin: 0 auto;">
+          ARIA is built with the assumption that things will go wrong. The architecture is designed not to prevent all failures, but to contain them, recover from them, and continue operating under stress.
+        </p>
+      </div>
+
+      <div class="text-center mt-4">
+        <a href="operational_readiness.html" class="btn btn-primary">Testing & Readiness</a>
+        <a href="technology.html" class="btn btn-secondary">Technical Architecture</a>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">ResilientMind AI</div>
+        <p class="footer-text">
+          Help-Veterans.Org LLC (dba ResilientMind AI)<br>
+          Scottdale, Pennsylvania
+        </p>
+      </div>
+      <div>
+        <div class="footer-title">Product</div>
+        <ul class="footer-links">
+          <li><a href="overview.html">Overview</a></li>
+          <li><a href="technology.html">Technology</a></li>
+          <li><a href="roadmap.html">Roadmap</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-title">Company</div>
+        <ul class="footer-links">
+          <li><a href="team.html">Team</a></li>
+          <li><a href="market.html">Market</a></li>
+          <li><a href="revenue.html">Revenue Model</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-title">Contact</div>
+        <ul class="footer-links">
+          <li><a href="mailto:joseph@resilientmindai.com">joseph@resilientmindai.com</a></li>
+          <li><a href="tel:+17242481750">724-248-1750</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 ResilientMind AI. All rights reserved. | Help-Veterans.Org LLC</p>
+    </div>
+  </footer>
+
+  <script>
+    function toggleNav() {
+      document.getElementById('navMenu').classList.toggle('active');
+    }
+  </script>
+</body>
+</html>

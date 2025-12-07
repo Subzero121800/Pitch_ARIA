@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Operational Readiness and Testing | ARIA + Powerhouse AI</title>
+  <meta name="description" content="ARIA's testing posture and operational readiness—behavior under load, failure, and recovery.">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="navbar-container">
+      <a href="../index.html" class="navbar-brand">
+        <span>ARIA</span>
+      </a>
+      <button class="navbar-toggle" onclick="toggleNav()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="navbar-nav" id="navMenu">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="overview.html">Overview</a></li>
+        <li><a href="technology.html">Technology</a></li>
+        <li><a href="mission_use_cases.html">Use Cases</a></li>
+        <li><a href="operational_readiness.html" class="active">Readiness</a></li>
+        <li><a href="threat_and_resilience.html">Resilience</a></li>
+        <li><a href="market.html">Market</a></li>
+        <li><a href="team.html">Team</a></li>
+        <li><a href="contact.html" class="navbar-cta">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <header class="page-header">
+      <h1 class="page-title">Operational Readiness and Testing</h1>
+      <p class="page-subtitle">ARIA is treated like operational software, not just a demo. Here's how we verify it.</p>
+    </header>
+
+    <div class="content">
+      <!-- Overview -->
+      <section style="max-width: 800px; margin: 0 auto 3rem;">
+        <h2>Testing Philosophy</h2>
+        <p style="color: var(--text-secondary); font-size: 1.1rem; line-height: 1.8;">
+          ARIA is designed for environments where failure is not an option. The testing approach focuses on behavior under load, failure, and recovery—not just happy-path functionality. Every capability is stress-tested, and the system is evaluated against conditions that would break typical cloud-dependent AI.
+        </p>
+      </section>
+
+      <!-- Layered Testing Approach -->
+      <section>
+        <h2 style="margin-bottom: 1.5rem;">Layered Testing Approach</h2>
+        <p style="color: var(--text-secondary); margin-bottom: 2rem;">Testing is structured in layers, from substrate to full-stack integration:</p>
+
+        <div style="display: grid; gap: 1rem;">
+          <div style="background: var(--bg-secondary); border-radius: 8px; padding: 1.5rem; display: flex; align-items: center; gap: 1.5rem;">
+            <div style="background: var(--accent-primary); color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; flex-shrink: 0;">1</div>
+            <div>
+              <h3 style="color: var(--text-primary); margin-bottom: 0.25rem; font-size: 1rem;">Configuration and Substrate Tests</h3>
+              <p style="color: var(--text-secondary); margin: 0;">Verify environment, dependencies, and foundational setup before anything else runs.</p>
+            </div>
+          </div>
+
+          <div style="background: var(--bg-secondary); border-radius: 8px; padding: 1.5rem; display: flex; align-items: center; gap: 1.5rem;">
+            <div style="background: var(--accent-primary); color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; flex-shrink: 0;">2</div>
+            <div>
+              <h3 style="color: var(--text-primary); margin-bottom: 0.25rem; font-size: 1rem;">Kernel and Agent Interaction Tests</h3>
+              <p style="color: var(--text-secondary); margin: 0;">Validate Context Kernel routing, agent coordination, and message passing under normal conditions.</p>
+            </div>
+          </div>
+
+          <div style="background: var(--bg-secondary); border-radius: 8px; padding: 1.5rem; display: flex; align-items: center; gap: 1.5rem;">
+            <div style="background: var(--accent-primary); color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; flex-shrink: 0;">3</div>
+            <div>
+              <h3 style="color: var(--text-primary); margin-bottom: 0.25rem; font-size: 1rem;">Memory and State Behavior Tests</h3>
+              <p style="color: var(--text-secondary); margin: 0;">Test unified memory under load, verify state consistency, check for drift or corruption patterns.</p>
+            </div>
+          </div>
+
+          <div style="background: var(--bg-secondary); border-radius: 8px; padding: 1.5rem; display: flex; align-items: center; gap: 1.5rem;">
+            <div style="background: var(--accent-primary); color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; flex-shrink: 0;">4</div>
+            <div>
+              <h3 style="color: var(--text-primary); margin-bottom: 0.25rem; font-size: 1rem;">Concurrency and Chaos Tests</h3>
+              <p style="color: var(--text-secondary); margin: 0;">Stress the system with concurrent requests, random failures, and adversarial conditions.</p>
+            </div>
+          </div>
+
+          <div style="background: var(--bg-secondary); border-radius: 8px; padding: 1.5rem; display: flex; align-items: center; gap: 1.5rem;">
+            <div style="background: var(--accent-primary); color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; flex-shrink: 0;">5</div>
+            <div>
+              <h3 style="color: var(--text-primary); margin-bottom: 0.25rem; font-size: 1rem;">Full Endpoint API Stress Runs</h3>
+              <p style="color: var(--text-secondary); margin: 0;">Exercise all 705+ endpoints under sustained load with live agents active.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Chaos and Load Testing -->
+      <section style="margin-top: 3rem;">
+        <h2 style="margin-bottom: 1.5rem;">Chaos and Load Testing</h2>
+
+        <div style="background: var(--bg-tertiary); border-radius: 12px; padding: 2rem; margin-bottom: 2rem;">
+          <h3 style="color: var(--accent-primary); margin-bottom: 1rem;">Test Conditions</h3>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem;">
+            <div>
+              <div style="font-size: 2rem; color: var(--accent-primary); font-weight: bold;">100 RPS</div>
+              <p style="color: var(--text-secondary); margin: 0;">Mixed chaos load</p>
+            </div>
+            <div>
+              <div style="font-size: 2rem; color: var(--accent-primary); font-weight: bold;">Multi-minute</div>
+              <p style="color: var(--text-secondary); margin: 0;">Continuous stress runs</p>
+            </div>
+            <div>
+              <div style="font-size: 2rem; color: var(--accent-primary); font-weight: bold;">Live Agents</div>
+              <p style="color: var(--text-secondary); margin: 0;">Active during runs</p>
+            </div>
+            <div>
+              <div style="font-size: 2rem; color: var(--accent-primary); font-weight: bold;">Full Logging</div>
+              <p style="color: var(--text-secondary); margin: 0;">Learning enabled</p>
+            </div>
+          </div>
+        </div>
+
+        <div style="background: var(--bg-secondary); border-radius: 12px; padding: 2rem; border-left: 4px solid var(--accent-success);">
+          <h3 style="color: var(--accent-success); margin-bottom: 1rem;">Key Observations (Recent Runs)</h3>
+          <ul style="color: var(--text-primary); line-height: 2; padding-left: 1.5rem; margin: 0;">
+            <li><strong>No collapse</strong> — System maintained integrity under sustained load</li>
+            <li><strong>No uncontrolled drift</strong> — State remained consistent across agents</li>
+            <li><strong>One warning event</strong> — Handled gracefully without cascade</li>
+            <li><strong>Zero critical faults</strong> — No showstopper failures observed</li>
+            <li><strong>Recovery verified</strong> — System returned to baseline after stress</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Adversarial Stress Conditions -->
+      <section style="margin-top: 3rem;">
+        <h2 style="margin-bottom: 1.5rem;">Adversarial Stress Conditions</h2>
+        <p style="color: var(--text-secondary); margin-bottom: 2rem;">
+          ARIA is evaluated under conditions aligned to denied, degraded, intermittent, and limited bandwidth (DIL) environments. These are not theoretical scenarios—they represent real operational constraints faced by field systems, tactical networks, and edge deployments.
+        </p>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+          <!-- Network Degradation -->
+          <div style="background: var(--bg-secondary); border-radius: 12px; padding: 1.5rem; border-top: 3px solid var(--accent-danger);">
+            <h3 style="color: var(--accent-danger); margin-bottom: 1rem; font-size: 1rem;">Network Degradation</h3>
+            <ul style="color: var(--text-secondary); padding-left: 1.25rem; margin: 0; line-height: 1.8;">
+              <li>10–40% packet loss simulation</li>
+              <li>Latency spikes and jitter injection</li>
+              <li>Intermittent disconnect cycles</li>
+              <li>Bandwidth throttling (DIL conditions)</li>
+            </ul>
+          </div>
+
+          <!-- Hardware Strain -->
+          <div style="background: var(--bg-secondary); border-radius: 12px; padding: 1.5rem; border-top: 3px solid var(--accent-warning);">
+            <h3 style="color: var(--accent-warning); margin-bottom: 1rem; font-size: 1rem;">Hardware Strain</h3>
+            <ul style="color: var(--text-secondary); padding-left: 1.25rem; margin: 0; line-height: 1.8;">
+              <li>CPU/GPU thermal throttling simulation</li>
+              <li>Memory pressure events</li>
+              <li>Disk I/O saturation</li>
+              <li>Resource contention with competing processes</li>
+            </ul>
+          </div>
+
+          <!-- Adversarial Interference -->
+          <div style="background: var(--bg-secondary); border-radius: 12px; padding: 1.5rem; border-top: 3px solid var(--accent-primary);">
+            <h3 style="color: var(--accent-primary); margin-bottom: 1rem; font-size: 1rem;">Adversarial Interference</h3>
+            <ul style="color: var(--text-secondary); padding-left: 1.25rem; margin: 0; line-height: 1.8;">
+              <li>Corrupted message injection</li>
+              <li>Sensor spoof conditions</li>
+              <li>Partial agent failure injection</li>
+              <li>State corruption attempts</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Endpoint Coverage -->
+      <section style="margin-top: 3rem;">
+        <h2 style="margin-bottom: 1.5rem;">Endpoint Coverage</h2>
+
+        <div style="background: var(--bg-secondary); border-radius: 12px; padding: 2rem;">
+          <div style="display: flex; align-items: center; gap: 2rem; flex-wrap: wrap;">
+            <div>
+              <div style="font-size: 3rem; color: var(--accent-primary); font-weight: bold;">705+</div>
+              <p style="color: var(--text-secondary); margin: 0;">API Endpoints</p>
+            </div>
+            <div style="flex: 1; min-width: 300px;">
+              <p style="color: var(--text-secondary); line-height: 1.8;">
+                This number represents the breadth of capabilities and surfaces being exercised—not a vanity metric. Each endpoint corresponds to a specific function: agent communication, memory operations, compliance checks, voice processing, vision analysis, and more.
+              </p>
+              <p style="color: var(--text-secondary); line-height: 1.8; margin-top: 1rem; margin-bottom: 0;">
+                Coverage is ongoing and will increase as more modules and agents are added. The testing console (API WarZone) provides real-time visibility into endpoint health during stress runs.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Readiness View -->
+      <section style="margin-top: 3rem;">
+        <h2 style="margin-bottom: 1.5rem;">Readiness View</h2>
+
+        <div style="background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%); border-radius: 12px; padding: 2rem;">
+          <div style="display: grid; gap: 1.5rem;">
+            <div style="display: flex; align-items: flex-start; gap: 1rem;">
+              <span style="background: var(--accent-warning); color: black; padding: 0.25rem 0.75rem; border-radius: 4px; font-size: 0.85rem; font-weight: 600;">CURRENT</span>
+              <div>
+                <h3 style="color: var(--text-primary); margin: 0 0 0.5rem 0;">Advanced Prototype in Active Testing</h3>
+                <p style="color: var(--text-secondary); margin: 0;">Core architecture proven under stress. Continuous validation against threat model. Ready for controlled partner evaluation.</p>
+              </div>
+            </div>
+
+            <div style="display: flex; align-items: flex-start; gap: 1rem;">
+              <span style="background: var(--accent-success); color: black; padding: 0.25rem 0.75rem; border-radius: 4px; font-size: 0.85rem; font-weight: 600;">TARGET</span>
+              <div>
+                <h3 style="color: var(--text-primary); margin: 0 0 0.5rem 0;">Field Ready for Pilot Deployments</h3>
+                <p style="color: var(--text-secondary); margin: 0;">Working toward deployment with trusted partners in real operational environments.</p>
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
+            <p style="color: var(--text-primary); margin: 0; font-size: 1.05rem;">
+              <strong>We invite defense primes, government labs, and agencies</strong> who want to review testing detail under NDA or in controlled settings. Our testing methodology and results are available for serious partners.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <div class="text-center mt-4">
+        <a href="threat_and_resilience.html" class="btn btn-primary">Threat Model</a>
+        <a href="contact.html" class="btn btn-secondary">Request Access</a>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">ResilientMind AI</div>
+        <p class="footer-text">
+          Help-Veterans.Org LLC (dba ResilientMind AI)<br>
+          Scottdale, Pennsylvania
+        </p>
+      </div>
+      <div>
+        <div class="footer-title">Product</div>
+        <ul class="footer-links">
+          <li><a href="overview.html">Overview</a></li>
+          <li><a href="technology.html">Technology</a></li>
+          <li><a href="roadmap.html">Roadmap</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-title">Company</div>
+        <ul class="footer-links">
+          <li><a href="team.html">Team</a></li>
+          <li><a href="market.html">Market</a></li>
+          <li><a href="revenue.html">Revenue Model</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-title">Contact</div>
+        <ul class="footer-links">
+          <li><a href="mailto:joseph@resilientmindai.com">joseph@resilientmindai.com</a></li>
+          <li><a href="tel:+17242481750">724-248-1750</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 ResilientMind AI. All rights reserved. | Help-Veterans.Org LLC</p>
+    </div>
+  </footer>
+
+  <script>
+    function toggleNav() {
+      document.getElementById('navMenu').classList.toggle('active');
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mission Architecture | ARIA + Powerhouse AI</title>
+  <meta name="description" content="How ARIA deploys across drones, field systems, and command units with flexible model profiles and self-healing capabilities.">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="navbar-container">
+      <a href="../index.html" class="navbar-brand">
+        <span>ARIA</span>
+      </a>
+      <button class="navbar-toggle" onclick="toggleNav()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="navbar-nav" id="navMenu">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="overview.html">Overview</a></li>
+        <li><a href="technology.html">Technology</a></li>
+        <li><a href="mission_use_cases.html">Use Cases</a></li>
+        <li><a href="operational_readiness.html">Readiness</a></li>
+        <li><a href="threat_and_resilience.html">Resilience</a></li>
+        <li><a href="market.html">Market</a></li>
+        <li><a href="team.html">Team</a></li>
+        <li><a href="contact.html" class="navbar-cta">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <header class="page-header">
+      <h1 class="page-title">ARIA Mission Architecture</h1>
+      <p class="page-subtitle">How ARIA deploys across drones, field systems, and command units.</p>
+    </header>
+
+    <div class="content">
+      <!-- High-Level System Diagram -->
+      <section>
+        <h2>System Deployment Overview</h2>
+        <p style="color: var(--text-secondary); margin-bottom: 2rem;">
+          ARIA operates as an autonomous intelligence layer that scales from edge devices to command infrastructure. The same architecture runs at every tier—only the resource allocation changes.
+        </p>
+
+        <!-- SVG Placeholder for Architecture Diagram -->
+        <div style="background: var(--bg-tertiary); border-radius: 12px; padding: 2rem; margin-bottom: 2rem;">
+          <svg viewBox="0 0 800 400" style="width: 100%; height: auto; max-height: 400px;">
+            <!-- Background -->
+            <rect x="0" y="0" width="800" height="400" fill="#21262d" rx="8"/>
+
+            <!-- Title -->
+            <text x="400" y="30" text-anchor="middle" fill="#f0f6fc" font-size="16" font-weight="bold">ARIA Deployment Architecture</text>
+
+            <!-- Edge Tier -->
+            <rect x="50" y="60" width="200" height="120" fill="#161b22" stroke="#58a6ff" stroke-width="2" rx="8"/>
+            <text x="150" y="85" text-anchor="middle" fill="#58a6ff" font-size="12" font-weight="bold">EDGE TIER</text>
+            <text x="150" y="105" text-anchor="middle" fill="#8b949e" font-size="10">Compact Profile (2.5GB)</text>
+            <text x="150" y="125" text-anchor="middle" fill="#f0f6fc" font-size="11">• Small UAS / Drones</text>
+            <text x="150" y="145" text-anchor="middle" fill="#f0f6fc" font-size="11">• Sensors / IoT</text>
+            <text x="150" y="165" text-anchor="middle" fill="#f0f6fc" font-size="11">• Embedded Systems</text>
+
+            <!-- Field Tier -->
+            <rect x="300" y="60" width="200" height="120" fill="#161b22" stroke="#d29922" stroke-width="2" rx="8"/>
+            <text x="400" y="85" text-anchor="middle" fill="#d29922" font-size="12" font-weight="bold">FIELD TIER</text>
+            <text x="400" y="105" text-anchor="middle" fill="#8b949e" font-size="10">Balanced Profile (4.5GB)</text>
+            <text x="400" y="125" text-anchor="middle" fill="#f0f6fc" font-size="11">• Rugged Laptops</text>
+            <text x="400" y="145" text-anchor="middle" fill="#f0f6fc" font-size="11">• Vehicle Systems</text>
+            <text x="400" y="165" text-anchor="middle" fill="#f0f6fc" font-size="11">• Field Stations</text>
+
+            <!-- Command Tier -->
+            <rect x="550" y="60" width="200" height="120" fill="#161b22" stroke="#3fb950" stroke-width="2" rx="8"/>
+            <text x="650" y="85" text-anchor="middle" fill="#3fb950" font-size="12" font-weight="bold">COMMAND TIER</text>
+            <text x="650" y="105" text-anchor="middle" fill="#8b949e" font-size="10">Pro Profile (7GB)</text>
+            <text x="650" y="125" text-anchor="middle" fill="#f0f6fc" font-size="11">• Command Posts</text>
+            <text x="650" y="145" text-anchor="middle" fill="#f0f6fc" font-size="11">• Operations Centers</text>
+            <text x="650" y="165" text-anchor="middle" fill="#f0f6fc" font-size="11">• Enterprise Servers</text>
+
+            <!-- Connection Lines -->
+            <line x1="250" y1="120" x2="300" y2="120" stroke="#6e7681" stroke-width="2" stroke-dasharray="5,5"/>
+            <line x1="500" y1="120" x2="550" y2="120" stroke="#6e7681" stroke-width="2" stroke-dasharray="5,5"/>
+
+            <!-- Multi-Node Mesh -->
+            <rect x="150" y="220" width="500" height="80" fill="#161b22" stroke="#58a6ff" stroke-width="1" rx="8"/>
+            <text x="400" y="245" text-anchor="middle" fill="#58a6ff" font-size="12" font-weight="bold">MULTI-NODE MESH NETWORK</text>
+            <text x="400" y="265" text-anchor="middle" fill="#8b949e" font-size="10">Automatic discovery • Load balancing • Failover • State sync</text>
+            <text x="400" y="285" text-anchor="middle" fill="#f0f6fc" font-size="11">Nodes coordinate when connected, operate independently when isolated</text>
+
+            <!-- Recovery Layer -->
+            <rect x="150" y="320" width="500" height="60" fill="#161b22" stroke="#3fb950" stroke-width="1" rx="8"/>
+            <text x="400" y="345" text-anchor="middle" fill="#3fb950" font-size="12" font-weight="bold">SELF-HEALING & RECOVERY</text>
+            <text x="400" y="365" text-anchor="middle" fill="#8b949e" font-size="10">Cascade recovery • Agent isolation • Graceful degradation • Autonomous restart</text>
+          </svg>
+        </div>
+      </section>
+
+      <!-- Deployment Modes -->
+      <section style="margin-top: 3rem;">
+        <h2 style="margin-bottom: 1.5rem;">Deployment Profiles</h2>
+        <p style="color: var(--text-secondary); margin-bottom: 2rem;">
+          ARIA offers three deployment profiles to match hardware constraints and mission requirements. All profiles run the same architecture—only model selection and resource allocation differ.
+        </p>
+
+        <div style="display: grid; gap: 1.5rem;">
+          <!-- Compact -->
+          <div style="background: var(--bg-secondary); border-radius: 12px; padding: 2rem; border-left: 4px solid var(--accent-primary);">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem;">
+              <div>
+                <h3 style="color: var(--accent-primary); margin-bottom: 0.5rem;">ResilientMind Compact</h3>
+                <p style="color: var(--text-secondary); margin: 0;">Edge devices, IoT, resource-constrained platforms</p>
+              </div>
+              <div style="text-align: right;">
+                <div style="font-size: 1.5rem; color: var(--accent-primary); font-weight: bold;">~2.5GB</div>
+                <p style="color: var(--text-secondary); margin: 0; font-size: 0.9rem;">Memory footprint</p>
+              </div>
+            </div>
+            <div style="margin-top: 1.5rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+              <div>
+                <strong style="color: var(--text-primary);">Models Included:</strong>
+                <ul style="color: var(--text-secondary); padding-left: 1.25rem; margin: 0.5rem 0 0 0;">
+                  <li>ResilientMind-Code (1.3B)</li>
+                  <li>ResilientMind-STT-Lite</li>
+                </ul>
+              </div>
+              <div>
+                <strong style="color: var(--text-primary);">Best For:</strong>
+                <ul style="color: var(--text-secondary); padding-left: 1.25rem; margin: 0.5rem 0 0 0;">
+                  <li>Drones and small UAS</li>
+                  <li>Embedded sensors</li>
+                  <li>Power-constrained devices</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Balanced -->
+          <div style="background: var(--bg-secondary); border-radius: 12px; padding: 2rem; border-left: 4px solid var(--accent-warning);">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem;">
+              <div>
+                <h3 style="color: var(--accent-warning); margin-bottom: 0.5rem;">ResilientMind Balanced</h3>
+                <p style="color: var(--text-secondary); margin: 0;">Field laptops, vehicle systems, development environments</p>
+              </div>
+              <div style="text-align: right;">
+                <div style="font-size: 1.5rem; color: var(--accent-warning); font-weight: bold;">~4.5GB</div>
+                <p style="color: var(--text-secondary); margin: 0; font-size: 0.9rem;">Memory footprint</p>
+              </div>
+            </div>
+            <div style="margin-top: 1.5rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+              <div>
+                <strong style="color: var(--text-primary);">Models Included:</strong>
+                <ul style="color: var(--text-secondary); padding-left: 1.25rem; margin: 0.5rem 0 0 0;">
+                  <li>ResilientMind-Chat (3B)</li>
+                  <li>ResilientMind-Code (1.3B)</li>
+                  <li>ResilientMind-STT</li>
+                </ul>
+              </div>
+              <div>
+                <strong style="color: var(--text-primary);">Best For:</strong>
+                <ul style="color: var(--text-secondary); padding-left: 1.25rem; margin: 0.5rem 0 0 0;">
+                  <li>Field operator laptops</li>
+                  <li>Mounted vehicle systems</li>
+                  <li>Portable command nodes</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pro -->
+          <div style="background: var(--bg-secondary); border-radius: 12px; padding: 2rem; border-left: 4px solid var(--accent-success);">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem;">
+              <div>
+                <h3 style="color: var(--accent-success); margin-bottom: 0.5rem;">ResilientMind Pro</h3>
+                <p style="color: var(--text-secondary); margin: 0;">Command posts, operations centers, enterprise deployments</p>
+              </div>
+              <div style="text-align: right;">
+                <div style="font-size: 1.5rem; color: var(--accent-success); font-weight: bold;">~7GB</div>
+                <p style="color: var(--text-secondary); margin: 0; font-size: 0.9rem;">Memory footprint</p>
+              </div>
+            </div>
+            <div style="margin-top: 1.5rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+              <div>
+                <strong style="color: var(--text-primary);">Models Included:</strong>
+                <ul style="color: var(--text-secondary); padding-left: 1.25rem; margin: 0.5rem 0 0 0;">
+                  <li>Full model stack</li>
+                  <li>Dedicated reasoning model</li>
+                  <li>TTS with voice cloning</li>
+                </ul>
+              </div>
+              <div>
+                <strong style="color: var(--text-primary);">Best For:</strong>
+                <ul style="color: var(--text-secondary); padding-left: 1.25rem; margin: 0.5rem 0 0 0;">
+                  <li>Command post infrastructure</li>
+                  <li>Operations centers</li>
+                  <li>Enterprise server deployments</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Multi-Node Orchestration -->
+      <section style="margin-top: 3rem;">
+        <h2 style="margin-bottom: 1.5rem;">Multi-Node Orchestration</h2>
+        <p style="color: var(--text-secondary); margin-bottom: 2rem;">
+          ARIA nodes form a mesh network when connected, enabling distributed task processing and coordinated intelligence across deployment tiers.
+        </p>
+
+        <div style="background: var(--bg-tertiary); border-radius: 12px; padding: 2rem;">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+            <div>
+              <h3 style="color: var(--text-primary); font-size: 1rem; margin-bottom: 0.75rem;">Automatic Discovery</h3>
+              <p style="color: var(--text-secondary); margin: 0;">Nodes detect peers on the local network and establish secure connections without manual configuration.</p>
+            </div>
+            <div>
+              <h3 style="color: var(--text-primary); font-size: 1rem; margin-bottom: 0.75rem;">Load Balancing</h3>
+              <p style="color: var(--text-secondary); margin: 0;">Tasks route to available nodes based on capability and current load. Heavy processing offloads to higher-tier nodes when available.</p>
+            </div>
+            <div>
+              <h3 style="color: var(--text-primary); font-size: 1rem; margin-bottom: 0.75rem;">Automatic Failover</h3>
+              <p style="color: var(--text-secondary); margin: 0;">When nodes disconnect, work redistributes automatically. No single point of failure in the mesh.</p>
+            </div>
+            <div>
+              <h3 style="color: var(--text-primary); font-size: 1rem; margin-bottom: 0.75rem;">State Synchronization</h3>
+              <p style="color: var(--text-secondary); margin: 0;">Memory and context sync across nodes when connected. Each node can operate independently when isolated.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Recovery and Self-Healing -->
+      <section style="margin-top: 3rem;">
+        <h2 style="margin-bottom: 1.5rem;">Recovery and Self-Healing</h2>
+        <p style="color: var(--text-secondary); margin-bottom: 2rem;">
+          ARIA is designed to maintain operational capability under failure conditions. The system detects problems, isolates affected components, and recovers without operator intervention.
+        </p>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+          <div style="background: var(--bg-secondary); border-radius: 8px; padding: 1.5rem;">
+            <h3 style="color: var(--accent-success); font-size: 1rem; margin-bottom: 0.75rem;">Cascade Recovery</h3>
+            <p style="color: var(--text-secondary); margin: 0;">Agent failures are contained and recovered in priority order. Critical path agents restart first, followed by supporting capabilities.</p>
+          </div>
+          <div style="background: var(--bg-secondary); border-radius: 8px; padding: 1.5rem;">
+            <h3 style="color: var(--accent-success); font-size: 1rem; margin-bottom: 0.75rem;">Subsystem Isolation</h3>
+            <p style="color: var(--text-secondary); margin: 0;">Failures in one agent do not cascade to others. Each agent operates with clear boundaries and defined failure modes.</p>
+          </div>
+          <div style="background: var(--bg-secondary); border-radius: 8px; padding: 1.5rem;">
+            <h3 style="color: var(--accent-success); font-size: 1rem; margin-bottom: 0.75rem;">Graceful Degradation</h3>
+            <p style="color: var(--text-secondary); margin: 0;">When resources are constrained, ARIA reduces capability gracefully rather than failing completely. Core functions maintained under stress.</p>
+          </div>
+          <div style="background: var(--bg-secondary); border-radius: 8px; padding: 1.5rem;">
+            <h3 style="color: var(--accent-success); font-size: 1rem; margin-bottom: 0.75rem;">Autonomous Restart</h3>
+            <p style="color: var(--text-secondary); margin: 0;">Failed components restart automatically with state recovery. Operator notification without requiring intervention.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Data Sovereignty -->
+      <section style="margin-top: 3rem;">
+        <h2 style="margin-bottom: 1.5rem;">Data Containment and Sovereignty</h2>
+        <p style="color: var(--text-secondary); margin-bottom: 2rem;">
+          ARIA provides architectural guarantees for data sovereignty. These are not policy controls—they are built into the system design.
+        </p>
+
+        <div style="background: var(--bg-secondary); border-radius: 12px; padding: 2rem; border-left: 4px solid var(--accent-primary);">
+          <div style="display: grid; gap: 1.25rem;">
+            <div style="display: flex; gap: 1rem; align-items: flex-start;">
+              <span style="color: var(--accent-success); font-size: 1.25rem;">✓</span>
+              <div>
+                <strong style="color: var(--text-primary);">Zero External Dependency</strong>
+                <p style="color: var(--text-secondary); margin: 0.25rem 0 0 0;">Core autonomy requires no network connection. All inference, reasoning, and decision-making happens locally.</p>
+              </div>
+            </div>
+            <div style="display: flex; gap: 1rem; align-items: flex-start;">
+              <span style="color: var(--accent-success); font-size: 1.25rem;">✓</span>
+              <div>
+                <strong style="color: var(--text-primary);">Pre-LLM Compliance</strong>
+                <p style="color: var(--text-secondary); margin: 0.25rem 0 0 0;">Sensitive data is blocked before it reaches any model. PII/PHI filtering happens at the boundary, not in post-processing.</p>
+              </div>
+            </div>
+            <div style="display: flex; gap: 1rem; align-items: flex-start;">
+              <span style="color: var(--accent-success); font-size: 1.25rem;">✓</span>
+              <div>
+                <strong style="color: var(--text-primary);">Air-Gap Verification</strong>
+                <p style="color: var(--text-secondary); margin: 0.25rem 0 0 0;">System confirms network isolation on startup. No hidden callouts, no telemetry, no external model dependencies.</p>
+              </div>
+            </div>
+            <div style="display: flex; gap: 1rem; align-items: flex-start;">
+              <span style="color: var(--accent-success); font-size: 1.25rem;">✓</span>
+              <div>
+                <strong style="color: var(--text-primary);">Controlled Sync Paths</strong>
+                <p style="color: var(--text-secondary); margin: 0.25rem 0 0 0;">When network is available, sync happens through defined interfaces with explicit approval. No ambient data leakage.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="text-center mt-4">
+        <a href="technology.html" class="btn btn-primary">Technical Architecture</a>
+        <a href="mission_use_cases.html" class="btn btn-secondary">Use Cases</a>
+        <a href="operational_readiness.html" class="btn btn-secondary">Testing & Readiness</a>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">ResilientMind AI</div>
+        <p class="footer-text">
+          Help-Veterans.Org LLC (dba ResilientMind AI)<br>
+          Scottdale, Pennsylvania
+        </p>
+      </div>
+      <div>
+        <div class="footer-title">Product</div>
+        <ul class="footer-links">
+          <li><a href="overview.html">Overview</a></li>
+          <li><a href="technology.html">Technology</a></li>
+          <li><a href="roadmap.html">Roadmap</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-title">Company</div>
+        <ul class="footer-links">
+          <li><a href="team.html">Team</a></li>
+          <li><a href="market.html">Market</a></li>
+          <li><a href="revenue.html">Revenue Model</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-title">Contact</div>
+        <ul class="footer-links">
+          <li><a href="mailto:joseph@resilientmindai.com">joseph@resilientmindai.com</a></li>
+          <li><a href="tel:+17242481750">724-248-1750</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 ResilientMind AI. All rights reserved. | Help-Veterans.Org LLC</p>
+    </div>
+  </footer>
+
+  <script>
+    function toggleNav() {
+      document.getElementById('navMenu').classList.toggle('active');
+    }
+  </script>
+</body>
+</html>
