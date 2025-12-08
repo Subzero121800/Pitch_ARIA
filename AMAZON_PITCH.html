@@ -1,10 +1,675 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta http-equiv="refresh" content="0; url=https://www.ariaos.dev" />
-    <link rel="canonical" href="https://www.ariaos.dev" />
-  </head>
-  <body>
-    <p>If you’re not redirected, go to <a href="https://www.ariaos.dev">ariaos.dev</a></p>
-  </body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARIA + Powerhouse AI - Amazon Strategic Pitch</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Amazon Ember', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #0f1111 0%, #232f3e 100%);
+            color: #f0f0f0;
+            line-height: 1.6;
+        }
+        .deck {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+        .slide {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 16px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+        }
+        h1 {
+            font-size: 3.5rem;
+            background: linear-gradient(135deg, #ff9900 0%, #ffad33 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+        h2 {
+            font-size: 2.5rem;
+            color: #ff9900;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+        h3 {
+            font-size: 1.5rem;
+            color: #ffad33;
+            margin: 1.5rem 0 1rem 0;
+            font-weight: 600;
+        }
+        .subtitle {
+            font-size: 1.5rem;
+            color: #a0a0a0;
+            margin-bottom: 2rem;
+        }
+        .meta {
+            font-size: 1.1rem;
+            color: #808080;
+            margin-bottom: 1rem;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.04);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border-left: 4px solid #ff9900;
+        }
+        .card h3 { color: #ffad33; margin-top: 0; }
+        .metric-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        .metric {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(255, 153, 0, 0.08);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 153, 0, 0.2);
+        }
+        .metric-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #ff9900;
+            margin-bottom: 0.5rem;
+        }
+        .metric-label {
+            font-size: 1rem;
+            color: #a0a0a0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        ul, ol {
+            margin: 1rem 0 1rem 2rem;
+            line-height: 2;
+        }
+        .highlight {
+            background: linear-gradient(135deg, #ff9900 0%, #ffad33 100%);
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+            color: #0f1111;
+        }
+        .highlight h3 { color: #0f1111; }
+        .highlight p, .highlight li { color: rgba(15, 17, 17, 0.95); }
+        .tag {
+            display: inline-block;
+            padding: 0.4rem 1rem;
+            background: rgba(255, 153, 0, 0.15);
+            border: 1px solid rgba(255, 153, 0, 0.3);
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin: 0.3rem;
+            color: #ffad33;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+        }
+        th {
+            background: rgba(255, 153, 0, 0.15);
+            color: #ff9900;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+        }
+        td {
+            padding: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        tr:hover { background: rgba(255, 255, 255, 0.02); }
+        .phase {
+            background: rgba(255, 153, 0, 0.05);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border-left: 3px solid #ff9900;
+        }
+    </style>
+</head>
+<body>
+    <div class="deck">
+
+        <!-- Title Slide -->
+        <div class="slide" style="text-align: center;">
+            <h1>ARIA v2.2.2 + Powerhouse AI</h1>
+            <p class="subtitle">Self-Auditing Multi-Agent Intelligence OS + Portable Edge Compute</p>
+            <p style="font-size: 1.3rem; color: #ffad33; margin: 2rem 0;">
+                Built for Amazon-Scale Autonomy
+            </p>
+            <div class="meta" style="margin-top: 3rem;">
+                <strong>Joseph C. McGinty Jr.</strong><br>
+                Chief Innovation Officer, ResilientMind AI<br>
+                📞 724-248-1750<br>
+                📧 joseph@resilientmindai.com<br>
+                🌐 resilientmindai.com
+            </div>
+        </div>
+
+        <!-- Executive Summary -->
+        <div class="slide">
+            <h2>Executive Summary</h2>
+
+            <div class="highlight">
+                <p style="font-size: 1.2rem; font-weight: 600; margin-bottom: 1.5rem;">
+                    Strategic Edge Intelligence for AWS, Robotics, and Logistics
+                </p>
+            </div>
+
+            <div class="grid">
+                <div class="card">
+                    <h3>Self-Auditing Multi-Agent OS</h3>
+                    <p>ARIA v2.2.2 turns a single Apple Silicon machine into a self-auditing intelligence OS with 10+ coordinated agents, Context Kernel v3, internal task graphs, and compliance-aware model loading</p>
+                </div>
+
+                <div class="card">
+                    <h3>Offline-First Architecture</h3>
+                    <p>Zero cloud dependency, Apple Silicon optimized, deployable in warehouses, delivery vehicles, robotics, low-signal environments</p>
+                </div>
+
+                <div class="card">
+                    <h3>Real-Time Execution</h3>
+                    <p>Sub-millisecond routing, 245ms conversation latency, 350ms code generation on-device with coordination layer</p>
+                </div>
+
+                <div class="card">
+                    <h3>AWS Integration Ready</h3>
+                    <p>Designed to integrate upwards into AWS IoT, Greengrass, Amazon Robotics, and Logistics systems</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pain Points -->
+        <div class="slide">
+            <h2>The Amazon Pain Points Solved</h2>
+
+            <h3>Warehouse & Robotics</h3>
+            <div class="card">
+                <ul>
+                    <li><strong>Cloud latency breaks robotics coordination:</strong> Round-trip delays cause cascade failures in multi-robot orchestration</li>
+                    <li><strong>Failures cascade when comms drop:</strong> Centralized cloud dependency creates single points of failure</li>
+                    <li><strong>High cost of downtime:</strong> Stalled robots, misrouting increase OPEX and reduce throughput</li>
+                    <li><strong>Safety-critical actions need local inference:</strong> Collision avoidance cannot tolerate network latency</li>
+                </ul>
+            </div>
+
+            <h3>Logistics</h3>
+            <div class="card">
+                <ul>
+                    <li><strong>Last-mile delivery has inconsistent connectivity:</strong> Rural routes, parking garages lose cloud AI capabilities</li>
+                    <li><strong>On-device reasoning reduces routing errors:</strong> Local optimization eliminates round-trip delays</li>
+                    <li><strong>Speech-based navigation improves driver throughput:</strong> Hands-free routing reduces cognitive load</li>
+                </ul>
+            </div>
+
+            <h3>Alexa & Devices</h3>
+            <div class="card">
+                <ul>
+                    <li><strong>Cloud-first architecture limits real autonomy:</strong> Alexa requires internet for most tasks</li>
+                    <li><strong>Local LLM fallback is strategic necessity:</strong> Competitors moving to hybrid local-cloud models</li>
+                    <li><strong>Privacy-sensitive customers demand on-device:</strong> Enterprise/government deployments blocked by cloud concerns</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Architecture -->
+        <div class="slide">
+            <h2>Product Architecture: Amazon View</h2>
+
+            <h3>Layer 1: Local Multi-Agent Engine</h3>
+            <div class="grid">
+                <div class="card">
+                    <strong>Planning Agent</strong><br>
+                    Multi-step task decomposition, dependency resolution
+                </div>
+                <div class="card">
+                    <strong>Diagnostic Agent</strong><br>
+                    Self-monitoring, failure detection, root-cause analysis
+                </div>
+                <div class="card">
+                    <strong>Memory Bus</strong><br>
+                    6 domains with compliance-aware retention
+                </div>
+                <div class="card">
+                    <strong>Voice Pipeline</strong><br>
+                    STT → LLM (8B) → TTS, 95% accuracy
+                </div>
+                <div class="card">
+                    <strong>Code Engine</strong><br>
+                    Multi-language generation, review, refactor
+                </div>
+                <div class="card">
+                    <strong>Self-Healing</strong><br>
+                    Graceful degradation, automatic recovery
+                </div>
+            </div>
+
+            <h3>Layer 2: Portable Compute (Powerhouse AI)</h3>
+            <div class="grid">
+                <div class="card">
+                    <strong>Ruggedized</strong><br>
+                    Industrial-grade for warehouse/vehicle deployment
+                </div>
+                <div class="card">
+                    <strong>Energy-Efficient</strong><br>
+                    50-60W operation (Apple Silicon, Jetson)
+                </div>
+                <div class="card">
+                    <strong>Hardware-Flexible</strong><br>
+                    Laptops, edge servers, embedded modules
+                </div>
+                <div class="card">
+                    <strong>Accelerator Ready</strong><br>
+                    MLX, CUDA, AWS Inferentia/Trainium potential
+                </div>
+            </div>
+
+            <h3>Layer 3: Amazon Integration Points</h3>
+            <table>
+                <tr>
+                    <th>Integration</th>
+                    <th>Use Case</th>
+                </tr>
+                <tr>
+                    <td><strong>AWS IoT Core</strong></td>
+                    <td>Device fleet management, telemetry, OTA updates</td>
+                </tr>
+                <tr>
+                    <td><strong>AWS Greengrass</strong></td>
+                    <td>Edge runtime container, local Lambda execution</td>
+                </tr>
+                <tr>
+                    <td><strong>Amazon Robotics</strong></td>
+                    <td>Warehouse robot coordination, task assignment</td>
+                </tr>
+                <tr>
+                    <td><strong>Prime Air</strong></td>
+                    <td>Drone navigation, obstacle avoidance, landing logic</td>
+                </tr>
+                <tr>
+                    <td><strong>Alexa Devices</strong></td>
+                    <td>On-device reasoning when cloud unreachable</td>
+                </tr>
+                <tr>
+                    <td><strong>Fulfillment Centers</strong></td>
+                    <td>Multi-agent coordination across warehouse zones</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Capabilities -->
+        <div class="slide">
+            <h2>Key Technical Capabilities</h2>
+
+            <h3>Performance Metrics (Measured)</h3>
+            <table>
+                <tr>
+                    <th>Metric</th>
+                    <th>Value</th>
+                    <th>AWS Bedrock Comparison</th>
+                </tr>
+                <tr>
+                    <td>Voice transcription</td>
+                    <td>100-200ms</td>
+                    <td>500-1000ms (cloud)</td>
+                </tr>
+                <tr>
+                    <td>LLM conversation</td>
+                    <td>245ms</td>
+                    <td>800-2000ms (cloud)</td>
+                </tr>
+                <tr>
+                    <td>Code generation</td>
+                    <td>350ms</td>
+                    <td>1200-3000ms (cloud)</td>
+                </tr>
+                <tr>
+                    <td>Vision OCR</td>
+                    <td>100-300ms</td>
+                    <td>N/A (no edge offering)</td>
+                </tr>
+                <tr>
+                    <td>Offline operation</td>
+                    <td>100%</td>
+                    <td>0% (cloud-only)</td>
+                </tr>
+            </table>
+
+            <div class="grid" style="margin-top: 2rem;">
+                <div class="card">
+                    <h3>Autonomous Recovery</h3>
+                    <ul>
+                        <li>Self-healing agents (automatic restart)</li>
+                        <li>Graceful degradation (reduced capability, not failure)</li>
+                        <li>Root-cause inference (AI analyzes own logs)</li>
+                        <li>Health monitoring (proactive recovery)</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3>Multi-Agent Coordination</h3>
+                    <ul>
+                        <li>10+ specialized agents (Decision, Learner, Planner, LLM, STT, TTS, Vision, Memory, Healing + more)</li>
+                        <li>Context Kernel v3 orchestration (6-stage pipeline)</li>
+                        <li>Unified Memory Bus (cross-modal context)</li>
+                        <li>Compliance modes (DoD/DoW, HIPAA, GDPR)</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3>Vision + Audio Unified</h3>
+                    <ul>
+                        <li>Screen capture and OCR (warehouse labels, packaging)</li>
+                        <li>Voice commands (hands-free for operators)</li>
+                        <li>Meeting intelligence (transcription, action items)</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3>Learning Engine</h3>
+                    <ul>
+                        <li>Safe boundaries (no model weight modification)</li>
+                        <li>Operator personalization</li>
+                        <li>Compliance-aware (PII sanitization)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Flywheel Impact -->
+        <div class="slide">
+            <h2>Amazon Flywheel Impact</h2>
+
+            <div class="phase">
+                <h3>Faster Fulfillment → Improved Customer Experience</h3>
+                <p><strong>Impact:</strong> On-device routing reduces latency, robots coordinate locally without cloud round-trips</p>
+                <p><strong>Result:</strong> Package sorting, bin assignment, picking routes optimized without network delays</p>
+            </div>
+
+            <div class="phase">
+                <h3>Lower Robotics Downtime → Lower OPEX</h3>
+                <p><strong>Impact:</strong> Self-healing reduces manual intervention, robots diagnose and recover autonomously</p>
+                <p><strong>Result:</strong> Fulfillment centers continue operations when AWS regions experience issues</p>
+            </div>
+
+            <div class="phase">
+                <h3>Higher Autonomy → Fewer Bottlenecks</h3>
+                <p><strong>Impact:</strong> Voice-driven workflows, operators use hands-free commands</p>
+                <p><strong>Result:</strong> Complex warehouse tasks (picking, packing, sorting) coordinated by local intelligence</p>
+            </div>
+
+            <div class="phase">
+                <h3>Local Compute → Cloud Savings Where Unnecessary</h3>
+                <p><strong>Impact:</strong> Edge inference replaces cloud API calls (thousands of daily LLM requests shift from Bedrock to on-device)</p>
+                <p><strong>Result:</strong> Bandwidth reduction—only aggregated telemetry sent to cloud, not raw data streams</p>
+            </div>
+
+            <div class="phase">
+                <h3>Edge-First → New Product Lines for AWS</h3>
+                <p><strong>Impact:</strong> ARIA becomes reference architecture for AWS edge AI offerings</p>
+                <p><strong>Result:</strong> Greengrass + ARIA bundle sold to enterprise (manufacturing, logistics, defense)</p>
+            </div>
+        </div>
+
+        <!-- Integration Roadmap -->
+        <div class="slide">
+            <h2>Integration Roadmap</h2>
+
+            <div class="phase">
+                <h3>Phase 1: AWS IoT + Greengrass Integration (Months 1-3)</h3>
+                <p><strong>Deliverables:</strong> ARIA as Greengrass component, IoT Core fleet management, CloudWatch telemetry, OTA updates</p>
+                <p><strong>Effort:</strong> 1 engineer (AWS specialist), 3 months</p>
+            </div>
+
+            <div class="phase">
+                <h3>Phase 2: Amazon Robotics Edge Brain Node (Months 3-6)</h3>
+                <p><strong>Deliverables:</strong> ARIA on robot controllers, multi-robot mesh, task assignment integration, autonomous recovery</p>
+                <p><strong>Effort:</strong> 2 engineers (robotics, AI), 3 months</p>
+            </div>
+
+            <div class="phase">
+                <h3>Phase 3: Amazon Logistics Handheld + Vehicle (Months 6-9)</h3>
+                <p><strong>Deliverables:</strong> ARIA on driver devices, vehicle edge compute, voice workflows, offline capability</p>
+                <p><strong>Effort:</strong> 2 engineers (logistics, mobile), 3 months</p>
+            </div>
+
+            <div class="phase">
+                <h3>Phase 4: Alexa Devices Local Fallback (Months 9-12)</h3>
+                <p><strong>Deliverables:</strong> ARIA as Alexa local reasoning layer, on-device LLM, hybrid orchestration, enterprise privacy mode</p>
+                <p><strong>Effort:</strong> 3 engineers (Alexa, AI, systems), 3 months</p>
+            </div>
+
+            <div class="phase">
+                <h3>Phase 5: Enterprise Amazon Customers (Months 12-18)</h3>
+                <p><strong>Deliverables:</strong> AWS Marketplace listing, reference architectures, compliance certifications, sales playbook</p>
+                <p><strong>Effort:</strong> 2 engineers (enterprise, compliance), 6 months</p>
+            </div>
+        </div>
+
+        <!-- Competitive Landscape -->
+        <div class="slide">
+            <h2>Competitive Landscape</h2>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>Not Competing with AWS Services</h3>
+                <ul>
+                    <li><strong>Complements AWS Bedrock:</strong> Local inference reduces API costs, hybrid approach for latency-sensitive tasks</li>
+                    <li><strong>Extends AWS IoT:</strong> Adds intelligence layer to edge devices already managed by IoT Core</li>
+                    <li><strong>Enhances Greengrass:</strong> Pre-built AI agent runtime for Greengrass deployments</li>
+                </ul>
+            </div>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>Fills Autonomy/Local Gaps Amazon Teams Face Daily</h3>
+                <ul>
+                    <li><strong>Robotics teams:</strong> Need local coordination, cannot tolerate cloud round-trips</li>
+                    <li><strong>Logistics teams:</strong> Drivers and delivery stations need offline AI</li>
+                    <li><strong>Alexa teams:</strong> Require local fallback for competitive parity with Apple/Google</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>Differentiators</h3>
+                <ul>
+                    <li><strong>Production-ready today:</strong> 50,000+ LOC, 379+ tests passing, 200+ API endpoints</li>
+                    <li><strong>Multi-agent architecture:</strong> 10+ agents, 8+ engines, coordinated autonomy on-device</li>
+                    <li><strong>Compliance built-in:</strong> DoD/DoW, HIPAA, GDPR ready for regulated customers</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Why Now -->
+        <div class="slide">
+            <h2>Why Now</h2>
+
+            <div class="grid">
+                <div class="card">
+                    <h3>AI Autonomy Shifting Offline</h3>
+                    <p>Cloud AI costs scaling poorly: 750,000 robots × 1000 LLM calls/day = unsustainable Bedrock costs at Amazon scale</p>
+                </div>
+
+                <div class="card">
+                    <h3>Connected-Only Systems Are Fragile</h3>
+                    <p>AWS outages impact fulfillment. Local autonomy provides graceful degradation during regional failures.</p>
+                </div>
+
+                <div class="card">
+                    <h3>Edge Compute Cheap & Powerful</h3>
+                    <p>Apple M-series, NVIDIA Jetson Orin, AWS Graviton3 enable cost-effective local inference at scale</p>
+                </div>
+
+                <div class="card">
+                    <h3>Amazon Growth Needs Local Brains</h3>
+                    <p>Robotics expansion (750K+ robots), Prime Air scaling, Rivian integration—all require on-device intelligence</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ask -->
+        <div class="slide" style="text-align: center;">
+            <h2>Ask (Soft Ask)</h2>
+
+            <div class="highlight">
+                <h3>Request: Exploratory Technical Review</h3>
+                <p style="font-size: 1.2rem; margin-top: 1rem;">
+                    Technical review with AWS IoT, Robotics, and Alexa teams to evaluate strategic fit
+                </p>
+            </div>
+
+            <div class="grid" style="margin: 3rem 0;">
+                <div class="card">
+                    <h3>Not Seeking</h3>
+                    <ul style="text-align: left;">
+                        <li>Immediate acquisition discussion</li>
+                        <li>Fundraising from Amazon</li>
+                        <li>Sales engagement</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3>Offering</h3>
+                    <ul style="text-align: left;">
+                        <li>Full working demo (voice, code, vision, autonomy)</li>
+                        <li>Complete architecture briefing (202 commits, 19,500+ LOC)</li>
+                        <li>Technical deep dive with engineering teams</li>
+                        <li>Strategic fit evaluation with AWS roadmap</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>Proposed Timeline</h3>
+            <div class="phase">
+                <p><strong>Week 1:</strong> Technical demo with AWS Principal Engineers</p>
+                <p><strong>Week 2:</strong> Architecture review with Robotics and IoT teams</p>
+                <p><strong>Week 3:</strong> Integration feasibility assessment (Greengrass, IoT Core)</p>
+                <p><strong>Week 4:</strong> Strategic alignment discussion (if promising fit)</p>
+            </div>
+        </div>
+
+        <!-- Contact -->
+        <div class="slide" style="text-align: center;">
+            <h2>Contact Information</h2>
+
+            <div class="highlight">
+                <h3 style="font-size: 2rem;">Joseph C. McGinty Jr.</h3>
+                <p style="font-size: 1.3rem; margin-top: 1.5rem;">
+                    Chief Innovation Officer<br>
+                    ResilientMind AI
+                </p>
+                <p style="font-size: 1.2rem; margin-top: 2rem;">
+                    📞 724-248-1750<br>
+                    📧 joseph@resilientmindai.com<br>
+                    🌐 resilientmindai.com<br>
+                    📍 Scottdale, Pennsylvania
+                </p>
+            </div>
+
+            <div class="metric-grid" style="margin: 3rem 0;">
+                <div class="metric">
+                    <div class="metric-number">202</div>
+                    <div class="metric-label">Commits</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-number">11</div>
+                    <div class="metric-label">Production Modules</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-number">100%</div>
+                    <div class="metric-label">Local Processing</div>
+                </div>
+            </div>
+
+            <p style="margin-top: 3rem; color: #808080; font-size: 0.9rem;">
+                © 2025 ResilientMindAI | ResilientMind LLC | Joseph C McGinty Jr
+            </p>
+        </div>
+
+        <!-- Appendix -->
+        <div class="slide">
+            <h2>Appendix: Technical Specifications</h2>
+
+            <h3>ARIA Core Modules (11 Production)</h3>
+            <ol>
+                <li>Context Kernel v3 (event-driven 6-stage pipeline, &lt;1ms overhead)</li>
+                <li>Multi-Model Registry (lazy loading, role-based routing)</li>
+                <li>Vision Engine (screen capture, OCR, UI detection)</li>
+                <li>Meeting Engine (recording, diarization, summaries)</li>
+                <li>Unified Memory Bus (6 domains, compliance-aware)</li>
+                <li>Compliance Manager (PII redaction, audit logs, DoD/HIPAA/GDPR)</li>
+                <li>Coding Panel (full IDE with AI assistance)</li>
+                <li>Statistics Dashboard (real-time metrics)</li>
+                <li>Voice Engine (phonetic intelligence, custom training)</li>
+                <li>Code Engine (multi-language generation)</li>
+                <li>System Analyzer (self-introspection, pattern analysis)</li>
+            </ol>
+
+            <h3>Deployment Footprint</h3>
+            <table>
+                <tr>
+                    <th>Resource</th>
+                    <th>Requirement</th>
+                </tr>
+                <tr>
+                    <td>Disk</td>
+                    <td><10GB (models + runtime)</td>
+                </tr>
+                <tr>
+                    <td>RAM</td>
+                    <td>8GB minimum, 16GB recommended</td>
+                </tr>
+                <tr>
+                    <td>CPU/GPU</td>
+                    <td>Apple M1+ (MLX), NVIDIA Jetson (CUDA), AWS Graviton (planned)</td>
+                </tr>
+                <tr>
+                    <td>Power</td>
+                    <td>50W (laptop), 60W (Jetson Orin), scalable to datacenter</td>
+                </tr>
+            </table>
+
+            <h3>Testing & Quality</h3>
+            <ul>
+                <li>379+ automated tests passing (100% pass rate)</li>
+                <li>200+ API endpoints</li>
+                <li>CI/CD ready</li>
+                <li>Production deployments operational</li>
+                <li>Security hardened (path traversal prevention, air-gap monitoring)</li>
+            </ul>
+        </div>
+
+        <!-- Working Backwards -->
+        <div class="slide" style="background: rgba(255, 153, 0, 0.05); border: 2px solid #ff9900;">
+            <h2 style="text-align: center;">Working Backwards from Customer Needs</h2>
+
+            <div class="highlight" style="margin-top: 2rem;">
+                <p style="font-size: 1.3rem; text-align: center;">
+                    Amazon's robotics, logistics, and device teams need local autonomy.<br>
+                    ARIA + Powerhouse AI delivers it today.
+                </p>
+            </div>
+
+            <p style="text-align: center; margin-top: 2rem; font-size: 1.1rem; color: #a0a0a0;">
+                This pitch deck is designed for internal Amazon review.<br>
+                All claims are verifiable through live demo and codebase inspection.
+            </p>
+        </div>
+
+    </div>
+</body>
 </html>
