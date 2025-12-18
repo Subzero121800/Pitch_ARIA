@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AriaOS and Teradata: Execution Exchange Brief</title>
+    <style>
+        /* Reset */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Page setup for print/PDF */
+        @page {
+            size: Letter;
+            margin: 0.5in;
+        }
+
+        /* Base typography */
+        html {
+            font-size: 9.5pt;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.4;
+            color: #1a1a1a;
+            background: #ffffff;
+            max-width: 7.5in;
+            margin: 0 auto;
+            padding: 0.3in;
+        }
+
+        /* Header */
+        .document-header {
+            border-bottom: 2px solid #1e40af;
+            padding-bottom: 0.4rem;
+            margin-bottom: 0.6rem;
+        }
+
+        .document-header h1 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 0.2rem;
+            line-height: 1.3;
+        }
+
+        .document-header .subtitle {
+            font-size: 0.9rem;
+            color: #4b5563;
+            margin-bottom: 0.4rem;
+        }
+
+        .header-meta {
+            font-size: 0.75rem;
+            color: #6b7280;
+        }
+
+        /* Confidential tag */
+        .confidential-tag {
+            display: none;
+            float: right;
+            background: #fef2f2;
+            color: #991b1b;
+            font-size: 0.6rem;
+            font-weight: 600;
+            padding: 0.15rem 0.4rem;
+            border-radius: 3px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .confidential-tag.visible {
+            display: inline-block;
+        }
+
+        /* Sections */
+        .section {
+            margin-bottom: 0.5rem;
+            page-break-inside: avoid;
+        }
+
+        .section h2 {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #1e40af;
+            margin-bottom: 0.25rem;
+            padding-bottom: 0.1rem;
+            border-bottom: 1px solid #e5e7eb;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+
+        .section h3 {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 0.25rem;
+            margin-top: 0.5rem;
+        }
+
+        .svg-subtitle {
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: #64748b;
+            margin-bottom: 0.4rem;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+
+        /* Bullet lists */
+        .aligned-bullets {
+            list-style: disc;
+            margin: 0.2rem 0 0.2rem 1.5rem;
+            padding: 0;
+        }
+
+        .aligned-bullets li {
+            margin-bottom: 0.15rem;
+            line-height: 1.35;
+            font-size: 0.88rem;
+            padding-left: 0.25rem;
+        }
+
+        .aligned-bullets li strong {
+            color: #1a1a1a;
+        }
+
+        /* Numbered lists */
+        .aligned-steps {
+            list-style: none;
+            margin: 0.4rem 0 0.4rem 1.5rem;
+            padding: 0;
+        }
+
+        .aligned-steps li {
+            margin-bottom: 0.25rem;
+            line-height: 1.45;
+            font-size: 0.9rem;
+            padding-left: 0.25rem;
+        }
+
+        .step-num {
+            display: inline-block;
+            width: 1.25rem;
+            margin-left: -1.5rem;
+            font-weight: 600;
+            color: #1e40af;
+            font-size: 0.9rem;
+        }
+
+        .step-text {
+            line-height: 1.45;
+            font-size: 0.9rem;
+        }
+
+        /* SVG container */
+        .svg-container {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            padding: 0.5rem;
+            margin: 0.3rem 0;
+        }
+
+        .svg-container svg {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            margin: 0 auto;
+            display: block;
+        }
+
+        /* Clarifying text */
+        .clarifying-text {
+            font-size: 0.82rem;
+            color: #374151;
+            margin: 0.3rem 0;
+            padding: 0.35rem 0.6rem;
+            background: #eff6ff;
+            border-left: 3px solid #1e40af;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .abstraction-note {
+            font-size: 0.72rem;
+            color: #6b7280;
+            font-style: italic;
+            margin: 0.25rem 0;
+        }
+
+        /* Options grid */
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.6rem;
+            margin: 0.4rem 0;
+        }
+
+        .option-box {
+            background: #f9fafb;
+            border: 1px solid #e5e7eb;
+            border-radius: 4px;
+            padding: 0.5rem 0.6rem;
+            overflow: hidden;
+        }
+
+        .option-box h4 {
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: #1e40af;
+            margin-bottom: 0.25rem;
+            line-height: 1.3;
+        }
+
+        .option-box ul {
+            margin: 0;
+            padding-left: 0.8rem;
+            list-style-type: disc;
+        }
+
+        .option-box li {
+            font-size: 0.7rem;
+            margin-bottom: 0.1rem;
+            line-height: 1.35;
+        }
+
+        /* Contact footer */
+        .contact-footer {
+            margin-top: 1rem;
+            padding-top: 0.6rem;
+            border-top: 1px solid #e5e7eb;
+            font-size: 0.75rem;
+            color: #4b5563;
+        }
+
+        .contact-footer strong {
+            display: block;
+            color: #1a1a1a;
+            margin-bottom: 0.1rem;
+        }
+
+        .contact-footer a {
+            color: #1e40af;
+            text-decoration: none;
+        }
+
+        .contact-footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Print optimizations */
+        @media print {
+            body {
+                padding: 0;
+                max-width: none;
+                background: #ffffff;
+            }
+
+            .section {
+                page-break-inside: avoid;
+            }
+
+            .svg-container {
+                background: #f8fafc !important;
+            }
+
+            a {
+                color: #1e40af;
+                text-decoration: none;
+            }
+        }
+
+        /* Screen container */
+        @media screen {
+            body {
+                background: #f1f5f9;
+                padding: 1.5rem;
+            }
+
+            .document-container {
+                background: #ffffff;
+                padding: 1.5rem;
+                border-radius: 8px;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+                max-width: 8in;
+                margin: 0 auto;
+            }
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const params = new URLSearchParams(window.location.search);
+            if (params.get('confidential') === 'true') {
+                document.querySelector('.confidential-tag').classList.add('visible');
+            }
+        });
+    </script>
+</head>
+<body>
+    <div class="document-container">
+        <!-- Header -->
+        <header class="document-header">
+            <span class="confidential-tag">Confidential</span>
+            <h1>AriaOS and Teradata: Execution Exchange Brief</h1>
+            <p class="subtitle">High-Level Overview (Non-Technical and Technical)</p>
+            <p class="header-meta">Prepared for Duncan Ives, Teradata | December 18, 2025</p>
+        </header>
+
+        <!-- Section 1: One-minute summary -->
+        <section class="section">
+            <h2>1. One-Minute Summary</h2>
+            <ul class="aligned-bullets">
+                <li><strong>The core problem:</strong> AI fails when execution depends on always-on centralized services</li>
+                <li><strong>The business risk:</strong> Silent failure, lost requests, incomplete actions, delayed detection</li>
+                <li><strong>The concept:</strong> Execution can move, governance stays</li>
+                <li><strong>The positioning:</strong> Teradata remains system of record; AriaOS provides execution-time governance for continuity</li>
+            </ul>
+        </section>
+
+        <!-- Section 2: Why this matters -->
+        <section class="section">
+            <h2>2. Why This Matters to Enterprise Teams</h2>
+            <ul class="aligned-bullets">
+                <li>Continuity when centralized dependencies fail or degrade</li>
+                <li>Auditability across large request volumes</li>
+                <li>Controlled routing when availability, locality, or latency constraints appear</li>
+                <li>Reduced operational risk from silent drops and partial execution</li>
+            </ul>
+        </section>
+
+        <!-- Section 3: Dual SVG Diagrams -->
+        <section class="section">
+            <h2>3. Where AriaOS Fits: Execution-Time Governance and Runtime Continuity</h2>
+
+            <!-- Non-Technical SVG -->
+            <p class="svg-subtitle">Non-Technical View: Execution Continuity at a Glance</p>
+            <div class="svg-container">
+                <svg viewBox="0 0 620 260" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Layer 1: Teradata -->
+                    <rect x="40" y="15" width="400" height="45" rx="6" fill="#eff6ff" stroke="#1e40af" stroke-width="2"/>
+                    <text x="240" y="35" text-anchor="middle" fill="#1e40af" font-weight="600" font-size="11">TERADATA ENTERPRISE PLATFORM</text>
+                    <text x="240" y="50" text-anchor="middle" fill="#64748b" font-size="8">System of Record</text>
+
+                    <!-- Arrow 1 -->
+                    <path d="M240 60 L240 75" stroke="#94a3b8" stroke-width="2"/>
+                    <polygon points="240,82 236,75 244,75" fill="#94a3b8"/>
+
+                    <!-- Layer 2: Governance Intent -->
+                    <rect x="40" y="85" width="400" height="45" rx="6" fill="#f8fafc" stroke="#64748b" stroke-width="1.5"/>
+                    <text x="240" y="105" text-anchor="middle" fill="#374151" font-weight="600" font-size="10">GOVERNANCE INTENT</text>
+                    <text x="240" y="120" text-anchor="middle" fill="#64748b" font-size="8">Policies, audit expectations, decision intent</text>
+
+                    <!-- Arrow 2 -->
+                    <path d="M240 130 L240 145" stroke="#94a3b8" stroke-width="2"/>
+                    <polygon points="240,152 236,145 244,145" fill="#94a3b8"/>
+
+                    <!-- Layer 3: AriaOS -->
+                    <rect x="40" y="155" width="400" height="45" rx="6" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/>
+                    <text x="240" y="175" text-anchor="middle" fill="#16a34a" font-weight="600" font-size="10">AriaOS</text>
+                    <text x="240" y="190" text-anchor="middle" fill="#64748b" font-size="8">Execution-Time Governance &amp; Routing</text>
+
+                    <!-- Arrow 3 -->
+                    <path d="M240 200 L240 215" stroke="#94a3b8" stroke-width="2"/>
+                    <polygon points="240,222 236,215 244,215" fill="#94a3b8"/>
+
+                    <!-- Layer 4: Local Execution -->
+                    <rect x="40" y="225" width="400" height="35" rx="6" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
+                    <text x="240" y="243" text-anchor="middle" fill="#92400e" font-weight="600" font-size="9">LOCAL / HYBRID EXECUTION</text>
+                    <text x="240" y="254" text-anchor="middle" fill="#a16207" font-size="7">On-site, constrained, or fallback execution</text>
+
+                    <!-- Side callouts -->
+                    <rect x="465" y="30" width="140" height="85" rx="4" fill="#fefce8" stroke="#ca8a04" stroke-width="1"/>
+                    <text x="535" y="48" text-anchor="middle" fill="#854d0e" font-weight="600" font-size="8">KEY PRINCIPLES</text>
+                    <text x="475" y="66" fill="#713f12" font-size="7">• Execution moves</text>
+                    <text x="475" y="80" fill="#713f12" font-size="7">• Governance stays</text>
+                    <text x="475" y="94" fill="#713f12" font-size="7">• Audit continuity</text>
+                    <text x="480" y="106" fill="#713f12" font-size="7">preserved</text>
+                </svg>
+            </div>
+
+            <!-- Clarifying sentence -->
+            <p class="clarifying-text">
+                AriaOS enforces governance, auditability, and continuity at execution time. Governance intent and data authority remain defined by the upstream system of record.
+            </p>
+
+            <!-- Technical SVG -->
+            <p class="svg-subtitle">Technical View: Execution-Time Governance and Routing</p>
+            <div class="svg-container">
+                <svg viewBox="0 0 500 340" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Layer 1: Teradata / Upstream -->
+                    <rect x="20" y="10" width="460" height="50" rx="6" fill="#eff6ff" stroke="#1e40af" stroke-width="2"/>
+                    <text x="250" y="30" text-anchor="middle" fill="#1e40af" font-weight="600" font-size="10">TERADATA / UPSTREAM SYSTEMS</text>
+                    <text x="250" y="48" text-anchor="middle" fill="#64748b" font-size="7">Data Authority | Policy Definition | Governance Intent</text>
+
+                    <!-- Arrow down with label -->
+                    <path d="M250 60 L250 78" stroke="#1e40af" stroke-width="2"/>
+                    <polygon points="250,85 246,78 254,78" fill="#1e40af"/>
+                    <text x="265" y="75" fill="#1e40af" font-size="6" font-weight="600">Intent</text>
+
+                    <!-- Layer 2: Execution-Time Governance Plane -->
+                    <rect x="20" y="88" width="460" height="65" rx="6" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/>
+                    <text x="250" y="105" text-anchor="middle" fill="#16a34a" font-weight="600" font-size="9">EXECUTION-TIME GOVERNANCE PLANE (AriaOS)</text>
+                    <rect x="35" y="112" width="80" height="32" rx="3" fill="#dcfce7" stroke="#22c55e" stroke-width="1"/>
+                    <text x="75" y="126" text-anchor="middle" fill="#166534" font-size="6">Policy</text>
+                    <text x="75" y="136" text-anchor="middle" fill="#166534" font-size="6">Enforcement</text>
+                    <rect x="125" y="112" width="70" height="32" rx="3" fill="#dcfce7" stroke="#22c55e" stroke-width="1"/>
+                    <text x="160" y="126" text-anchor="middle" fill="#166534" font-size="6">Identity</text>
+                    <text x="160" y="136" text-anchor="middle" fill="#166534" font-size="6">Context</text>
+                    <rect x="205" y="112" width="75" height="32" rx="3" fill="#dcfce7" stroke="#22c55e" stroke-width="1"/>
+                    <text x="242" y="126" text-anchor="middle" fill="#166534" font-size="6">Constraint</text>
+                    <text x="242" y="136" text-anchor="middle" fill="#166534" font-size="6">Evaluation</text>
+                    <rect x="290" y="112" width="65" height="32" rx="3" fill="#dcfce7" stroke="#22c55e" stroke-width="1"/>
+                    <text x="322" y="126" text-anchor="middle" fill="#166534" font-size="6">Audit</text>
+                    <text x="322" y="136" text-anchor="middle" fill="#166534" font-size="6">Capture</text>
+                    <rect x="365" y="112" width="60" height="32" rx="3" fill="#dcfce7" stroke="#22c55e" stroke-width="1"/>
+                    <text x="395" y="126" text-anchor="middle" fill="#166534" font-size="6">Health</text>
+                    <text x="395" y="136" text-anchor="middle" fill="#166534" font-size="6">Awareness</text>
+                    <rect x="435" y="112" width="35" height="32" rx="3" fill="#fefce8" stroke="#ca8a04" stroke-width="1"/>
+                    <text x="452" y="126" text-anchor="middle" fill="#854d0e" font-size="6">Audit</text>
+                    <text x="452" y="136" text-anchor="middle" fill="#854d0e" font-size="6">Export</text>
+
+                    <!-- Arrow down -->
+                    <path d="M250 153 L250 170" stroke="#16a34a" stroke-width="2"/>
+                    <polygon points="250,177 246,170 254,170" fill="#16a34a"/>
+
+                    <!-- Layer 3: Execution Router -->
+                    <rect x="20" y="180" width="460" height="45" rx="6" fill="#f8fafc" stroke="#64748b" stroke-width="1.5"/>
+                    <text x="250" y="198" text-anchor="middle" fill="#374151" font-weight="600" font-size="9">EXECUTION ROUTER (AriaOS)</text>
+                    <text x="120" y="214" text-anchor="middle" fill="#64748b" font-size="7">Centralized Path</text>
+                    <text x="250" y="214" text-anchor="middle" fill="#64748b" font-size="7">Failover Selection</text>
+                    <text x="380" y="214" text-anchor="middle" fill="#16a34a" font-size="7" font-weight="600">Local Runtime Path</text>
+
+                    <!-- Branch arrows -->
+                    <path d="M120 225 L120 250" stroke="#94a3b8" stroke-width="1.5"/>
+                    <polygon points="120,257 116,250 124,250" fill="#94a3b8"/>
+                    <path d="M380 225 L380 250" stroke="#16a34a" stroke-width="2"/>
+                    <polygon points="380,257 376,250 384,250" fill="#16a34a"/>
+
+                    <!-- Layer 4: Execution Targets -->
+                    <rect x="40" y="260" width="140" height="40" rx="5" fill="#f9fafb" stroke="#d1d5db" stroke-width="1" stroke-dasharray="4,3"/>
+                    <text x="110" y="278" text-anchor="middle" fill="#9ca3af" font-size="8">Cloud / Centralized</text>
+                    <text x="110" y="290" text-anchor="middle" fill="#9ca3af" font-size="6">(when available)</text>
+
+                    <rect x="300" y="260" width="160" height="40" rx="5" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/>
+                    <text x="380" y="278" text-anchor="middle" fill="#16a34a" font-size="8" font-weight="600">Site-Local Runtime</text>
+                    <text x="380" y="290" text-anchor="middle" fill="#64748b" font-size="6">Constrained / Offline</text>
+
+                    <!-- Result arrows up (dashed) -->
+                    <path d="M110 260 L110 235" stroke="#94a3b8" stroke-width="1" stroke-dasharray="2,2"/>
+                    <path d="M380 260 L380 235" stroke="#16a34a" stroke-width="1" stroke-dasharray="2,2"/>
+
+                    <!-- Footer note -->
+                    <rect x="20" y="308" width="460" height="22" rx="3" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1"/>
+                    <text x="250" y="322" text-anchor="middle" fill="#64748b" font-size="7" font-style="italic">Governance intent defined upstream. Enforcement occurs at execution time.</text>
+                </svg>
+            </div>
+
+            <p class="abstraction-note">
+                Detailed kernel, agent, memory, and recovery mechanisms exist beneath this layer but are intentionally abstracted here to focus on execution-boundary behavior.
+            </p>
+        </section>
+
+        <!-- Section 4: Technical overview -->
+        <section class="section">
+            <h2>4. Technical Overview</h2>
+            <ul class="aligned-bullets">
+                <li><strong>AriaOS is designed to prevent silent failure</strong> when centralized execution paths drop requests without detection</li>
+                <li>Workload intent is evaluated against availability, locality, and policy constraints</li>
+                <li>Routing selects centralized execution or local runtime path</li>
+                <li>Local runtime enforces execution-time governance controls and produces auditable signals aligned to upstream intent</li>
+                <li>Audit artifacts can be exported upstream for traceability</li>
+                <li>Designed to avoid silent drops by detecting unfulfilled requests and switching execution paths</li>
+            </ul>
+            <p style="font-size: 0.82rem; font-style: italic; color: #4b5563; margin-top: 0.5rem; padding-left: 0.5rem; border-left: 2px solid #e5e7eb;">
+                <strong style="font-style: normal;">Implementation note:</strong> The core architecture and execution framework were developed as a single, cohesive system and intentionally designed to be modular, extensible, and team-scalable as adoption grows. Node implementation, execution routing, and governance enforcement follow consistent patterns, and the architecture supports controlled extensions without altering core governance or execution guarantees.
+            </p>
+        </section>
+
+        <!-- Section 5: Technical flow -->
+        <section class="section">
+            <h2>5. Technical Flow</h2>
+            <ol class="aligned-steps">
+                <li><span class="step-num">1.</span><span class="step-text">Request enters policy gate</span></li>
+                <li><span class="step-num">2.</span><span class="step-text">Router checks execution health and constraints</span></li>
+                <li><span class="step-num">3.</span><span class="step-text">Selects execution target (central or local)</span></li>
+                <li><span class="step-num">4.</span><span class="step-text">Executes workload</span></li>
+                <li><span class="step-num">5.</span><span class="step-text">Captures outcome and audit record</span></li>
+                <li><span class="step-num">6.</span><span class="step-text">Returns result and emits trace signal</span></li>
+            </ol>
+        </section>
+
+        <!-- Section 6: What we agreed -->
+        <section class="section">
+            <h2>6. What We Agreed in the Call</h2>
+            <ul class="aligned-bullets">
+                <li><strong>Follow-up artifact:</strong> This brief plus the execution-boundary diagrams</li>
+                <li><strong>Next conversation:</strong> Include Teradata technical architects for deeper alignment discussion</li>
+                <li><strong>Goal:</strong> Compare notes on hybrid execution failure modes and governance continuity</li>
+            </ul>
+        </section>
+
+        <!-- Section 7: Proposed next steps -->
+        <section class="section">
+            <h2>7. Proposed Next Step Options</h2>
+            <div class="options-grid">
+                <div class="option-box">
+                    <h4>Option A: Architecture Exchange</h4>
+                    <ul>
+                        <li>Single session with architects</li>
+                        <li>Compare hybrid execution patterns</li>
+                    </ul>
+                </div>
+                <div class="option-box">
+                    <h4>Option B: Pattern Review</h4>
+                    <ul>
+                        <li>Identify 1-2 enterprise patterns</li>
+                        <li>Explore failure mode scenarios</li>
+                    </ul>
+                </div>
+                <div class="option-box">
+                    <h4>Option C: Exploratory Validation</h4>
+                    <ul>
+                        <li>Small scope, learning-first</li>
+                        <li>No obligations or commitments</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 8: Scheduling -->
+        <section class="section">
+            <h2>8. Scheduling Notes</h2>
+            <ul class="aligned-bullets">
+                <li>Thursdays preferred</li>
+                <li>Avoid Wednesdays</li>
+                <li>Late January target window</li>
+                <li>Time range aligned to prior call time</li>
+            </ul>
+        </section>
+
+        <!-- Contact footer -->
+        <footer class="contact-footer">
+            <strong>Joseph C. McGinty Jr.</strong>
+            Email: <a href="mailto:joseph@resilientmindai.com">joseph@resilientmindai.com</a><br>
+            Web: <a href="https://ariaos.dev">ariaos.dev</a>
+        </footer>
+    </div>
+</body>
+</html>
